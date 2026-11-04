@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { episodes, episodePath } from '../data/series';
+import { localPath, type Locale } from '../i18n/ui';
+interface Props { locale?: Locale; slug?: string; kind?: string }
+const { locale = 'en', slug, kind } = Astro.props;
+const zh = locale === 'zh';
+const episode = episodes.find(item => item.slug === slug);
+const label = kind === 'journal' ? (zh ? '學習日誌' : 'Learning Journal') : kind === 'report' ? (zh ? '技術報告' : 'Technical Report') : '';
+const title = episode ? `${episode.number} · ${episode.title[locale]}${label ? ` — ${label}` : ''}` : 'From CTF to OSCP';
+const description = episode ? episode.focus[locale] : (zh ? '從 CTF 練習走向有方法的安全研究與紀錄。規劃中的研究系列。' : 'From CTF practice toward methodical security research and documentation. A planned research series.');
+---
+<BaseLayout locale={locale} title={title} description={`${description} ${label}`}>
+  <header class="page-heading"><p class="eyebrow">Research series / {zh ? '規劃中' : 'Planned'}</p><h1>{title}</h1><p class="intro">{description}</p></header>
+  <aside class="scope"><h2>{zh ? '目前狀態' : 'Current status'}</h2><p>{zh ? '這是研究與學習的結構規劃，不代表已完成實驗、通過考試或取得 OSCP 證照。尚未提供可驗證成果。' : 'This is a research and learning structure, not a claim of completed experiments, an exam pass or OSCP certification. Verified results have not been supplied.'}</p></aside>
+  {!episode ? <div class="episode-grid">{episodes.map(item => <article class="studio-panel"><p class="eyebrow">Episode {item.number} · {zh ? '規劃中' : 'Planned'}</p><h2><a href={localPath(episodePath(item), locale)}>{item.title[locale]}</a></h2><p>{item.focus[locale]}</p><div class="paired-links"><a href={localPath(episodePath(item, 'journal'), locale)}>Learning Journal →</a><a href={localPath(episodePath(item, 'report'), locale)}>Technical Report →</a></div></article>)}</div> : <section class="section">
+    <h2>{label || (zh ? '一個 Episode，兩種視角' : 'One episode, two perspectives')}</h2>
+    <p>{kind === 'report' ? (zh ? '預計記錄：範圍與授權、環境與版本、方法、證據、限制與重現步驟。目前尚未發布。' : 'Planned coverage: scope and authorization, environment and versions, methods, evidence, limitations and reproduction steps. Not published yet.') : (zh ? '預計記錄：學習目標、遇到的問題、理解的變化與下一步。目前尚未發布。' : 'Planned coverage: learning goals, questions encountered, changes in understanding and next steps. Not published yet.')}</p>
+    <div class="paired-links"><a href={localPath(episodePath(episode, 'journal'), locale)}>Learning Journal →</a><a href={localPath(episodePath(episode, 'report'), locale)}>Technical Report →</a></div>
+    <p class="section-intro"><a href={localPath('/research/from-ctf-to-oscp/', locale)}>← {zh ? '所有 Episodes' : 'All episodes'}</a></p>
+  </section>}
+</BaseLayout>

@@ -1,0 +1,6 @@
+---
+import StudioPage from '../views/StudioPage.astro';
+export function getStaticPaths() { return ['journal', 'technical-reports', 'about', 'roadmap'].map(page => ({ params: { page } })); }
+const { page } = Astro.params;
+---
+<StudioPage page={page!} />

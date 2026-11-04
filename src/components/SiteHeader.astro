@@ -1,80 +1,71 @@
 ---
-const links = [['/#selected-work', 'Work'], ['/#about', 'About'], ['https://notes.nagi.tw/', 'Notes ↗'], ['https://github.com/seraphforge', 'GitHub ↗']];
-const languages = [['zh', '中'], ['en', 'EN'], ['ja', '日']] as const;
+import { getNavigation, getSite } from '../data/site';
+import { ui, localPath, withoutBase, type Locale } from '../i18n/ui';
+interface Props { locale?: Locale }
+const { locale = 'en' } = Astro.props;
+const copy = ui[locale];
+const site = getSite(locale);
+const navigation = getNavigation(locale);
+const englishPath = withoutBase(Astro.url.pathname).replace(/^\/zh(?=\/|$)/, '') || '/';
+import Penguin from './Penguin.astro';
+const path = Astro.url.pathname.replace(/\/?$/, '/');
 ---
-<header class="header">
-  <div class="container nav">
-    <a class="brand" href="/">Nagi<span>.tw</span></a>
-    <button class="menu" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    <div class="nav-cluster">
-      <nav id="nav-links" aria-label="Main navigation">
-        {links.map(([href, label]) => <a href={href}>{label}</a>)}
-      </nav>
-      <div class="language-switcher" data-language-switcher role="group" aria-label="Article language">
-        {languages.map(([language, label]) => <button type="button" data-language-select={language} aria-pressed={language === 'zh'}>{label}</button>)}
-      </div>
+<header class="sidebar">
+  <a class="brand" href={localPath('/', locale)} aria-label={`Nagi.tw ${copy.overview}`}>nagi<span>.tw</span></a>
+  <p class="sidebar-caption">{site.name}<br /><span>{site.focus}</span></p>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>{copy.menu}</button>
+  <nav id="site-navigation" aria-label={copy.navigation}>
+    <ul class="nav-list">
+      {navigation.map(({ href, label }) => <li><a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a></li>)}
+    </ul>
+    <div class="sidebar-language">
+      <a href={localPath(englishPath, locale === 'zh' ? 'en' : 'zh')} lang={locale === 'zh' ? 'en' : 'zh-TW'} hreflang={locale === 'zh' ? 'en' : 'zh-TW'}>{locale === 'zh' ? 'English' : '中文'}</a>
     </div>
+    <div class="sidebar-external">
+      <a href={site.notes}>{copy.notes} <span aria-hidden="true">↗</span><span class="sr-only">{copy.external}</span></a>
+      <a href={site.github}>GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="sidebar-signature"><Penguin label={locale === 'zh' ? '開啟 Penguin AI' : 'Open Penguin AI'} /><p lang="en">Build quietly.<br /><span>Document carefully.</span></p></div>
+    <button id="theme-toggle" type="button" aria-pressed="false" hidden>{copy.darkMode}</button>
   </div>
 </header>
 <script>
-  const menuButton = document.querySelector<HTMLButtonElement>('.menu');
-  const navigation = document.querySelector<HTMLElement>('#nav-links');
-  const languageButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-language-select]')];
-  const languageOrder = ['zh', 'en', 'ja'] as const;
-  type Language = typeof languageOrder[number];
-  menuButton?.addEventListener('click', () => {
-    const open = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', String(!open));
-    navigation?.toggleAttribute('data-open', !open);
-  });
-  function storedLanguage(): Language | undefined {
-    const stored = localStorage.getItem('nagi-article-language');
-    return languageOrder.includes(stored as Language) ? stored as Language : undefined;
+  const menu = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#site-navigation');
+  const mobile = window.matchMedia('(max-width: 767px)');
+  if (menu && nav) {
+    menu.hidden = false;
+    const setOpen = (open: boolean) => {
+      menu.setAttribute('aria-expanded', String(open));
+      nav.hidden = mobile.matches && !open;
+    };
+    setOpen(false);
+    menu.addEventListener('click', () => setOpen(menu.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobile.matches && menu.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        menu.focus();
+      }
+    });
+    nav.addEventListener('click', (event) => {
+      if ((event.target as Element).closest('a') && mobile.matches) setOpen(false);
+    });
+    mobile.addEventListener('change', () => {
+      if (mobile.matches && nav.contains(document.activeElement)) menu.focus();
+      setOpen(false);
+    });
   }
-  function requestedLanguage(): Language { return storedLanguage() ?? 'zh'; }
-  function actualLanguage(group: HTMLElement, requested: Language): Language | undefined {
-    const available = new Set([...group.querySelectorAll<HTMLElement>('[data-language-variant]')].map((variant) => variant.dataset.languageVariant as Language));
-    const fallbackOrder: Language[] = [requested, 'zh', 'en', 'ja'];
-    return fallbackOrder.find((language) => available.has(language));
+  const theme = document.querySelector<HTMLButtonElement>('#theme-toggle');
+  if (theme) {
+    theme.hidden = false;
+    theme.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'dark'));
+    theme.addEventListener('click', () => {
+      const dark = document.documentElement.dataset.theme !== 'dark';
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      theme.setAttribute('aria-pressed', String(dark));
+      try { localStorage.setItem('nagi-theme', dark ? 'dark' : 'light'); } catch { /* Theme still works without persistence. */ }
+    });
   }
-  function applyLanguage(requested: Language, persist = true) {
-    if (persist) localStorage.setItem('nagi-article-language', requested);
-    document.documentElement.dataset.articleLanguage = requested;
-    for (const button of languageButtons) button.setAttribute('aria-pressed', String(button.dataset.languageSelect === requested));
-    for (const group of document.querySelectorAll<HTMLElement>('[data-language-group]')) {
-      const actual = actualLanguage(group, requested);
-      group.dataset.actualLanguage = actual ?? '';
-      group.toggleAttribute('data-language-fallback', Boolean(actual && actual !== requested));
-      for (const variant of group.querySelectorAll<HTMLElement>('[data-language-variant]')) variant.hidden = variant.dataset.languageVariant !== actual;
-    }
-    document.dispatchEvent(new CustomEvent('nagi:language', { detail: { requested } }));
-  }
-  for (const button of languageButtons) button.addEventListener('click', () => applyLanguage(button.dataset.languageSelect as Language));
-  applyLanguage(requestedLanguage(), false);
 </script>
-<style>
-  .header { position: sticky; top: 0; z-index: 10; border-top: 3px solid var(--accent); border-bottom: 1px solid var(--line); background: var(--paper); }
-  .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-  .brand { display: inline-flex; align-items: baseline; gap: 0.38rem; color: var(--ink); font-family: var(--serif); font-size: 1.2rem; text-decoration: none; }
-  .brand::before { width: 0.48rem; height: 0.48rem; background: var(--accent); content: ""; }
-  .brand span { color: var(--muted-readable); font-family: var(--sans); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-  .nav-cluster, nav, .language-switcher { display: flex; align-items: center; }
-  .nav-cluster { gap: clamp(1.2rem, 3vw, 3rem); }
-  nav { gap: clamp(0.9rem, 2vw, 1.55rem); }
-  nav a { color: var(--muted-readable); font-size: 0.78rem; font-weight: 650; letter-spacing: 0.045em; text-decoration: none; text-transform: uppercase; }
-  nav a[aria-current="page"], nav a:hover { color: var(--ink); }
-  .language-switcher { gap: 0.15rem; padding-left: 1rem; border-left: 1px solid var(--line); }
-  .language-switcher button { min-width: 2.1rem; padding: 0.3rem 0.4rem; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--muted-readable); font: 700 0.72rem/1 var(--sans); cursor: pointer; }
-  .language-switcher button[aria-pressed="true"] { border-bottom-color: var(--accent); color: var(--ink); }
-  .menu { display: none; padding: 0.35rem 0.6rem; border: 1px solid var(--line); background: none; }
-  @media (max-width: 880px) {
-    .menu { display: block; }
-    .nav-cluster { margin-left: auto; }
-    nav { display: none; position: absolute; top: 60px; right: 16px; left: 16px; padding: 1rem; border: 1px solid var(--line); background: var(--paper); flex-direction: column; align-items: stretch; }
-    nav[data-open] { display: flex; }
-  }
-  @media (max-width: 360px) {
-    .nav { gap: 0.5rem; }
-    .language-switcher { padding-left: 0.5rem; }
-  }
-</style>

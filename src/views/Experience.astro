@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getExperience } from '../data/experience';
+import { ui, type Locale } from '../i18n/ui';
+interface Props { locale?: Locale }
+const { locale = 'en' } = Astro.props;
+const copy = ui[locale];
+const experience = getExperience(locale);
+const years = [...new Set(experience.map((entry) => entry.year))].sort().reverse();
+---
+<BaseLayout locale={locale} title={copy.experience} description={copy.experienceDescription}>
+  <header class="page-heading"><p class="eyebrow">Experience</p><h1>{copy.experience}</h1><p class="intro">{copy.experienceIntro}</p></header>
+  {years.map((year) => <section class="section" aria-labelledby={`year-${year}`}>
+    <div class="section-heading"><h2 id={`year-${year}`}>{year}</h2></div>
+    {experience.filter((entry) => entry.year === year).map((entry) => <article class="experience-row">
+      <span class="meta">{entry.year}</span><div><p class="meta">{entry.category}</p><h3>{entry.title}</h3><p>{entry.role}{entry.organization && ` · ${entry.organization}`}</p></div>
+    </article>)}
+  </section>)}
+</BaseLayout>

@@ -7,7 +7,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "validate": "node scripts/validate-build.mjs"
+    "test": "node scripts/test-notes-rss.mjs && node scripts/test-penguin.mjs && node scripts/test-site.mjs",
+    "validate": "node scripts/validate-build.mjs && node scripts/test-language.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

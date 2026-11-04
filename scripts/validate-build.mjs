@@ -1,31 +1,39 @@
-import assert from 'node:assert/strict';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { join } from 'node:path';
-import { createHash } from 'node:crypto';
-
-const root = fileURLToPath(new URL('../', import.meta.url));
-const home = readFileSync(join(root, 'dist/index.html'), 'utf8');
-const homepageSource = readFileSync(join(root, 'src/pages/index.astro'), 'utf8');
-const gridSignature = [...homepageSource.matchAll(/@media \(max-width: [^)]+\)|grid-(?:column|row):\s*[^;]+;/g)].map((match) => match[0]).join('\n');
-assert.equal(createHash('sha256').update(gridSignature).digest('hex'), '0f39e76523296879934b58bce364337f68bd0f90d28925c1f1734cdd9f85769d', 'Approved homepage grid and breakpoints');
-const count = (name) => [...home.matchAll(/class="([^"]+)"/g)].filter((match) => match[1].split(/\s+/).includes(name)).length;
-for (const name of ['research-board', 'identity-hero', 'what-i-do', 'currently', 'personal-connection', 'nagi-penguin']) assert.equal(count(name), 1, name);
-assert.ok(count('selected-item') <= 4, 'Selected stories come only from current RSS');
-assert.ok(count('article-group') <= 3, 'At most three recent Notes previews');
-assert.ok(home.includes('shape-rendering="crispEdges"'));
-assert.ok(home.includes('href="https://nagi.tw/"'), 'Production canonical');
-assert.ok(home.includes('href="https://notes.nagi.tw/"'), 'Notes homepage link');
-for (const route of ['articles', 'topics', 'archive', 'rss.xml']) assert.ok(!existsSync(join(root, 'dist', route)), `No local ${route} system`);
-for (const match of home.matchAll(/href="([^"]+)"/g)) {
-  const href = match[1];
-  assert.ok(!/^\/(articles|topics|archive)(\/|$)/.test(href), `Wrong origin: ${href}`);
-  if (href.startsWith('#') || href.startsWith('/#')) assert.ok(home.includes(`id="${href.split('#')[1]}"`), `Missing anchor: ${href}`);
+﻿import assert from 'node:assert/strict';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { join, relative, resolve } from 'node:path';
+const root = resolve(process.env.VALIDATE_DIR || 'dist');
+const base = (process.env.SITE_BASE || '/').replace(/\/$/, '');
+const walk = dir => readdirSync(dir, { withFileTypes: true }).flatMap(item => item.isDirectory() ? walk(join(dir, item.name)) : [join(dir, item.name)]);
+const files = walk(root).filter(file => file.endsWith('.html'));
+assert.equal(files.length, 38, 'All original and V3 bilingual routes built');
+const sitemap = readFileSync(join(root, 'sitemap-0.xml'), 'utf8');
+const titles = new Set();
+for (const file of files) {
+  const route = '/' + relative(root, file).replaceAll('\\', '/').replace(/index.html$/, '');
+  const html = readFileSync(file, 'utf8');
+  const zh = route.startsWith('/zh/');
+  assert.equal((html.match(/<h1\b/g) || []).length, 1, `${route}: one heading`);
+  assert.ok(html.includes(`<html lang="${zh ? 'zh-TW' : 'en'}"`), `${route}: language`);
+  assert.ok(html.includes(`rel="canonical" href="https://nagi.tw${base}${route}"`), `${route}: canonical`);
+  assert.ok(sitemap.includes(`https://nagi.tw${base}${route}`), `${route}: sitemap`);
+  assert.ok(html.includes('href="#main"') && html.includes('id="main"'), 'Skip link');
+  assert.ok(html.includes('https://notes.nagi.tw/rss.xml'), 'RSS discovery');
+  assert.ok(html.match(/name="description" content="[^"]+"/), 'SEO description');
+  const title = html.match(/<title>(.*?)<\/title>/)?.[1];
+  assert.ok(title && !titles.has(title), `${route}: unique title`); titles.add(title);
+  for (const [, href] of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
+    if (!href.startsWith('/') || href.startsWith('//')) continue;
+    assert.ok(!base || href.startsWith(`${base}/`), `${route}: base-aware link ${href}`);
+    const [path, fragment] = href.slice(base.length).split('#');
+    const target = join(root, path, 'index.html');
+    assert.ok(existsSync(target), `${route}: local link ${href}`);
+    if (fragment) assert.ok(readFileSync(target, 'utf8').includes(`id="${fragment}"`), `Anchor ${href}`);
+  }
+  for (const match of html.matchAll(/<script\b[^>]*src="([^"]+)"/g)) {
+    assert.ok(match[1].startsWith(`${base}/`), 'Script base');
+    assert.ok(existsSync(join(root, match[1].slice(base.length))), 'Bundled script exists');
+  }
 }
-const walk = (directory) => readdirSync(directory, { withFileTypes: true }).flatMap((item) => item.isDirectory() ? walk(join(directory, item.name)) : [join(directory, item.name)]);
-for (const file of walk(join(root, 'src')).filter((file) => /\.(astro|ts)$/.test(file))) {
-  assert.ok(!readFileSync(file, 'utf8').includes('astro:content'), 'Personal site cannot import Notes collection');
-}
-assert.ok(!existsSync(join(root, 'src/data/notes-preview.json')), 'No saved Notes snapshot');
-for (const match of home.matchAll(/href="(https:\/\/notes\.nagi\.tw\/articles\/[^"?#]+)"/g)) assert.ok(match[1].startsWith('https://notes.nagi.tw/articles/'), `Invalid Notes link: ${match[1]}`);
-console.log('Personal site structure, cross-site links, anchors, canonical and content isolation: PASS');
+const projects = readFileSync(join(root, 'projects/index.html'), 'utf8');
+for (const text of ['MedTrust', 'integrity consistency', 'Digital Signature', 'Identity Proof', 'Non-repudiation']) assert.ok(projects.includes(text), `Preserved scope: ${text}`);
+console.log('38 routes: SEO, sitemap, languages, scripts, internal links, anchors and preserved project limitations: PASS');

@@ -1,0 +1,8 @@
+---
+import Series from '../../../views/Series.astro';
+import { episodes } from '../../../data/series';
+export function getStaticPaths() {
+  return [{ params: { path: undefined }, props: {} }, ...episodes.flatMap(episode => [undefined, 'journal', 'report'].map(kind => ({ params: { path: `${episode.slug}${kind ? `/${kind}` : ''}` }, props: { slug: episode.slug, kind } })))];
+}
+---
+<Series {...Astro.props} />

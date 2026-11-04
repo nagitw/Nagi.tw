@@ -1,0 +1,78 @@
+---
+import type { Locale } from '../i18n/ui';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const zh = locale === 'zh';
+const endpoint = import.meta.env.PUBLIC_PENGUIN_API_URL ?? '';
+const mode = import.meta.env.PUBLIC_PENGUIN_AI_MODE === 'api' ? 'api' : 'mock';
+const questions = zh ? ['Nagi 是誰？', '最近在做什麼？', '有哪些專案？', '未來計畫？'] : ['Who is Nagi?', 'What are you working on recently?', 'What projects are there?', 'What are your future plans?'];
+---
+<button type="button" class="chat-launcher" data-chat-open aria-haspopup="dialog" aria-controls="penguin-chat" hidden>Penguin AI <span aria-hidden="true">↗</span></button>
+<dialog id="penguin-chat" aria-labelledby="chat-title" data-mode={mode} data-endpoint={endpoint} data-locale={locale}>
+  <div class="chat-heading"><div><p class="eyebrow">A little company for your curiosity</p><h2 id="chat-title">Penguin AI</h2></div><button type="button" data-chat-close aria-label={zh ? '關閉聊天' : 'Close chat'}>×</button></div>
+  <p class="chat-notice">{mode === 'mock' ? (zh ? '示範模式 · 預設公開資料回答，不會連線 AI 後端。' : 'Demo mode · Prepared public answers. No AI backend connection.') : (zh ? '獨立 AI 服務 · 請勿輸入私人資料。' : 'Independent AI service · Please avoid private information.')}</p>
+  <div class="chat-messages" role="log" aria-label={zh ? '對話紀錄' : 'Conversation'} aria-live="off"></div>
+  <p class="chat-status" role="status" aria-live="polite"></p>
+  <div class="chat-prompts">{questions.map(question => <button type="button" data-question={question}>{question}</button>)}</div>
+  <form class="chat-form"><label for="chat-question">{zh ? '想了解什麼？' : 'What are you curious about?'}</label><div><input id="chat-question" name="question" type="text" required maxlength="1000" autocomplete="off" /><button type="submit">{zh ? '送出' : 'Send'} <span aria-hidden="true">↗</span></button></div></form>
+</dialog>
+<script>
+  import { askPenguin } from '../lib/penguin-ai';
+  import { ChatSession } from '../lib/chat-session';
+  const dialog = document.querySelector<HTMLDialogElement>('#penguin-chat')!;
+  const form = dialog.querySelector<HTMLFormElement>('form')!;
+  const input = dialog.querySelector<HTMLInputElement>('input')!;
+  const messages = dialog.querySelector<HTMLElement>('.chat-messages')!;
+  const status = dialog.querySelector<HTMLElement>('.chat-status')!;
+  const zh = dialog.dataset.locale === 'zh';
+  const mode = dialog.dataset.mode === 'api' ? 'api' : 'mock';
+  const session = new ChatSession();
+  let opener: HTMLElement | null = null;
+  let busy = false;
+  const state = (detail: string) => document.dispatchEvent(new CustomEvent('penguin-state', { detail }));
+  const offline = () => !navigator.onLine && mode === 'api';
+  const connection = () => { if (!busy) status.textContent = offline() ? (zh ? '目前離線，連線後可重新送出。' : 'Offline. Reconnect and send again.') : (mode === 'mock' && !navigator.onLine ? (zh ? '離線 · 示範模式仍可使用。' : 'Offline · Demo mode is still available.') : ''); };
+  if (typeof dialog.showModal === 'function') {
+    document.querySelectorAll<HTMLButtonElement>('[data-chat-open]').forEach(button => {
+      button.hidden = false; button.disabled = false;
+      button.addEventListener('click', () => { if (dialog.open) return; opener = button; dialog.showModal(); state('wake'); connection(); input.focus(); });
+    });
+  }
+  dialog.querySelector('[data-chat-close]')!.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => { session.close(); setBusy(false); status.textContent = ''; state('close'); opener?.focus(); });
+  window.addEventListener('online', connection);
+  window.addEventListener('offline', () => { if (mode === 'api') session.interrupt(); connection(); });
+  const setBusy = (value: boolean) => {
+    busy = value;
+    form.querySelector<HTMLButtonElement>('button')!.disabled = value;
+    dialog.querySelectorAll<HTMLButtonElement>('[data-question]').forEach(button => { button.disabled = value; });
+    messages.setAttribute('aria-busy', String(value));
+  };
+  async function submit(question: string) {
+    if (busy || !question.trim()) return;
+    if (offline()) { connection(); state('fail'); return; }
+    const current = session.start();
+    setBusy(true); state('ask');
+    status.textContent = zh ? '企鵝正在思考…' : 'Penguin is thinking…';
+    const user = document.createElement('p'); user.className = 'chat-message chat-message--user'; user.textContent = question;
+    const answer = document.createElement('p'); answer.className = 'chat-message';
+    const sources = document.createElement('div'); sources.className = 'chat-sources';
+    messages.append(user, answer, sources); input.value = '';
+    // Bound the in-memory session; nothing is written to localStorage or sent as history.
+    while (messages.children.length > 30) messages.firstElementChild?.remove();
+    try {
+      for await (const event of askPenguin(question, { mode, endpoint: dialog.dataset.endpoint, locale: zh ? 'zh' : 'en', base: import.meta.env.BASE_URL, signal: current.signal })) {
+        if (current.signal.aborted || !session.owns(current)) break;
+        if (event.type === 'delta') { answer.textContent += event.text; state('chunk'); }
+        if (event.type === 'source') { const link = document.createElement('a'); link.href = event.url; link.textContent = `${zh ? '來源' : 'Source'}: ${event.title}`; link.target = '_blank'; link.rel = 'noopener noreferrer'; sources.append(link); }
+        if (event.type === 'done') { state('done'); status.textContent = `${zh ? '回答完成：' : 'Answer complete: '}${answer.textContent}`; }
+        messages.scrollTop = messages.scrollHeight;
+      }
+    } catch {
+      if (dialog.open && session.owns(current)) { state('fail'); status.textContent = offline() ? (zh ? '連線中斷，請重新送出。' : 'Connection lost. Please send again.') : (zh ? '暫時無法完成回答，請重新送出。' : 'Unable to finish the answer. Please send again.'); }
+      if (!answer.textContent) answer.remove();
+    } finally { if (session.owns(current)) { setBusy(false); if (dialog.open) input.focus(); } }
+  }
+  form.addEventListener('submit', event => { event.preventDefault(); void submit(input.value); });
+  dialog.querySelectorAll<HTMLButtonElement>('[data-question]').forEach(button => button.addEventListener('click', () => void submit(button.dataset.question!)));
+</script>

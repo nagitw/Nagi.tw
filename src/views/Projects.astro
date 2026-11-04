@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProjects } from '../data/projects';
+import { ui, type Locale } from '../i18n/ui';
+interface Props { locale?: Locale }
+const { locale = 'en' } = Astro.props;
+const copy = ui[locale];
+const projects = getProjects(locale);
+
+---
+<BaseLayout locale={locale} title={copy.projects} description={copy.projectsDescription}>
+  <header class="page-heading"><p class="eyebrow">Projects</p><h1>{copy.projects}</h1><p class="intro">{copy.projectsIntro}</p></header>
+  {projects.map((project) => <article class="detail-record" id={project.id}>
+    <p class="meta">{project.category} · {project.status}</p><h2>{project.title}</h2>
+    <p class="question">{project.summary}</p><p>{project.details}</p>
+    {project.tools.length > 0 && <ul class="tools" aria-label={`${project.title} ${copy.technologies}`}>{project.tools.map((tool) => <li>{tool}</li>)}</ul>}
+    {project.limitations.length > 0 && <aside class="scope" aria-label={`${project.title} ${copy.limitations}`}><h3>{copy.limitations}</h3><ul>{project.limitations.map((limitation) => <li>{limitation}</li>)}</ul></aside>}
+  </article>)}
+</BaseLayout>

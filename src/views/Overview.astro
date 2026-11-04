@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NotesPreview from '../components/NotesPreview.astro';
+import Penguin from '../components/Penguin.astro';
+import { fetchNotesRss } from '../lib/notes-rss';
+import { getSite } from '../data/site';
+import { getResearch } from '../data/research';
+import { getProjects } from '../data/projects';
+import { ui, localPath, type Locale } from '../i18n/ui';
+interface Props { locale?: Locale }
+const { locale = 'en' } = Astro.props;
+const copy = ui[locale];
+const site = getSite(locale);
+const research = getResearch(locale);
+const projects = getProjects(locale);
+const recent = (await fetchNotesRss()).slice(0, 3);
+const featuredResearch = research.filter((item) => item.featured);
+const featuredProjects = projects.filter((item) => item.featured);
+---
+<BaseLayout locale={locale} title={copy.overview} description={copy.overviewDescription}>
+  <header class="studio-hero">
+    <div class="hero-copy"><p class="eyebrow">Nagi.tw / Penguin Interactive Studio</p>
+    <h1>Hello, I'm Nagi<span>.</span></h1>
+    <p class="focus-line">{site.focus}</p>
+    <p class="intro">{site.introduction}</p>
+    <div class="hero-actions"><a class="primary-link" href={localPath('/projects/', locale)}>{locale === 'zh' ? '探索專案' : 'Explore my work'} ↗</a><a href={localPath('/about/', locale)}>{locale === 'zh' ? '認識 Nagi' : 'A little about me'} →</a></div>
+    <p class="hero-note">{locale === 'zh' ? '保持好奇，從每一次實作開始。' : 'Stay curious. Build something thoughtful.'}</p></div>
+    <div class="penguin-stage"><span class="stage-orbit" aria-hidden="true"></span><span class="stage-tag">a curious little companion</span><Penguin large label={locale === 'zh' ? '與企鵝聊聊：開啟 Penguin AI' : 'Meet the penguin: open Penguin AI'} /><p>{locale === 'zh' ? '點一下，打個招呼。' : 'A little tap. A new conversation.'}</p><span class="stage-coordinate" aria-hidden="true">01 / ALWAYS CURIOUS</span></div>
+  </header>
+  <section class="section" aria-labelledby="currently-title">
+    <div class="section-heading"><h2 id="currently-title">{locale === 'zh' ? '目前投入的方向' : 'Currently Working On'}</h2><span class="meta">IN PROGRESS</span></div>
+    <ul class="current-list">{site.currently.map((area, i) => <li><span>0{i + 1}</span>{area}</li>)}</ul>
+  </section>
+  {featuredProjects.length > 0 && <section class="section" aria-labelledby="projects-title">
+    <div class="section-heading"><h2 id="projects-title">{copy.featuredProjects}</h2><a href={localPath("/projects/", locale)}>{copy.allProjects} <span aria-hidden="true">→</span></a></div>
+    {featuredProjects.map((project) => <article class="record">
+      <div class="record-heading"><h3><a href={localPath(`/projects/#${project.id}`, locale)}>{project.title}</a></h3><span class="meta">{project.status}</span></div>
+      <p>{project.summary}</p>
+      <ul class="tools" aria-label={`${project.title} ${copy.technologies}`}>{project.tools.map((tool) => <li>{tool}</li>)}</ul>
+    </article>)}
+  </section>}
+  {featuredResearch.length > 0 && <section class="section" aria-labelledby="research-title">
+    <div class="section-heading"><h2 id="research-title">{locale === 'zh' ? '研究亮點' : 'Research Highlights'}</h2><a href={localPath("/research/", locale)}>{copy.allResearch} <span aria-hidden="true">→</span></a></div>
+    <article class="record"><p class="eyebrow">Learning in public · {locale === 'zh' ? '規劃中' : 'Planned'}</p><h3><a href={localPath('/research/from-ctf-to-oscp/', locale)}>From CTF to OSCP ↗</a></h3><p>{locale === 'zh' ? '從練習到方法，以 Learning Journal 與 Technical Report 記錄每一步。系列規劃中，尚未發布成果。' : 'From practice to method. A paired Learning Journal and Technical Report for every step. Series planned; results not yet published.'}</p></article>
+    {featuredResearch.map((item) => <article class="record">
+      <div class="record-heading"><h3><a href={localPath(`/research/#${item.id}`, locale)}>{item.title}</a></h3><span class="meta">{item.status}</span></div>
+      <p>{item.summary}</p>
+      {item.href && <a class="record-link" href={localPath(item.href, locale)}>{item.linkLabel} <span aria-hidden="true">→</span></a>}
+    </article>)}
+  </section>}
+  <section class="section" aria-labelledby="notes-title">
+    <div class="section-heading"><h2 id="notes-title">{locale === 'zh' ? '最新日誌' : 'Latest Journal'}</h2><a href={localPath('/journal/', locale)}>{copy.allNotes} <span aria-hidden="true">→</span></a></div>
+    <NotesPreview groups={recent} locale={locale} />
+  </section>
+  <section class="ai-invitation section"><div><p class="eyebrow">Meet Penguin AI</p><h2>{locale === 'zh' ? '好奇，是對話的開始。' : 'Curiosity starts a conversation.'}</h2><p>{locale === 'zh' ? '認識 Nagi、探索專案，或看看接下來的計畫。現在是公開資料示範模式。' : 'Meet Nagi, explore the work, or ask what comes next. An assistant for exploring public information.'}</p></div><button type="button" data-chat-open aria-haspopup="dialog" aria-controls="penguin-chat" hidden>{locale === 'zh' ? '與企鵝聊聊' : 'Say hello'} ↗</button><noscript><p>{locale === 'zh' ? '聊天需要 JavaScript；仍可閱讀所有公開頁面。' : 'Chat needs JavaScript. All public pages remain available.'}</p></noscript></section>
+</BaseLayout>

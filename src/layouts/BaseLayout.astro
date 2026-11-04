@@ -1,30 +1,53 @@
 ---
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import PenguinChat from '../components/PenguinChat.astro';
 import '../styles/global.css';
-
-const title = 'Nagi.tw';
-const description = 'Nagi - Student researcher & builder.';
+import '../styles/studio.css';
+import { ui, localPath, withoutBase, type Locale } from '../i18n/ui';
+interface Props { title: string; description: string; locale?: Locale }
+const { title: pageTitle, description, locale = 'en' } = Astro.props;
+const copy = ui[locale];
+const title = `${pageTitle} — ${locale === 'zh' ? '洪新富' : 'Hong Xin-Fu'} · Nagi.tw`;
+const englishPath = withoutBase(Astro.url.pathname).replace(/^\/zh(?=\/|$)/, '') || '/';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
-<html lang="zh-TW">
+<html lang={locale === 'zh' ? 'zh-TW' : 'en'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="color-scheme" content="light dark" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={new URL(localPath(englishPath, 'en'), Astro.site)} />
+    <link rel="alternate" hreflang="zh-TW" href={new URL(localPath(englishPath, 'zh'), Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(localPath(englishPath, 'en'), Astro.site)} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale === 'zh' ? 'zh_TW' : 'en_US'} />
+    <meta property="og:site_name" content="Nagi.tw" />
     <meta property="og:url" content={canonical} />
-    <link rel="alternate" type="application/rss+xml" title="Nagi Notes" href="https://notes.nagi.tw/rss.xml" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="alternate" type="application/rss+xml" title={`Nagi ${copy.notes}`} href="https://notes.nagi.tw/rss.xml" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('nagi-theme');
+        document.documentElement.dataset.theme = saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      } catch { /* Light remains the default when storage is unavailable. */ }
+    </script>
   </head>
   <body>
-    <a class="skip" href="#main">Skip to content</a>
-    <SiteHeader />
-    <main id="main"><slot /></main>
-    <SiteFooter />
+    <a class="skip" href="#main">{copy.skip}</a>
+    <SiteHeader locale={locale} />
+    <div class="page-shell">
+      <main id="main" tabindex="-1"><slot /></main>
+      <SiteFooter locale={locale} />
+    </div>
+    <PenguinChat locale={locale} />
   </body>
 </html>
