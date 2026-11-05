@@ -6,15 +6,12 @@ import Experience from '../../views/Experience.astro';
 import Contact from '../../views/Contact.astro';
 import StudioPage from '../../views/StudioPage.astro';
 import Series from '../../views/Series.astro';
-import { episodes } from '../../data/series';
 interface Props { page: string; studio?: boolean; slug?: string; kind?: string }
 export function getStaticPaths() {
   return [
     { params: { path: undefined }, props: { page: 'overview' } },
     ...['research', 'projects', 'experience', 'contact'].map((page) => ({ params: { path: page }, props: { page } })),
     ...['journal', 'technical-reports', 'about', 'roadmap'].map(page => ({ params: { path: page }, props: { page, studio: true } })),
-    { params: { path: 'research/from-ctf-to-oscp' }, props: { page: 'series' } },
-    ...episodes.flatMap(episode => [undefined, 'journal', 'report'].map(kind => ({ params: { path: `research/from-ctf-to-oscp/${episode.slug}${kind ? `/${kind}` : ''}` }, props: { page: 'series', slug: episode.slug, kind } }))),
   ];
 }
 const pages = { overview: Overview, research: Research, projects: Projects, experience: Experience, contact: Contact };

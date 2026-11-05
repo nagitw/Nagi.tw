@@ -32,7 +32,7 @@ try {
     });
     assert.equal(exit, 0, `Build with ${mode}`);
     if (mode === 'base') {
-      for (const script of ['scripts/validate-build.mjs', 'scripts/test-language.mjs']) {
+      for (const script of ['scripts/validate-build.mjs', 'scripts/test-language.mjs', 'scripts/test-privacy.mjs', 'scripts/test-indexes.mjs']) {
         const code = await new Promise((resolve, reject) => {
           const child = spawn(process.execPath, [script], { cwd: root, env: { ...process.env, SITE_BASE: '/studio/', VALIDATE_DIR: output }, stdio: 'inherit' });
           child.on('error', reject); child.on('close', resolve);
@@ -42,20 +42,19 @@ try {
       continue;
     }
     const html = readFileSync(join(output, 'index.html'), 'utf8');
-    if (mode === 'rss.xml') {
-      assert.equal((html.match(/class="note-row"/g) ?? []).length, 3, 'Only three previews render');
-      assert.ok(html.includes('Test note 0 &amp; systems'), 'RSS title rendered');
-      assert.ok(!html.includes('Test note 3'), 'Fourth preview omitted');
-      assert.ok(!html.includes('<script>alert(1)</script>'), 'Feed markup escaped');
-      assert.ok(html.includes('&lt;script&gt;'), 'Description rendered as text');
-    } else {
-      assert.ok(html.includes('Recent previews are unavailable.'), 'Visible English fallback');
-      assert.ok(readFileSync(join(output, 'zh/index.html'), 'utf8').includes('暫時無法載入近期筆記。'), 'Visible Traditional Chinese fallback');
-      assert.ok(html.includes('href="https://notes.nagi.tw/"'), 'Fallback links to independent Notes');
-      assert.equal((html.match(/class="note-row"/g) ?? []).length, 0, 'No invented previews');
-    }
+    assert.ok(!html.includes('Test note 0'), 'Unreviewed RSS cannot enter production pages');
+    assert.ok(html.includes('/journal/first-hackathon-in-university/'), 'Latest approved journal rendered');
+    assert.equal((html.match(/data-content-entry/g) ?? []).length, 3, 'Homepage limits journal previews to three');
+
   }
-  console.log('RSS success/failure rendering, three-item limit and untrusted text escaping: PASS');
+  const invalid = await new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, ['node_modules/astro/bin/astro.mjs', 'build', '--outDir', output], { cwd: root, env: { ...process.env, PUBLIC_PENGUIN_AI_MODE: 'api', PUBLIC_PENGUIN_API_BASE_URL: '', PUBLIC_PENGUIN_API_URL: '' }, stdio: 'pipe' });
+    let log = ''; child.stdout.on('data', d => log += d); child.stderr.on('data', d => log += d);
+    child.on('error', reject); child.on('close', code => resolve({ code, log }));
+  });
+  assert.notEqual(invalid.code, 0, 'API mode without endpoint fails build');
+  assert.ok(invalid.log.includes('API mode requires an explicit HTTPS endpoint'));
+  console.log('RSS utility success/failure, approved local rendering and repository-base build: PASS');
 } finally {
   server.close();
   // mkdtemp created this exact directory beneath the OS temporary directory.

@@ -1,9 +1,7 @@
 ---
+import ContentIndex from '../components/ContentIndex.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NotesPreview from '../components/NotesPreview.astro';
-import { fetchNotesRss } from '../lib/notes-rss';
 import { getSite } from '../data/site';
-import { episodes, episodePath } from '../data/series';
 import { localPath, type Locale } from '../i18n/ui';
 interface Props { locale?: Locale; page: string }
 const { locale = 'en', page } = Astro.props;
@@ -15,23 +13,17 @@ const descriptions: Record<string, string> = {
   about: zh ? '安靜地建立系統，仔細地留下紀錄。' : 'Build quietly. Document carefully.',
   roadmap: zh ? '公開的方向，不是已完成成果的清單。' : 'An open direction of travel, not a list of completed achievements.',
 };
-const recent = page === 'journal' ? await fetchNotesRss() : [];
 ---
 <BaseLayout locale={locale} title={titles[page]!} description={descriptions[page]!}>
-  <header class="page-heading"><p class="eyebrow">Penguin Interactive Studio / {page.replace('-', ' ')}</p><h1>{titles[page]}</h1><p class="intro">{descriptions[page]}</p></header>
+  <header class="page-heading"><p class="eyebrow">Penguin Interactive Studio / {titles[page]}</p><h1>{titles[page]}</h1><p class="intro">{descriptions[page]}</p></header>
   {page === 'about' && <>
-    <section class="studio-panel"><p class="eyebrow">Hello, I'm Nagi.</p><h2>{site.name}</h2><p class="intro">{site.introduction}</p><p>{site.focus}</p><a href={localPath('/experience/', locale)}>{zh ? '經歷與學習軌跡' : 'Experience & learning'} →</a></section>
+    <section class="studio-panel"><p class="eyebrow">Hello, I'm Nagi.</p><h2>{site.name}</h2><p class="intro">{site.introduction}</p><blockquote>{zh ? '把你要讓它存在的東西，親手創造出來。' : 'If you want something to exist, build it yourself.'}</blockquote><p>{zh ? '先釐清問題，再選擇工具；透過實作讓想法可以被測試，以紀錄說明方法、證據與限制。企鵝陪著我保持好奇，把每一次探索留下來。' : 'Understand the problem before choosing tools. Build to test ideas, and document methods, evidence and limitations. The penguin is a companion for this curious practice.'}</p><a href={localPath('/experience/', locale)}>{zh ? '經歷與學習軌跡' : 'Experience & learning'} →</a></section>
     <section class="section"><h2>{zh ? '一起交流' : 'Start a conversation'}</h2><p>{zh ? '透過公開筆記、專案與聯絡頁認識我的工作。' : 'Explore the public notes and projects, or get in touch.'}</p><a href={localPath('/contact/', locale)}>{zh ? '聯絡 Nagi' : 'Contact Nagi'} →</a></section>
   </>}
-  {page === 'journal' && <section><div class="section-heading"><h2>{zh ? '最新筆記' : 'Latest Journal'}</h2><a href={site.notes}>Notes ↗</a></div><NotesPreview groups={recent} locale={locale} /></section>}
-  {(page === 'journal' || page === 'technical-reports') && <section class="section">
-    <div class="section-heading"><h2>From CTF to OSCP</h2><a href={localPath('/research/from-ctf-to-oscp/', locale)}>{zh ? '研究系列' : 'Research series'} →</a></div>
-    <p class="section-intro">{zh ? '以下是規劃中的文件位置，尚未發布學習紀錄、實驗結果或認證成果。' : 'These are planned document slots. Learning records, experimental results and certification outcomes have not been published.'}</p>
-    {episodes.map(episode => <article class="record"><p class="eyebrow">Episode {episode.number} · {zh ? '規劃中' : 'Planned'}</p><h3><a href={localPath(episodePath(episode, page === 'journal' ? 'journal' : 'report'), locale)}>{episode.title[locale]}</a></h3><p>{episode.focus[locale]}</p></article>)}
-  </section>}
+  {page === 'journal' && <section><div class="section-heading"><h2>{zh ? '最新筆記' : 'Latest Journal'}</h2><a href={site.notes}>Notes ↗</a></div></section>}
+  {(page === 'journal' || page === 'technical-reports') && <ContentIndex locale={locale} kinds={page === 'journal' ? ['journal'] : ['report']} />}
   {page === 'roadmap' && <ol class="roadmap-list">
     <li><span class="meta">01 / {zh ? '網站 V3' : 'Website V3'}</span><h2>Penguin Interactive Studio</h2><p>{zh ? '雙語網站、原始企鵝互動與 AI 示範介面，等待審查。' : 'Bilingual pages, the original interactive penguin and an AI demo interface, ready for review.'}</p></li>
-    <li><span class="meta">02 / {zh ? '規劃中' : 'Planned'}</span><h2>From CTF to OSCP</h2><p>{zh ? '逐步建立學習日誌與技術報告；尚未宣稱完成實驗或取得證照。' : 'Build paired learning journals and technical reports. No completed experiments or certification are claimed.'}</p><a href={localPath('/research/from-ctf-to-oscp/', locale)}>{zh ? '探索系列' : 'Explore the series'} →</a></li>
-    <li><span class="meta">03 / {zh ? '未連接' : 'Not connected'}</span><h2>Penguin AI · Raspberry Pi</h2><p>{zh ? '未來獨立部署的公開知識助理。目前只有前端與 Mock，正式服務、認證、限流與後端檢索仍待實作。' : 'A future independent assistant for public knowledge. Only the frontend and mock exist today; production hosting, authentication, rate limits and backend retrieval remain future work.'}</p></li>
+    <li><span class="meta">02 / {zh ? '未連接' : 'Not connected'}</span><h2>Penguin AI · Raspberry Pi</h2><p>{zh ? '未來獨立部署的公開知識助理。目前只有前端與 Mock，正式服務、認證、限流與後端檢索仍待實作。' : 'A future independent assistant for public knowledge. Only the frontend and mock exist today; production hosting, authentication, rate limits and backend retrieval remain future work.'}</p></li>
   </ol>}
 </BaseLayout>

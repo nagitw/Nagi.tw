@@ -8,7 +8,7 @@ import { ui, localPath, withoutBase, type Locale } from '../i18n/ui';
 interface Props { title: string; description: string; locale?: Locale }
 const { title: pageTitle, description, locale = 'en' } = Astro.props;
 const copy = ui[locale];
-const title = `${pageTitle} — ${locale === 'zh' ? '洪新富' : 'Hong Xin-Fu'} · Nagi.tw`;
+const title = `${pageTitle} — Nagi · ${locale === 'zh' ? '繁體中文' : 'English'}`;
 const englishPath = withoutBase(Astro.url.pathname).replace(/^\/zh(?=\/|$)/, '') || '/';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -33,7 +33,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <link rel="alternate" type="application/rss+xml" title={`Nagi ${copy.notes}`} href="https://notes.nagi.tw/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`Nagi ${copy.notes}`} href={`${import.meta.env.BASE_URL}rss.xml`} />
     <script is:inline>
       try {
         const saved = localStorage.getItem('nagi-theme');

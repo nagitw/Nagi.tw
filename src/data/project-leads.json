@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Nagi CLI",
+    "slug": "nagi-cli",
+    "evidence": false
+  },
+  {
+    "name": "Nagi Medical Agent",
+    "slug": "nagi-medical-agent",
+    "evidence": false
+  },
+  {
+    "name": "RuralMed-Sat",
+    "slug": "ruralmed-sat",
+    "evidence": false
+  },
+  {
+    "name": "AEUST Life",
+    "slug": "aeust-life",
+    "evidence": false
+  },
+  {
+    "name": "Nagi Sudoku",
+    "slug": "nagi-sudoku",
+    "evidence": false
+  },
+  {
+    "name": "Nagi Notes",
+    "slug": "nagi-notes",
+    "evidence": true
+  },
+  {
+    "name": "BugTraceAI",
+    "slug": "bugtraceai",
+    "evidence": false
+  }
+]

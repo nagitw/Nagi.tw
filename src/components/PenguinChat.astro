@@ -3,16 +3,22 @@ import type { Locale } from '../i18n/ui';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const zh = locale === 'zh';
-const endpoint = import.meta.env.PUBLIC_PENGUIN_API_URL ?? '';
+const apiBase = import.meta.env.PUBLIC_PENGUIN_API_BASE_URL;
+const endpoint = apiBase ? `${apiBase.replace(/\/$/, '')}/chat` : import.meta.env.PUBLIC_PENGUIN_API_URL ?? '';
+import { publicApiEndpoint } from '../lib/penguin-ai';
+if (endpoint && !publicApiEndpoint(endpoint)) throw new Error('Penguin API requires a public HTTPS URL without secrets');
+
 const mode = import.meta.env.PUBLIC_PENGUIN_AI_MODE === 'api' ? 'api' : 'mock';
+if (mode === 'api' && !endpoint) throw new Error('API mode requires an explicit HTTPS endpoint');
 const questions = zh ? ['Nagi 是誰？', '最近在做什麼？', '有哪些專案？', '未來計畫？'] : ['Who is Nagi?', 'What are you working on recently?', 'What projects are there?', 'What are your future plans?'];
 ---
 <button type="button" class="chat-launcher" data-chat-open aria-haspopup="dialog" aria-controls="penguin-chat" hidden>Penguin AI <span aria-hidden="true">↗</span></button>
 <dialog id="penguin-chat" aria-labelledby="chat-title" data-mode={mode} data-endpoint={endpoint} data-locale={locale}>
-  <div class="chat-heading"><div><p class="eyebrow">A little company for your curiosity</p><h2 id="chat-title">Penguin AI</h2></div><button type="button" data-chat-close aria-label={zh ? '關閉聊天' : 'Close chat'}>×</button></div>
+  <div class="chat-heading"><div><p class="eyebrow">{zh ? '陪你一起探索好奇心' : 'A little company for your curiosity'}</p><h2 id="chat-title">Penguin AI</h2></div><button type="button" data-chat-close aria-label={zh ? '關閉聊天' : 'Close chat'}>×</button></div>
   <p class="chat-notice">{mode === 'mock' ? (zh ? '示範模式 · 預設公開資料回答，不會連線 AI 後端。' : 'Demo mode · Prepared public answers. No AI backend connection.') : (zh ? '獨立 AI 服務 · 請勿輸入私人資料。' : 'Independent AI service · Please avoid private information.')}</p>
   <div class="chat-messages" role="log" aria-label={zh ? '對話紀錄' : 'Conversation'} aria-live="off"></div>
   <p class="chat-status" role="status" aria-live="polite"></p>
+  <button type="button" data-chat-cancel hidden>{zh ? '停止回答' : 'Stop response'}</button>
   <div class="chat-prompts">{questions.map(question => <button type="button" data-question={question}>{question}</button>)}</div>
   <form class="chat-form"><label for="chat-question">{zh ? '想了解什麼？' : 'What are you curious about?'}</label><div><input id="chat-question" name="question" type="text" required maxlength="1000" autocomplete="off" /><button type="submit">{zh ? '送出' : 'Send'} <span aria-hidden="true">↗</span></button></div></form>
 </dialog>
@@ -27,6 +33,8 @@ const questions = zh ? ['Nagi 是誰？', '最近在做什麼？', '有哪些專
   const zh = dialog.dataset.locale === 'zh';
   const mode = dialog.dataset.mode === 'api' ? 'api' : 'mock';
   const session = new ChatSession();
+  const cancel = dialog.querySelector<HTMLButtonElement>('[data-chat-cancel]')!;
+  cancel.addEventListener('click', () => { session.close(); setBusy(false); state('close'); status.textContent = zh ? '已取消回答。' : 'Response cancelled.'; input.focus(); });
   let opener: HTMLElement | null = null;
   let busy = false;
   const state = (detail: string) => document.dispatchEvent(new CustomEvent('penguin-state', { detail }));
@@ -43,7 +51,7 @@ const questions = zh ? ['Nagi 是誰？', '最近在做什麼？', '有哪些專
   window.addEventListener('online', connection);
   window.addEventListener('offline', () => { if (mode === 'api') session.interrupt(); connection(); });
   const setBusy = (value: boolean) => {
-    busy = value;
+    busy = value; cancel.hidden = !value;
     form.querySelector<HTMLButtonElement>('button')!.disabled = value;
     dialog.querySelectorAll<HTMLButtonElement>('[data-question]').forEach(button => { button.disabled = value; });
     messages.setAttribute('aria-busy', String(value));
@@ -68,8 +76,8 @@ const questions = zh ? ['Nagi 是誰？', '最近在做什麼？', '有哪些專
         if (event.type === 'done') { state('done'); status.textContent = `${zh ? '回答完成：' : 'Answer complete: '}${answer.textContent}`; }
         messages.scrollTop = messages.scrollHeight;
       }
-    } catch {
-      if (dialog.open && session.owns(current)) { state('fail'); status.textContent = offline() ? (zh ? '連線中斷，請重新送出。' : 'Connection lost. Please send again.') : (zh ? '暫時無法完成回答，請重新送出。' : 'Unable to finish the answer. Please send again.'); }
+    } catch (error) {
+      if (dialog.open && session.owns(current)) { state('fail'); status.textContent = offline() ? (zh ? '連線中斷，請重新送出。' : 'Connection lost. Please send again.') : (error instanceof DOMException && error.name === 'TimeoutError' ? (zh ? '回應逾時，請重試。' : 'Response timed out. Please retry.') : (zh ? 'AI 服務目前無法連線或回應無效，請稍後重試。' : 'AI service unavailable or invalid response. Please retry later.')); }
       if (!answer.textContent) answer.remove();
     } finally { if (session.owns(current)) { setBusy(false); if (dialog.open) input.focus(); } }
   }

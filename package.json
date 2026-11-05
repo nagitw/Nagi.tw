@@ -7,12 +7,15 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test": "node scripts/test-notes-rss.mjs && node scripts/test-penguin.mjs && node scripts/test-site.mjs",
-    "validate": "node scripts/validate-build.mjs && node scripts/test-language.mjs"
+    "test": "node scripts/test-notes-rss.mjs && node scripts/test-penguin.mjs && node scripts/test-api-config.mjs && node scripts/test-disclosures.mjs && node scripts/test-article.mjs && node scripts/test-site.mjs",
+    "validate": "node scripts/validate-build.mjs && node scripts/test-language.mjs && node scripts/test-privacy.mjs && node scripts/test-indexes.mjs",
+    "typecheck": "tsc --noEmit",
+    "prebuild": "node scripts/clean-build.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.2"
+    "astro": "^7.3.2",
+    "marked": "18.1.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",

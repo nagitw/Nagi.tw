@@ -19,7 +19,7 @@ const path = Astro.url.pathname.replace(/\/?$/, '/');
       {navigation.map(({ href, label }) => <li><a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a></li>)}
     </ul>
     <div class="sidebar-language">
-      <a href={localPath(englishPath, locale === 'zh' ? 'en' : 'zh')} lang={locale === 'zh' ? 'en' : 'zh-TW'} hreflang={locale === 'zh' ? 'en' : 'zh-TW'}>{locale === 'zh' ? 'English' : '中文'}</a>
+      <a data-language-switch href={localPath(englishPath, locale === 'zh' ? 'en' : 'zh')} lang={locale === 'zh' ? 'en' : 'zh-TW'} hreflang={locale === 'zh' ? 'en' : 'zh-TW'}>{locale === 'zh' ? 'English' : '中文'}</a>
     </div>
     <div class="sidebar-external">
       <a href={site.notes}>{copy.notes} <span aria-hidden="true">↗</span><span class="sr-only">{copy.external}</span></a>
@@ -27,11 +27,16 @@ const path = Astro.url.pathname.replace(/\/?$/, '/');
     </div>
   </nav>
   <div class="sidebar-bottom">
-    <div class="sidebar-signature"><Penguin label={locale === 'zh' ? '開啟 Penguin AI' : 'Open Penguin AI'} /><p lang="en">Build quietly.<br /><span>Document carefully.</span></p></div>
+    <div class="sidebar-signature"><Penguin label={locale === 'zh' ? '開啟 Penguin AI' : 'Open Penguin AI'} /><p>{locale === 'zh' ? '安靜地建立系統。' : 'Build quietly.'}<br /><span>{locale === 'zh' ? '仔細地留下紀錄。' : 'Document carefully.'}</span></p></div>
     <button id="theme-toggle" type="button" aria-pressed="false" hidden>{copy.darkMode}</button>
   </div>
 </header>
 <script>
+  document.querySelector<HTMLAnchorElement>('[data-language-switch]')?.addEventListener('click', (event) => {
+    const link = event.currentTarget as HTMLAnchorElement;
+    try { localStorage.setItem('nagi-language', link.lang === 'en' ? 'en' : 'zh'); } catch {}
+    link.hash = location.hash;
+  });
   const menu = document.querySelector<HTMLButtonElement>('.menu-toggle');
   const nav = document.querySelector<HTMLElement>('#site-navigation');
   const mobile = window.matchMedia('(max-width: 767px)');

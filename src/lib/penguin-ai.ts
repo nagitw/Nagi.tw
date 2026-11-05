@@ -3,6 +3,13 @@ export interface ChatOptions { mode: 'mock' | 'api'; endpoint?: string; locale?:
 export function safeSource(value: string): string | null {
   try { const url = new URL(value); return url.protocol === 'https:' && !url.username && !url.password ? url.href : null; } catch { return null; }
 }
+export function publicApiEndpoint(value: string): string | null {
+  if (!safeSource(value)) return null;
+  const api = new URL(value);
+  const host = api.hostname.replace(/\.$/, '').toLowerCase();
+  if (api.search || api.hash || api.port === '11434' || !host.includes('.') || /(^[0-9.]+$|:|\.localhost$|\.local$|\.internal$)/i.test(host)) return null;
+  return api.href;
+}
 function parseEvent(line: string): ChatEvent {
   const item: unknown = JSON.parse(line);
   if (!item || typeof item !== 'object' || !('type' in item)) throw new Error('Invalid stream event');
@@ -22,9 +29,9 @@ export async function* askPenguin(question: string, options: ChatOptions): Async
     const topic = /plan|future|未來|計畫/i.test(question) ? 'roadmap' : /project|專案/i.test(question) ? 'projects' : /recent|working|最近|研究/i.test(question) ? 'research' : 'about';
     const answers = {
       about: zh ? 'Nagi 是一名探索資安與系統的學生工程者。這是示範回答；詳細介紹請閱讀 About。' : 'Nagi is a student engineer exploring security and systems. This is a demo answer; read About for the public introduction.',
-      research: zh ? '公開研究方向包含通訊安全與嵌入式系統。From CTF to OSCP 系列目前是規劃中的學習架構，尚未發布實驗成果。' : 'Public interests include communication security and embedded systems. From CTF to OSCP is a planned learning series, with no published experimental results yet.',
+      research: zh ? '公開研究方向包含通訊安全與嵌入式系統。研究紀錄包含方法與限制。' : 'Public interests include communication security and embedded systems. Research records describe methods and limitations.',
       projects: zh ? '你可以在 Projects 閱讀公開專案介紹、技術背景與限制。本示範不存取任何專案後端或私人資料。' : 'Projects contains public descriptions, technical context and limitations. This demo does not access project backends or private data.',
-      roadmap: zh ? '規劃包括研究系列、成對的學習日誌與技術報告，以及未來獨立部署的 Raspberry Pi AI。尚未宣稱取得 OSCP 證照。' : 'Plans include paired learning journals and technical reports, plus a future independent Raspberry Pi AI service. No OSCP certification is claimed.',
+      roadmap: zh ? '規劃包括學習日誌與技術報告，以及未來獨立部署的 Raspberry Pi AI。正式公開 API 尚未上線。' : 'Plans include paired learning journals and technical reports, plus a future independent Raspberry Pi AI service. The public API is not yet available.',
     };
     for (const text of answers[topic].match(/.{1,24}/gu) ?? []) {
       await new Promise<void>((resolve) => setTimeout(resolve, 30));
@@ -34,7 +41,7 @@ export async function* askPenguin(question: string, options: ChatOptions): Async
     yield { type: 'source', title: topic, url: `https://nagi.tw/${base ? `${base}/` : ''}${zh ? 'zh/' : ''}${topic}/` };
     yield { type: 'done' }; return;
   }
-  if (!options.endpoint || !safeSource(options.endpoint)) throw new Error('An explicit HTTPS endpoint is required');
+  if (!options.endpoint || !publicApiEndpoint(options.endpoint)) throw new Error('An explicit public HTTPS endpoint without credentials is required');
   const signal = AbortSignal.any([AbortSignal.timeout(30000), ...(options.signal ? [options.signal] : [])]);
   const response = await fetch(options.endpoint, {
     method: 'POST', credentials: 'omit', redirect: 'error', cache: 'no-store', referrerPolicy: 'no-referrer', signal,
@@ -44,7 +51,7 @@ export async function* askPenguin(question: string, options: ChatOptions): Async
   if (!response.ok) throw new Error(`AI service returned ${response.status}`);
   if (!response.headers.get('content-type')?.includes('application/x-ndjson') || !response.body) throw new Error('Expected an NDJSON stream');
   const reader = response.body.getReader(); const decoder = new TextDecoder('utf-8', { fatal: true });
-  let buffer = ''; let bytes = 0;
+  let buffer = ''; let bytes = 0; let characters = 0;
   try {
     while (true) {
       signal.throwIfAborted();
@@ -56,7 +63,9 @@ export async function* askPenguin(question: string, options: ChatOptions): Async
       if (done && buffer.trim()) { lines.push(buffer); buffer = ''; }
       for (const line of lines) {
         if (!line.trim()) continue;
-        const event = parseEvent(line); yield event;
+        const event = parseEvent(line);
+        if (event.type === 'delta') { characters += event.text.length; if (characters > 8000) throw new Error('Answer exceeds size limit'); }
+        yield event;
         if (event.type === 'done') return;
       }
       if (buffer.length > 16000) throw new Error('Stream line exceeds size limit');

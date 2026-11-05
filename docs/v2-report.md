@@ -40,7 +40,7 @@ The homepage follows the approved name/focus/introduction, Currently, Featured R
 
 ## Content migrated
 
-- User-approved Hong Xin-Fu identity and current areas of interest.
+- User-approved Nagi identity and current areas of interest.
 - MedTrust prototype: documented device/gateway/evidence workflow, technologies, and explicit integrity-consistency-only scope. No Digital Signature, Identity Proof, or Non-repudiation claim. Missing public verification evidence remains explicit.
 - Home Lab: personal service hosting, network boundaries, remote access and recovery practice.
 - Medical IoT research question; conservative 5G and embedded/autonomous interests without invented results or publications.

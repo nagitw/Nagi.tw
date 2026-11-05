@@ -1,6 +1,6 @@
 export type Locale = 'en' | 'zh';
 
-// Explicit URLs only: no browser detection, storage preference or redirects.
+// Explicit language URLs always win; header stores preference without automatic redirects.
 const base = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 export const withoutBase = (path: string): string => base && (path === base || path.startsWith(`${base}/`)) ? path.slice(base.length) || '/' : path;
 export const localPath = (path: string, locale: Locale): string =>
@@ -18,12 +18,12 @@ export const ui = {
     researchIntro: 'Questions about trust, communication, and the systems that connect the physical and digital worlds.',
     projectsIntro: 'Systems built to make an idea testable. Each record includes its technical context and the boundaries of what it claims.',
     experienceIntro: 'Selected training, community events, and competitions that have shaped how I learn and build.',
-    contactIntro: 'For questions about my work or a conversation about security, systems, and research, email is the simplest place to start.',
-    overviewDescription: 'Hong Xin-Fu (Nagi), a student engineer exploring security, communications, Medical IoT, and embedded systems.',
+    contactIntro: 'For questions about my work or a conversation about security, systems, and research, visit the public GitHub profile.',
+    overviewDescription: 'Nagi, a student engineer exploring security, communications, Medical IoT, and embedded systems.',
     researchDescription: 'Ongoing research interests in Medical IoT trust, 5G communication security, and embedded systems, with the scope and limitations of current work.',
     projectsDescription: 'MedTrust, a Medical IoT integrity prototype. Project scope, technical context, and explicit limitations.',
-    experienceDescription: 'Selected training, technical communities, and competition participation from Hong Xin-Fu’s learning record in security, computing, and robotics.',
-    contactDescription: 'Contact Hong Xin-Fu (Nagi) by email, explore the GitHub profile, or read independent notes on security, systems, and engineering.',
+    experienceDescription: 'Selected training, technical communities, and competition participation from Nagi’s learning record in security, computing, and robotics.',
+    contactDescription: 'Find Nagi on GitHub, explore the GitHub profile, or read independent notes on security, systems, and engineering.',
   },
   zh: {
     overview: '首頁', research: '研究', projects: '專案', experience: '經歷', contact: '聯絡',
@@ -36,11 +36,11 @@ export const ui = {
     researchIntro: '從訊息信任、通訊與裝置之間的邊界，整理目前探索的研究問題。',
     projectsIntro: '把想法做成可以測試的系統，並記錄技術選擇、實作範圍與限制。',
     experienceIntro: '整理參與過的研習、社群活動與競賽，留下學習與實作的軌跡。',
-    contactIntro: '若想詢問專案內容，或交流資安、系統與研究相關問題，可以透過電子郵件聯絡我。',
-    overviewDescription: '洪新富（Nagi）的個人研究與工程紀錄，整理資安、通訊、醫療 IoT 與嵌入式系統的實作與探索。',
+    contactIntro: '若想詢問專案內容，或交流資安、系統與研究相關問題，可以透過公開 GitHub 頁面認識我的工作。',
+    overviewDescription: 'Nagi的個人研究與工程紀錄，整理資安、通訊、醫療 IoT 與嵌入式系統的實作與探索。',
     researchDescription: '醫療 IoT 信任、5G 通訊安全與嵌入式系統的研究方向，以及目前工作的範圍與限制。',
     projectsDescription: 'MedTrust 醫療 IoT 完整性原型，整理專案的技術脈絡、實作範圍與限制。',
-    experienceDescription: '洪新富（Nagi）參與資安、運算與機器人相關研習、社群活動與競賽的學習紀錄。',
-    contactDescription: '透過電子郵件聯絡洪新富（Nagi），或前往 GitHub 與獨立筆記站閱讀資安、系統與工程紀錄。',
+    experienceDescription: 'Nagi參與資安、運算與機器人相關研習、社群活動與競賽的學習紀錄。',
+    contactDescription: '透過公開 GitHub 與筆記認識 Nagi，或前往 GitHub 與獨立筆記站閱讀資安、系統與工程紀錄。',
   },
 } as const;

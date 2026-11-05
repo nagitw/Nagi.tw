@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { edition, content } from '../lib/content';
+import { renderArticle } from '../lib/article';
+import { localPath, type Locale } from '../i18n/ui';
+interface Props { locale: Locale; path: string }
+const { locale, path } = Astro.props;
+const record = edition(path, locale);
+const original = record ?? content.find(r => r.route.replace(/^\/zh(?=\/)/, '') === path)!;
+const zh = locale === 'zh';
+const title = record?.title ?? `${zh ? '翻譯待補充' : 'Translation pending'} · ${original.title}`;
+const description = record?.description || (zh ? 'Nagi 的公開紀錄；原文中的狀態與限制保留供讀者查閱。' : 'A public Nagi record with the original scope and limitations.');
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<BaseLayout locale={locale} title={`${title} · ${zh ? '紀錄' : 'Record'} · ${path.split('/').filter(Boolean).at(-1)}`} description={description}>
+<header class="page-heading"><p class="eyebrow">{zh ? '公開紀錄' : 'Public record'}</p><h1>{title}</h1><p>{description}</p></header>
+{record ? <>
+<p class="meta">{zh ? '作者：Nagi · 內容保留原始紀錄時的狀態，不代表目前成果已獨立驗證。' : 'By Nagi · Historical source statements are not independently verified outcomes.'}</p>
+{record.cover && <img src={`${base}${record.cover}`} alt={record.title} width="800" height="394" loading="lazy" style="max-width:100%;height:auto;border-radius:1rem" />}
+<article class="article-body" set:html={renderArticle(record.body, base)} />
+</> : <section class="studio-panel"><h2>{zh ? '這篇內容尚無繁體中文版' : 'This article has no English edition yet'}</h2><p>{zh ? '目前只提供原始語言版本，不以自動翻譯替代原文。' : 'The original edition is available. A translation has not been published.'}</p><a href={localPath(path, original.locale as Locale)}>{zh ? '閱讀原文' : 'Read original'}</a></section>}
+<a href={localPath('/journal/', locale)}>{zh ? '瀏覽日誌' : 'Browse journal'}</a>
+</BaseLayout>
+<style>
+.article-body { max-width: 72ch; line-height: 1.9; overflow-wrap: anywhere; }
+.article-body :global(h2), .article-body :global(h3) { margin-top: 2.2rem; }
+.article-body :global(pre) { overflow-x: auto; padding: 1rem; background: var(--surface); }
+.article-body :global(table) { display: block; overflow-x: auto; border-collapse: collapse; }
+.article-body :global(td), .article-body :global(th) { padding: .6rem; border: 1px solid var(--line); }
+.article-body :global(blockquote) { margin-inline: 0; padding-inline-start: 1rem; border-inline-start: 3px solid var(--accent); }
+</style>

@@ -1,0 +1,20 @@
+---
+import ProjectLead from '../views/ProjectLead.astro';
+import leads from '../data/project-leads.json';
+interface Props { project?: typeof leads[number]; locale: 'en' | 'zh'; path: string; disclosure: boolean; id?: string; year?: string }
+import Article from '../views/Article.astro';
+import Disclosures from '../views/Disclosures.astro';
+import { contentPaths } from '../lib/content';
+import { publicDisclosures } from '../data/disclosures';
+import { getPublicDisclosures } from '../lib/disclosures';
+export function getStaticPaths() {
+ const records = getPublicDisclosures(publicDisclosures);
+ const disclosures = [{ path: '/security/disclosures/' }, ...records.map(r => ({ path: `/security/disclosures/${r.id}/`, id: r.id })), ...[...new Set(records.map(r => r.year))].map(year => ({ path: `/security/disclosures/year/${year}/`, year }))];
+ return ['en', 'zh'].flatMap(locale => [
+ ...leads.map(project => ({ params: { content: `${locale === 'zh' ? 'zh/' : ''}projects/${project.slug}` }, props: { locale, path: `/projects/${project.slug}/`, disclosure: false, project } })),
+ ...contentPaths.map(path => ({params:{content: `${locale === 'zh' ? 'zh/' : ''}${path.slice(1,-1)}`},props:{locale,path,disclosure:false}})),
+ ...disclosures.map(item => ({params:{content: `${locale === 'zh' ? 'zh/' : ''}${item.path.slice(1,-1)}`},props:{locale,...item,disclosure:true}}))]);
+}
+const { locale, path, disclosure, id, year, project } = Astro.props;
+---
+{project ? <ProjectLead locale={locale} project={project} /> : disclosure ? <Disclosures locale={locale} id={id} year={year} /> : <Article locale={locale} path={path} />}

@@ -1,79 +1,58 @@
-# Nagi.tw V3 — Penguin Interactive Studio
+# Nagi.tw V3 — Integration & Production Readiness
 
-## Inspection and scope
+驗收日期：2026-11-06。這份報告取代前一版 V3 報告中的公開研究系列與測試結果；未推送、合併或部署。
 
-- Actual app: `nagi.tw`, Astro 7.3.2, TypeScript 6, static output, sitemap integration. Installed dependencies were already available; no install or dependency change was necessary.
-- Existing feature branch: `feat/nagi-v2`. The parent workspace is a different repository on main. Only the Nagi app is committed; the parent pointer, Notes worktree and medical projects are not edited.
-- The starting app contained uncommitted V2 bilingual data, pages, styles and documentation. These are preserved and included as necessary in the final website snapshot; older V2 reports are historical, not this task's delivery state.
-- Existing content uses typed records and external Notes RSS, not Astro Content Collections. Old routes and project scope/limitations remain intact. No article was deleted or migrated away from Notes.
-- GitHub Pages targets the custom domain `https://nagi.tw`, without a prefix. Optional `SITE_BASE=/studio/` is now tested. Deployment workflow is unchanged; no push, merge or deployment.
+## 起始盤點
 
-## Delivered
+- 工作目錄：目前 `nagi.tw` Astro 專案；分支 `feat/nagi-v2`，起始 HEAD `bc76999`。
+- 起始已有修改：`docs/v2-report.md`、`src/data/site.ts`、`src/i18n/ui.ts`、`src/layouts/BaseLayout.astro`；以及未追蹤的遷移清單、phase2 計畫、遷移 JSON／圖片、漏洞資料與測試。保留並接續這些工作，未 reset 或覆蓋回舊版。
+- 架構為 Astro 靜態頁、typed data、共用 view；無 Content Collections 或安全提交後端。原 V3 已有企鵝動畫、雙語 UI、原生聊天 dialog 與 NDJSON Mock/API 客戶端。
+- 原始資料來自同一工作區既有網站 `source/` 與 Notes 的文章。完整 139 筆來源盤點見 [內容遷移清單](content-migration.md)。建置只讀本專案已審核的快照，不讀私人兄弟專案。
+- GitHub Pages 自訂網域為 `https://nagi.tw`，預設 base `/`；保留 `SITE_BASE` 並驗證 `/studio/`。部署仍限 main push／手動工作流程。
 
-- New responsive Home with Hello, I'm Nagi, original large pixel penguin, current interests, featured projects, research highlights, latest journal, AI invitation and footer.
-- Mist-blue/graphite palette, dark theme, system fonts, cards and lightweight transform effects. No large animation or 3D dependency. Static content remains readable without JavaScript/WebGL.
-- Original 24×24 SVG geometry and intrinsic colors from `public/nagi-penguin.svg`; the animated component splits the existing wing/eyes/beak without redesigning the character.
-- Typed states: idle, welcome, curious, thinking, talking, sleeping, error. CSS breathing/blinking/waving, bounded cursor parallax, touch/focus handling and reduced-motion/slow-display fallback.
-- English and Traditional Chinese Home, Research, Projects, Journal, Technical Reports, About, Roadmap; original Experience and Contact preserved. 38 generated pages including series and document slots.
-- Three planned CTF-to-OSCP episodes, each with Learning Journal and Technical Report. No completed experiments, exam pass or certification invented.
-- Native named modal with close/Escape/focus behavior, preset questions, streaming plain text, source links, loading/error/offline state, input bounds, no persistence and cancellation ownership across close/reopen.
-- Mock uses prepared public information and performs no network request. API mode is opt-in only.
+## 實作結果
 
-## Future API contract
+- 公開名稱統一 Nagi，移除重複姓名顯示及私人聯絡值；Hero 與 About 加入中英文座右銘、問題導向開發理念。沒有增加學歷或成果宣稱。
+- 原始 `public/nagi-penguin.svg` 與 `src/components/Penguin.astro` 相對 `bc76999` 完全不變；原動畫、鍵盤入口、reduced-motion 規則保留。
+- 整合 51 個公開內容版本：18 日誌、9 專案、10 lab、2 研究、2 技術報告、8 經歷、2 參考資料。形成 30 組雙語內容路徑，缺少翻譯的九頁清楚提示並連向原文。
+- 新增七組專案線索頁。Nagi Notes 有公開文章與既有網站可引用；其餘六項缺少足夠公開來源，僅標記待補充，未捏造技術架構、完成狀態、驗證結果或 GitHub URL。
+- 共 94 個一般頁面、17 個舊網址 redirect HTML，另有 RSS、search JSON 與 sitemap。一般頁面均驗證唯一標題、description、canonical、語言及本地連結。
+- Markdown 原始 HTML 一律轉義、圖片語法不直接載入外部追蹤資源、危險 URL 不生成連結；已審核封面圖片本地呈現。文章提供適合閱讀的行長、行距、表格／程式碼水平捲動。
+- `/security/disclosures/` 與 `/zh/security/disclosures/` 已建立。支援 Web/IoT、年份、Low/Medium/High、ZD 編號、GitHub Commit/PR 與 detail/year 路由。實際資料為空，沒有示範漏洞或無效表單。
+- 漏洞工作流程為 Draft/Merged/Published，漏洞狀態獨立為 Verified/Remediated/Public Disclosure。只有 Published + verified + explicit authorization + 完整有效資料才進公開輸出；合併不等於授權或已修復。
+- 撤下 OSCP 的公開路由、導覽內容、首頁、日誌、研究、報告、roadmap 及 AI 回答。`src/data/series.ts`、`src/views/Series.astro` 原始草稿保留；route 的 `getStaticPaths()` 為空。沒有刪除研究資料或改寫 Git 歷史。
+- 語言沿用英文 `/`、繁中 `/zh/`，避免破壞既有 canonical。共用導航同頁切換、保留 hash，手機使用相同導航控制；記錄語言偏好但不自動覆蓋明確網址。`html lang`、hreflang、canonical、sitemap 語系對應已驗證。
+- 公開頁面不再盲目讀取即時外部 RSS。首頁、日誌、RSS、search 使用本地審核內容；Penguin AI 僅使用四個人工整理的公開主題摘要，不匯入全文或私人草稿。
 
-Set `PUBLIC_PENGUIN_AI_MODE=api` and `PUBLIC_PENGUIN_API_URL` only after deploying/reviewing an independent public HTTPS service. Public environment values are bundled into the frontend; they must never contain secrets. Configuration requires a rebuild.
+## Penguin AI 合約
 
-`POST` JSON `{ "question": "...", "locale": "en" }` (or `zh`), maximum 1000 input characters. No cookies, authorization headers, private files, history, tools or management endpoints. Redirects rejected; no referrer; 30-second request timeout.
+- 預設 Mock，清楚標示不連線後端。API 模式為 opt-in，不能宣稱已正式接通 Raspberry Pi。
+- `PUBLIC_PENGUIN_API_BASE_URL=https://public-host.example` 會加上 `/chat`；保留舊的完整 `PUBLIC_PENGUIN_API_URL` 相容設定。API 模式缺少網址會直接阻止建置。
+- 建置與執行共用 HTTPS 網址驗證：拒絕 credentials、query、fragment、IP literal、localhost/local/internal 主機及 11434 port；包含尾端句點繞過的回歸測試。一般公開網域 DNS 是否解析至私人位址仍應由部署端管理。
+- POST `{question, locale}`，不傳 cookies、API key、歷史或私人 context；redirect 拒絕、no-referrer。NDJSON 事件為 delta/source/done，UTF-8 增量解碼。
+- 30 秒 timeout、輸入 1000 字、回答總長 8000 字、串流 128000 bytes 上限；保留 malformed/incomplete stream 錯誤處理、取消、關閉後取消與重開競態保護。新增停止回答按鈕及明確離線／逾時／服務不可用提示。
+- 真實 FastAPI、SQLite FTS5、CORS、限流、後端公開資料授權與 Raspberry Pi 系統皆未修改，留待正式後端工作。
 
-Response content type: `application/x-ndjson`. One JSON object per line; examples:
+## 驗證
 
-```jsonl
-{"type":"delta","text":"A public answer."}
-{"type":"source","title":"About Nagi","url":"https://nagi.tw/about/"}
-{"type":"done"}
-```
+- `npm run build`：通過；Astro check 共 60 個檔案，0 errors / 0 warnings / 0 hints，production build 94 頁（另有 17 個 redirect HTML）。
+- `npm run typecheck`：通過。
+- `npm test`：RSS parser/HTTP 失敗 fixture、企鵝 state、Mock/NDJSON/取消、HTTPS 設定、漏洞發布閘門、Markdown 安全、公開內容隔離及三則首頁限制；一般與 `/studio/` build、無 API 設定 build 拒絕。
+- `npm run validate`：所有一般頁面的 SEO、語言、sitemap、內部連結／anchor、script 路徑；缺少翻譯提示；公開 HTML/JS/CSS/JSON/XML/SVG/TXT 中已知身分 fingerprint 與撤下主題掃描；RSS/search 僅含核准快照項目。
+- `git diff --check`：通過。原始 SVG 與企鵝 component diff：零變更。
+- 獨立 source review 的三項問題（API 主機尾端句點繞過、CI 未執行驗證、API 模式缺網址）皆已修正。
+- 安裝時 npm audit 發現 9 項依賴問題；執行相容範圍的 `npm audit fix` 後為 0 項。Astro lockfile 更新至 7.4.6；新增 marked 18.1.3。Windows 對舊 native binding 的清理有 EPERM 警告，修補後建置與完整測試正常。
+- GitHub Pages action 現在於上傳前執行 `npm ci`、build、typecheck、完整測試與 validate。`build-cmd` 依 [官方 action 定義](https://raw.githubusercontent.com/withastro/action/main/action.yml) 設定；沒有執行遠端 workflow。
 
-UTF-8 chunk boundaries are decoded incrementally. Malformed/unknown events, unsafe source schemes/embedded credentials, missing done, oversized lines/responses and HTTP errors fail visibly. Delta text is capped at 8000 characters, source title at 200, total response at 128000 bytes. DOM uses `textContent`, never model-generated HTML. HTTPS links can point to external sources and open with noopener/noreferrer. The server must independently enforce CORS, validation, rate limits, public-knowledge retrieval and security; browser checks do not replace backend controls.
+## 尚未驗證與待補充
 
-## Verification
+- Browser access host unavailable。嘗試原生 Firefox 時無 accessibility tree，隨後偵測到使用者操作且視窗內容改變，因此停止 UI 操作。未完成桌面／平板／手機、實際鍵盤／focus、theme、touch、reduced-motion 的 runtime 驗收，沒有宣稱視覺驗收通過。
+- 未測量 Lighthouse/Core Web Vitals；靜態資產與既有 CSS／動畫保留不等於實測效能證據。
+- 未呼叫正式 Raspberry Pi API；公開 API 本次不在實作範圍。
+- 六個專案線索的可公開細節、缺少的翻譯、未公開演講教學、真實漏洞授權與證據仍待提供。歷史來源敘述不等於獨立重驗成果。
+- 隱私掃描涵蓋已知識別值與本次輸出；沒有重寫 Git 歷史，歷史提交仍可能保留舊公開身分資料。
+- 沒有 push、merge main、正式部署或修改 Raspberry Pi。新提交作者／提交者使用 Nagi 與本機占位信箱 `nagi@localhost`，未修改全域 Git 設定。
 
-- `npm run build`: PASS, Astro check reports 0 errors / 0 warnings / 0 hints across 42 files; 38 pages generated.
-- `npm test`: PASS: existing RSS parser, penguin state/API/session tests, RSS fixture success/failure builds, escaping, three-item homepage limit and repository-base build.
-- `npm run validate`: PASS: all 38 pages, unique titles, descriptions, canonical, sitemap, local links/anchors, script paths, language alternatives and preserved project limitations.
-- Base-path fixture repeats both validators under `/studio/`: PASS.
-- Independent source review found a close/reopen cancellation race and mock citation base issue. Both fixed with regression tests. Mode-independent homepage invitation avoids claiming demo when API mode is enabled.
-- `git diff --check`: PASS (Windows line-ending normalization notices only).
-- Production emitted approximately 6.4 KB external JavaScript plus small inline controllers and 18.3 KB CSS, uncompressed. No WebGL dependency or remote font. These are build sizes, not measured Core Web Vitals.
+## 修改檔案
 
-## Remaining work / limitations
-
-- Actual browser visual, keyboard and responsive runtime acceptance remains unverified: browser access host unavailable; native browser access approval timed out. No screenshot, Lighthouse, CLS or frame-rate claim is made. Review 375/768/1024/1440 widths, both themes, reduced motion, touch, Tab/Escape and close/reopen while streaming.
-- Production Notes RSS could not be fetched in this environment, including an unsandboxed build. Visible bilingual fallback links are rendered. Controlled live local fixtures verified both success and failure; no fixture articles were saved into production output.
-- The existing Windows Node process emitted one transient native shutdown assertion during the baseline test. Subsequent final test/build runs completed with exit 0.
-- Raspberry Pi backend, deployment, real model streaming and production authentication/rate limiting are intentionally not implemented.
-- Episode content/evidence remains planned until supplied. No original penguin material is missing; optional artist-authored layered assets can replace the existing SVG later.
-
-## File inventory
-
-V3 implementation:
-- `.env.example`, `astro.config.mjs`, `package.json`, `README.md`
-- `src/components/Penguin.astro`, `src/components/PenguinChat.astro`, `src/components/SiteHeader.astro`
-- `src/layouts/BaseLayout.astro`, `src/styles/studio.css`, `src/i18n/ui.ts`
-- `src/lib/penguin-state.ts`, `src/lib/penguin-ai.ts`, `src/lib/chat-session.ts`
-- `src/data/site.ts`, `src/data/series.ts`
-- `src/views/Overview.astro`, `src/views/Research.astro`, `src/views/StudioPage.astro`, `src/views/Series.astro`
-- `src/views/Contact.astro`, `src/views/Experience.astro`, `src/views/Projects.astro` (unused import cleanup)
-- `src/pages/[page].astro`, `src/pages/zh/[...path].astro`, `src/pages/research/from-ctf-to-oscp/[...path].astro`
-- `scripts/test-penguin.mjs`, `scripts/test-site.mjs`, `scripts/test-language.mjs`, `scripts/validate-build.mjs`
-- `docs/superpowers/plans/2026-11-04-v3.md`, `docs/v3-report.md`
-
-Preserved starting V2 files included in the website snapshot:
-- `src/components/NotesPreview.astro`, `src/components/SiteFooter.astro`, `src/components/NagiPenguin.astro`
-- `public/nagi-penguin.svg`, `src/styles/global.css`, `src/pages/index.astro`
-- `src/data/experience.ts`, `src/data/projects.ts`, `src/data/research.ts`
-- `src/pages/contact/index.astro`, `src/pages/experience/index.astro`, `src/pages/projects/index.astro`, `src/pages/research/index.astro`
-- `docs/v2-implementation.md`, `docs/v2-report.md`
-
-## Implementation decisions
-
-Retained the user's current working directory/feature branch and existing dirty V2 work, as explicitly requested. Chose layered SVG and native browser primitives to keep dependencies and bundle weight low. New episode slots are published as clearly planned pages rather than fabricated results. These choices do not require new artwork or a production API.
+完整清單見 [v3-files.md](v3-files.md)。起始既有修改納入本次網站快照，舊 phase2 計畫僅保留為歷史紀錄；本報告描述實際交付。

@@ -1,0 +1,12 @@
+---
+import { contentIndex } from '../lib/content';
+import { localPath, type Locale } from '../i18n/ui';
+interface Props { kinds: string[]; locale: Locale; limit?: number }
+const { kinds, locale, limit } = Astro.props;
+const entries = contentIndex(kinds, locale).slice(0, limit);
+---
+<div class="content-index">{entries.map(({ path, record }) => <article class="record" data-content-entry>
+<h3><a href={localPath(path, locale)} lang={record.locale === 'zh' ? 'zh-TW' : 'en'}>{record.title}</a></h3>
+{record.locale !== locale && <p class="meta">{locale === 'zh' ? '尚無繁體中文版；提供原文連結。' : 'Translation pending; original edition available.'}</p>}
+{record.description && <p lang={record.locale === 'zh' ? 'zh-TW' : 'en'}>{record.description}</p>}
+</article>)}</div>
