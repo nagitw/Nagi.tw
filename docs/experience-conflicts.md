@@ -1,5 +1,26 @@
 # Experience conflicts and review queue
 
+## CTF 專項核對摘要（基準 b670bbe）
+
+本輪四筆排名是 user-reported，三筆既有團隊排名仍 source-recorded；都不是 official-verified，也不授權公開。原始 79 筆 assertion 及舊年份 superseded 規則不變。本節是 CTF 最新結論，下方歷史缺口敘述不覆蓋本次補記。
+
+| 條目 | 已保存結果／年份 | 仍缺少或待確認 |
+|---|---|---|
+| archive-012 BroncoCTF | 2026；49 / 3307，user-reported | 隊名、個人／團隊排名單位、分母單位、官方結果／證書證據 |
+| archive-011 Junior.Crypt | 2026；147 / 1613，user-reported | 官方拼字及與 Junior Crypt CTF 身份關係、隊名、排名及分母單位、官方證據 |
+| archive-014 K17 CTF | 年份 unknown；55 / 1450，user-reported | 年份、隊名、排名及分母單位、官方證據；舊 candidate-only 只描述缺乏儲存庫證據，原文保留 |
+| archive-015 picoCTF | 2026；1007 / 8748，user-reported；舊站亦有數字來源 | 隊名、排名及分母單位、官方證據；不能把舊 totalParticipants 欄位當作已確認人數 |
+| archive-029 LA CTF | 2026；Team Rank #9，source-recorded | 隊名、排名分母及其範圍、官方證據；不補獎項 |
+| archive-030 Srdnlen CTF Quals | 2026；Team Rank #17，source-recorded | 隊名、排名分母及其範圍、官方證據；不補獎項 |
+| archive-031 DiceCTF Quals | 2026；Team Rank #23，source-recorded | 隊名、排名分母及其範圍、官方證據；不補獎項 |
+| archive-013 Grodno::CTF | 2026；舊來源參賽敘述，無排名 | 隊名、結果及排名單位、官方證據；不推測名次 |
+| archive-016 FhCTF | 2026；舊來源 No. 8，未新增自述 | 隊名、排名單位、分母與單位、官方證據 |
+| archive-017 MyFirstCTF | 僅 2026；年份及參與 user-confirmed | 隊名、結果、排名單位、官方證據；archive-069 的 2025 仍 superseded |
+| archive-018 AIS3 EOF | 2026；初賽來源敘述 | 階段、隊名、結果、排名單位、官方證據；不得推定決賽 |
+| archive-021 HITCON CTF | 年份 unknown；candidate-only | 實際參與、年份、隊名、結果、排名單位、官方證據；會議出席不是 CTF 參賽 |
+
+團隊名缺失不以 FTC 的 BEFIRING 或已刪除隊籍補入。所有 evidenceUrls 保持空陣列，沒有官方證據 URL 可填。分母未知為 null，單位未知為 unknown，不推論隊伍或人數。CTF preparation／練習仍是學習線索，不增計競賽參與。
+
 未確認欄位不得公開。完整來源值保留於 archive 的 sourceAssertion；確認後須分別設定 verificationStatus 與 publicationStatus，不可只把 draft 改 published。現有公開快照新增欄位也需獨立審核。
 
 | 群組 | 需要使用者確認的欄位 | 處理 |

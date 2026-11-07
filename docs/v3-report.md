@@ -137,3 +137,14 @@ This section supersedes earlier route counts and placeholder behavior below.
 - 原有 79 筆 assertion 保留；固定雜湊測試驗證原始欄位、來源、獎項敘述與發布狀態仍完整。新陳述來源定位為本次使用者訊息，不虛構過往對話日期／連結。原盤點重建腳本仍不應直接覆蓋人工審核資料。
 - Astro Check：80 檔，0 errors／warnings／hints；TypeScript 通過；Build 產生 69 頁；完整 npm test（含 repository-base build）、npm run validate、資料驗證及 git diff --check 均通過。新增公開產物掃描確認獎項補記與 BEFIRING 未洩漏至 HTML、JS、JSON、RSS、Sitemap 或 AI 資料。
 - 待補：FTC 兩獎關係與官方名稱、獎項英文對應、AIS3 Club 正式角色與 16 小時培訓關係、各成果正式證據。未修改八筆公開 Experience、公開文章、首頁企鵝或 URL；未 Push、Merge、Deploy。
+
+## CTF Results Reconciliation — 基準 b670bbe
+
+- 僅修改 experience-archive.json、master-list、conflicts、本報告及兩項驗證測試。七筆既有條目新增 ctfResultAssertions；不新增活動資料列，原有 79 筆 assertion 完整保留。
+- BroncoCTF 2026：49 / 3307；Junior.Crypt 2026：147 / 1613；K17 CTF：55 / 1450；picoCTF 2026：1007 / 8748。參與與結果分別標記 user-reported，rank／rankDenominator 分開保存，rankingUnit 與 rankDenominatorUnit 均 unknown。沒有推斷隊伍數、人數或獎項。
+- LA CTF 2026 Team Rank #9、Srdnlen CTF Quals 2026 Team Rank #17、DiceCTF Quals 2026 Team Rank #23 保持 source-recorded，rankingUnit=team；rankDenominator=null、team=null，不補總隊數或隊名。
+- K17 年份仍 null；原條目的 candidate-only、unknown 角色與「儲存庫未找到證據」敘述未變。新增 user-reported 排名 assertion 是不同來源，不代表找到官方或舊站證據。picoCTF 舊 totalParticipants 僅保留作歷史欄位，新 assertion 不沿用其人數語意。
+- 每項新 assertion 分別保存 participationVerification、resultVerification、原文、來源、證據欄及 draft 狀態。無新增 official-verified；所有既有 publicationStatus、先前年份／獎項核對與 superseded 規則不變。
+- 新增 b670bbe 全部資料的固定 SHA-256 完整性測試（排除本輪新增 ctfResultAssertions 後應完全一致），原 5c50af7 來源完整性測試仍通過。公開產物掃描新增 CTF 欄位與新排名洩漏檢查。
+- Astro Check：80 檔，0 errors／warnings／hints；TypeScript 通過；Build 產生 69 頁；完整 npm test（含 repository-base build）、npm run validate、資料測試與 git diff --check 通過。八筆公開 Experience、搜尋、RSS、Sitemap 與 AI 公開輸出未新增待審紀錄。
+- CTF 專項核對摘要位於 experience-master-list.md 與 experience-conflicts.md。仍缺 K17 年份、Junior.Crypt 官方拼字／身份對應、所有隊名、四筆個人／團隊及分母單位、三筆團隊排名分母與官方結果證據。未修改公開來源、首頁企鵝、文章或 URL；未 Push、Merge、Deploy。

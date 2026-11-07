@@ -1,5 +1,27 @@
 # Experience master list
 
+## CTF 專項核對（基準 b670bbe）
+
+本輪僅在七筆既有條目加入 `ctfResultAssertions`，原有 79 筆資料列及所有來源欄位保持不變。新增排名 assertion 不是新增參賽事件。每項分開保存 participationVerification、resultVerification、rank、rankDenominator、rankingUnit、team、evidenceUrls、publicationStatus，並保留原始排名文字及賽事名稱。
+
+| 原條目 | 本輪賽事名稱／年份 | 原始排名 | 參與／結果狀態 | 排名單位 | 分母單位 |
+|---|---|---|---|---|---|
+| archive-012 | BroncoCTF 2026 | 49 / 3307 | user-reported／user-reported | unknown | unknown |
+| archive-011 | Junior.Crypt 2026 | 147 / 1613 | user-reported／user-reported | unknown | unknown |
+| archive-014 | K17 CTF／年份 unknown | 55 / 1450 | user-reported／user-reported | unknown | unknown |
+| archive-015 | picoCTF 2026 | 1007 / 8748 | user-reported／user-reported | unknown | unknown |
+| archive-029 | LA CTF 2026 | Team Rank #9 | source-recorded／source-recorded | team | unknown（無分母） |
+| archive-030 | Srdnlen CTF Quals 2026 | Team Rank #17 | source-recorded／source-recorded | team | unknown（無分母） |
+| archive-031 | DiceCTF Quals 2026 | Team Rank #23 | source-recorded／source-recorded | team | unknown（無分母） |
+
+七項均 `team=null`、`evidenceUrls=[]`、`publicationStatus=draft`；團隊排名三項 `rankDenominator=null`。沒有任何排名被當作獎項，也沒有新增 official-verified。四項使用者過往自述的來源為本次 CTF Results Reconciliation 訊息，未虛構過往對話日期／連結；三項團隊排名沿用 H.selectedCtf 的原始來源。
+
+K17 原條目的 candidate-only、unknown 角色、null 年份與「儲存庫未找到參與證據」敘述完整保留；新 user-reported assertion 是另一來源層級，不代表找到舊站或官方證據。Junior.Crypt 與舊稱 Junior Crypt CTF 的官方拼字／身份關係仍需核對。
+
+picoCTF 原資料 `totalParticipants=8748` 僅為保留的舊欄位，不可解讀為已確認 8748 人或隊；新排名 assertion 使用無單位預設的 `rankDenominator=8748`、`rankDenominatorUnit=unknown`。本輪所有新 assertion 均不使用 totalParticipants／totalTeams。
+
+原表格的「no rank」等 reviewNotes 是歷史盤點快照；本節與 ctfResultAssertions 為最新補記。詳細缺口見 conflicts 的 CTF 專項摘要；不得以原始重建腳本覆蓋人工補記。
+
 ## 歷史成果補記（基準 6750b3c）
 
 以下為本次使用者轉述的過往明確陳述，逐項存入 `historicalReconciliation.assertions`，不增加活動資料列。原有 79 筆來源 assertion、舊獎項文字、reviewNotes 及所有發布狀態保留；原始表格描述的是舊來源快照，本節是最新欄位審核結論。

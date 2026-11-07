@@ -5,10 +5,13 @@ import { publicExperience, sortEvents } from '../src/lib/experience.ts';
 const records = JSON.parse(readFileSync('src/data/experience-archive.json', 'utf8'));
 assert.equal(new Set(records.map(r => r.id)).size, records.length);
 assert.equal(records.length, 79, 'All original assertions remain');
+assert.equal(createHash('sha256').update(JSON.stringify(records.map(({ctfResultAssertions, ...original}) => original))).digest('hex'),
+ '1e86142adf6dde9b0f4a9e16668f939f98f61901dc2fe31618dd338b249ded02',
+ 'The entire b670bbe baseline, including prior reconciliations and publication states, must remain unchanged');
 // Frozen 5c50af7 payload: no Git history needed at runtime, including shallow CI.
 const original = records.map(record => {
  const { yearVerification, participationVerification, awardVerification, verificationSource,
-   reviewStatus, supersededBy, excludeFromParticipationCount, originalReviewNotes, historicalReconciliation, ...source } = record;
+   reviewStatus, supersededBy, excludeFromParticipationCount, originalReviewNotes, historicalReconciliation, ctfResultAssertions, ...source } = record;
  if (originalReviewNotes !== undefined) source.reviewNotes = originalReviewNotes;
  return source;
 });
@@ -90,4 +93,39 @@ for (const [id, stage] of [['archive-009','新北市賽'], ['archive-010','全�
 assert.equal(byId('archive-078').historicalReconciliation.excludeFromParticipationCount, true);
 assert.ok(byId('archive-078').sourceAssertion.includes('16 Hours'));
 assert.equal(publicExperience(records).length, 0);
+const ctfResults = [
+ ['archive-012','BroncoCTF 2026',49,3307,'unknown','user-reported','2026'],
+ ['archive-011','Junior.Crypt 2026',147,1613,'unknown','user-reported','2026'],
+ ['archive-014','K17 CTF',55,1450,'unknown','user-reported',null],
+ ['archive-015','picoCTF 2026',1007,8748,'unknown','user-reported','2026'],
+ ['archive-029','LA CTF 2026',9,null,'team','source-recorded','2026'],
+ ['archive-030','Srdnlen CTF Quals 2026',17,null,'team','source-recorded','2026'],
+ ['archive-031','DiceCTF Quals 2026',23,null,'team','source-recorded','2026'],
+];
+for (const [id,name,rank,denominator,unit,status,year] of ctfResults) {
+ const record = byId(id);
+ assert.equal(record.ctfResultAssertions.length, 1);
+ const result = record.ctfResultAssertions[0];
+ assert.equal(result.eventName, name);
+ assert.equal(result.year, year);
+ assert.equal(result.rank, rank);
+ assert.equal(result.rankDenominator, denominator);
+ assert.equal(result.rankingUnit, unit);
+ assert.equal(result.rankDenominatorUnit, 'unknown');
+ assert.equal(result.participationVerification, status);
+ assert.equal(result.resultVerification, status);
+ assert.equal(result.team, null);
+ assert.deepEqual(result.evidenceUrls, []);
+ assert.equal(result.publicationStatus, 'draft');
+ assert.equal(result.award, undefined);
+ assert.equal(result.totalParticipants, undefined);
+ assert.equal(result.totalTeams, undefined);
+ assert.ok(result.sourceReferences.length);
+ assert.equal(result.sourceAssertion, denominator === null ? `Team Rank #${rank}` : `${rank} / ${denominator}`);
+ assert.equal(publicExperience([result]).length, 0);
+}
+assert.equal(byId('archive-014').verificationStatus, 'candidate-only');
+assert.equal(byId('archive-014').year, null);
+assert.equal(byId('archive-014').role, 'unknown');
+assert.ok(byId('archive-014').sourceAssertion.includes('No matching participation record'));
 console.log('Experience source preservation, reported awards, superseded years and publication gates: PASS');

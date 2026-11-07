@@ -402,7 +402,29 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "參賽者",
-    "reviewNotes": "Draft; exact official spelling/identity and all result fields absent"
+    "reviewNotes": "Draft; exact official spelling/identity and all result fields absent",
+    "ctfResultAssertions": [
+      {
+        "id": "archive-011-ctf-result-01",
+        "baselineCommit": "b670bbe",
+        "eventName": "Junior.Crypt 2026",
+        "year": "2026",
+        "participationVerification": "user-reported",
+        "resultVerification": "user-reported",
+        "rank": 147,
+        "rankDenominator": 1613,
+        "rankingUnit": "unknown",
+        "rankDenominatorUnit": "unknown",
+        "team": null,
+        "evidenceUrls": [],
+        "publicationStatus": "draft",
+        "sourceAssertion": "147 / 1613",
+        "sourceReferences": [
+          "User message: CTF Results Reconciliation (baseline b670bbe), reporting prior statements; original conversation dates/links and official evidence not supplied."
+        ],
+        "reviewNotes": "Rank is not an award. No team identity or denominator unit inferred; official result evidence pending. Preserve Junior.Crypt spelling as reported; equivalence with legacy Junior Crypt CTF and official spelling still needs evidence."
+      }
+    ]
   },
   {
     "id": "archive-012",
@@ -422,7 +444,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "參賽者",
-    "reviewNotes": "Draft; no rank/team/denominator"
+    "reviewNotes": "Draft; no rank/team/denominator",
+    "ctfResultAssertions": [
+      {
+        "id": "archive-012-ctf-result-01",
+        "baselineCommit": "b670bbe",
+        "eventName": "BroncoCTF 2026",
+        "year": "2026",
+        "participationVerification": "user-reported",
+        "resultVerification": "user-reported",
+        "rank": 49,
+        "rankDenominator": 3307,
+        "rankingUnit": "unknown",
+        "rankDenominatorUnit": "unknown",
+        "team": null,
+        "evidenceUrls": [],
+        "publicationStatus": "draft",
+        "sourceAssertion": "49 / 3307",
+        "sourceReferences": [
+          "User message: CTF Results Reconciliation (baseline b670bbe), reporting prior statements; original conversation dates/links and official evidence not supplied."
+        ],
+        "reviewNotes": "Rank is not an award. No team identity or denominator unit inferred; official result evidence pending."
+      }
+    ]
   },
   {
     "id": "archive-013",
@@ -461,7 +505,29 @@
     "verificationStatus": "candidate-only",
     "publicationStatus": "draft",
     "sourceAssertion": "No matching participation record found in searched sources/history",
-    "reviewNotes": "Draft lead, not an experience claim; all fields missing"
+    "reviewNotes": "Draft lead, not an experience claim; all fields missing",
+    "ctfResultAssertions": [
+      {
+        "id": "archive-014-ctf-result-01",
+        "baselineCommit": "b670bbe",
+        "eventName": "K17 CTF",
+        "year": null,
+        "participationVerification": "user-reported",
+        "resultVerification": "user-reported",
+        "rank": 55,
+        "rankDenominator": 1450,
+        "rankingUnit": "unknown",
+        "rankDenominatorUnit": "unknown",
+        "team": null,
+        "evidenceUrls": [],
+        "publicationStatus": "draft",
+        "sourceAssertion": "55 / 1450",
+        "sourceReferences": [
+          "User message: CTF Results Reconciliation (baseline b670bbe), reporting prior statements; original conversation dates/links and official evidence not supplied."
+        ],
+        "reviewNotes": "Rank is not an award. No team identity or denominator unit inferred; official result evidence pending. Historical parent candidate-only means no repository participation evidence was found; this separate user-reported assertion does not replace that finding. Year remains unknown."
+      }
+    ]
   },
   {
     "id": "archive-015",
@@ -484,7 +550,29 @@
     "sourceAssertion": "Exact `Rank 1007 / 8748`",
     "reviewNotes": "Draft; rank 1007 and denominator 8748 recorded, but denominator unit and individual/team basis unspecified. Do **not** assign `totalTeams=8748` without evidence",
     "placement": 1007,
-    "totalParticipants": 8748
+    "totalParticipants": 8748,
+    "ctfResultAssertions": [
+      {
+        "id": "archive-015-ctf-result-01",
+        "baselineCommit": "b670bbe",
+        "eventName": "picoCTF 2026",
+        "year": "2026",
+        "participationVerification": "user-reported",
+        "resultVerification": "user-reported",
+        "rank": 1007,
+        "rankDenominator": 8748,
+        "rankingUnit": "unknown",
+        "rankDenominatorUnit": "unknown",
+        "team": null,
+        "evidenceUrls": [],
+        "publicationStatus": "draft",
+        "sourceAssertion": "1007 / 8748",
+        "sourceReferences": [
+          "User message: CTF Results Reconciliation (baseline b670bbe), reporting prior statements; original conversation dates/links and official evidence not supplied."
+        ],
+        "reviewNotes": "Rank is not an award. No team identity or denominator unit inferred; official result evidence pending. Parent totalParticipants=8748 is retained solely as legacy source data, not a verified participant count. Use rankDenominator=8748 with rankDenominatorUnit=unknown for this assertion."
+      }
+    ]
   },
   {
     "id": "archive-016",
@@ -787,7 +875,31 @@
     "publicationStatus": "draft",
     "sourceAssertion": "`團隊排名 #9` / `Team Rank #9`",
     "reviewNotes": "Draft; rank=9, team name and totalTeams absent",
-    "placement": 9
+    "placement": 9,
+    "ctfResultAssertions": [
+      {
+        "id": "archive-029-ctf-result-01",
+        "baselineCommit": "b670bbe",
+        "eventName": "LA CTF 2026",
+        "year": "2026",
+        "participationVerification": "source-recorded",
+        "resultVerification": "source-recorded",
+        "rank": 9,
+        "rankDenominator": null,
+        "rankingUnit": "team",
+        "rankDenominatorUnit": "unknown",
+        "team": null,
+        "evidenceUrls": [],
+        "publicationStatus": "draft",
+        "sourceAssertion": "Team Rank #9",
+        "sourceReferences": [
+          "docs/experience-audit.md",
+          "H.selectedCtf",
+          "H: `../source/_data/nagi_home.json` at legacy HEAD; `experience`, `activities`, `selectedCtf` and English equivalents"
+        ],
+        "reviewNotes": "Rank is not an award. No team identity or denominator unit inferred; official result evidence pending."
+      }
+    ]
   },
   {
     "id": "archive-030",
@@ -808,7 +920,31 @@
     "publicationStatus": "draft",
     "sourceAssertion": "`團隊排名 #17` / `Team Rank #17`",
     "reviewNotes": "Draft; rank=17, team name and totalTeams absent",
-    "placement": 17
+    "placement": 17,
+    "ctfResultAssertions": [
+      {
+        "id": "archive-030-ctf-result-01",
+        "baselineCommit": "b670bbe",
+        "eventName": "Srdnlen CTF Quals 2026",
+        "year": "2026",
+        "participationVerification": "source-recorded",
+        "resultVerification": "source-recorded",
+        "rank": 17,
+        "rankDenominator": null,
+        "rankingUnit": "team",
+        "rankDenominatorUnit": "unknown",
+        "team": null,
+        "evidenceUrls": [],
+        "publicationStatus": "draft",
+        "sourceAssertion": "Team Rank #17",
+        "sourceReferences": [
+          "docs/experience-audit.md",
+          "H.selectedCtf",
+          "H: `../source/_data/nagi_home.json` at legacy HEAD; `experience`, `activities`, `selectedCtf` and English equivalents"
+        ],
+        "reviewNotes": "Rank is not an award. No team identity or denominator unit inferred; official result evidence pending."
+      }
+    ]
   },
   {
     "id": "archive-031",
@@ -829,7 +965,31 @@
     "publicationStatus": "draft",
     "sourceAssertion": "`團隊排名 #23` / `Team Rank #23`",
     "reviewNotes": "Draft; rank=23, team name and totalTeams absent",
-    "placement": 23
+    "placement": 23,
+    "ctfResultAssertions": [
+      {
+        "id": "archive-031-ctf-result-01",
+        "baselineCommit": "b670bbe",
+        "eventName": "DiceCTF Quals 2026",
+        "year": "2026",
+        "participationVerification": "source-recorded",
+        "resultVerification": "source-recorded",
+        "rank": 23,
+        "rankDenominator": null,
+        "rankingUnit": "team",
+        "rankDenominatorUnit": "unknown",
+        "team": null,
+        "evidenceUrls": [],
+        "publicationStatus": "draft",
+        "sourceAssertion": "Team Rank #23",
+        "sourceReferences": [
+          "docs/experience-audit.md",
+          "H.selectedCtf",
+          "H: `../source/_data/nagi_home.json` at legacy HEAD; `experience`, `activities`, `selectedCtf` and English equivalents"
+        ],
+        "reviewNotes": "Rank is not an award. No team identity or denominator unit inferred; official result evidence pending."
+      }
+    ]
   },
   {
     "id": "archive-032",
