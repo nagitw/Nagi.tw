@@ -1,8 +1,8 @@
 ---
 import { getNavigation, getSite } from '../data/site';
 import { ui, localPath, withoutBase, type Locale } from '../i18n/ui';
-interface Props { locale?: Locale }
-const { locale = 'en' } = Astro.props;
+interface Props { locale?: Locale; availableLocales?: Locale[] }
+const { locale = 'en', availableLocales = ['en', 'zh'] } = Astro.props;
 const copy = ui[locale];
 const site = getSite(locale);
 const navigation = getNavigation(locale);
@@ -19,7 +19,7 @@ const path = Astro.url.pathname.replace(/\/?$/, '/');
       {navigation.map(({ href, label }) => <li><a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a></li>)}
     </ul>
     <div class="sidebar-language">
-      <a data-language-switch href={localPath(englishPath, locale === 'zh' ? 'en' : 'zh')} lang={locale === 'zh' ? 'en' : 'zh-TW'} hreflang={locale === 'zh' ? 'en' : 'zh-TW'}>{locale === 'zh' ? 'English' : '中文'}</a>
+      {availableLocales.includes(locale === 'zh' ? 'en' : 'zh') ? <a data-language-switch href={localPath(englishPath, locale === 'zh' ? 'en' : 'zh')} lang={locale === 'zh' ? 'en' : 'zh-TW'} hreflang={locale === 'zh' ? 'en' : 'zh-TW'}>{locale === 'zh' ? 'English' : '中文'}</a> : <span class="meta">{locale === 'zh' ? '尚無英文版' : 'Chinese edition unavailable'}</span>}
     </div>
     <div class="sidebar-external">
       <a href={site.notes}>{copy.notes} <span aria-hidden="true">↗</span><span class="sr-only">{copy.external}</span></a>

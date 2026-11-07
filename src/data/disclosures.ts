@@ -3,7 +3,7 @@ export type Disclosure = {
   year: string;
   category: 'Web' | 'IoT';
   severity: 'Low' | 'Medium' | 'High';
-  workflow: 'Draft' | 'Merged' | 'Published';
+  publicationStatus?: 'draft' | 'review' | 'published';
   status: 'Verified' | 'Remediated' | 'Public Disclosure';
   verified: boolean;
   publicAuthorization: boolean;

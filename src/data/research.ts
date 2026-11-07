@@ -1,5 +1,7 @@
 import type { Locale } from '../i18n/ui';
+import { publicRecords, type PublicationStatus } from '../lib/publication';
 export interface ResearchArea {
+  publicationStatus?: PublicationStatus;
   id: string;
   title: string;
   status: string;
@@ -13,19 +15,19 @@ export interface ResearchArea {
 
 const zhResearch: readonly ResearchArea[] = [
   {
-    id: 'medical-iot', title: '醫療 IoT 安全', status: '原型研究', featured: true,
+    id: 'medical-iot', title: '醫療 IoT 安全', status: '原型研究', featured: true, publicationStatus: 'published',
     summary: '研究裝置與 Gateway 邊界上的訊息信任與證據完整性。以 MedTrust 原型檢驗這些問題，目前僅主張 integrity consistency。',
     question: 'Gateway 如何檢查收到的訊息、辨識重放攻擊，並保留匯出後仍可檢查的證據？',
     href: '/projects/#medtrust', linkLabel: 'MedTrust 的範圍與限制',
     sources: ['source/research/index.md', 'source/systems/medtrust/index.md'],
   },
   {
-    id: '5g-security', title: '5G 通訊安全', status: '持續探索', featured: false,
+    id: '5g-security', title: '5G 通訊安全', status: '持續探索', featured: false, publicationStatus: 'published',
     summary: '目前持續探索的通訊安全方向，尚未整理公開的研究方法、成果或論文。',
     sources: ['Approved v2 user brief; detailed research data not supplied'],
   },
   {
-    id: 'embedded-systems', title: '嵌入式／自主系統', status: '探索中', featured: false,
+    id: 'embedded-systems', title: '嵌入式／自主系統', status: '探索中', featured: false, publicationStatus: 'published',
     summary: '透過裝置、Linux 與系統整合實作，探索嵌入式系統與機器人。',
     sources: ['source/_data/nagi_home.json', 'source/_posts/recent-projects-and-life-update.md', 'Approved v2 user brief'],
   },
@@ -48,4 +50,4 @@ const english: Record<string, Partial<ResearchArea>> = {
   },
 };
 export const research: readonly ResearchArea[] = zhResearch.map((area) => ({ ...area, ...english[area.id] }));
-export const getResearch = (locale: Locale): readonly ResearchArea[] => locale === 'zh' ? zhResearch : research;
+export const getResearch = (locale: Locale): readonly ResearchArea[] => publicRecords(locale === 'zh' ? zhResearch : research);

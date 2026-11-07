@@ -5,8 +5,8 @@ import PenguinChat from '../components/PenguinChat.astro';
 import '../styles/global.css';
 import '../styles/studio.css';
 import { ui, localPath, withoutBase, type Locale } from '../i18n/ui';
-interface Props { title: string; description: string; locale?: Locale }
-const { title: pageTitle, description, locale = 'en' } = Astro.props;
+interface Props { title: string; description: string; locale?: Locale; availableLocales?: Locale[] }
+const { title: pageTitle, description, locale = 'en', availableLocales = ['en', 'zh'] } = Astro.props;
 const copy = ui[locale];
 const title = `${pageTitle} — Nagi · ${locale === 'zh' ? '繁體中文' : 'English'}`;
 const englishPath = withoutBase(Astro.url.pathname).replace(/^\/zh(?=\/|$)/, '') || '/';
@@ -21,9 +21,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={new URL(localPath(englishPath, 'en'), Astro.site)} />
-    <link rel="alternate" hreflang="zh-TW" href={new URL(localPath(englishPath, 'zh'), Astro.site)} />
-    <link rel="alternate" hreflang="x-default" href={new URL(localPath(englishPath, 'en'), Astro.site)} />
+    {availableLocales.map(language => <link rel="alternate" hreflang={language === 'zh' ? 'zh-TW' : 'en'} href={new URL(localPath(englishPath, language), Astro.site)} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(localPath(englishPath, availableLocales.includes('en') ? 'en' : locale), Astro.site)} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -43,7 +42,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body>
     <a class="skip" href="#main">{copy.skip}</a>
-    <SiteHeader locale={locale} />
+    <SiteHeader locale={locale} availableLocales={availableLocales} />
     <div class="page-shell">
       <main id="main" tabindex="-1"><slot /></main>
       <SiteFooter locale={locale} />

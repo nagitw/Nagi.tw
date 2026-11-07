@@ -2,36 +2,49 @@
   {
     "name": "Nagi CLI",
     "slug": "nagi-cli",
-    "evidence": false
+    "evidence": false,
+    "developmentStatus": "active-development",
+    "publicationStatus": "draft"
   },
   {
     "name": "Nagi Medical Agent",
     "slug": "nagi-medical-agent",
-    "evidence": false
+    "evidence": false,
+    "publicationStatus": "draft"
   },
   {
     "name": "RuralMed-Sat",
     "slug": "ruralmed-sat",
-    "evidence": false
+    "evidence": false,
+    "publicationStatus": "draft"
   },
   {
     "name": "AEUST Life",
     "slug": "aeust-life",
-    "evidence": false
+    "evidence": false,
+    "publicationStatus": "draft"
   },
   {
     "name": "Nagi Sudoku",
     "slug": "nagi-sudoku",
-    "evidence": false
+    "evidence": false,
+    "publicationStatus": "draft"
   },
   {
     "name": "Nagi Notes",
     "slug": "nagi-notes",
-    "evidence": true
+    "evidence": true,
+    "publicationStatus": "draft"
   },
   {
-    "name": "BugTraceAI",
+    "name": "BugTraceAI CLI",
     "slug": "bugtraceai",
-    "evidence": false
+    "evidence": false,
+    "developmentStatus": "maintained",
+    "publicationStatus": "draft",
+    "introduction": {
+      "zh": "BugTraceAI CLI 是我參與並有所貢獻的專案，並非整個專案由我獨立開發。具體參與範圍與貢獻細節待補充確認。",
+      "en": "I participate in and contribute to BugTraceAI CLI; I did not independently develop the entire project. My specific role and contributions remain to be documented and confirmed."
+    }
   }
 ]

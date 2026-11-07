@@ -60,7 +60,7 @@ for(const r of records){
  route=(r.locale==='zh'?'/zh':'')+route;
  if(output.some(o=>o.route===route)){row.target=route;row.decision='Consolidated: canonical public version already imported';continue;}
  const date=r.meta.date?String(r.meta.date).slice(0,10):undefined;
- const entry={id:r.locale+'-'+r.key.replaceAll('/','-'),route,kind,title:sanitize(r.meta.article_title??r.meta.title??r.stem),description:sanitize(r.meta.description??r.meta.summary??''),locale:r.locale,...(date?{date}:{}),body,source:r.original,translationKey:r.key,aliases:[originalRoute],status};
+ const entry={id:r.locale+'-'+r.key.replaceAll('/','-'),route,kind,title:sanitize(r.meta.article_title??r.meta.title??r.stem),description:sanitize(r.meta.description??r.meta.summary??''),locale:r.locale,...(date?{date}:{}),body,source:r.original,translationKey:r.key,aliases:[originalRoute],status,publicationStatus:'draft'};
  const cover=r.meta.cover??r.meta.banner;
  if(cover?.endsWith('/cybersec-2026.jpg')){const asset='/migrated/cybersec-2026.jpg';fs.copyFileSync(path.join(legacy,'notes.nagi.tw/public/assets/images/cybersec-2026.jpg'),path.join(root,'public',asset));entry.cover=asset;}
  output.push(entry);row.target=route;row.decision=/<section\b|<article\b/.test(r.body)?'Migrated: public HTML converted to plain Markdown; layout/scripts removed':'Migrated: published Markdown; identity/contact sanitization';

@@ -1,9 +1,10 @@
 import type { Disclosure } from '../data/disclosures.ts';
+import { publicRecords } from './publication.ts';
 
 /** Fail closed: editorial approval never substitutes for verification or consent. */
 export function getPublicDisclosures(records: readonly Disclosure[]): Disclosure[] {
-  return records.filter((record) => {
-    if (!record || record.workflow !== 'Published' || !['Verified', 'Remediated', 'Public Disclosure'].includes(record.status)
+  return publicRecords(records).filter((record) => {
+    if (!record || !['Verified', 'Remediated', 'Public Disclosure'].includes(record.status)
       || record.verified !== true || record.publicAuthorization !== true) return false;
     if (!/^ZD-\d{4}-\d{5}$/.test(record.id) || record.id.slice(3, 7) !== record.year
       || !['Web', 'IoT'].includes(record.category) || !['Low', 'Medium', 'High'].includes(record.severity)) return false;

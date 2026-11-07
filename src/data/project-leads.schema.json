@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project documentation leads",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "slug",
+      "evidence",
+      "publicationStatus"
+    ],
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "slug": {
+        "type": "string"
+      },
+      "evidence": {
+        "type": "boolean"
+      },
+      "developmentStatus": {
+        "description": "Project lifecycle, independent of website publication. Omit when not confirmed.",
+        "enum": [
+          "active-development",
+          "maintained",
+          "completed",
+          "paused",
+          "archived"
+        ]
+      },
+      "publicationStatus": {
+        "description": "Website editorial status. Changing this to published requires explicit owner confirmation; development activity and evidence do not grant publication approval.",
+        "enum": [
+          "draft",
+          "review",
+          "published"
+        ],
+        "default": "draft"
+      },
+      "introduction": {
+        "type": "object",
+        "required": [
+          "zh",
+          "en"
+        ],
+        "properties": {
+          "zh": {
+            "type": "string"
+          },
+          "en": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "architecture": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "zh": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "role": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "zh": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "projectType": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string"
+          },
+          "zh": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "contributions": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "zh": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "projectResults": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "zh": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "verifiedResults": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "zh": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "github": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https://"
+      },
+      "demo": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https://"
+      },
+      "tools": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}

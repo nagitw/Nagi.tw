@@ -5,7 +5,7 @@ const root = resolve(process.env.VALIDATE_DIR || 'dist');
 const base = (process.env.SITE_BASE || '/').replace(/\/$/, '');
 const walk = dir => readdirSync(dir, { withFileTypes: true }).flatMap(item => item.isDirectory() ? walk(join(dir, item.name)) : [join(dir, item.name)]);
 const files = walk(root).filter(file => file.endsWith('.html'));
-assert.ok(files.length >= 94, 'Bilingual content, missing-edition notices and project leads built');
+assert.ok(files.length >= 20, 'Core bilingual pages built');
 const sitemap = readFileSync(join(root, 'sitemap-0.xml'), 'utf8');
 const titles = new Set();
 for (const file of files) {

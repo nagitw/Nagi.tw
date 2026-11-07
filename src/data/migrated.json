@@ -12,7 +12,8 @@
     "aliases": [
       "/archive/"
     ],
-    "status": "archival summary"
+    "status": "archival summary",
+    "publicationStatus": "published"
   },
   {
     "id": "en-archive",
@@ -27,7 +28,8 @@
     "aliases": [
       "/en/archive/"
     ],
-    "status": "archival summary"
+    "status": "archival summary",
+    "publicationStatus": "published"
   },
   {
     "id": "en-research",
@@ -42,7 +44,8 @@
     "aliases": [
       "/en/research/"
     ],
-    "status": "archival direction"
+    "status": "archival direction",
+    "publicationStatus": "published"
   },
   {
     "id": "en-systems-home-lab",
@@ -57,7 +60,8 @@
     "aliases": [
       "/en/systems/home-lab/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-systems-medtrust",
@@ -72,7 +76,8 @@
     "aliases": [
       "/en/systems/medtrust/"
     ],
-    "status": "prototype / public summary"
+    "status": "prototype / public summary",
+    "publicationStatus": "published"
   },
   {
     "id": "en-uses",
@@ -87,7 +92,8 @@
     "aliases": [
       "/en/uses/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-experience-awards",
@@ -102,7 +108,8 @@
     "aliases": [
       "/experience/awards/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-experience-certifications",
@@ -117,7 +124,8 @@
     "aliases": [
       "/experience/certifications/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-experience-ctf",
@@ -132,7 +140,8 @@
     "aliases": [
       "/experience/ctf/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-experience-workshops",
@@ -147,7 +156,8 @@
     "aliases": [
       "/experience/workshops/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-journal-series-medtrust-00",
@@ -163,7 +173,8 @@
     "aliases": [
       "/journal/series/medtrust/00/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-journal-series-medtrust-01",
@@ -179,7 +190,8 @@
     "aliases": [
       "/journal/series/medtrust/01/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-labs-ctf-web-practice",
@@ -194,7 +206,8 @@
     "aliases": [
       "/labs/ctf-web-practice/"
     ],
-    "status": "archived learning note"
+    "status": "archived learning note",
+    "publicationStatus": "published"
   },
   {
     "id": "en-labs-esp32-uart-test",
@@ -209,7 +222,8 @@
     "aliases": [
       "/labs/esp32-uart-test/"
     ],
-    "status": "completed learning note"
+    "status": "completed learning note",
+    "publicationStatus": "published"
   },
   {
     "id": "en-labs-medical-cybersecurity-research",
@@ -224,7 +238,8 @@
     "aliases": [
       "/labs/medical-cybersecurity-research/"
     ],
-    "status": "early research / public summary"
+    "status": "early research / public summary",
+    "publicationStatus": "published"
   },
   {
     "id": "en-labs-ros2-topic-communication",
@@ -239,7 +254,8 @@
     "aliases": [
       "/labs/ros2-topic-communication/"
     ],
-    "status": "learning plan / in progress"
+    "status": "learning plan / in progress",
+    "publicationStatus": "published"
   },
   {
     "id": "en-labs-web-security",
@@ -254,7 +270,8 @@
     "aliases": [
       "/labs/web-security/"
     ],
-    "status": "learning plan"
+    "status": "learning plan",
+    "publicationStatus": "published"
   },
   {
     "id": "en-projects-autonomous-robot",
@@ -269,7 +286,8 @@
     "aliases": [
       "/projects/autonomous-robot/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-projects-medical-cybersecurity",
@@ -284,7 +302,8 @@
     "aliases": [
       "/projects/medical-cybersecurity/"
     ],
-    "status": "early research / public summary"
+    "status": "early research / public summary",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-research",
@@ -299,7 +318,8 @@
     "aliases": [
       "/research/"
     ],
-    "status": "archival direction"
+    "status": "archival direction",
+    "publicationStatus": "published"
   },
   {
     "id": "en-systems-home-lab-infrastructure",
@@ -314,7 +334,8 @@
     "aliases": [
       "/systems/home-lab-infrastructure/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-systems-home-lab",
@@ -329,7 +350,8 @@
     "aliases": [
       "/systems/home-lab/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-systems-medtrust",
@@ -344,7 +366,8 @@
     "aliases": [
       "/systems/medtrust/"
     ],
-    "status": "prototype / public summary"
+    "status": "prototype / public summary",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-uses",
@@ -359,7 +382,8 @@
     "aliases": [
       "/uses/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-experience-awards",
@@ -374,7 +398,8 @@
     "aliases": [
       "/zh/experience/awards/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-experience-certifications",
@@ -389,7 +414,8 @@
     "aliases": [
       "/zh/experience/certifications/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-experience-ctf",
@@ -404,7 +430,8 @@
     "aliases": [
       "/zh/experience/ctf/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-experience-workshops",
@@ -419,7 +446,8 @@
     "aliases": [
       "/zh/experience/workshops/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-labs-ctf-web-practice",
@@ -434,7 +462,8 @@
     "aliases": [
       "/zh/labs/ctf-web-practice/"
     ],
-    "status": "archived learning note"
+    "status": "archived learning note",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-labs-esp32-uart-test",
@@ -449,7 +478,8 @@
     "aliases": [
       "/zh/labs/esp32-uart-test/"
     ],
-    "status": "completed learning note"
+    "status": "completed learning note",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-labs-medical-cybersecurity-research",
@@ -464,7 +494,8 @@
     "aliases": [
       "/zh/labs/medical-cybersecurity-research/"
     ],
-    "status": "early research / public summary"
+    "status": "early research / public summary",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-labs-ros2-topic-communication",
@@ -479,7 +510,8 @@
     "aliases": [
       "/zh/labs/ros2-topic-communication/"
     ],
-    "status": "learning plan / in progress"
+    "status": "learning plan / in progress",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-labs-web-security",
@@ -494,7 +526,8 @@
     "aliases": [
       "/zh/labs/web-security/"
     ],
-    "status": "learning plan"
+    "status": "learning plan",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-projects-autonomous-robot",
@@ -509,7 +542,8 @@
     "aliases": [
       "/zh/projects/autonomous-robot/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-projects-medical-cybersecurity",
@@ -524,7 +558,8 @@
     "aliases": [
       "/zh/projects/medical-cybersecurity/"
     ],
-    "status": "early research / public summary"
+    "status": "early research / public summary",
+    "publicationStatus": "published"
   },
   {
     "id": "en-ctf-meets-malware-analysis-windows",
@@ -541,7 +576,8 @@
       "https://notes.nagi.tw/en/articles/ctf-meets-malware-analysis-windows/",
       "/2026/07/08/ctf-meets-malware-analysis-windows/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-ctf-meets-malware-analysis-windows",
@@ -558,7 +594,8 @@
       "https://notes.nagi.tw/articles/ctf-meets-malware-analysis-windows/",
       "/zh/2026/07/08/ctf-meets-malware-analysis-windows/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-frc-engineering-team",
@@ -574,7 +611,8 @@
     "aliases": [
       "https://notes.nagi.tw/articles/frc-engineering-team/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-first-hackathon-in-university",
@@ -590,7 +628,8 @@
     "aliases": [
       "https://notes.nagi.tw/articles/first-hackathon-in-university/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-not-everyone-has-to-walk-the-same-road",
@@ -606,7 +645,8 @@
     "aliases": [
       "https://notes.nagi.tw/articles/not-everyone-has-to-walk-the-same-road/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-prologue-the-people-i-met-along-the-way",
@@ -622,7 +662,8 @@
     "aliases": [
       "https://notes.nagi.tw/articles/prologue-the-people-i-met-along-the-way/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-ten-years-from-now-dont-forget-who-you-are-now",
@@ -638,7 +679,8 @@
     "aliases": [
       "https://notes.nagi.tw/articles/ten-years-from-now-dont-forget-who-you-are-now/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-recent-projects-and-life-update",
@@ -655,7 +697,8 @@
       "https://notes.nagi.tw/articles/recent-projects-and-life-update/",
       "/zh/2026/09/04/recent-projects-and-life-update/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-infosec-taiwan-2026-student-industry-gap",
@@ -672,7 +715,8 @@
       "https://notes.nagi.tw/en/articles/infosec-taiwan-2026-student-industry-gap/",
       "/2026/07/07/infosec-taiwan-2026-student-industry-gap/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-infosec-taiwan-2026-student-industry-gap",
@@ -689,7 +733,8 @@
       "https://notes.nagi.tw/articles/infosec-taiwan-2026-student-industry-gap/",
       "/zh/2026/07/07/infosec-taiwan-2026-student-industry-gap/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "en-nurse-made-me-rethink-medical-cybersecurity",
@@ -706,7 +751,8 @@
       "https://notes.nagi.tw/en/articles/nurse-made-me-rethink-medical-cybersecurity/",
       "/2026/06/23/nurse-made-me-rethink-medical-cybersecurity/"
     ],
-    "status": "early research / public summary"
+    "status": "early research / public summary",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-nurse-made-me-rethink-medical-cybersecurity",
@@ -723,7 +769,8 @@
       "https://notes.nagi.tw/articles/nurse-made-me-rethink-medical-cybersecurity/",
       "/zh/2026/06/23/nurse-made-me-rethink-medical-cybersecurity/"
     ],
-    "status": "early research / public summary"
+    "status": "early research / public summary",
+    "publicationStatus": "published"
   },
   {
     "id": "en-2026-security-conference",
@@ -741,7 +788,8 @@
       "/2026/05/09/2026-security-conference/"
     ],
     "status": "published",
-    "cover": "/migrated/cybersec-2026.jpg"
+    "cover": "/migrated/cybersec-2026.jpg",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-2026-security-conference",
@@ -759,7 +807,8 @@
       "/zh/2026/05/09/2026-security-conference/"
     ],
     "status": "published",
-    "cover": "/migrated/cybersec-2026.jpg"
+    "cover": "/migrated/cybersec-2026.jpg",
+    "publicationStatus": "published"
   },
   {
     "id": "en-retail-work-sme-security-culture",
@@ -776,7 +825,8 @@
       "https://notes.nagi.tw/en/articles/retail-work-sme-security-culture/",
       "/2026/07/18/retail-work-sme-security-culture/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   },
   {
     "id": "zh-retail-work-sme-security-culture",
@@ -793,6 +843,7 @@
       "https://notes.nagi.tw/articles/retail-work-sme-security-culture/",
       "/zh/2026/07/18/retail-work-sme-security-culture/"
     ],
-    "status": "published"
+    "status": "published",
+    "publicationStatus": "published"
   }
 ]

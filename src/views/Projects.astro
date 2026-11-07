@@ -1,24 +1,36 @@
 ---
-import leads from '../data/project-leads.json';
 import { localPath } from '../i18n/ui';
-import ContentIndex from '../components/ContentIndex.astro';
+import WorkCard from '../components/WorkCard.astro';
+import WorkFacts from '../components/WorkFacts.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getProjects } from '../data/projects';
+import { content } from '../lib/content';
+import { catalogEntries } from '../lib/catalog';
+import '../styles/work.css';
 import { ui, type Locale } from '../i18n/ui';
 interface Props { locale?: Locale }
 const { locale = 'en' } = Astro.props;
 const copy = ui[locale];
 const projects = getProjects(locale);
+const entries = catalogEntries(content, locale, ['project']);
+const featured = projects.find(p => p.id === 'medtrust');
+const medtrust = entries.find(entry => entry.path === '/systems/medtrust/');
+const remaining = entries.filter(entry => !featured || !medtrust || entry.path !== medtrust.path);
+const zh = locale === 'zh';
 
 ---
 <BaseLayout locale={locale} title={copy.projects} description={copy.projectsDescription}>
-  <header class="page-heading"><p class="eyebrow">{copy.projects}</p><h1>{copy.projects}</h1><p class="intro">{copy.projectsIntro}</p></header>
-  {projects.map((project) => <article class="detail-record" id={project.id}>
-    <p class="meta">{project.category} · {project.status}</p><h2>{project.title}</h2>
-    <p class="question">{project.summary}</p><p>{project.details}</p>
-    {project.tools.length > 0 && <ul class="tools" aria-label={`${project.title} ${copy.technologies}`}>{project.tools.map((tool) => <li>{tool}</li>)}</ul>}
-    {project.limitations.length > 0 && <aside class="scope" aria-label={`${project.title} ${copy.limitations}`}><h3>{copy.limitations}</h3><ul>{project.limitations.map((limitation) => <li>{limitation}</li>)}</ul></aside>}
-  </article>)}
-<ContentIndex locale={locale} kinds={['project']} />
-<section class="section"><h2>{locale === 'zh' ? '專案資料待補充' : 'Project documentation pending'}</h2><p>{locale === 'zh' ? '以下名稱是待整理線索；沒有足夠公開資料時，不列為已完成成果。' : 'These names are documentation leads, not completed achievements.'}</p>{leads.map(project => <article class="record"><h3><a href={localPath(`/projects/${project.slug}/`, locale)}>{project.name}</a></h3></article>)}</section>
+  <header class="page-heading"><p class="eyebrow">Penguin Interactive Studio / {zh ? '工程作品' : 'Engineering work'}</p><h1>{copy.projects}</h1><p class="intro">{copy.projectsIntro}</p>
+    <nav class="work-nav" aria-label={zh ? '專案與研究導覽' : 'Projects and research'}><a href={localPath('/research/', locale)}>{zh ? '探索研究紀錄' : 'Explore research'} <span aria-hidden="true">↗</span></a><a href={localPath('/technical-reports/', locale)}>{zh ? '閱讀技術報告' : 'Technical reports'} <span aria-hidden="true">→</span></a></nav>
+  </header>
+  {featured && medtrust && <article class="featured-work" id="medtrust" aria-labelledby="medtrust-title">
+    <div><p class="eyebrow">{zh ? '精選專案 / 醫療 IoT' : 'Selected work / Medical IoT'}</p><h2 id="medtrust-title">{featured.title}</h2><span class="work-phase">{featured.status}</span><p class="work-summary" style="margin-top:1rem">{featured.summary}</p>
+      <ul class="work-tags" aria-label={copy.technologies}>{featured.tools.map(tool => <li>{tool}</li>)}</ul>
+      <WorkFacts entry={medtrust} locale={locale} />
+      <div class="work-actions"><a class="primary-link" href={localPath(medtrust.path, medtrust.record.locale as Locale)}>{zh ? '專案概覽與技術架構' : 'Overview & architecture'} <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div><p class="work-summary">{featured.details}</p><aside class="scope"><h3>{copy.limitations}</h3><ul>{featured.limitations.map(limitation => <li>{limitation}</li>)}</ul></aside></div>
+  </article>}
+  {remaining.length > 0 && <section class="work-section" aria-labelledby="project-records"><div class="work-section-heading"><h2 id="project-records">{zh ? '系統與實作' : 'Systems & experiments'}</h2><p>{zh ? '從問題出發，留下實作與取捨。' : 'Built around a question. Documented with its tradeoffs.'}</p></div><div class="work-grid">{remaining.map(entry => <WorkCard entry={entry} locale={locale} />)}</div></section>}
+  {entries.length === 0 && <p class="work-empty">{zh ? '目前尚無已發布的專案紀錄。' : 'No project records have been published yet.'}</p>}
 </BaseLayout>

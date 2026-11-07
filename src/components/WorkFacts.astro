@@ -1,0 +1,14 @@
+---
+import type { CatalogEntry } from '../lib/catalog';
+import type { Locale } from '../i18n/ui';
+interface Props { entry: CatalogEntry; locale: Locale }
+const { entry, locale } = Astro.props;
+const zh = locale === 'zh';
+---
+{(entry.role || entry.contributions.length || entry.outcomes || entry.verifiedResults.length || entry.projectResults.length) && <dl class="work-facts">
+  {entry.role && <div><dt>{zh ? '我的角色' : 'My role'}</dt><dd>{entry.role}</dd></div>}
+  {entry.contributions.length > 0 && <div><dt>{zh ? '個人貢獻' : 'My contributions'}</dt><dd><ul>{entry.contributions.map(item => <li>{item}</li>)}</ul></dd></div>}
+  {entry.outcomes && <div><dt>{zh ? '紀錄成果與限制' : 'Documented outcomes & limits'}</dt><dd>{entry.outcomes}</dd></div>}
+  {entry.verifiedResults.length > 0 && <div><dt>{zh ? '個人已驗證成果' : 'My verified results'}</dt><dd><ul>{entry.verifiedResults.map(item => <li>{item}</li>)}</ul></dd></div>}
+  {entry.projectResults.length > 0 && <div><dt>{zh ? '整體專案成果（非個人貢獻）' : 'Overall project results (not personal contributions)'}</dt><dd><ul>{entry.projectResults.map(item => <li>{item}</li>)}</ul></dd></div>}
+</dl>}

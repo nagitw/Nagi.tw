@@ -1,5 +1,31 @@
 # Nagi.tw V3 — Integration & Production Readiness
 
+## 2026-11-07 — Security Research Portfolio refinement
+
+This section supersedes earlier route counts and placeholder behavior below.
+
+- Continued the existing uncommitted Projects/Research implementation on `feat/nagi-v2`; no reset, checkout, stash, source-body replacement or homepage redesign. Existing task changes are retained in the local delivery commit.
+- Information architecture reference: [Vincent55 CV](https://vincent55.tw/), consulted for category/date/evidence organization only. No reference code, CSS, copy, images or brand elements were reused.
+- Projects: bilingual cards, selected MedTrust overview, responsive technology tags, contextual navigation and independently approved related articles. Added explicit personal role/contribution and documented outcome/limitation sections based on existing project prose. Personal verified results and overall project results are separate fields; missing GitHub, demo or evidence URLs are not invented.
+- Nagi CLI remains `active-development` + `draft`; BugTraceAI CLI remains `maintained` + `draft`. BugTraceAI participation does not imply sole authorship. Draft project routes, including old placeholders, are absent from public output.
+- Research: actual records grouped into Medical/IoT, Web, CTF practice and embedded work. Research Project, Technical Report, Lab Experiment, Research Notes and optional Security Write-up vocabulary is supported. No write-up is invented merely to populate a type. 5G stays an exploratory direction; no B5G/6G/AI research publication or completed result is manufactured.
+- Publication: explicit `published` selection feeds article routes, aliases, cards, related articles, search, RSS, sitemap and `knowledge.json`. Missing status fails closed. Existing approved experience entries now carry explicit publication status; no new experience was added. OSCP remains excluded, even if accidentally flagged published. No draft source data is imported into client scripts.
+- CV: repository-only [inventory, minimal model and confirmation queue](cv-structure.md). No new competition, talk, teaching, community, employment or disclosure record was published. Dates, organizations, rankings and teams remain subject to source verification.
+- Visuals: retained original penguin SVG/interaction, homepage, theme tokens and bilingual navigation. Cards stack on narrow viewports, tags wrap, article tables scroll locally, and long text wraps. Removed the work-card hover translation; no new animation.
+- Independent review found and resolved a future publication-test false positive for approved project leads and outdated authoring guidance. No current private content exposure was found in reviewed paths.
+
+### Verification
+
+- `npm run check` and build-integrated Astro Check: 0 errors, 0 warnings, 0 hints (71 files after refinement).
+- `npm run build`: passed, 71 pages; `npm run typecheck`: passed.
+- `npm test`: passed, including publication selectors, attribution metadata, RSS, Penguin behavior, API endpoint validation, disclosures, article rendering, RSS success/failure fixtures and `/studio/` base-path builds. Initial sandbox run encountered `spawn EPERM`; authorized retry passed. The fixture's RSS 503 warning is intentional.
+- `npm run validate`: passed route/SEO/internal-link/anchor checks, bilingual alternates, preserved SVG, identity fingerprints, withdrawn topic scan, sitemap/search/RSS membership and Projects/Research checks.
+- `scripts/test-publication-build.mjs`: scans built HTML/JSON/XML/JS/source maps/text/CSS/SVG for private route references and draft source payloads; checks public AI manifest membership against approved editions.
+- `git diff --check`: passed. Original homepage and penguin files were not changed.
+- Browser access host was unavailable. Desktop/mobile screenshots, runtime theme/keyboard/touch checks and visual overflow inspection are **not verified**. No Lighthouse/Core Web Vitals claims. The external Penguin API backend was not changed or validated; the generated public manifest is the approved source boundary for future ingestion.
+- No push, merge or deploy. Full local commit file inventory: [refinement-files.md](refinement-files.md).
+
+
 驗收日期：2026-11-06。這份報告取代前一版 V3 報告中的公開研究系列與測試結果；未推送、合併或部署。
 
 ## 起始盤點

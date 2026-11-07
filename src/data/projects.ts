@@ -1,5 +1,8 @@
 import type { Locale } from '../i18n/ui';
+import { publicRecords, type PublicationStatus, type DevelopmentStatus } from '../lib/publication';
 export interface Project {
+  publicationStatus?: PublicationStatus;
+  developmentStatus?: DevelopmentStatus;
   id: string;
   title: string;
   category: string;
@@ -14,7 +17,7 @@ export interface Project {
 
 const zhProjects: readonly Project[] = [
   {
-    id: 'medtrust', title: 'MedTrust', category: 'Medical IoT', status: '原型', featured: true,
+    id: 'medtrust', title: 'MedTrust', category: 'Medical IoT', status: '原型', featured: true, publicationStatus: 'published',
     summary: '檢查醫療 IoT 訊息與匯出實驗證據一致性的原型，以 Gateway 作為訊息驗證邊界。',
     details: '目前記錄的流程串接 ESP32-S3、FastAPI Gateway 與 SQLite，並包含儀表板、證據封裝與離線驗證工具。測試情境區分有效訊息、無效簽章、未知裝置、錯誤金鑰與重放攻擊。',
     tools: ['ESP32-S3', 'FastAPI', 'SQLite', 'HMAC-SHA256'],
@@ -29,4 +32,4 @@ export const projects: readonly Project[] = zhProjects.map((project) => ({
   details: 'The documented workflow connects ESP32-S3 devices to a FastAPI gateway and SQLite, with a dashboard, evidence packages, and an offline verifier. Test scenarios distinguish valid messages, invalid signatures, unknown devices, wrong keys, and replay attempts.',
   limitations: ['The current claim is integrity consistency only.', 'Does not provide Digital Signature, Identity Proof, or Non-repudiation.', 'A research prototype, not a hospital or nursing platform. Public test evidence and build verification records are not yet provided.'],
 }));
-export const getProjects = (locale: Locale): readonly Project[] => locale === 'zh' ? zhProjects : projects;
+export const getProjects = (locale: Locale): readonly Project[] => publicRecords(locale === 'zh' ? zhProjects : projects);
