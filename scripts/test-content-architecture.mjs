@@ -27,7 +27,7 @@ const events = [
   { id: 'month', year: '2026', datePrecision: 'month', eventDate: '2026-12' },
   { id: 'undated25', year: '2025', datePrecision: 'year' },
 ];
-assert.deepEqual(sortEvents(events).map(e=>e.id), ['late','early','month','undated26','undated25','old']);
+assert.deepEqual(sortEvents(events).map(e=>e.id), ['month','late','early','undated26','undated25','old']);
 assert.deepEqual(sortEvents([...events].reverse()), sortEvents(events), 'Input order is never the chronological key');
 const prose = '# Events\n\n### Older\n\n* Year: 2025\n* Role: Attendee\n\n### Newer\n\n* Year: 2026\n* Role: Student';
 assert.ok(sortExperienceBody(prose, 'en').indexOf('### Newer') < sortExperienceBody(prose, 'en').indexOf('### Older'));

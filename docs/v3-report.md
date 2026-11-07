@@ -107,3 +107,13 @@ This section supersedes earlier route counts and placeholder behavior below.
 ## 修改檔案
 
 完整清單見 [v3-files.md](v3-files.md)。起始既有修改納入本次網站快照，舊 phase2 計畫僅保留為歷史紀錄；本報告描述實際交付。
+
+## Complete Experience Archive — 2026-11-07
+
+- Recovered 79 draft source assertions from every audit table row, historical editions, teaching/support claims and unresolved aliases. This is not a count of verified attended events. See `experience-master-list.md`, `experience-conflicts.md`, and `src/data/experience-archive.json`.
+- Compared legacy HEAD experience JSON, the original About snapshot (`3801cc5`), and the historical Experience inventory (`1a5573c`); exact source paths/snapshots are retained per record and in the audit. No external organizer verification was performed.
+- Preserved all eight approved bilingual snapshots. Recovered records and fields remain draft, including InfoSec 2026's exact date. Verification and publication are separate gates; candidate-only records cannot publish even when publicationStatus is accidentally set to published. Existing migrated articles retain their prior state; the teaching/prose boundary inconsistency remains explicitly documented for review.
+- Six category filters, descending years, chronological dated entries followed by year-only entries, bilingual labels, conditional awards/ranks/evidence links and narrow-screen layout use the existing Penguin studio design. No homepage penguin changes.
+- Astro Check: 80 files, zero errors/warnings/hints. TypeScript passed. Production build: 69 pages. Full npm test passed after sandbox spawn EPERM required an approved rerun; tests include repository-base build and expected HTTP error fixtures. npm run validate and Experience artifact scan passed across public HTML, JS, JSON, RSS, sitemap and AI output. git diff --check passed.
+- Independent code review found no important issues. Browser interaction and visual desktop/mobile QA were not performed; responsive CSS and rendered static structure were checked, without claiming a browser visual pass.
+- Historical conflicts remain unresolved intentionally: edition years, aliases, official award names/divisions, ranking units, roles and evidence URLs need user confirmation before any new publication. No push, merge or deployment.

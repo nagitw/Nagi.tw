@@ -1,29 +1,37 @@
 export type DatePrecision = 'day' | 'month' | 'year';
 export interface EventDate { year: string; eventDate?: string; datePrecision: DatePrecision }
-export type ExperienceCategory = 'Competitions' | 'Training / Workshops' | 'Conferences' | 'Talks' | 'Teaching';
-/** One edition/session per event; divisions and awards are results, not extra events. */
-export interface EventRecord extends EventDate {
+export type ExperienceCategory = 'competitions' | 'ctf' | 'training' | 'conferences' | 'speaking' | 'teaching';
+export type VerificationStatus = 'confirmed' | 'source-recorded' | 'conflicted' | 'candidate-only';
+export interface ArchiveRecord {
   id: string;
-  eventId: string;
-  title: string;
+  titleZh: string;
+  titleEn: string;
   category: ExperienceCategory;
+  year: string | null;
+  eventDate?: string;
+  datePrecision: DatePrecision;
   role: string;
-  organization?: string;
+  award?: string;
+  placement?: number;
+  totalParticipants?: number;
+  rankingUnit: 'individual' | 'team' | 'unknown';
+  team?: string;
+  organizer?: string;
+  evidenceUrls: string[];
+  sourceReferences: string[];
+  verificationStatus: VerificationStatus;
   publicationStatus: 'draft' | 'review' | 'published';
-  evidenceUrl?: string;
-  results?: readonly {
-    division?: string;
-    team?: string;
-    placement?: string;
-    totalTeams?: number;
-    award?: string;
-    evidenceUrl?: string;
-  }[];
+  sourceAssertion: string;
+  reviewNotes: string;
 }
+/** Both decisions are mandatory. Approval of an older snapshot never approves recovered fields. */
+export function publicExperience<T extends { publicationStatus?: string; verificationStatus?: string }>(records: readonly T[]): T[] {
+  return records.filter(record => record.publicationStatus === 'published' && record.verificationStatus === 'confirmed');
+}
+export type EventRecord = ArchiveRecord;
 export function sortEvents<T extends EventDate & { id?: string; title?: string }>(events: readonly T[]): T[] {
-  const precision = { day: 0, month: 1, year: 2 };
   return [...events].sort((a, b) => b.year.localeCompare(a.year)
-    || precision[a.datePrecision] - precision[b.datePrecision]
+    || Number(a.datePrecision === 'year') - Number(b.datePrecision === 'year')
     || (b.eventDate ?? '').localeCompare(a.eventDate ?? '')
     || (a.id ?? a.title ?? '').localeCompare(b.id ?? b.title ?? ''));
 }
