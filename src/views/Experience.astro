@@ -8,14 +8,19 @@ const { locale = 'en' } = Astro.props;
 const copy = ui[locale];
 const experience = getExperience(locale);
 const years = [...new Set(experience.map((entry) => entry.year))].sort().reverse();
+const zh = locale === 'zh';
+const categories: Record<string, string> = { Competitions: '競賽', 'Training / Workshops': '培訓／工作坊', Conferences: '研討會', Talks: '演講', Teaching: '教學' };
 ---
 <BaseLayout locale={locale} title={copy.experience} description={copy.experienceDescription}>
   <header class="page-heading"><p class="eyebrow">{copy.experience}</p><h1>{copy.experience}</h1><p class="intro">{copy.experienceIntro}</p></header>
   {years.map((year) => <section class="section" aria-labelledby={`year-${year}`}>
     <div class="section-heading"><h2 id={`year-${year}`}>{year}</h2></div>
-    {experience.filter((entry) => entry.year === year).map((entry) => <article class="experience-row">
-      <span class="meta">{entry.year}</span><div><p class="meta">{entry.category}</p><h3>{entry.title}</h3><p>{entry.role}{entry.organization && ` · ${entry.organization}`}</p></div>
-    </article>)}
+    {(['day', 'month', 'year'] as const).map(precision => {
+      const items = experience.filter(entry => entry.year === year && entry.datePrecision === precision);
+      return items.length > 0 && <section><h3>{precision === 'year' ? (zh ? '日期未定' : 'Date unspecified') : precision === 'month' ? (zh ? '僅確認月份' : 'Month confirmed') : (zh ? '日期已確認' : 'Date confirmed')}</h3>{items.map(entry => <article class="experience-row" data-event-year={entry.year} data-date-precision={entry.datePrecision}>
+        <span class="meta">{entry.eventDate ?? entry.year}</span><div><p class="meta">{zh ? categories[entry.category] : entry.category}</p><h4>{entry.title}</h4><p>{entry.role}{entry.organization && ` · ${entry.organization}`}</p></div>
+      </article>)}</section>;
+    })}
   </section>)}
 <ContentIndex locale={locale} kinds={['experience']} />
 </BaseLayout>

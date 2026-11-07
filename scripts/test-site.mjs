@@ -32,7 +32,7 @@ try {
     });
     assert.equal(exit, 0, `Build with ${mode}`);
     if (mode === 'base') {
-      for (const script of ['scripts/validate-build.mjs', 'scripts/test-language.mjs', 'scripts/test-privacy.mjs', 'scripts/test-indexes.mjs', 'scripts/test-work-pages.mjs']) {
+      for (const script of ['scripts/validate-build.mjs', 'scripts/test-language.mjs', 'scripts/test-privacy.mjs', 'scripts/test-indexes.mjs', 'scripts/test-work-pages.mjs', 'scripts/test-content-build.mjs']) {
         const code = await new Promise((resolve, reject) => {
           const child = spawn(process.execPath, [script], { cwd: root, env: { ...process.env, SITE_BASE: '/studio/', VALIDATE_DIR: output }, stdio: 'inherit' });
           child.on('error', reject); child.on('close', resolve);

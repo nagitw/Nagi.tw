@@ -28,12 +28,11 @@ export const navigation: readonly SiteLink[] = [
   { label: 'Journal', href: '/journal/' },
   { label: 'Technical Reports', href: '/technical-reports/' },
   { label: 'About', href: '/about/' },
-  { label: 'Roadmap', href: '/roadmap/' },
   { label: 'Experience', href: '/experience/' },
   { label: 'Security Disclosures', href: '/security/disclosures/' },
   { label: 'Contact', href: '/contact/' },
 ];
 export const getNavigation = (locale: Locale): readonly SiteLink[] => {
-  const labels = ['首頁', '研究', '專案', '日誌', '技術報告', '關於', '未來計畫', '經歷', '漏洞揭露', '聯絡'];
+  const labels = ['首頁', '研究', '專案', '日誌', '技術報告', '關於', '經歷', '漏洞揭露', '聯絡'];
   return navigation.map((link, index) => ({ label: locale === 'zh' ? labels[index]! : link.label, href: localPath(link.href, locale) }));
 };

@@ -1,17 +1,17 @@
 ---
 import ContentIndex from '../components/ContentIndex.astro';
+import JournalIndex from '../components/JournalIndex.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getSite } from '../data/site';
 import { localPath, type Locale } from '../i18n/ui';
 interface Props { locale?: Locale; page: string }
 const { locale = 'en', page } = Astro.props;
 const zh = locale === 'zh'; const site = getSite(locale);
-const titles: Record<string, string> = { journal: zh ? '學習日誌' : 'Journal', 'technical-reports': zh ? '技術報告' : 'Technical Reports', about: zh ? '關於 Nagi' : 'About Nagi', roadmap: zh ? '未來計畫' : 'Roadmap' };
+const titles: Record<string, string> = { journal: zh ? '學習日誌' : 'Journal', 'technical-reports': zh ? '技術報告' : 'Technical Reports', about: zh ? '關於 Nagi' : 'About Nagi' };
 const descriptions: Record<string, string> = {
-  journal: zh ? '記錄學習過程中的問題、理解與下一步。' : 'Questions, discoveries and next steps from a practice of learning.',
+  journal: zh ? '資安、醫療、人生觀點與心得，依日期閱讀。' : 'Cybersecurity, medical, perspectives and reflections, in date order.',
   'technical-reports': zh ? '讓方法、證據與限制可以被重新檢視。' : 'Methods, evidence and limitations, written to be revisited.',
   about: zh ? '安靜地建立系統，仔細地留下紀錄。' : 'Build quietly. Document carefully.',
-  roadmap: zh ? '公開的方向，不是已完成成果的清單。' : 'An open direction of travel, not a list of completed achievements.',
 };
 ---
 <BaseLayout locale={locale} title={titles[page]!} description={descriptions[page]!}>
@@ -21,9 +21,6 @@ const descriptions: Record<string, string> = {
     <section class="section"><h2>{zh ? '一起交流' : 'Start a conversation'}</h2><p>{zh ? '透過公開筆記、專案與聯絡頁認識我的工作。' : 'Explore the public notes and projects, or get in touch.'}</p><a href={localPath('/contact/', locale)}>{zh ? '聯絡 Nagi' : 'Contact Nagi'} →</a></section>
   </>}
   {page === 'journal' && <section><div class="section-heading"><h2>{zh ? '最新筆記' : 'Latest Journal'}</h2><a href={site.notes}>Notes ↗</a></div></section>}
-  {(page === 'journal' || page === 'technical-reports') && <ContentIndex locale={locale} kinds={page === 'journal' ? ['journal'] : ['report']} />}
-  {page === 'roadmap' && <ol class="roadmap-list">
-    <li><span class="meta">01 / {zh ? '網站 V3' : 'Website V3'}</span><h2>Penguin Interactive Studio</h2><p>{zh ? '雙語網站、原始企鵝互動與 AI 示範介面，等待審查。' : 'Bilingual pages, the original interactive penguin and an AI demo interface, ready for review.'}</p></li>
-    <li><span class="meta">02 / {zh ? '未連接' : 'Not connected'}</span><h2>Penguin AI · Raspberry Pi</h2><p>{zh ? '未來獨立部署的公開知識助理。目前只有前端與 Mock，正式服務、認證、限流與後端檢索仍待實作。' : 'A future independent assistant for public knowledge. Only the frontend and mock exist today; production hosting, authentication, rate limits and backend retrieval remain future work.'}</p></li>
-  </ol>}
+  {page === 'journal' && <JournalIndex locale={locale} />}
+  {page === 'technical-reports' && <ContentIndex locale={locale} kinds={['report']} />}
 </BaseLayout>

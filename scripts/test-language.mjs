@@ -2,7 +2,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 const root = process.env.VALIDATE_DIR || 'dist';
 const base = (process.env.SITE_BASE || '/').replace(/\/$/, '');
-const paths = ['', 'research/', 'projects/', 'journal/', 'technical-reports/', 'about/', 'roadmap/', 'experience/', 'contact/', 'security/disclosures/', 'systems/medtrust/'];
+const paths = ['', 'research/', 'projects/', 'journal/', 'technical-reports/', 'about/', 'experience/', 'contact/', 'security/disclosures/', 'systems/medtrust/'];
 for (const prefix of ['', 'zh/']) {
   for (const path of paths) {
     const html = readFileSync(`${root}/${prefix}${path}index.html`, 'utf8');

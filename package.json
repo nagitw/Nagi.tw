@@ -7,8 +7,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test": "node scripts/test-publication.mjs && node scripts/test-catalog.mjs && node scripts/test-notes-rss.mjs && node scripts/test-penguin.mjs && node scripts/test-api-config.mjs && node scripts/test-disclosures.mjs && node scripts/test-article.mjs && node scripts/test-site.mjs && node scripts/test-publication-build.mjs",
-    "validate": "node scripts/validate-build.mjs && node scripts/test-language.mjs && node scripts/test-privacy.mjs && node scripts/test-indexes.mjs && node scripts/test-work-pages.mjs",
+    "test": "node scripts/test-publication.mjs && node scripts/test-catalog.mjs && node scripts/test-content-architecture.mjs && node scripts/test-notes-rss.mjs && node scripts/test-penguin.mjs && node scripts/test-api-config.mjs && node scripts/test-disclosures.mjs && node scripts/test-article.mjs && node scripts/test-site.mjs && node scripts/test-publication-build.mjs && node scripts/test-content-build.mjs",
+    "validate": "node scripts/validate-build.mjs && node scripts/test-language.mjs && node scripts/test-privacy.mjs && node scripts/test-indexes.mjs && node scripts/test-work-pages.mjs && node scripts/test-content-build.mjs",
     "typecheck": "tsc --noEmit",
     "prebuild": "node scripts/clean-build.mjs"
   },

@@ -41,7 +41,7 @@ interface Metadata {
 // Presentation metadata derived from the existing public records. No inferred lifecycle or results.
 const metadata: Record<string, Metadata> = {
   '/systems/medtrust/': {
-    recordType: 'research-project',
+    recordType: 'project',
     role: { en: 'Prototype author', zh: '原型作者' },
     contributions: { en: ['Documented gateway message checks and exported evidence integrity.'], zh: ['整理 Gateway 訊息檢查與匯出證據完整性的原型流程。'] },
     outcomes: { en: 'The source describes an integrity-consistency prototype. Reproducible public test evidence is pending; no clinical readiness claim.', zh: '原始紀錄描述 integrity consistency 原型；可重現的公開測試證據待補，不宣稱臨床可用。' },
@@ -72,7 +72,7 @@ const metadata: Record<string, Metadata> = {
     phase: { en: 'Early research', zh: '早期研究' },
     related: ['/labs/medical-cybersecurity-research/', '/journal/nurse-made-me-rethink-medical-cybersecurity/'],
   },
-  '/research/archive-notes/': { field: 'iot-security', title: { en: 'Medical IoT trust boundaries', zh: '醫療 IoT 的信任邊界' }, related: ['/systems/medtrust/', '/technical-reports/evidence-integrity-archive/', '/journal/series/medtrust/00/'] },
+  '/research/archive-notes/': { field: 'iot-security', recordType: 'research-project', title: { en: 'Medical IoT trust boundaries', zh: '醫療 IoT 的信任邊界' }, related: ['/systems/medtrust/', '/projects/medical-cybersecurity/', '/labs/medical-cybersecurity-research/', '/technical-reports/evidence-integrity-archive/', '/journal/series/medtrust/00/'] },
   '/technical-reports/evidence-integrity-archive/': { field: 'iot-security', title: { en: 'Evidence integrity: phase archive', zh: '證據完整性：階段紀錄' }, phase: { en: 'Evidence pending', zh: '驗證證據待補' }, related: ['/systems/medtrust/', '/journal/series/medtrust/00/', '/journal/series/medtrust/01/'] },
   '/labs/web-security/': { field: 'web-security', title: { en: 'Web security fundamentals', zh: 'Web 安全基礎' }, phase: { en: 'Learning notes', zh: '學習筆記' } },
   '/labs/ctf-web-practice/': { field: 'ctf-practice', title: { en: 'CTF Web practice', zh: 'CTF Web 實作' }, phase: { en: 'Archived learning note', zh: '封存學習紀錄' }, related: ['/journal/ctf-meets-malware-analysis-windows/'] },
@@ -101,9 +101,14 @@ export function catalogEntries(records: readonly CatalogRecord[], locale: Locale
   }).sort((a, b) => (b.record.date ?? '').localeCompare(a.record.date ?? ''));
 }
 export type CatalogEntry = ReturnType<typeof catalogEntries>[number];
+export function projectEntries(records: readonly CatalogRecord[], locale: Locale) {
+  return catalogEntries(records, locale, ['project']).filter(entry => entry.path !== '/projects/medical-cybersecurity/');
+}
 export function researchGroups(records: readonly CatalogRecord[], locale: Locale) {
   const entries = catalogEntries(records, locale, ['research', 'lab', 'report', 'journal', 'project'])
-    .filter(entry => ['research', 'lab', 'report'].includes(entry.record.kind) || metadata[entry.path]?.recordType === 'research-project' || entry.path === '/journal/ctf-meets-malware-analysis-windows/');
+    .filter(entry => ['research', 'lab', 'report'].includes(entry.record.kind) || entry.path === '/journal/ctf-meets-malware-analysis-windows/')
+    // One entry point for the medical trust topic; notes/report remain linked from its dossier.
+    .filter(entry => !['/labs/medical-cybersecurity-research/', '/technical-reports/evidence-integrity-archive/'].includes(entry.path));
   return (Object.keys(fields) as Field[]).flatMap(id => {
     const items = entries.filter(entry => entry.field === id);
     return items.length ? [{ id, label: fields[id][locale], entries: items }] : [];

@@ -11,7 +11,7 @@ export function getStaticPaths() {
   return [
     { params: { path: undefined }, props: { page: 'overview' } },
     ...['research', 'projects', 'experience', 'contact'].map((page) => ({ params: { path: page }, props: { page } })),
-    ...['journal', 'technical-reports', 'about', 'roadmap'].map(page => ({ params: { path: page }, props: { page, studio: true } })),
+    ...['journal', 'technical-reports', 'about'].map(page => ({ params: { path: page }, props: { page, studio: true } })),
   ];
 }
 const pages = { overview: Overview, research: Research, projects: Projects, experience: Experience, contact: Contact };

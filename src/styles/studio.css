@@ -54,11 +54,6 @@ h3 { font-size: 1.12rem; }
 .scope { border-radius: 0 14px 14px 0; padding: 1.5rem; }
 .scope h2 { font-size: 1rem; margin-bottom: .8rem; }
 .scope p { font-size: .9rem; margin-bottom: 0; }
-.roadmap-list { padding: 0; list-style: none; counter-reset: roadmap; }
-.roadmap-list li { padding: 2rem 0 2rem 2rem; margin: 0; border-left: 1px solid var(--line); position: relative; }
-.roadmap-list li::before { content: ''; position: absolute; left: -5px; top: 2.6rem; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
-.roadmap-list h2 { margin: .8rem 0; }
-.roadmap-list p { max-width: 65ch; color: var(--muted); }
 .ai-invitation { display: flex; align-items: center; justify-content: space-between; gap: 2rem; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 2.5rem; }
 .ai-invitation p:last-child { max-width: 58ch; margin: 1rem 0 0; font-size: .85rem; color: var(--muted); }
 .ai-invitation button { flex-shrink: 0; }

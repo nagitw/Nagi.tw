@@ -26,12 +26,11 @@ export async function* askPenguin(question: string, options: ChatOptions): Async
   options.signal?.throwIfAborted();
   if (options.mode === 'mock') {
     const zh = options.locale === 'zh';
-    const topic = /plan|future|未來|計畫/i.test(question) ? 'roadmap' : /project|專案/i.test(question) ? 'projects' : /recent|working|最近|研究/i.test(question) ? 'research' : 'about';
+    const topic = /project|專案/i.test(question) ? 'projects' : /recent|working|最近|研究/i.test(question) ? 'research' : 'about';
     const answers = {
       about: zh ? 'Nagi 是一名探索資安與系統的學生工程者。這是示範回答；詳細介紹請閱讀 About。' : 'Nagi is a student engineer exploring security and systems. This is a demo answer; read About for the public introduction.',
       research: zh ? '公開研究方向包含通訊安全與嵌入式系統。研究紀錄包含方法與限制。' : 'Public interests include communication security and embedded systems. Research records describe methods and limitations.',
       projects: zh ? '你可以在 Projects 閱讀公開專案介紹、技術背景與限制。本示範不存取任何專案後端或私人資料。' : 'Projects contains public descriptions, technical context and limitations. This demo does not access project backends or private data.',
-      roadmap: zh ? '規劃包括學習日誌與技術報告，以及未來獨立部署的 Raspberry Pi AI。正式公開 API 尚未上線。' : 'Plans include paired learning journals and technical reports, plus a future independent Raspberry Pi AI service. The public API is not yet available.',
     };
     for (const text of answers[topic].match(/.{1,24}/gu) ?? []) {
       await new Promise<void>((resolve) => setTimeout(resolve, 30));

@@ -10,7 +10,7 @@ if (endpoint && !publicApiEndpoint(endpoint)) throw new Error('Penguin API requi
 
 const mode = import.meta.env.PUBLIC_PENGUIN_AI_MODE === 'api' ? 'api' : 'mock';
 if (mode === 'api' && !endpoint) throw new Error('API mode requires an explicit HTTPS endpoint');
-const questions = zh ? ['Nagi 是誰？', '最近在做什麼？', '有哪些專案？', '未來計畫？'] : ['Who is Nagi?', 'What are you working on recently?', 'What projects are there?', 'What are your future plans?'];
+const questions = zh ? ['Nagi 是誰？', '最近在做什麼？', '有哪些專案？'] : ['Who is Nagi?', 'What are you working on recently?', 'What projects are there?'];
 ---
 <button type="button" class="chat-launcher" data-chat-open aria-haspopup="dialog" aria-controls="penguin-chat" hidden>Penguin AI <span aria-hidden="true">↗</span></button>
 <dialog id="penguin-chat" aria-labelledby="chat-title" data-mode={mode} data-endpoint={endpoint} data-locale={locale}>

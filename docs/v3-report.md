@@ -1,5 +1,30 @@
 # Nagi.tw V3 — Integration & Production Readiness
 
+## 2026-11-07 — Content architecture and experience history correction
+
+This latest section supersedes the earlier Research membership and public-plan behavior. Starting tree was clean at `4d84564`; no user edits were discarded.
+
+- Projects now uses an engineering-only selector: MedTrust, Home Lab and autonomous robot remain; the medical-security direction is not listed as an engineering artifact. All original article URLs and publication decisions remain intact.
+- Research has one medical-topic entry, “Medical IoT trust boundaries.” MedTrust, early observations, medical direction and evidence-integrity report remain discoverable as typed related links, not repeated cards. Research notes and technical reports retain their independent pages.
+- Journal has four explicit, mutually exclusive primary categories: 資安 / Cybersecurity, 醫療 / Medical, 人生觀點 / Perspectives and 心得 / Reflections. Thirteen article groups share the same category across translations; optional tags are separate. Filter buttons, article counts, descending dates, summaries, visible original-language fallback and a single-column mobile layout were added. Articles and canonical URLs are preserved; no keyword-based dual classification.
+- Removed both Roadmap routes, navigation labels, chat suggestion/mock answer, homepage invitation to future plans and unused styles. The publication selector also blocks future/roadmap content routes and aliases. Explicit personal-plan sections and sentences in existing articles are omitted by a build-only projection; local source text remains unchanged in `migrated.json`, and the removed standalone plan is retained in local Git history. General industry outlook and historical reflection are not rewritten as achievements.
+- Existing experience rows now distinguish Competitions, Training / Workshops, Conferences, Talks and Teaching. No attendee was promoted to speaker. `eventDate`, `year` and `datePrecision` are separate; sorting is year descending, complete dates descending, month-only dates descending, then the year's undated section. No unknown month/day is filled in. Legacy experience article records are regrouped by year while keeping each record's text, awards and roles.
+- Added an event-edition model with a `results[]` array for divisions/awards, so multiple achievements can belong to one event. No recovered candidates were inserted into production data. Existing published claims remain, including conflicts flagged for owner review; no silent withdrawal or correction of awards.
+- [Experience audit](experience-audit.md) covers current repository and reachable local history, legacy JSON/Markdown and historical sibling source snapshots. It records source hashes, dates/precision, awards/ranks, missing fields, duplicates/conflicts and publication status. Newly found candidates are draft. K17/HITCON CTF participation was not established; conference attendance is not competition evidence. FTC/Ilan/MyFirstCTF years and InnoServe/PowerTech grouping require confirmation.
+- Independent review caught an English personal-plan sentence variant; it was added to source and built-output regression tests before delivery.
+
+### Verification and limits
+
+- Astro Check: 77 files, 0 errors / warnings / hints. `npm run build`: 69 pages. `npm run typecheck`: passed.
+- `npm test`: full suite, including the new content architecture and output checks, plus `/studio/` base-path build. Initial sandbox attempt hit child-process `spawn EPERM`; authorized retry used for the complete suite. RSS 503 warning is the intentional failure fixture.
+- `npm run validate`: route/canonical/anchor checks, bilingual alternates, Journal categories/date order, Research card deduplication, original URL retention, experience year grouping, approved search/RSS/AI membership, draft/OSCP/private-identity scans and plan exclusion.
+- `git diff --check`: passed. Penguin SVG and Penguin component are unchanged. The only homepage change is the requested removal of the future-plan invitation.
+- No browser runtime/visual inspection was performed in this correction; automated assertions cover markup and output, not actual touch/filter interaction or rendered mobile appearance. Existing browser-host limitation remains. The external AI backend was not modified; this repository's public manifest and mock sources were verified.
+- No new experience publication, push, merge or deployment. Await owner confirmation of the audit before turning recovered candidates into public records.
+
+Changed files: `src/lib/{catalog,content,experience,journal,public-content,publication,penguin-ai}.ts`, `src/data/{experience,site}.ts`, `src/components/{JournalIndex,PenguinChat}.astro`, `src/views/{Experience,Overview,Projects,Research,StudioPage}.astro`, `src/pages/[page].astro`, `src/pages/zh/[...path].astro`, `src/styles/studio.css`, `package.json`, `scripts/test-{content-architecture,content-build,language,site}.mjs`, this report, `docs/experience-audit.md`, and `docs/superpowers/plans/2026-11-07-content-architecture.md`.
+
+
 ## 2026-11-07 — Security Research Portfolio refinement
 
 This section supersedes earlier route counts and placeholder behavior below.
