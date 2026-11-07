@@ -8,7 +8,7 @@ assert.equal(records.length, 79, 'All original assertions remain');
 // Frozen 5c50af7 payload: no Git history needed at runtime, including shallow CI.
 const original = records.map(record => {
  const { yearVerification, participationVerification, awardVerification, verificationSource,
-   reviewStatus, supersededBy, excludeFromParticipationCount, originalReviewNotes, ...source } = record;
+   reviewStatus, supersededBy, excludeFromParticipationCount, originalReviewNotes, historicalReconciliation, ...source } = record;
  if (originalReviewNotes !== undefined) source.reviewNotes = originalReviewNotes;
  return source;
 });
@@ -45,7 +45,7 @@ for (const [currentId, oldId, oldYear] of [['archive-001','archive-067','2024'],
  assert.equal(current.year, '2026');
  assert.equal(current.yearVerification, 'user-confirmed');
  assert.equal(current.participationVerification, 'user-confirmed');
- assert.equal(current.awardVerification, 'pending');
+ assert.equal(current.awardVerification, currentId === 'archive-017' ? 'pending' : 'user-reported');
  assert.notEqual(current.verificationStatus, 'confirmed', 'Year approval is not whole-record approval');
  assert.equal(old.year, oldYear, 'Keep the original erroneous source year');
  assert.equal(old.reviewStatus, 'superseded');
@@ -53,4 +53,41 @@ for (const [currentId, oldId, oldYear] of [['archive-001','archive-067','2024'],
  assert.equal(old.excludeFromParticipationCount, true);
  assert.equal([current,old].filter(r=>r.excludeFromParticipationCount!==true && r.participationVerification==='user-confirmed').length,1);
 }
-console.log('Experience archive, independent approval gates and chronological ordering: PASS');
+const byId = id => records.find(r => r.id === id);
+const expected = {
+ 'archive-001': ['最佳創新獎首席', '高雄市政府工程啟發獎', 'BEFIRING'],
+ 'archive-006': ['入圍決賽', '榮獲佳作'],
+ 'archive-005': ['大專組佳作', '高中職組入圍決賽', '大專組入圍決賽'],
+ 'archive-008': ['AIS3 Club', '挖蛋專家獎'],
+ 'archive-009': ['第一等第一名（創意獎）'],
+ 'archive-010': ['積分獎佳作'],
+};
+for (const [id, values] of Object.entries(expected)) {
+ const r = byId(id);
+ assert.equal(r.awardVerification, 'user-reported');
+ assert.deepEqual(r.historicalReconciliation.assertions.filter(a=>a.verificationStatus==='user-reported').map(a=>a.text), values);
+ for (const assertion of r.historicalReconciliation.assertions) {
+  assert.ok(['user-reported','source-recorded'].includes(assertion.verificationStatus));
+  assert.ok(assertion.sourceReference);
+ }
+ assert.equal(r.historicalReconciliation.officialVerification, 'pending');
+}
+const ftc = byId('archive-001');
+assert.equal(ftc.team, undefined);
+assert.equal(ftc.placement, undefined);
+assert.equal(ftc.historicalReconciliation.awardRelationship, 'unresolved');
+assert.ok(ftc.sourceAssertion.includes('最佳創意獎首席'), 'Keep old wording distinct from new user report');
+assert.ok(ftc.historicalReconciliation.assertions.every(a=>a.team===undefined && a.placement===undefined));
+assert.deepEqual(byId('archive-005').historicalReconciliation.assertions.map(a=>[a.kind,a.divisionZh]), [['award','大專組'],['stage','高中職組'],['stage','大專組']]);
+assert.equal(byId('archive-005').historicalReconciliation.titleEnVerification, 'pending-translation');
+assert.ok(byId('archive-008').historicalReconciliation.assertions.some(a=>a.text==='OSINT Excellence Award' && a.verificationStatus==='source-recorded'));
+assert.equal(byId('archive-008').historicalReconciliation.translationEquivalence, 'unresolved');
+for (const [id, stage] of [['archive-009','新北市賽'], ['archive-010','全國賽']]) {
+ assert.equal(byId(id).year, '2024');
+ assert.equal(byId(id).historicalReconciliation.assertions[0].stageZh, stage);
+ assert.equal(byId(id).placement, undefined);
+}
+assert.equal(byId('archive-078').historicalReconciliation.excludeFromParticipationCount, true);
+assert.ok(byId('archive-078').sourceAssertion.includes('16 Hours'));
+assert.equal(publicExperience(records).length, 0);
+console.log('Experience source preservation, reported awards, superseded years and publication gates: PASS');

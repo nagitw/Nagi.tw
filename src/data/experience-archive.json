@@ -26,9 +26,39 @@
     "reviewNotes": "Year and participation user-confirmed: 2026 only. Awards/results, exact date, role details and publication approval remain pending. Original historical assertions are retained verbatim; no old-year awards transferred.",
     "yearVerification": "user-confirmed",
     "participationVerification": "user-confirmed",
-    "awardVerification": "pending",
+    "awardVerification": "user-reported",
     "verificationSource": "User confirmation: Experience Year Reconciliation, baseline 5c50af7; attended only in 2026.",
-    "originalReviewNotes": "P publishes 2026 participation only; M publishes older award prose. Year and award terminology need reconciliation; no team name or rank/totalTeams"
+    "originalReviewNotes": "P publishes 2026 participation only; M publishes older award prose. Year and award terminology need reconciliation; no team name or rank/totalTeams",
+    "historicalReconciliation": {
+      "baselineCommit": "6750b3c",
+      "officialVerification": "pending",
+      "assertions": [
+        {
+          "text": "最佳創新獎首席",
+          "kind": "award",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+          "reportSequence": "earlier"
+        },
+        {
+          "text": "高雄市政府工程啟發獎",
+          "kind": "award",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+          "reportSequence": "later"
+        },
+        {
+          "text": "BEFIRING",
+          "kind": "team-reference",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+          "scope": "FTC team mentioned in prior records; no award or ranking association established"
+        }
+      ],
+      "awardRelationship": "unresolved",
+      "translationEquivalence": "unresolved",
+      "reviewNotes": "Confirm whether the two Chinese reports are separate awards. Do not equate Innovation Award, Inspire Award, or the old 最佳創意獎首席 wording with either report. Team reference is not an award/ranking assignment. 2024 remains superseded."
+    }
   },
   {
     "id": "archive-002",
@@ -115,7 +145,39 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "O/B: `大專組佳作`, `高中職 / 大專組入圍決賽`; L: `Merit Award (College Division)`, high-school finalist; A/D: participant/presenter, Merit Award and finalist",
-    "reviewNotes": "M awards prose published; structured recovery draft. E name `資訊服務創新應用大賽`; reconcile divisions and translated award, do not count finalist and award as separate events"
+    "reviewNotes": "M awards prose published; structured recovery draft. E name `資訊服務創新應用大賽`; reconcile divisions and translated award, do not count finalist and award as separate events",
+    "awardVerification": "user-reported",
+    "historicalReconciliation": {
+      "baselineCommit": "6750b3c",
+      "officialVerification": "pending",
+      "assertions": [
+        {
+          "text": "大專組佳作",
+          "kind": "award",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+          "divisionZh": "大專組"
+        },
+        {
+          "text": "高中職組入圍決賽",
+          "kind": "stage",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+          "divisionZh": "高中職組"
+        },
+        {
+          "text": "大專組入圍決賽",
+          "kind": "stage",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+          "divisionZh": "大專組"
+        }
+      ],
+      "eventTitleZh": "第30屆大專院校資訊應用服務創新競賽",
+      "titleEnVerification": "pending-translation",
+      "participationGrouping": "same-edition",
+      "reviewNotes": "All three results belong to the same 30th edition in 2025; division/result assertions are not separate participations. Existing English title and Merit Award wording are review translations only."
+    }
   },
   {
     "id": "archive-006",
@@ -142,9 +204,28 @@
     "reviewNotes": "Year and participation user-confirmed: 2026 only. Awards/results, exact date, role details and publication approval remain pending. Original historical assertions are retained verbatim; no old-year awards transferred.",
     "yearVerification": "user-confirmed",
     "participationVerification": "user-confirmed",
-    "awardVerification": "pending",
+    "awardVerification": "user-reported",
     "verificationSource": "User confirmation: Experience Year Reconciliation, baseline 5c50af7; attended only in 2026.",
-    "originalReviewNotes": "Draft; year and award differ; English omission is not disproof of Chinese award"
+    "originalReviewNotes": "Draft; year and award differ; English omission is not disproof of Chinese award",
+    "historicalReconciliation": {
+      "baselineCommit": "6750b3c",
+      "officialVerification": "pending",
+      "assertions": [
+        {
+          "text": "入圍決賽",
+          "kind": "stage",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied."
+        },
+        {
+          "text": "榮獲佳作",
+          "kind": "award",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied."
+        }
+      ],
+      "reviewNotes": "2026 year and participation remain user-confirmed. Results are user-reported, not officially verified. 2025 remains superseded."
+    }
   },
   {
     "id": "archive-007",
@@ -193,7 +274,35 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "E/O/B: `挖蛋專家獎`; A/C/T/L/D: participant, `OSINT Excellence Award`; L training list says 16 Hours",
-    "reviewNotes": "M publishes OSINT prose; draft consolidation. Award equivalence and exact event naming unverified"
+    "reviewNotes": "M publishes OSINT prose; draft consolidation. Award equivalence and exact event naming unverified",
+    "awardVerification": "user-reported",
+    "historicalReconciliation": {
+      "baselineCommit": "6750b3c",
+      "officialVerification": "pending",
+      "assertions": [
+        {
+          "text": "AIS3 Club",
+          "kind": "organization-reference",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied."
+        },
+        {
+          "text": "挖蛋專家獎",
+          "kind": "award",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied."
+        },
+        {
+          "text": "OSINT Excellence Award",
+          "kind": "award",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "A,C,T,L,D in the original sourceReferences; retained English assertion only"
+        }
+      ],
+      "translationEquivalence": "unresolved",
+      "relatedTrainingAssertion": "archive-078",
+      "reviewNotes": "AIS3 Club is a reported association, not an independently verified organizer assignment. No official equivalence between Chinese award and OSINT Excellence Award. The 16-hour training lead is not a second confirmed event."
+    }
   },
   {
     "id": "archive-009",
@@ -217,7 +326,22 @@
     "publicationStatus": "draft",
     "sourceAssertion": "Team member; `First Place, Creativity Award`",
     "reviewNotes": "M publishes Creativity Award prose; draft structured record. First Place applies to this source's event/division only; team and denominator absent",
-    "award": "First Place, Creativity Award"
+    "award": "First Place, Creativity Award",
+    "awardVerification": "user-reported",
+    "historicalReconciliation": {
+      "baselineCommit": "6750b3c",
+      "officialVerification": "pending",
+      "assertions": [
+        {
+          "text": "第一等第一名（創意獎）",
+          "kind": "award",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+          "stageZh": "新北市賽"
+        }
+      ],
+      "reviewNotes": "2024 local stage; preserve wording verbatim. No numeric rank or official English award name inferred."
+    }
   },
   {
     "id": "archive-010",
@@ -243,7 +367,22 @@
     "publicationStatus": "draft",
     "sourceAssertion": "`全國佳作` / `Honorable Mention`; team member in A",
     "reviewNotes": "M award prose published; draft consolidation; distinguish local first place from national mention",
-    "award": "全國佳作 / Honorable Mention"
+    "award": "全國佳作 / Honorable Mention",
+    "awardVerification": "user-reported",
+    "historicalReconciliation": {
+      "baselineCommit": "6750b3c",
+      "officialVerification": "pending",
+      "assertions": [
+        {
+          "text": "積分獎佳作",
+          "kind": "award",
+          "verificationStatus": "user-reported",
+          "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+          "stageZh": "全國賽"
+        }
+      ],
+      "reviewNotes": "2024 national stage; not national first place. Preserve reported wording verbatim; official award name/evidence pending."
+    }
   },
   {
     "id": "archive-011",
@@ -1704,7 +1843,15 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "16 Hours",
-    "reviewNotes": "Training aspect may overlap competition; not a second confirmed attendance."
+    "reviewNotes": "Training aspect may overlap competition; not a second confirmed attendance.",
+    "historicalReconciliation": {
+      "baselineCommit": "6750b3c",
+      "relatedCompetitionAssertion": "archive-008",
+      "excludeFromParticipationCount": true,
+      "reviewStatus": "unresolved-overlap",
+      "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
+      "reviewNotes": "Retain the original 16 Hours training lead separately as a source assertion, not a second confirmed participation; relationship to competition remains unresolved."
+    }
   },
   {
     "id": "archive-079",

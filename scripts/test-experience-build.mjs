@@ -8,6 +8,7 @@ for (const path of walk(root).filter(p=>/\.(html|js|json|xml|txt|map)$/.test(p))
  const text=readFileSync(path,'utf8');
  for (const record of archive) assert.ok(!text.includes(record.id), `Draft archive payload leaked: ${path}`);
  assert.ok(!/candidate-only|sourceAssertion|experience-archive\.json|Junior Crypt CTF|Grodno::CTF|BroncoCTF|K17|HITCON CTF/.test(text), `Recovered private claim leaked: ${path}`);
+ assert.ok(!/historicalReconciliation|BEFIRING|高雄市政府工程啟發獎|最佳創新獎首席|第一等第一名（創意獎）|積分獎佳作/.test(text), `Internal historical award reconciliation leaked: ${path}`);
 }
 for (const locale of ['', 'zh/']) {
  const html=readFileSync(join(root,locale,'experience/index.html'),'utf8');

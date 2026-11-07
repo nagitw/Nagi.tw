@@ -1,5 +1,24 @@
 # Experience master list
 
+## 歷史成果補記（基準 6750b3c）
+
+以下為本次使用者轉述的過往明確陳述，逐項存入 `historicalReconciliation.assertions`，不增加活動資料列。原有 79 筆來源 assertion、舊獎項文字、reviewNotes 及所有發布狀態保留；原始表格描述的是舊來源快照，本節是最新欄位審核結論。
+
+| ID／年份 | user-reported 歷史成果 | 尚待核對 |
+|---|---|---|
+| archive-001／2026 FTC | 先前「最佳創新獎首席」；後續「高雄市政府工程啟發獎」；另有 FTC 團隊 BEFIRING 提及 | 兩者是否獨立獎項、官方名稱及英文對應；BEFIRING 未綁定任何獎項或排名 |
+| archive-006／2026 宜蘭 | 入圍決賽；榮獲佳作 | 正式主辦單位／證書證據；2025 不計第二次參賽 |
+| archive-005／2025 第30屆大專院校資訊應用服務創新競賽 | 大專組佳作；高中職組入圍決賽；大專組入圍決賽 | 同屆三項結果不計三次參賽；原中文名稱保留，英文僅待審譯名 |
+| archive-008／2025 北區高中職程式安全黑客松 | AIS3 Club 關聯；挖蛋專家獎 | 不推定 AIS3 Club 的正式主辦角色；OSINT Excellence Award 僅 source-recorded 英文 assertion，正式譯名對應未明 |
+| archive-009／2024 PowerTech 新北市賽 | 第一等第一名（創意獎） | 原文保留，官方名稱及證據待補，不換算排名 |
+| archive-010／2024 PowerTech 全國賽 | 積分獎佳作 | 原文保留，不能寫成全國第一名 |
+
+上述六筆 `awardVerification=user-reported`、`historicalReconciliation.officialVerification=pending`。FTC／宜蘭年份與參賽仍為 user-confirmed；MyFirstCTF 的獎項仍 pending。archive-078 的 16 小時培訓線索保留且標記重疊待查，不當作第二場已確認參與。archive-067／068／069 的 superseded 規則不變。
+
+來源定位為本次「Historical Awards Reconciliation」使用者訊息及基準 commit；未提供原對話日期／連結，不虛構歷史引文位置。每項 assertion 各自帶 sourceReference；舊站原始來源仍由 sourceReferences 保留。
+
+狀態分層：`user-confirmed` 為使用者直接確認；`user-reported` 為使用者過往明確陳述；`source-recorded` 僅有舊站來源；`conflicted` 表示尚有來源衝突；`candidate-only` 表示參與證據不足；`official-verified` 必須有正式主辦單位或證書證據，本次沒有新增此狀態。欄位狀態不會自動改整筆 verificationStatus 或 publicationStatus。
+
 ## 使用者年份確認（基準 5c50af7）
 
 FTC（archive-001）、宜蘭大學競賽（archive-006）、AIS3 MyFirstCTF（archive-017）均僅參加 2026 年，各一次。三筆的 `yearVerification` 與 `participationVerification` 為 `user-confirmed`，`awardVerification` 為 `pending`。年份不再待確認，整筆 verificationStatus 與 publicationStatus 不變。

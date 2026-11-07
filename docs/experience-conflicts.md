@@ -4,12 +4,12 @@
 
 | 群組 | 需要使用者確認的欄位 | 處理 |
 |---|---|---|
-| FTC 2024 / 2026 | 年份與參與已 user-confirmed：僅 2026；待確認 Innovation / Inspire / 最佳創意獎首席、Lead Team 的意思 | archive-001 保留 2026；archive-067 為錯誤年份來源 assertion，superseded，不計參賽次數。舊獎項不轉移 |
-| 宜蘭 2025 / 2026 | 年份與參與已 user-confirmed：僅 2026；決賽、佳作及英文缺項仍待確認 | archive-006 保留 2026；archive-068 為錯誤年份來源 assertion，superseded，不計參賽次數 |
+| FTC 2024 / 2026 | 年份與參與 user-confirmed：僅 2026；「最佳創新獎首席」、「高雄市政府工程啟發獎」各為 user-reported，是否獨立獎項待查 | archive-001 保留兩項原文及 BEFIRING 隊名提及；不綁定獎項／排名，不等同 Innovation／Inspire／舊文「最佳創意獎首席」。archive-067 仍 superseded，舊獎項不轉移 |
+| 宜蘭 2025 / 2026 | 年份與參與 user-confirmed：僅 2026；入圍決賽、榮獲佳作為 user-reported，正式證據待補 | archive-006 保存兩項結果；archive-068 仍 superseded，不計第二次參賽 |
 | AIS3 MyFirstCTF 2025 / 2026 | 年份與參與已 user-confirmed：僅 2026；獎項／結果未確認 | archive-017 保留 2026；archive-069 為錯誤年份來源 assertion，superseded，不建立第二次參賽 |
-| PowerTech | 地區／全國、組別、第一名與創意獎所屬 | 地區與全國分開，獎項不直接轉名次 |
-| InnoServe | 高中職／大專組、佳作／Merit、決賽 | 同一屆一筆，原文列出各組結果，不拆成多次參與 |
-| 資安黑客松 | 官方名稱、挖蛋專家／OSINT 是否相同、16 小時研習與競賽關係 | 原文並存，研習另列待確認，不將兩獎名互譯 |
+| PowerTech 2024 | 新北市賽「第一等第一名（創意獎）」、全國賽「積分獎佳作」均 user-reported；官方名稱／證據待補 | archive-009／010 階段分開，不將全國佳作轉成全國第一名，不改原文或推排名 |
+| InnoServe 2025 | 大專組佳作、高中職組及大專組入圍決賽均 user-reported；官方英文名稱／獎項翻譯待審 | archive-005 同一屆一筆，三項結果各有組別與種類，原中文名稱保留 |
+| 資安黑客松 2025 | AIS3 Club、挖蛋專家獎為 user-reported；OSINT Excellence Award 僅 source-recorded，正式對應未明 | archive-008 不宣稱兩獎名正式互譯；archive-078 的 16 小時線索獨立保留、重疊待查，不計第二場已確認參與 |
 | 研討會別名 | InfoSec／International Cybersecurity Organization、Bak3／ZeroDay Cookie、AWS Taipei／Taiwan | 別名候選並存，不自動去重 |
 | 培訓別名 | APCS／APCSS、量子營／QRACON／展覽、Google／GDG／ADK、資安種子兩場與泛稱 | 保留獨立線索；不同地點場次不合併 |
 | 排名 | picoCTF 1007/8748 的分母單位；FhCTF 8 的排名單位；LA 9／Srdnlen 17／Dice 23 的隊名與分母 | 未知 rankingUnit=unknown；團隊排名僅三筆明示 team；MARC 12 強不是第 12 名 |
@@ -20,6 +20,8 @@
 | 歷史隊籍與證照 | 被刪除的 RCEs 隊籍；網路架設證照 2024/2026 | 不恢復隊籍或套用到排名；證照不屬本次六類，保留 audit 問題 |
 
 ## 逐筆待審欄位
+
+本次成果以 archive 的 historicalReconciliation 及上表為最新結論。下列舊 reviewNotes 保留來源歷程；其中獎項 pending 指尚缺正式證據，不否定已新增的 user-reported 陳述。user-reported 不等於 official-verified，亦不代表可公開。
 
 除上述三筆已由使用者確認年份與參與外，其餘參與／身分、來源證據及發布範圍仍待審。年份確認不等於整筆活動或獎項確認；原 verificationStatus 及 publicationStatus 均不變。
 

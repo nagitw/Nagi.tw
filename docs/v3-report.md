@@ -126,3 +126,14 @@ This section supersedes earlier route counts and placeholder behavior below.
 - 僅修改 experience-archive.json、experience-master-list.md、experience-conflicts.md、experience-audit.md、本報告及 scripts/test-experience.mjs。新增欄位為 JSON 相容性 metadata，不修改共用 schema、公開來源或 UI。原盤點產生器未更新，文件已註明重跑會覆蓋人工確認，測試會攔截回退。
 - 驗證：TypeScript 通過；Build 含 Astro Check（80 檔，0 errors／warnings／hints）通過，產生 69 頁；資料驗證、npm run validate、test-publication-build 及 git diff --check 通過。公開產物仍為八筆 Experience，draft 未輸出至公開頁面、搜尋、RSS、Sitemap 或 AI 知識庫。
 - 首頁企鵝、Projects／Research／Journal、已發布文章及 URL、所有 publicationStatus 均未修改。未 Push、Merge 或 Deploy。
+
+## Historical Awards Reconciliation — 基準 6750b3c
+
+- 僅更新內部 archive、主清單、衝突表、audit 補記、本報告及兩項資料／公開產物測試。六筆競賽加入 historicalReconciliation 的逐項 assertion；另為 archive-078 的 16 小時培訓加入重疊待查註記，不新增活動列。
+- FTC 2026 的「最佳創新獎首席」、「高雄市政府工程啟發獎」與 BEFIRING 分別保留為 user-reported。兩獎是否獨立未決，不等同舊 Innovation／Inspire／「最佳創意獎首席」，隊名不套入獎項或排名。
+- 宜蘭 2026 的入圍決賽／榮獲佳作為 user-reported；InnoServe 2025 同屆保留大專組佳作、高中職組決賽、大專組決賽三項分組結果；中文名稱保留，英文僅待審譯名。
+- 北區黑客松 2025 的 AIS3 Club 關聯及挖蛋專家獎為 user-reported，OSINT Excellence Award 明確標為 source-recorded，正式譯名對應仍未確認。PowerTech 2024 分別保留新北市賽「第一等第一名（創意獎）」及全國賽「積分獎佳作」，不換算數字排名。
+- 六筆 awardVerification 為 user-reported，officialVerification 仍 pending。欄位層級與整筆 verificationStatus 分開；三項 2026 年份／參與的 user-confirmed、archive-067／068／069 的 superseded、全部 publicationStatus 均不變。未新增 official-verified。
+- 原有 79 筆 assertion 保留；固定雜湊測試驗證原始欄位、來源、獎項敘述與發布狀態仍完整。新陳述來源定位為本次使用者訊息，不虛構過往對話日期／連結。原盤點重建腳本仍不應直接覆蓋人工審核資料。
+- Astro Check：80 檔，0 errors／warnings／hints；TypeScript 通過；Build 產生 69 頁；完整 npm test（含 repository-base build）、npm run validate、資料驗證及 git diff --check 均通過。新增公開產物掃描確認獎項補記與 BEFIRING 未洩漏至 HTML、JS、JSON、RSS、Sitemap 或 AI 資料。
+- 待補：FTC 兩獎關係與官方名稱、獎項英文對應、AIS3 Club 正式角色與 16 小時培訓關係、各成果正式證據。未修改八筆公開 Experience、公開文章、首頁企鵝或 URL；未 Push、Merge、Deploy。

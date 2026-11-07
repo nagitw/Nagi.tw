@@ -1,5 +1,11 @@
 # Experience source audit
 
+## 歷史成果補記（基準 6750b3c）
+
+本次使用者訊息提供過往成果：FTC 2026「最佳創新獎首席」、「高雄市政府工程啟發獎」與 BEFIRING 隊名提及；宜蘭 2026 入圍決賽／榮獲佳作；InnoServe 2025 大專組佳作及高中職組／大專組決賽；北區黑客松 2025 AIS3 Club／挖蛋專家獎；PowerTech 2024 新北市賽「第一等第一名（創意獎）」及全國賽「積分獎佳作」。均分項保存為 user-reported，不升級為 official-verified。
+
+既有舊站 assertion（包括 FTC「最佳創意獎首席」、Innovation／Inspire、OSINT Excellence Award）保持原文，不推定與新中文名稱等價。未提供原始對話連結／日期或官方證據，來源指向本次使用者訊息，不虛構引用。詳見 master-list 與 conflicts 最新補記；下方原盤點／年份補記保留歷程，獎項狀態以本節及 JSON 的 historicalReconciliation 為準。79 筆來源、三筆錯誤年份 superseded 與全部 publicationStatus 不變。
+
 ## 使用者確認補記（基準 5c50af7）
 
 使用者親自確認 FTC、國立宜蘭大學程式設計暨資訊及 AI 應用競賽、AIS3 MyFirstCTF 均僅參加 2026 年，各一次。archive-001／006／017 的年份與參與為 user-confirmed；archive-067（2024）／068（2025）／069（2025）為錯誤年份 assertion，保留原文但 superseded，排除參賽次數。獎項／決賽／佳作仍待確認，不轉移舊年份獎項，不改任何發布狀態。
