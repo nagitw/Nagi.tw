@@ -1,5 +1,67 @@
 # Experience master list
 
+## 研習、會議與教學核對（基準 014fb6a）
+
+本輪覆核 archive-032～066、071～079 共 44 筆，在 learningReconciliation 補上分類依據、原角色、日期、來源與關係候選。原有 79 筆 assertion、所有頂層欄位及先前核對保持原樣。以下為本輪最新覆核；舊表格仍是來源歷程，不作官方查證結論。
+
+conferences 為會議／年會／技術大會（展覽類的實際形式另待確認）；training 為營隊、研習、工作坊；speaking 僅保留來源明述 speaker 的廣義紀錄；teaching 區分 Instructor、Teaching assistant、Support staff 與 Training support。參加會議或擔任學員不推定為講者，支援不推定為主講。CTF Web Practice Lab 是個人學習，不當成活動出席。
+
+舊站 HEAD 已核對為 6aec1aa74e4cb965a093801527c270f9a2c68ddb。重新讀取 E 的中英營隊／會議／工作坊、H 活動欄、W 英文研習頁、T 英文 CTF 頁，以及 O、B、L、D 指定 Git snapshot。逐筆 reviewedSourceReferences 固定 commit/path；教學 roleAssertions 另保存 D 的原 Role、Type 及行號。D 內重複的 CTF Instructor／助教段落不是多場演講的證據。
+
+目前沒有任何明確來源可把列出的別名對確認為同一活動，所以沒有新增 confirmedSameEvent。aliasCandidate 只是待審關聯，不觸發合併或參賽／活動次數累計。台北／高雄場、不同年度 InfoSec／HITCON 僅設 relatedEventId，保留不同場次。舊站名稱出現不會升級 user-confirmed 或 official-verified。
+
+除 InfoSec Taiwan 2026 的 E 明載 2026-07-07 外，本輪 eventDate 一律 null（原頂層缺值仍原樣保留）；不由文章日期推算。InfoSec 日期只是 source-recorded，仍在 draft。教學及演講 actualEventTitle=null，日期與實際責任 pending。所有 44 筆仍缺官方證據，活動身份／場次亦待核對。
+
+| ID | 年份 | 活動 | 分類 | 原始角色 | 活動日期（來源層級） | aliasCandidate | relatedEventId |
+|---|---|---|---|---|---|---|---|
+| archive-032 | 2026 | HPC AI Summer Camp | training | Student | null | — | — |
+| archive-033 | 2026 | AI × Cybersecurity Workshop Series：AI for Good | training | Participant | null | archive-034 | — |
+| archive-034 | 2026 | Songshan AI × Cybersecurity / AI × Cybersecurity 實作活動 | training | Participant | null | archive-033 | — |
+| archive-035 | 2026 | InfoSec Taiwan 2026 | conferences | Attendee | 2026-07-07 | — | archive-036 (different-year) |
+| archive-036 | 2025 | InfoSec Taiwan / INFOSEC TAIWAN 國際資安組織大會 | conferences | Attendee | null | archive-060 | archive-035 (different-year) |
+| archive-037 | 2026 | Bak3 C00kie | conferences | Attendee | null | archive-038 | — |
+| archive-038 | 2026 | ZeroDay Cookie Cybersecurity Conference | conferences | unknown | null | archive-037 | — |
+| archive-039 | 2025 | HITCON Conference | conferences | Attendee | null | — | archive-040 (different-year) |
+| archive-040 | 2026 | HITCON 2026 | conferences | Attendee | null | — | archive-039 (different-year) |
+| archive-041 | 2025 | COSCUP 開源人年會 / COSCUP | conferences | Attendee | null | — | — |
+| archive-042 | 2025 | AWS Summit Taipei / Taiwan | conferences | Attendee | null | — | — |
+| archive-043 | 2025 | QRACON 學生量子電腦年會 | conferences | Attendee | null | archive-061 | — |
+| archive-044 | 2025 | APCS 模擬測驗團隊暑期營隊 | training | Student | null | archive-045 | — |
+| archive-045 | 2025 | APCSS Computational Thinking Camp | training | unknown | null | archive-044 | — |
+| archive-046 | 2025 | 高中量子計畫暑期學習營 / Quantum Computing Summer Camp | training | Student | null | archive-079 | — |
+| archive-047 | 2026 | AIS3 高階培訓 | training | unknown | null | — | — |
+| archive-048 | 2025 | CTF 資安種子培訓交流會（台北場） | training | Participant | null | archive-077 | archive-049 (distinct-location-session) |
+| archive-049 | 2025 | CTF 資安種子培訓交流會（高雄場） | training | Participant | null | archive-077 | archive-048 (distinct-location-session) |
+| archive-050 | 2026 | Build with AI / Build with AI Taipei | training | Participant | null | archive-051 | — |
+| archive-051 | 2026 | GDG Taipei Workshop | training | Participant | null | archive-050 | — |
+| archive-052 | 2026 | Gemini CLI + ADK + Cloud Run | training | Participant | null | archive-053 | — |
+| archive-053 | 2026 | Enterprise AI Agent Development using ADK | training | unknown | null | archive-052 | — |
+| archive-054 | 2026 | Antigravity SDK Workshop | training | unknown | null | — | — |
+| archive-055 | 2026 | KiloShop AI Workshop | training | unknown | null | — | — |
+| archive-056 | 2026 | ClawShop 2 AI Workshop | training | unknown | null | — | — |
+| archive-057 | 2026 | Smart Manufacturing Competition Training / Smart Manufacturing | training | Participant | null | — | — |
+| archive-058 | 2026 | Auden TechDay 2026 | conferences | unknown | null | — | — |
+| archive-059 | 2025 | Central Taiwan High School Computer Conference | conferences | unknown | null | — | — |
+| archive-060 | 2025 | International Cybersecurity Organization Conference | conferences | unknown | null | archive-036 | — |
+| archive-061 | 2025 | International Quantum Technology Exhibition | conferences | unknown | null | archive-043 | — |
+| archive-062 | 2024 | Smart-AI Programming Talent Program | training | unknown | null | — | — |
+| archive-063 | 2024 | AI Humanoid Robot Control & Applications | training | unknown | null | — | — |
+| archive-064 | 2026 | 2026 資安大會 / CYBERSEC reflection | conferences | Participant | null | — | — |
+| archive-065 | 2025 | CTF Training | teaching | Training support | null | — | — |
+| archive-066 | 2026 | CTF Web Practice Lab | training | Learner | null | — | — |
+| archive-071 | 2024 | 校內外資訊安全與技術學習活動 | speaking | Speaker | null | — | — |
+| archive-072 | 2025 | CTF Instructor | teaching | Instructor | null | — | — |
+| archive-073 | 2025 | Raspberry Pi Instructor | teaching | Instructor | null | — | — |
+| archive-074 | 2025 | Cybersecurity Teaching Assistant | teaching | Teaching assistant | null | — | — |
+| archive-075 | 2025 | Technical Session Support | teaching | Support staff | null | — | — |
+| archive-076 | 2025 | Technical Training Support | teaching | Support staff | null | — | — |
+| archive-077 | 2025 | Cybersecurity Seed Training Meeting | training | unknown | null | archive-048, archive-049 | — |
+| archive-078 | 2025 | Northern Taiwan Cybersecurity Hackathon — training | training | unknown | null | archive-008 | — |
+| archive-079 | 2025 | Quantum Computing Summer Camp | training | Participant | null | archive-046 | — |
+
+原盤點重建腳本不包含人工核對，不可直接重跑覆蓋此檔；固定基準雜湊測試防止原資料被更動。
+
+
 ## CTF 專項核對（基準 b670bbe）
 
 本輪僅在七筆既有條目加入 `ctfResultAssertions`，原有 79 筆資料列及所有來源欄位保持不變。新增排名 assertion 不是新增參賽事件。每項分開保存 participationVerification、resultVerification、rank、rankDenominator、rankingUnit、team、evidenceUrls、publicationStatus，並保留原始排名文字及賽事名稱。

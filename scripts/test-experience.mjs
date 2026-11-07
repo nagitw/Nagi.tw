@@ -5,13 +5,16 @@ import { publicExperience, sortEvents } from '../src/lib/experience.ts';
 const records = JSON.parse(readFileSync('src/data/experience-archive.json', 'utf8'));
 assert.equal(new Set(records.map(r => r.id)).size, records.length);
 assert.equal(records.length, 79, 'All original assertions remain');
-assert.equal(createHash('sha256').update(JSON.stringify(records.map(({ctfResultAssertions, ...original}) => original))).digest('hex'),
+assert.equal(createHash('sha256').update(JSON.stringify(records.map(({learningReconciliation, ...original}) => original))).digest('hex'),
+ '9f6991a7827508c24dbe14ee1aaf9094ff9742580158c93e2f086cda84dc66bf',
+ 'All 014fb6a source assertions, roles, dates, prior reconciliations and publication states must remain unchanged');
+assert.equal(createHash('sha256').update(JSON.stringify(records.map(({ctfResultAssertions, learningReconciliation, ...original}) => original))).digest('hex'),
  '1e86142adf6dde9b0f4a9e16668f939f98f61901dc2fe31618dd338b249ded02',
  'The entire b670bbe baseline, including prior reconciliations and publication states, must remain unchanged');
 // Frozen 5c50af7 payload: no Git history needed at runtime, including shallow CI.
 const original = records.map(record => {
  const { yearVerification, participationVerification, awardVerification, verificationSource,
-   reviewStatus, supersededBy, excludeFromParticipationCount, originalReviewNotes, historicalReconciliation, ctfResultAssertions, ...source } = record;
+   reviewStatus, supersededBy, excludeFromParticipationCount, originalReviewNotes, historicalReconciliation, ctfResultAssertions, learningReconciliation, ...source } = record;
  if (originalReviewNotes !== undefined) source.reviewNotes = originalReviewNotes;
  return source;
 });
@@ -128,4 +131,40 @@ assert.equal(byId('archive-014').verificationStatus, 'candidate-only');
 assert.equal(byId('archive-014').year, null);
 assert.equal(byId('archive-014').role, 'unknown');
 assert.ok(byId('archive-014').sourceAssertion.includes('No matching participation record'));
+const learning = records.filter(r=>Number(r.id.slice(-3))>=32 && ['training','conferences','speaking','teaching'].includes(r.category));
+assert.equal(learning.length,44);
+for (const r of learning) {
+ const review=r.learningReconciliation;
+ assert.ok(review, `Missing learning review: ${r.id}`);
+ assert.equal(review.category,r.category);
+ assert.equal(review.sourceRole,r.role);
+ assert.equal(review.verificationStatus,'source-recorded');
+ assert.equal(review.eventDate,r.id==='archive-035' ? '2026-07-07' : null);
+ assert.equal(review.dateVerification,r.id==='archive-035' ? 'source-recorded' : 'pending');
+ assert.equal(review.officialEvidenceReview,'pending');
+ assert.equal(review.activityIdentityReview,'pending');
+ assert.equal(review.teachingRoleReview,['speaking','teaching'].includes(r.category)?'pending':'not-applicable');
+ assert.ok(review.reviewedSourceReferences.length>0);
+ for (const relation of [...review.aliasCandidate,...review.relatedEventId]) {
+  assert.ok(byId(relation.eventId));
+  assert.notEqual(relation.confirmedSameEvent,true);
+  assert.ok(relation.sourceReferences.length);
+ }
+ for (const relation of review.aliasCandidate) {
+  assert.equal(r.year,byId(relation.eventId).year,'Never collapse editions');
+  assert.equal(relation.relationshipReview,'pending');
+ }
+}
+for (const [a,b] of [[36,60],[37,38],[44,45],[46,79],[43,61],[50,51],[52,53],[48,77],[49,77],[78,8]]) {
+ const r=byId(`archive-${String(a).padStart(3,'0')}`);
+ assert.ok(r.learningReconciliation.aliasCandidate.some(x=>x.eventId===`archive-${String(b).padStart(3,'0')}`));
+}
+assert.ok(!byId('archive-048').learningReconciliation.aliasCandidate.some(x=>x.eventId==='archive-049'));
+assert.equal(byId('archive-048').learningReconciliation.relatedEventId.find(x=>x.eventId==='archive-049').relationshipType,'distinct-location-session');
+for (const [id,role] of [[71,'speaker'],[72,'Instructor'],[73,'Instructor'],[74,'Teaching assistant'],[75,'Support staff'],[76,'Support staff']]) {
+ const review=byId(`archive-0${id}`).learningReconciliation;
+ assert.ok(review.roleAssertions.some(a=>a.text===role));
+ assert.equal(review.actualEventTitle,null);
+ assert.equal(review.eventDate,null);
+}
 console.log('Experience source preservation, reported awards, superseded years and publication gates: PASS');

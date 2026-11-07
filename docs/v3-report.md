@@ -148,3 +148,14 @@ This section supersedes earlier route counts and placeholder behavior below.
 - 新增 b670bbe 全部資料的固定 SHA-256 完整性測試（排除本輪新增 ctfResultAssertions 後應完全一致），原 5c50af7 來源完整性測試仍通過。公開產物掃描新增 CTF 欄位與新排名洩漏檢查。
 - Astro Check：80 檔，0 errors／warnings／hints；TypeScript 通過；Build 產生 69 頁；完整 npm test（含 repository-base build）、npm run validate、資料測試與 git diff --check 通過。八筆公開 Experience、搜尋、RSS、Sitemap 與 AI 公開輸出未新增待審紀錄。
 - CTF 專項核對摘要位於 experience-master-list.md 與 experience-conflicts.md。仍缺 K17 年份、Junior.Crypt 官方拼字／身份對應、所有隊名、四筆個人／團隊及分母單位、三筆團隊排名分母與官方結果證據。未修改公開來源、首頁企鵝、文章或 URL；未 Push、Merge、Deploy。
+
+## Training, Conferences & Teaching Reconciliation — 基準 014fb6a
+
+- 覆核 archive-032～066、071～079 共 44 筆 training／conferences／speaking／teaching，僅新增 learningReconciliation metadata。全部 79 筆原始 assertion、頂層分類／角色／日期、先前年份／獎項／CTF 核對及 publicationStatus 原樣保留。
+- 重新核對可讀取 legacy HEAD 6aec1aa 的 E 中英營隊／會議／工作坊、H 活動欄、W 英文研習頁及 T 英文 CTF 頁；比較 O=3801cc5、B=77246e2、L=1a5573c、D=d1eb329 的指定 Git snapshot。逐筆保存完整來源 hash／path，教學另保存原 Role、Type 及來源行號。未查外部官方來源，舊站自述不升級 user-confirmed／official-verified。
+- 建立 InfoSec／International Cybersecurity Organization、Bak3／ZeroDay Cookie、APCS／APCSS、量子營、QRACON／展覽、Google 工作坊、資安種子泛稱及黑客松培訓等 aliasCandidate。沒有足夠證據建立 confirmedSameEvent，沒有合併任何資料。台北／高雄場標為 distinct-location-session；不同年度 InfoSec／HITCON 標為 different-year，不互相套日期。
+- 學員／與會者不推定講師；Instructor、Teaching assistant、Support staff、Training support 原文分開保存。2024 speaker 廣義紀錄及 2025 教學支援均保留 actualEventTitle=null、日期／責任 pending。D 重複 Instructor／助教標題未拆成多場；CTF Web Practice Lab 明示個人學習，非活動出席。
+- 僅 InfoSec 2026 的 E 明載活動日期 2026-07-07，維持 source-recorded／draft；其餘 43 筆本輪 eventDate=null，原始年份不變。沒有以文章發布時間或年份補造日期。
+- 主清單新增 44 筆逐項覆核表；衝突文件分活動身分、日期、別名、教學角色、缺乏官方證據五類列待確認事項。所有官方證據仍 pending；分類僅編輯用途，展覽的實際格式另待核對。
+- 新增 014fb6a 全量原始資料 SHA-256 完整性測試，所有先前基準測試仍通過；驗證 44 筆範圍、來源角色、null 日期、關係目標、不得跨年合併或誤認台北／高雄同場，並掃描公開產物不得包含新審核 metadata。
+- Astro Check：80 檔，0 errors／warnings／hints；TypeScript、Build（69 頁）、完整 npm test（含 repository-base build）、npm run validate、資料驗證及 git diff --check 均通過。原八筆公開 Experience、公開文章、首頁企鵝、URL 與所有發布狀態未變。未 Push、Merge、Deploy。

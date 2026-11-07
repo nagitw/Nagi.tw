@@ -1012,7 +1012,30 @@
     "publicationStatus": "draft",
     "sourceAssertion": "2026; 學員; 國立清華大學",
     "reviewNotes": "P published; exact dates/completion evidence absent",
-    "organizer": "國立清華大學 / National Tsing Hua University"
+    "organizer": "國立清華大學 / National Tsing Hua University",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Student",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "HPC AI Summer Camp",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-033",
@@ -1035,7 +1058,44 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; 參與者",
-    "reviewNotes": "P published; dates absent"
+    "reviewNotes": "P published; dates absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "AI × Cybersecurity Workshop Series：AI for Good",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-034",
+          "relationshipReview": "pending",
+          "reason": "AI for Good series and Songshan workshop separately named; exact session identity pending.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+            "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-034",
@@ -1057,7 +1117,44 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; participant; completed learning record",
-    "reviewNotes": "M workshops prose published; possibly related to previous series, not proven identical"
+    "reviewNotes": "M workshops prose published; possibly related to previous series, not proven identical",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Songshan AI × Cybersecurity / AI × Cybersecurity 實作活動",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-033",
+          "relationshipReview": "pending",
+          "reason": "AI for Good series and Songshan workshop separately named; exact session identity pending.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+            "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-035",
@@ -1079,7 +1176,39 @@
     "publicationStatus": "draft",
     "sourceAssertion": "**2026-07-07 (day)**; 與會者",
     "reviewNotes": "P year-only published; recovered day draft; article publication date is not substituted for event date",
-    "eventDate": "2026-07-07"
+    "eventDate": "2026-07-07",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Attendee",
+      "eventDate": "2026-07-07",
+      "dateVerification": "source-recorded",
+      "dateBasis": "E explicitly records event date 2026-07-07; not article publication date.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "InfoSec Taiwan 2026",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [
+        {
+          "eventId": "archive-036",
+          "relationshipType": "different-year",
+          "verificationStatus": "source-recorded",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+          ],
+          "reason": "Different editions; not an alias relationship."
+        }
+      ],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-036",
@@ -1102,7 +1231,54 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; participant/attendee",
-    "reviewNotes": "Draft; exact day absent"
+    "reviewNotes": "Draft; exact day absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Attendee",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "InfoSec Taiwan / INFOSEC TAIWAN 國際資安組織大會",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+        "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-060",
+          "relationshipReview": "pending",
+          "reason": "InfoSec naming overlap; different source titles without explicit alias statement.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [
+        {
+          "eventId": "archive-035",
+          "relationshipType": "different-year",
+          "verificationStatus": "source-recorded",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+          ],
+          "reason": "Different editions; not an alias relationship."
+        }
+      ],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-037",
@@ -1124,7 +1300,43 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; attendee/participant",
-    "reviewNotes": "Draft; possible ZeroDay Cookie alias below needs confirmation"
+    "reviewNotes": "Draft; possible ZeroDay Cookie alias below needs confirmation",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Attendee",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Bak3 C00kie",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+        "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-038",
+          "relationshipReview": "pending",
+          "reason": "Cookie naming overlap only; no explicit equivalence.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-038",
@@ -1144,7 +1356,41 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; role unspecified in list",
-    "reviewNotes": "Draft alias candidate, no inferred speaker role"
+    "reviewNotes": "Draft alias candidate, no inferred speaker role",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "ZeroDay Cookie Cybersecurity Conference",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-037",
+          "relationshipReview": "pending",
+          "reason": "Cookie naming overlap only; no explicit equivalence.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-039",
@@ -1170,7 +1416,44 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; attendee/participant",
-    "reviewNotes": "P and M published; no CTF participation implied"
+    "reviewNotes": "P and M published; no CTF participation implied",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Attendee",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "HITCON Conference",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+        "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [
+        {
+          "eventId": "archive-040",
+          "relationshipType": "different-year",
+          "verificationStatus": "source-recorded",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+          ],
+          "reason": "Different editions; not an alias relationship."
+        }
+      ],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-040",
@@ -1191,7 +1474,40 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; attendee",
-    "reviewNotes": "Draft; missing exact date"
+    "reviewNotes": "Draft; missing exact date",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Attendee",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "HITCON 2026",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [
+        {
+          "eventId": "archive-039",
+          "relationshipType": "different-year",
+          "verificationStatus": "source-recorded",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+          ],
+          "reason": "Different editions; not an alias relationship."
+        }
+      ],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-041",
@@ -1215,7 +1531,32 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; attendee/participant",
-    "reviewNotes": "P and M published"
+    "reviewNotes": "P and M published",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Attendee",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "COSCUP 開源人年會 / COSCUP",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-042",
@@ -1238,7 +1579,32 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; attendee/participant",
-    "reviewNotes": "M published workshops prose; location/name variant needs reconciliation"
+    "reviewNotes": "M published workshops prose; location/name variant needs reconciliation",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Attendee",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "AWS Summit Taipei / Taiwan",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-043",
@@ -1258,7 +1624,39 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; attendee",
-    "reviewNotes": "Draft; no speaking evidence"
+    "reviewNotes": "Draft; no speaking evidence",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Attendee",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "QRACON 學生量子電腦年會",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-061",
+          "relationshipReview": "pending",
+          "reason": "Conference versus exhibition; related quantum subject does not establish same event.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-044",
@@ -1279,7 +1677,39 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; student",
-    "reviewNotes": "P published; exact dates absent"
+    "reviewNotes": "P published; exact dates absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Student",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "APCS 模擬測驗團隊暑期營隊",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-045",
+          "relationshipReview": "pending",
+          "reason": "APCS/APCSS spelling and camp naming differ; no explicit equivalence.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-045",
@@ -1299,7 +1729,39 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; role unspecified",
-    "reviewNotes": "Draft; possible APCS alias, do not silently merge"
+    "reviewNotes": "Draft; possible APCS alias, do not silently merge",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "APCSS Computational Thinking Camp",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-044",
+          "relationshipReview": "pending",
+          "reason": "APCS/APCSS spelling and camp naming differ; no explicit equivalence.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-046",
@@ -1322,7 +1784,44 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; student/participant; `30 Hours` / `30 小時` in L/W",
-    "reviewNotes": "M prose published; merge only after event identity confirmation"
+    "reviewNotes": "M prose published; merge only after event identity confirmation",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Student",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "高中量子計畫暑期學習營 / Quantum Computing Summer Camp",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-079",
+          "relationshipReview": "pending",
+          "reason": "High School Quantum Program versus generic Quantum Computing camp; shared year/topic is insufficient.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+            "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-047",
@@ -1342,7 +1841,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; metadata `資安培訓`",
-    "reviewNotes": "Draft; student role/completion/date not explicit; distinct from competitions"
+    "reviewNotes": "Draft; student role/completion/date not explicit; distinct from competitions",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "AIS3 高階培訓",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-048",
@@ -1363,7 +1884,52 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; Participant",
-    "reviewNotes": "Draft; exact dates absent"
+    "reviewNotes": "Draft; exact dates absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "CTF 資安種子培訓交流會（台北場）",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+        "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-077",
+          "relationshipReview": "pending",
+          "reason": "Generic seed-training entry may summarize Taipei, Kaohsiung or another session.",
+          "sourceReferences": [
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [
+        {
+          "eventId": "archive-049",
+          "relationshipType": "distinct-location-session",
+          "verificationStatus": "source-recorded",
+          "sourceReferences": [
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md / Activities/Lectures",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md / Activities/Lectures"
+          ],
+          "reason": "Taipei and Kaohsiung are separate source rows. Do not merge."
+        }
+      ],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-049",
@@ -1384,7 +1950,52 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; Participant",
-    "reviewNotes": "Draft; distinct location/session; L generic Cybersecurity Seed Training Meeting may summarize either/both"
+    "reviewNotes": "Draft; distinct location/session; L generic Cybersecurity Seed Training Meeting may summarize either/both",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "CTF 資安種子培訓交流會（高雄場）",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+        "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-077",
+          "relationshipReview": "pending",
+          "reason": "Generic seed-training entry may summarize Taipei, Kaohsiung or another session.",
+          "sourceReferences": [
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [
+        {
+          "eventId": "archive-048",
+          "relationshipType": "distinct-location-session",
+          "verificationStatus": "source-recorded",
+          "sourceReferences": [
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md / Activities/Lectures",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md / Activities/Lectures"
+          ],
+          "reason": "Taipei and Kaohsiung are separate source rows. Do not merge."
+        }
+      ],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-050",
@@ -1407,7 +2018,44 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; participant",
-    "reviewNotes": "M prose published; exact day absent"
+    "reviewNotes": "M prose published; exact day absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Build with AI / Build with AI Taipei",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-051",
+          "relationshipReview": "pending",
+          "reason": "D and W list Build with AI and GDG Taipei separately; shared ecosystem is insufficient.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-051",
@@ -1429,7 +2077,43 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; participant in W",
-    "reviewNotes": "M prose published; potentially overlapping Build with AI, not presumed identical"
+    "reviewNotes": "M prose published; potentially overlapping Build with AI, not presumed identical",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "GDG Taipei Workshop",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-050",
+          "relationshipReview": "pending",
+          "reason": "D and W list Build with AI and GDG Taipei separately; shared ecosystem is insufficient.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-052",
@@ -1452,7 +2136,44 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; participant in W",
-    "reviewNotes": "M prose published; exact day absent"
+    "reviewNotes": "M prose published; exact day absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Gemini CLI + ADK + Cloud Run",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-053",
+          "relationshipReview": "pending",
+          "reason": "Gemini/ADK workshop and enterprise ADK list entry may overlap; no explicit equivalence.",
+          "sourceReferences": [
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-053",
@@ -1472,7 +2193,41 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; role unspecified",
-    "reviewNotes": "Draft; relationship to above workshop unknown"
+    "reviewNotes": "Draft; relationship to above workshop unknown",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Enterprise AI Agent Development using ADK",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-052",
+          "relationshipReview": "pending",
+          "reason": "Gemini/ADK workshop and enterprise ADK list entry may overlap; no explicit equivalence.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+            "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-054",
@@ -1492,7 +2247,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; role unspecified",
-    "reviewNotes": "Draft; dates/completion absent"
+    "reviewNotes": "Draft; dates/completion absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Antigravity SDK Workshop",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-055",
@@ -1512,7 +2289,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; role unspecified",
-    "reviewNotes": "Draft; dates/completion absent"
+    "reviewNotes": "Draft; dates/completion absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "KiloShop AI Workshop",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-056",
@@ -1532,7 +2331,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; role unspecified",
-    "reviewNotes": "Draft; dates/completion absent"
+    "reviewNotes": "Draft; dates/completion absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "ClawShop 2 AI Workshop",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-057",
@@ -1554,7 +2375,31 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; participant in W; completed learning record",
-    "reviewNotes": "M prose published; no actual competition result established"
+    "reviewNotes": "M prose published; no actual competition result established",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Smart Manufacturing Competition Training / Smart Manufacturing",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-058",
@@ -1574,7 +2419,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; role unspecified",
-    "reviewNotes": "Draft; dates/completion absent"
+    "reviewNotes": "Draft; dates/completion absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Auden TechDay 2026",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-059",
@@ -1594,7 +2461,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; role unspecified",
-    "reviewNotes": "Draft; dates/official name absent"
+    "reviewNotes": "Draft; dates/official name absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Central Taiwan High School Computer Conference",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-060",
@@ -1614,7 +2503,41 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; role unspecified",
-    "reviewNotes": "Draft; likely InfoSec alias requires confirmation"
+    "reviewNotes": "Draft; likely InfoSec alias requires confirmation",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "International Cybersecurity Organization Conference",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-036",
+          "relationshipReview": "pending",
+          "reason": "InfoSec naming overlap; different source titles without explicit alias statement.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)",
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-061",
@@ -1634,7 +2557,39 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; role unspecified",
-    "reviewNotes": "Draft; not automatically QRACON"
+    "reviewNotes": "Draft; not automatically QRACON",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "International Quantum Technology Exhibition",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-043",
+          "relationshipReview": "pending",
+          "reason": "Conference versus exhibition; related quantum subject does not establish same event.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Exhibition remains an editorial conferences grouping; exact event format/identity pending, not assumed to be QRACON."
+    }
   },
   {
     "id": "archive-062",
@@ -1654,7 +2609,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2024; role unspecified",
-    "reviewNotes": "Draft; completion/date absent"
+    "reviewNotes": "Draft; completion/date absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Smart-AI Programming Talent Program",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-063",
@@ -1674,7 +2651,29 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2024; role unspecified",
-    "reviewNotes": "Draft; completion/date absent"
+    "reviewNotes": "Draft; completion/date absent",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "AI Humanoid Robot Control & Applications",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-064",
@@ -1695,7 +2694,30 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; Participant in B",
-    "reviewNotes": "Published journal, draft structured experience; conference date not inferred from article date"
+    "reviewNotes": "Published journal, draft structured experience; conference date not inferred from article date",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "conferences",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "2026 資安大會 / CYBERSEC reflection",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/nagi_home.json (activities/experience)"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-065",
@@ -1716,7 +2738,36 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2025; training support",
-    "reviewNotes": "M CTF prose published; not competitor or attendee role"
+    "reviewNotes": "M CTF prose published; not competitor or attendee role",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "teaching",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Training support",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": null,
+      "teachingRoleReview": "pending",
+      "officialEvidenceReview": "pending",
+      "eventNature": "broad-role-history",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/ctf/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [
+        {
+          "text": "Training support",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/ctf/index.md / CTF Training / Role"
+        }
+      ],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Broad role record: actual session title, date and teaching responsibility remain pending; repeated headings are not separate sessions."
+    }
   },
   {
     "id": "archive-066",
@@ -1737,7 +2788,30 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "2026; learner / note taker",
-    "reviewNotes": "M prose/lab published; personal learning, not event attendance"
+    "reviewNotes": "M prose/lab published; personal learning, not event attendance",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Learner",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "CTF Web Practice Lab",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "personal-learning",
+      "reviewedSourceReferences": [
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/ctf/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Personal lab notes do not establish event attendance or instruction."
+    }
   },
   {
     "id": "archive-067",
@@ -1858,7 +2932,35 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "speaker",
-    "reviewNotes": "Exact event titles, dates and publication approval missing."
+    "reviewNotes": "Exact event titles, dates and publication approval missing.",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "speaking",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Speaker",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": null,
+      "teachingRoleReview": "pending",
+      "officialEvidenceReview": "pending",
+      "eventNature": "broad-role-history",
+      "reviewedSourceReferences": [
+        "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md"
+      ],
+      "roleAssertions": [
+        {
+          "text": "speaker",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md / Activities/Lectures, 2024 row"
+        }
+      ],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Broad role record: actual session title, date and teaching responsibility remain pending; repeated headings are not separate sessions."
+    }
   },
   {
     "id": "archive-072",
@@ -1879,7 +2981,49 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "Instructor",
-    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined."
+    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined.",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "teaching",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Instructor",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": null,
+      "teachingRoleReview": "pending",
+      "officialEvidenceReview": "pending",
+      "eventNature": "broad-role-history",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [
+        {
+          "text": "Instructor",
+          "sourceType": "Security teaching",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:433 / CTF Instructor"
+        },
+        {
+          "text": "Instructor",
+          "sourceType": "Security teaching",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:587 / CTF Instructor"
+        },
+        {
+          "text": "Instructor",
+          "sourceType": "Technical sharing",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:755 / CTF Instructor"
+        }
+      ],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Broad role record: actual session title, date and teaching responsibility remain pending; repeated headings are not separate sessions."
+    }
   },
   {
     "id": "archive-073",
@@ -1900,7 +3044,43 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "Instructor",
-    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined."
+    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined.",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "teaching",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Instructor",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": null,
+      "teachingRoleReview": "pending",
+      "officialEvidenceReview": "pending",
+      "eventNature": "broad-role-history",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [
+        {
+          "text": "Instructor",
+          "sourceType": "Embedded Linux teaching",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:447 / Raspberry Pi Instructor"
+        },
+        {
+          "text": "Instructor",
+          "sourceType": "Technical teaching",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:769 / Raspberry Pi Instructor"
+        }
+      ],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Broad role record: actual session title, date and teaching responsibility remain pending; repeated headings are not separate sessions."
+    }
   },
   {
     "id": "archive-074",
@@ -1921,7 +3101,49 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "Teaching assistant",
-    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined."
+    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined.",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "teaching",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Teaching assistant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": null,
+      "teachingRoleReview": "pending",
+      "officialEvidenceReview": "pending",
+      "eventNature": "broad-role-history",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [
+        {
+          "text": "Teaching assistant",
+          "sourceType": "Teaching support",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:377 / Cybersecurity Teaching Assistant"
+        },
+        {
+          "text": "Teaching assistant",
+          "sourceType": "Education leadership support",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:475 / Cybersecurity Teaching Assistant"
+        },
+        {
+          "text": "Teaching assistant",
+          "sourceType": "Teaching support",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:783 / Cybersecurity Teaching Assistant"
+        }
+      ],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Broad role record: actual session title, date and teaching responsibility remain pending; repeated headings are not separate sessions."
+    }
   },
   {
     "id": "archive-075",
@@ -1942,7 +3164,37 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "Support staff",
-    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined."
+    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined.",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "teaching",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Support staff",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": null,
+      "teachingRoleReview": "pending",
+      "officialEvidenceReview": "pending",
+      "eventNature": "broad-role-history",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [
+        {
+          "text": "Support staff",
+          "sourceType": "Event support",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:797 / Technical Session Support"
+        }
+      ],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Broad role record: actual session title, date and teaching responsibility remain pending; repeated headings are not separate sessions."
+    }
   },
   {
     "id": "archive-076",
@@ -1963,7 +3215,37 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "Support staff",
-    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined."
+    "reviewNotes": "Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined.",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "teaching",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Support staff",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": null,
+      "teachingRoleReview": "pending",
+      "officialEvidenceReview": "pending",
+      "eventNature": "broad-role-history",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [
+        {
+          "text": "Support staff",
+          "sourceType": "Training support",
+          "verificationStatus": "source-recorded",
+          "sourceReference": "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md:811 / Technical Training Support"
+        }
+      ],
+      "aliasCandidate": [],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged. Broad role record: actual session title, date and teaching responsibility remain pending; repeated headings are not separate sessions."
+    }
   },
   {
     "id": "archive-077",
@@ -1983,7 +3265,50 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "Generic training list entry",
-    "reviewNotes": "May summarize Taipei/Kaohsiung sessions; preserve unresolved alias."
+    "reviewNotes": "May summarize Taipei/Kaohsiung sessions; preserve unresolved alias.",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Cybersecurity Seed Training Meeting",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-048",
+          "relationshipReview": "pending",
+          "reason": "Generic seed-training entry may summarize Taipei, Kaohsiung or another session.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md"
+          ]
+        },
+        {
+          "eventId": "archive-049",
+          "relationshipReview": "pending",
+          "reason": "Generic seed-training entry may summarize Taipei, Kaohsiung or another session.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 3801cc5d41d78e5ad518a4cb1092b492b5857c02:source/about/index.md",
+            "legacy 77246e26c345dca36ee6d094dce2afeefb92dc43:source/about/index.md"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   },
   {
     "id": "archive-078",
@@ -2011,6 +3336,47 @@
       "reviewStatus": "unresolved-overlap",
       "sourceReference": "User message: Historical Awards Reconciliation (baseline 6750b3c), reporting prior explicit statements; original conversation dates/links not supplied.",
       "reviewNotes": "Retain the original 16 Hours training lead separately as a source assertion, not a second confirmed participation; relationship to competition remains unresolved."
+    },
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "unknown",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Northern Taiwan Cybersecurity Hackathon — training",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-008",
+          "relationshipReview": "pending",
+          "reason": "16-hour training versus competition/award: relationship unresolved, not second confirmed attendance.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "docs/experience-audit.md",
+            "E,O,B,A,C,T,L,D",
+            "E: `../source/_data/experience.json` at legacy HEAD; `zh/en/ja.sections` includes competitions, camps, conferences, workshops, certifications, speaking and community",
+            "O: `source/about/index.md` at legacy `3801cc5d41d78e5ad518a4cb1092b492b5857c02` (first commit)",
+            "B: `source/about/index.md` at legacy `77246e26c345dca36ee6d094dce2afeefb92dc43`",
+            "A: `../source/zh/experience/awards/index.md` and `../source/experience/awards/index.md` at legacy HEAD; last relevant Chinese-file commit `88d4a14df5ca9d1f7665909c481ca4ac4f18d3f2`",
+            "C: `../source/zh/experience/competitions/index.md` and English counterpart at legacy HEAD; both explicitly unpublished",
+            "T: `../source/zh/experience/ctf/index.md` and English counterpart at legacy HEAD",
+            "L: `source/experience/index.md` at legacy `1a5573c3e0ecb72c536394b2da54fbcf5d2d9499`",
+            "D: `source/experience/index.md` at legacy `d1eb32924c74d3438816ac4b5a81d51e3ae2f13d` (expanded database-style records)"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
     }
   },
   {
@@ -2033,6 +3399,42 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "30 Hours",
-    "reviewNotes": "Confirm identity with High School Quantum Program Summer Camp; retain separate assertion."
+    "reviewNotes": "Confirm identity with High School Quantum Program Summer Camp; retain separate assertion.",
+    "learningReconciliation": {
+      "baselineCommit": "014fb6a",
+      "category": "training",
+      "categoryBasis": "Source event type and original role; attendance, instruction and support are distinct. Editorial classification is not verification.",
+      "verificationStatus": "source-recorded",
+      "sourceRole": "Participant",
+      "eventDate": null,
+      "dateVerification": "pending",
+      "dateBasis": "No reliable exact event date found; source year retained separately.",
+      "activityIdentityReview": "pending",
+      "actualEventTitle": "Quantum Computing Summer Camp",
+      "teachingRoleReview": "not-applicable",
+      "officialEvidenceReview": "pending",
+      "eventNature": "named-source-entry",
+      "reviewedSourceReferences": [
+        "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+        "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+        "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md"
+      ],
+      "roleAssertions": [],
+      "aliasCandidate": [
+        {
+          "eventId": "archive-046",
+          "relationshipReview": "pending",
+          "reason": "High School Quantum Program versus generic Quantum Computing camp; shared year/topic is insufficient.",
+          "sourceReferences": [
+            "legacy 1a5573c3e0ecb72c536394b2da54fbcf5d2d9499:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/experience/workshops/index.md",
+            "legacy d1eb32924c74d3438816ac4b5a81d51e3ae2f13d:source/experience/index.md",
+            "legacy 6aec1aa74e4cb965a093801527c270f9a2c68ddb:source/_data/experience.json (zh/en camps, conferences, workshops)"
+          ]
+        }
+      ],
+      "relatedEventId": [],
+      "reviewNotes": "Repository statements only; no new user or official confirmation. Existing publication and verification states remain unchanged."
+    }
   }
 ]

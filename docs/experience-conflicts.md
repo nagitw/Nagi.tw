@@ -1,5 +1,57 @@
 # Experience conflicts and review queue
 
+## 研習、會議、演講及教學待確認清單（基準 014fb6a）
+
+本輪涵蓋 archive-032～066、071～079，共 44 筆；舊站與 Git snapshot 只能支持 source-recorded，沒有新增 user-confirmed／official-verified。原有 79 筆 assertion 不刪除，沒有新增 confirmedSameEvent 或合併活動。以下分五類列出待補事項，逐筆名稱／角色／關係見 master-list 本輪表格及 JSON learningReconciliation。
+
+### 1. 活動身分待確認
+
+- 全部 44 筆的實際屆次／場次與個人參與證明仍待核對，不因名稱出現在舊站而視為已直接確認。已有來源角色可保留，但不升級。
+- archive-038、045、047、053～056、058～063、077、078 連具體參與角色亦未明；不得填成學員、講師或與會者。
+- archive-065、071～076 是廣義訓練支援／講者／教學角色歷史，缺少實際活動名稱；actualEventTitle=null。D 同名段落重複不是多場活動證據。
+- archive-066 是個人 CTF Web Practice Lab 學習／筆記，不能算作活動出席；archive-061 來源是 Exhibition，暫留 conferences 編輯分組，實際格式待核對，不等同 QRACON。
+
+### 2. 日期待確認
+
+- archive-032～034、036～066、071～079：精確活動日期 pending，本輪 eventDate=null，原始年份保留，不製造 1 月 1 日。
+- archive-035：舊站 E 的 zh/en 明載 2026-07-07，僅 source-recorded／draft；非從同日文章發布時間推算，官方日期證據與公開授權仍待補。
+- InfoSec 2025／2026（036／035）及 HITCON 2025／2026（039／040）保持不同年度；不把其中一年的日期移給另一年。
+
+### 3. 活動別名待確認
+
+| 條目 | 候選關係 | 本次來源結論／待補 |
+|---|---|---|
+| 036 ↔ 060 | InfoSec Taiwan／International Cybersecurity Organization Conference | E/O/B 與 L 名稱對照，缺少同場活動的明確指認；不連至 2026 的 035 |
+| 037 ↔ 038 | Bak3 C00kie／ZeroDay Cookie | 拼字與會議稱呼有差異，沒有同一活動證據 |
+| 044 ↔ 045 | APCS／APCSS | 營隊名稱與拼字不同，需正式名稱／同屆證據 |
+| 046 ↔ 079 | 高中量子計畫暑期營／Quantum Computing Summer Camp | E 學員與 L/W/D 的 30 小時敘述不足以確認同場 |
+| 043 ↔ 061 | QRACON／International Quantum Technology Exhibition | 年會與展覽形式不同，不能只因量子主題合併 |
+| 050 ↔ 051 | Build with AI／GDG Taipei Workshop | D/W 分別列項，缺少明確同場證據 |
+| 052 ↔ 053 | Gemini CLI + ADK + Cloud Run／Enterprise AI Agent Development using ADK | L 分列，技術主題相似不代表同場 |
+| 048 ↔ 077、049 ↔ 077 | 台北場／高雄場與資安種子泛稱 | O/B 明確把台北、高雄分列；泛稱可能涵蓋任一／兩者／其他場，不能自動選擇 |
+| 078 → 008 | 黑客松 16 小時培訓與競賽 | L 只有培訓時數線索；保留與競賽關聯候選，不計第二場已確認活動，不搬移獎項 |
+| 033 ↔ 034 | AI for Good 系列／Songshan 工作坊 | L 分列，場次對應未明 |
+
+以上皆為 aliasCandidate（relationshipReview=pending），不宣稱等價。048／049 的 relatedEventId 明確標為 distinct-location-session；035／036、039／040 為 different-year。不同地點、年度或未明場次不可合併。008 非本輪分類範圍，沒有改寫其原資料；關聯由 078 指向它。
+
+### 4. 教學角色待確認
+
+| 條目 | 保留的原始角色 | 待補 |
+|---|---|---|
+| 071：2024 校內外資訊安全與技術學習活動 | O：speaker | 實際活動名稱、正式分享形式、主題、日期、出席／講者證據；不拆多場演講 |
+| 072：CTF Instructor | D：Instructor（含 Security teaching／Technical sharing 原類型） | 實際課程／場次、責任範圍、日期；重複標題不增計活動 |
+| 073：Raspberry Pi Instructor | D：Instructor | 實際課程／場次、日期、授課證據 |
+| 074：Cybersecurity Teaching Assistant | D：Teaching assistant | 實際課程與助教責任、日期；不是主講人 |
+| 075：Technical Session Support | D：Support staff | 實際活動、支援工作及日期；不是正式演講 |
+| 076：Technical Training Support | D：Support staff | 實際培訓、支援工作及日期；不是主講人 |
+| 065：CTF Training | T：Training support | 支援場次、責任及日期；不是學員／參賽角色 |
+
+全部 teachingRoleReview=pending。會議／營隊項目不建立講者或教學角色。既有 CTF 公開文章含教學敘述、speaking 頁仍隔離的歷史發布邊界不變；此次核對不授權任何新公開內容。
+
+### 5. 缺乏官方證據
+
+全部 44 筆 officialEvidenceReview=pending；沒有可確認為正式主辦單位／證書的證據 URL，因此不填造 evidenceUrls。需要活動識別資料、參與／角色證明、日期，以及別名對的同場證據。來源快照包含 E/H/W/T（legacy HEAD 6aec1aa）、O（3801cc5）、B（77246e2）、L（1a5573c）、D（d1eb329）；逐筆完整 hash／path 與教學 Role 引文位置均存於 JSON。未查外部官方網站，未把舊站自述當官方驗證。
+
 ## CTF 專項核對摘要（基準 b670bbe）
 
 本輪四筆排名是 user-reported，三筆既有團隊排名仍 source-recorded；都不是 official-verified，也不授權公開。原始 79 筆 assertion 及舊年份 superseded 規則不變。本節是 CTF 最新結論，下方歷史缺口敘述不覆蓋本次補記。
