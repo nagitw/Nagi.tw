@@ -1,9 +1,20 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { publicExperience, sortEvents } from '../src/lib/experience.ts';
 const records = JSON.parse(readFileSync('src/data/experience-archive.json', 'utf8'));
 assert.equal(new Set(records.map(r => r.id)).size, records.length);
-assert.ok(records.length >= 70);
+assert.equal(records.length, 79, 'All original assertions remain');
+// Frozen 5c50af7 payload: no Git history needed at runtime, including shallow CI.
+const original = records.map(record => {
+ const { yearVerification, participationVerification, awardVerification, verificationSource,
+   reviewStatus, supersededBy, excludeFromParticipationCount, originalReviewNotes, ...source } = record;
+ if (originalReviewNotes !== undefined) source.reviewNotes = originalReviewNotes;
+ return source;
+});
+assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),
+ 'e7ed4e1ac89119e82f3a24899a2c45b16747635d7dab349b572cbcb9e91f0494',
+ 'All original assertions, source references, awards, notes and publication states must survive unchanged');
 const audit = readFileSync('docs/experience-audit.md', 'utf8');
 const inventory = audit.split('## Competition inventory')[1].split('## Teaching and publication conflicts')[0];
 for (const line of inventory.split('\n').filter(line => line.startsWith('| ') && !line.startsWith('| Event'))) {
@@ -28,7 +39,18 @@ for (const r of records) {
 assert.equal(records.find(r=>r.titleEn==='picoCTF').rankingUnit, 'unknown');
 assert.equal(records.find(r=>r.titleEn==='picoCTF').totalParticipants,8748);
 assert.equal(records.find(r=>r.titleEn.includes('MARC')).placement,undefined);
-for (const [name, years] of [['FIRST Tech Challenge', ['2024','2026']], ['Ilan', ['2025','2026']], ['MyFirstCTF', ['2025','2026']]]) {
- for (const year of years) assert.ok(records.some(r=>r.titleEn.includes(name) && r.year===year), `Missing edition: ${name} ${year}`);
+for (const [currentId, oldId, oldYear] of [['archive-001','archive-067','2024'], ['archive-006','archive-068','2025'], ['archive-017','archive-069','2025']]) {
+ const current = records.find(r=>r.id===currentId);
+ const old = records.find(r=>r.id===oldId);
+ assert.equal(current.year, '2026');
+ assert.equal(current.yearVerification, 'user-confirmed');
+ assert.equal(current.participationVerification, 'user-confirmed');
+ assert.equal(current.awardVerification, 'pending');
+ assert.notEqual(current.verificationStatus, 'confirmed', 'Year approval is not whole-record approval');
+ assert.equal(old.year, oldYear, 'Keep the original erroneous source year');
+ assert.equal(old.reviewStatus, 'superseded');
+ assert.equal(old.supersededBy, currentId);
+ assert.equal(old.excludeFromParticipationCount, true);
+ assert.equal([current,old].filter(r=>r.excludeFromParticipationCount!==true && r.participationVerification==='user-confirmed').length,1);
 }
 console.log('Experience archive, independent approval gates and chronological ordering: PASS');

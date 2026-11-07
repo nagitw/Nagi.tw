@@ -1,5 +1,11 @@
 # Experience source audit
 
+## 使用者確認補記（基準 5c50af7）
+
+使用者親自確認 FTC、國立宜蘭大學程式設計暨資訊及 AI 應用競賽、AIS3 MyFirstCTF 均僅參加 2026 年，各一次。archive-001／006／017 的年份與參與為 user-confirmed；archive-067（2024）／068（2025）／069（2025）為錯誤年份 assertion，保留原文但 superseded，排除參賽次數。獎項／決賽／佳作仍待確認，不轉移舊年份獎項，不改任何發布狀態。
+
+下方是原始歷史盤點，保留當時的年份衝突敘述以維持來源脈絡；上述三項年份問題以此補記及 experience-conflicts.md 的最新結論為準，不再待確認。
+
 Audit date: 2026-11-07. This is an evidence inventory, not a publication instruction. Every recovered item and field remains **draft** until separately reviewed. Existing published records are identified separately. Historical author statements are not independent verification of participation, awards or rank. No real personal names or contact data are reproduced.
 
 ## Sources and coverage

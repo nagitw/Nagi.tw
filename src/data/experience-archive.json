@@ -23,7 +23,12 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "E: 參賽者; `最佳創意獎首席`; English `Inspire Award Winner`. A/L/D: 2024 team member, `Innovation Award`, L adds `(Lead Team)`",
-    "reviewNotes": "P publishes 2026 participation only; M publishes older award prose. Year and award terminology need reconciliation; no team name or rank/totalTeams"
+    "reviewNotes": "Year and participation user-confirmed: 2026 only. Awards/results, exact date, role details and publication approval remain pending. Original historical assertions are retained verbatim; no old-year awards transferred.",
+    "yearVerification": "user-confirmed",
+    "participationVerification": "user-confirmed",
+    "awardVerification": "pending",
+    "verificationSource": "User confirmation: Experience Year Reconciliation, baseline 5c50af7; attended only in 2026.",
+    "originalReviewNotes": "P publishes 2026 participation only; M publishes older award prose. Year and award terminology need reconciliation; no team name or rank/totalTeams"
   },
   {
     "id": "archive-002",
@@ -134,7 +139,12 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "E zh: `入圍決賽`, `榮獲佳作`; en: only `Finalist`; L/C/D: 2025 finalist",
-    "reviewNotes": "Draft; year and award differ; English omission is not disproof of Chinese award"
+    "reviewNotes": "Year and participation user-confirmed: 2026 only. Awards/results, exact date, role details and publication approval remain pending. Original historical assertions are retained verbatim; no old-year awards transferred.",
+    "yearVerification": "user-confirmed",
+    "participationVerification": "user-confirmed",
+    "awardVerification": "pending",
+    "verificationSource": "User confirmation: Experience Year Reconciliation, baseline 5c50af7; attended only in 2026.",
+    "originalReviewNotes": "Draft; year and award differ; English omission is not disproof of Chinese award"
   },
   {
     "id": "archive-007",
@@ -380,7 +390,12 @@
     "verificationStatus": "source-recorded",
     "publicationStatus": "draft",
     "sourceAssertion": "E/P: 2026 參賽者; O: 2025 參賽者; B: 2026 Participant",
-    "reviewNotes": "P publishes 2026 participation; draft 2025 candidate may be distinct edition or correction; do not merge years automatically"
+    "reviewNotes": "Year and participation user-confirmed: 2026 only. Awards/results, exact date, role details and publication approval remain pending. Original historical assertions are retained verbatim; no old-year awards transferred.",
+    "yearVerification": "user-confirmed",
+    "participationVerification": "user-confirmed",
+    "awardVerification": "pending",
+    "verificationSource": "User confirmation: Experience Year Reconciliation, baseline 5c50af7; attended only in 2026.",
+    "originalReviewNotes": "P publishes 2026 participation; draft 2025 candidate may be distinct edition or correction; do not merge years automatically"
   },
   {
     "id": "archive-018",
@@ -1445,8 +1460,13 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "Innovation Award (Lead Team)",
-    "reviewNotes": "Confirm separate edition versus year correction; award terminology and team unknown.",
-    "award": "Innovation Award (Lead Team)"
+    "reviewNotes": "Incorrect historical source year; superseded by archive-001 (2026). Source assertion and any award wording retained for review only; not a separate participation. No awards transferred.",
+    "award": "Innovation Award (Lead Team)",
+    "reviewStatus": "superseded",
+    "supersededBy": "archive-001",
+    "excludeFromParticipationCount": true,
+    "verificationSource": "User confirmation: Experience Year Reconciliation, baseline 5c50af7; old source year is incorrect.",
+    "originalReviewNotes": "Confirm separate edition versus year correction; award terminology and team unknown."
   },
   {
     "id": "archive-068",
@@ -1468,7 +1488,12 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "Finalist",
-    "reviewNotes": "Confirm edition versus 2026; do not transfer award."
+    "reviewNotes": "Incorrect historical source year; superseded by archive-006 (2026). Source assertion and any award wording retained for review only; not a separate participation. No awards transferred.",
+    "reviewStatus": "superseded",
+    "supersededBy": "archive-006",
+    "excludeFromParticipationCount": true,
+    "verificationSource": "User confirmation: Experience Year Reconciliation, baseline 5c50af7; old source year is incorrect.",
+    "originalReviewNotes": "Confirm edition versus 2026; do not transfer award."
   },
   {
     "id": "archive-069",
@@ -1488,7 +1513,12 @@
     "verificationStatus": "conflicted",
     "publicationStatus": "draft",
     "sourceAssertion": "參賽者",
-    "reviewNotes": "Confirm edition versus 2026."
+    "reviewNotes": "Incorrect historical source year; superseded by archive-017 (2026). Source assertion and any award wording retained for review only; not a separate participation. No awards transferred.",
+    "reviewStatus": "superseded",
+    "supersededBy": "archive-017",
+    "excludeFromParticipationCount": true,
+    "verificationSource": "User confirmation: Experience Year Reconciliation, baseline 5c50af7; old source year is incorrect.",
+    "originalReviewNotes": "Confirm edition versus 2026."
   },
   {
     "id": "archive-070",

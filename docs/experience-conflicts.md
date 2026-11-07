@@ -4,9 +4,9 @@
 
 | 群組 | 需要使用者確認的欄位 | 處理 |
 |---|---|---|
-| FTC 2024 / 2026 | 屆次、年份、Innovation / Inspire / 最佳創意獎首席、Lead Team 的意思 | 分開年份，2026 僅保留既有參賽公開快照；獎項均 draft |
-| 宜蘭 2025 / 2026 | 是否不同屆次、決賽與佳作、英文缺項 | 分開年份，保留原文，不從缺譯推論未獲獎 |
-| AIS3 MyFirstCTF 2025 / 2026 | 重複參加或年份修正 | 兩筆保留，2026 原公開參賽狀態不變 |
+| FTC 2024 / 2026 | 年份與參與已 user-confirmed：僅 2026；待確認 Innovation / Inspire / 最佳創意獎首席、Lead Team 的意思 | archive-001 保留 2026；archive-067 為錯誤年份來源 assertion，superseded，不計參賽次數。舊獎項不轉移 |
+| 宜蘭 2025 / 2026 | 年份與參與已 user-confirmed：僅 2026；決賽、佳作及英文缺項仍待確認 | archive-006 保留 2026；archive-068 為錯誤年份來源 assertion，superseded，不計參賽次數 |
+| AIS3 MyFirstCTF 2025 / 2026 | 年份與參與已 user-confirmed：僅 2026；獎項／結果未確認 | archive-017 保留 2026；archive-069 為錯誤年份來源 assertion，superseded，不建立第二次參賽 |
 | PowerTech | 地區／全國、組別、第一名與創意獎所屬 | 地區與全國分開，獎項不直接轉名次 |
 | InnoServe | 高中職／大專組、佳作／Merit、決賽 | 同一屆一筆，原文列出各組結果，不拆成多次參與 |
 | 資安黑客松 | 官方名稱、挖蛋專家／OSINT 是否相同、16 小時研習與競賽關係 | 原文並存，研習另列待確認，不將兩獎名互譯 |
@@ -21,16 +21,16 @@
 
 ## 逐筆待審欄位
 
-每筆均需確認參與／身分、來源證據及發布範圍；以下列出特定缺口。
+除上述三筆已由使用者確認年份與參與外，其餘參與／身分、來源證據及發布範圍仍待審。年份確認不等於整筆活動或獎項確認；原 verificationStatus 及 publicationStatus 均不變。
 
 | ID | 來源 | 待確認 |
 |---|---|---|
-| archive-001 | E,H,A,C,L,D,P | P publishes 2026 participation only; M publishes older award prose. Year and award terminology need reconciliation; no team name or rank/totalTeams |
+| archive-001 | E,H,A,C,L,D,P | Year and participation user-confirmed: 2026 only. Awards/results, exact date, role details and publication approval remain pending. Original historical assertions are retained verbatim; no old-year awards transferred. |
 | archive-002 | E,H | Draft; top-12 selection is not rank 12; denominator absent |
 | archive-003 | E,H | Draft; award/stage absent; do not silently equate to older technical creativity event |
 | archive-004 | H | Draft; role, team, placement, date absent |
 | archive-005 | O,B,L,A,D,E | M awards prose published; structured recovery draft. E name `資訊服務創新應用大賽`; reconcile divisions and translated award, do not count finalist and award as separate events |
-| archive-006 | E,H,L,C,D | Draft; year and award differ; English omission is not disproof of Chinese award |
+| archive-006 | E,H,L,C,D | Year and participation user-confirmed: 2026 only. Awards/results, exact date, role details and publication approval remain pending. Original historical assertions are retained verbatim; no old-year awards transferred. |
 | archive-007 | O,B; `ea73fd6bf8486afa7573b71ed1ce2dea4a954aa9:source/about/index.md` | Draft; role/team/date/rank absent |
 | archive-008 | E,O,B,A,C,T,L,D | M publishes OSINT prose; draft consolidation. Award equivalence and exact event naming unverified |
 | archive-009 | L,C,D,A | M publishes Creativity Award prose; draft structured record. First Place applies to this source's event/division only; team and denominator absent |
@@ -41,7 +41,7 @@
 | archive-014 | Candidate only | Draft lead, not an experience claim; all fields missing |
 | archive-015 | O,B | Draft; rank 1007 and denominator 8748 recorded, but denominator unit and individual/team basis unspecified. Do **not** assign `totalTeams=8748` without evidence |
 | archive-016 | O,B | Draft; rank basis, team and denominator absent |
-| archive-017 | E,P,O,B | P publishes 2026 participation; draft 2025 candidate may be distinct edition or correction; do not merge years automatically |
+| archive-017 | E,P,O,B | Year and participation user-confirmed: 2026 only. Awards/results, exact date, role details and publication approval remain pending. Original historical assertions are retained verbatim; no old-year awards transferred. |
 | archive-018 | E,O,B | Draft; stage reconciliation needed; no final-stage claim |
 | archive-019 | D; C | Draft training/preparation only, not proof of competition entry |
 | archive-020 | C,D | Unpublished source; draft, do not equate automatically to MyFirstCTF, EOF or training |
@@ -91,9 +91,9 @@
 | archive-064 | B,H; Notes `articles/security/2026-security-conference.{md,en.md,ja.md}`, migrated journal | Published journal, draft structured experience; conference date not inferred from article date |
 | archive-065 | T,D | M CTF prose published; not competitor or attendee role |
 | archive-066 | T,D; `source/{labs,zh/labs}/ctf-web-practice/index.md` | M prose/lab published; personal learning, not event attendance |
-| archive-067 | A,L,D | Confirm separate edition versus year correction; award terminology and team unknown. |
-| archive-068 | L,C,D | Confirm edition versus 2026; do not transfer award. |
-| archive-069 | O | Confirm edition versus 2026. |
+| archive-067 | A,L,D | Incorrect historical source year; superseded by archive-001 (2026). Source assertion and any award wording retained for review only; not a separate participation. No awards transferred. |
+| archive-068 | L,C,D | Incorrect historical source year; superseded by archive-006 (2026). Source assertion and any award wording retained for review only; not a separate participation. No awards transferred. |
+| archive-069 | O | Incorrect historical source year; superseded by archive-017 (2026). Source assertion and any award wording retained for review only; not a separate participation. No awards transferred. |
 | archive-070 | O,B | Do not merge with undated Asia Eastern University event without identity evidence. |
 | archive-071 | O | Exact event titles, dates and publication approval missing. |
 | archive-072 | L,D | Broad historical claim; exact session/date/evidence required. Speaking pages remain quarantined. |

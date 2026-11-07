@@ -1,5 +1,15 @@
 # Experience master list
 
+## 使用者年份確認（基準 5c50af7）
+
+FTC（archive-001）、宜蘭大學競賽（archive-006）、AIS3 MyFirstCTF（archive-017）均僅參加 2026 年，各一次。三筆的 `yearVerification` 與 `participationVerification` 為 `user-confirmed`，`awardVerification` 為 `pending`。年份不再待確認，整筆 verificationStatus 與 publicationStatus 不變。
+
+archive-067（FTC 2024）、archive-068（宜蘭 2025）、archive-069（MyFirstCTF 2025）保留原始年份、來源及獎項敘述，僅作錯誤年份的歷史 assertion；`reviewStatus=superseded`、`supersededBy` 指向對應 2026 ID、`excludeFromParticipationCount=true`。不能計作第二次參賽，也不能把舊獎項轉移到 2026。
+
+仍保留 79 筆 assertion，其中這三筆明確排除參賽次數；其餘 76 筆也不等於已確認 76 場活動。計算這三項已確認參與時，須同時篩選 `participationVerification=user-confirmed` 並排除 `excludeFromParticipationCount=true`，結果為三場。
+
+新增欄位是待審 JSON 的相容性 metadata，既有讀取方式不變；缺少新欄位不代表已確認。`scripts/recover-experience.py` 是原始盤點重建工具，尚未包含本次人工確認，不應直接重跑覆蓋此檔；資料測試會攔截此回退。
+
 完整保留 audit 表格、不同年份、教學敘述及別名線索；不是已確認參與清單。來源歷史敘述使用 `source-recorded`，衝突使用 `conflicted`，無參與證據使用 `candidate-only`。所有找回的紀錄及欄位均為 draft。未知年份為 null，不製造日期。英文譯名僅供編輯，不作證據。
 
 公開資料仍由 `src/data/experience.ts` 的八筆已核准快照提供；`src/data/experience-archive.json` 是完整待審檔案，包含來源、原文、角色、名次單位與待確認事項。兩者以既有來源與活動年份對照，draft 不覆寫公開快照。InfoSec 2026 的 07-07 僅存於 draft。
@@ -10,12 +20,12 @@
 
 | ID | 年份 | 中文／原名 | English | 類別 | 身分 | 原始敘述（未確認） | 驗證 | 發布 |
 |---|---|---|---|---|---|---|---|---|
-| archive-001 | 2026 | FIRST Tech Challenge / FTC | FIRST Tech Challenge / FTC | competitions | Competitor | E: 參賽者; `最佳創意獎首席`; English `Inspire Award Winner`. A/L/D: 2024 team member, `Innovation Award`, L adds `(Lead Team)` | conflicted | draft |
+| archive-001 | 2026 | FIRST Tech Challenge / FTC | FIRST Tech Challenge / FTC | competitions | Competitor | E: 參賽者; `最佳創意獎首席`; English `Inspire Award Winner`. A/L/D: 2024 team member, `Innovation Award`, L adds `(Lead Team)` | conflicted; year/participation: user-confirmed; awards: pending | draft |
 | archive-002 | 2026 | 台灣選拔賽 MARC 機器人競賽 | MARC Taiwan Robotics Selection | competitions | Competitor | 參賽者; `入選 12 強` / `Top 12 selection` | source-recorded | draft |
 | archive-003 | 2026 | 智慧鐵人創意競賽 | Intelligent Ironman Creativity Competition | competitions | Competitor | 參賽者 | source-recorded | draft |
 | archive-004 | 2026 | 新北市 AI 智慧城市黑客松 | New Taipei AI Smart City Hackathon | competitions | unknown | `決賽` / `Finalist` | source-recorded | draft |
 | archive-005 | 2025 | 第30屆大專院校資訊應用服務創新競賽 / The 30th InnoServe Awards | The 30th InnoServe Awards | competitions | Participant / presenter | O/B: `大專組佳作`, `高中職 / 大專組入圍決賽`; L: `Merit Award (College Division)`, high-school finalist; A/D: participant/presenter, Merit Award and finalist | conflicted | draft |
-| archive-006 | 2026 | 國立宜蘭大學程式設計暨資訊及 AI 應用競賽 | National Ilan University Programming, Information & AI Competition | competitions | unknown | E zh: `入圍決賽`, `榮獲佳作`; en: only `Finalist`; L/C/D: 2025 finalist | conflicted | draft |
+| archive-006 | 2026 | 國立宜蘭大學程式設計暨資訊及 AI 應用競賽 | National Ilan University Programming, Information & AI Competition | competitions | unknown | E zh: `入圍決賽`, `榮獲佳作`; en: only `Finalist`; L/C/D: 2025 finalist | conflicted; year/participation: user-confirmed; awards: pending | draft |
 | archive-007 | 2025 | Daydream 遊戲開發黑客松 | Daydream Game Development Hackathon | competitions | unknown | `佳作`; English history `Commendable Work` | source-recorded | draft |
 | archive-008 | 2025 | 高中職程式安全黑客松 / 北區高中職程式安全黑客松 | Northern Taiwan High School Program Security Hackathon | competitions | Participant | E/O/B: `挖蛋專家獎`; A/C/T/L/D: participant, `OSINT Excellence Award`; L training list says 16 Hours | conflicted | draft |
 | archive-009 | 2024 | i-STEAM / iSTEAM PowerTech Robotics Competition (New Taipei City) | i-STEAM / iSTEAM PowerTech Robotics Competition (New Taipei City) | competitions | Team member | Team member; `First Place, Creativity Award` | source-recorded | draft |
@@ -76,9 +86,9 @@
 | archive-064 | 2026 | 2026 資安大會 / CYBERSEC reflection | CYBERSEC 2026 | conferences | Participant | 2026; Participant in B | source-recorded | draft |
 | archive-065 | 2025 | CTF Training | CTF Training | teaching | Training support | 2025; training support | source-recorded | draft |
 | archive-066 | 2026 | CTF Web Practice Lab | CTF Web Practice Lab | training | Learner | 2026; learner / note taker | source-recorded | draft |
-| archive-067 | 2024 | FIRST Tech Challenge / FTC — 2024 | FIRST Tech Challenge / FTC — 2024 | competitions | Team member | Innovation Award (Lead Team) | conflicted | draft |
-| archive-068 | 2025 | National Ilan University Programming, Information & AI Competition — 2025 | National Ilan University Programming, Information & AI Competition — 2025 | competitions | unknown | Finalist | conflicted | draft |
-| archive-069 | 2025 | AIS3 MyFirstCTF — 2025 | AIS3 MyFirstCTF — 2025 | ctf | Competitor | 參賽者 | conflicted | draft |
+| archive-067 | 2024 | FIRST Tech Challenge / FTC — 2024 | FIRST Tech Challenge / FTC — 2024 | competitions | Team member | Innovation Award (Lead Team) | superseded by archive-001; excluded from participation count | draft |
+| archive-068 | 2025 | National Ilan University Programming, Information & AI Competition — 2025 | National Ilan University Programming, Information & AI Competition — 2025 | competitions | unknown | Finalist | superseded by archive-006; excluded from participation count | draft |
+| archive-069 | 2025 | AIS3 MyFirstCTF — 2025 | AIS3 MyFirstCTF — 2025 | ctf | Competitor | 參賽者 | superseded by archive-017; excluded from participation count | draft |
 | archive-070 | 2026 | 全國高中職人工智慧與資訊生活應用創新競賽 — 2026 | National Senior High School AI and Information Life Application Innovation Competition — 2026 | competitions | Project participant | O: Project Participant; B: 佳作 | conflicted | draft |
 | archive-071 | 2024 | 校內外資訊安全與技術學習活動 | School and Community Cybersecurity and Technical Learning Activities | speaking | Speaker | speaker | source-recorded | draft |
 | archive-072 | 2025 | CTF Instructor | CTF Instructor | teaching | Instructor | Instructor | source-recorded | draft |

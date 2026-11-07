@@ -117,3 +117,12 @@ This section supersedes earlier route counts and placeholder behavior below.
 - Astro Check: 80 files, zero errors/warnings/hints. TypeScript passed. Production build: 69 pages. Full npm test passed after sandbox spawn EPERM required an approved rerun; tests include repository-base build and expected HTTP error fixtures. npm run validate and Experience artifact scan passed across public HTML, JS, JSON, RSS, sitemap and AI output. git diff --check passed.
 - Independent code review found no important issues. Browser interaction and visual desktop/mobile QA were not performed; responsive CSS and rendered static structure were checked, without claiming a browser visual pass.
 - Historical conflicts remain unresolved intentionally: edition years, aliases, official award names/divisions, ranking units, roles and evidence URLs need user confirmation before any new publication. No push, merge or deployment.
+
+## Experience Year Reconciliation — 基準 5c50af7
+
+- 使用者確認 FTC、宜蘭大學競賽、AIS3 MyFirstCTF 各僅參加 2026 年一次。archive-001／006／017 新增 yearVerification、participationVerification = user-confirmed；awardVerification = pending。整筆 verificationStatus 與 publicationStatus 不變。
+- archive-067／068／069 保留錯誤年份與原始來源、獎項敘述，標記 superseded 並指向對應 2026 ID，excludeFromParticipationCount = true。不新增第二次參賽，不轉移獎項。原 reviewNotes 保存在 originalReviewNotes。
+- 79 筆 assertion 全數保留。資料測試使用 5c50af7 原始 JSON 的固定 SHA-256 驗證所有原始欄位與發布狀態完整，並驗證三組各只計一次已確認參與；不需 CI 取得完整 Git 歷史。
+- 僅修改 experience-archive.json、experience-master-list.md、experience-conflicts.md、experience-audit.md、本報告及 scripts/test-experience.mjs。新增欄位為 JSON 相容性 metadata，不修改共用 schema、公開來源或 UI。原盤點產生器未更新，文件已註明重跑會覆蓋人工確認，測試會攔截回退。
+- 驗證：TypeScript 通過；Build 含 Astro Check（80 檔，0 errors／warnings／hints）通過，產生 69 頁；資料驗證、npm run validate、test-publication-build 及 git diff --check 通過。公開產物仍為八筆 Experience，draft 未輸出至公開頁面、搜尋、RSS、Sitemap 或 AI 知識庫。
+- 首頁企鵝、Projects／Research／Journal、已發布文章及 URL、所有 publicationStatus 均未修改。未 Push、Merge 或 Deploy。
