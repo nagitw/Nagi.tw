@@ -1,5 +1,14 @@
 # Nagi.tw V3 — Integration & Production Readiness
 
+## 2026-11-08 — Release Candidate QA (baseline b5adb0b)
+
+- Release recommendation: **No-Go**. See [v3-release-qa.md](v3-release-qa.md) for the executed checks, evidence, device matrix, fixes and release blockers. This decision supersedes earlier readiness implications.
+- Production build (70 pages), build-integrated Astro Check (81 files, zero errors/warnings/hints), TypeScript, full `npm test`, `/studio/` integration checks and `npm run validate` passed after the fixes. Initial sandbox `spawn EPERM` was retried with authorization; the RSS 503 fixture is intentional.
+- Fixed the missing favicon declaration using the unchanged penguin SVG, and added a static bilingual 404 fallback with noindex and base-aware home links. Added built-output regression checks; independent scoped code review found no concrete issues.
+- Browser access host was unavailable and native Firefox control approval timed out. Desktop/tablet/mobile visuals, real interactions and browser Console are **not verified**.
+- Existing published Awards and CTF articles still contain historical award/year and teaching-role claims identified as unresolved in the manual reconciliation. Publication gates protect draft payloads, but do not settle those independently published historical claims. These remain content release blockers; no manual decisions or publication states were changed.
+- All 79 assertions and all source data remain unchanged from b5adb0b. No migration, push, merge or deployment.
+
 ## 2026-11-07 — Content architecture and experience history correction
 
 This latest section supersedes the earlier Research membership and public-plan behavior. Starting tree was clean at `4d84564`; no user edits were discarded.
