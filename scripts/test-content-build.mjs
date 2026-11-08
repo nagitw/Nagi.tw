@@ -8,6 +8,7 @@ for (const path of walk(root).filter(path=>/\.(html|json|xml|js|css|txt|map)$/.t
   const text = readFileSync(path,'utf8');
   assert.ok(!/when I build websites, backends, AI APIs|If I have the chance to continue working|如果未來我還有機會/.test(text), `Personal-plan sentences absent from ${path}`);
   assert.ok(!/\/roadmap\/|\/future\/|未來計畫|What are your future plans|A future independent assistant|future independent Raspberry Pi AI|Next, I Want to Build My Own Malware Lab|接下來想建立自己的 Malware Lab|十八、對我未來方向的影響|How This Affected My Future Direction/.test(text), `Private plans absent from ${path}`);
+  assert.ok(!/OSINT Excellence Award|Innovation Award|InnoServe Merit Award|CTF Instructor|Training support completed|Practice support completed|獲得 Merit Award|完成訓練支援|完成練習支援/.test(text), `Unconfirmed historical awards and teaching claims absent from ${path}`);
 }
 for (const prefix of ['', 'zh/']) {
   assert.ok(!existsSync(`${root}/${prefix}roadmap/index.html`));
@@ -32,7 +33,15 @@ for (const prefix of ['', 'zh/']) {
     assert.ok(research.includes(`href="${base}/${prefix}${part}/"`), 'Related original remains discoverable');
   }
   const workshops = readFileSync(`${root}/${prefix}experience/workshops/index.html`,'utf8');
-  const headings = [...workshops.matchAll(/<h2>(\d{4})/g)].map(match=>match[1]);
-  assert.deepEqual(headings,['2026','2025']);
+  // Unresolved sessions no longer receive inferred year groups or completion claims.
+  for (const title of ['HITCON', 'COSCUP']) {
+    const section = workshops.split(`<h3>${title}</h3>`)[1]?.split('<h3>')[0];
+    assert.ok(section && /2025/.test(section) && /Attendee|與會者/.test(section));
+  }
+  assert.ok(!/30-hour|30 小時|Completed learning record|Completed training record|完成學習紀錄|(?:Year:|年份：)\s*2026/.test(workshops));
+  const awards = readFileSync(`${root}/${prefix}experience/awards/index.html`, 'utf8');
+  assert.ok(/FIRST Tech Challenge/.test(awards) && /(?:Year:|年份：)\s*2026/.test(awards));
+  assert.ok(/Competitor|參賽者/.test(awards));
+  assert.ok(!/2024|Merit Award|Honorable Mention|Creativity Award/.test(awards));
 }
 console.log('Built Journal categories, deduplicated dossiers, retained URLs, plan exclusion and experience years: PASS');
