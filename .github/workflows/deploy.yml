@@ -13,8 +13,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  SITE_URL: https://seraphforge.github.io
-  SITE_BASE: /nagi.tw/
+  SITE_URL: https://nagitw.github.io
+  SITE_BASE: /Nagi.tw/
   PUBLIC_PENGUIN_AI_MODE: offline
   PUBLIC_PENGUIN_API_URL: ''
 
