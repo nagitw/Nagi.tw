@@ -10,15 +10,22 @@
     "test": "node scripts/test-experience.mjs && node scripts/test-publication.mjs && node scripts/test-catalog.mjs && node scripts/test-content-architecture.mjs && node scripts/test-notes-rss.mjs && node scripts/test-penguin.mjs && node scripts/test-api-config.mjs && node scripts/test-disclosures.mjs && node scripts/test-article.mjs && node scripts/test-site.mjs && node scripts/test-publication-build.mjs && node scripts/test-content-build.mjs",
     "validate": "node scripts/test-experience-build.mjs && node scripts/validate-build.mjs && node scripts/test-language.mjs && node scripts/test-privacy.mjs && node scripts/test-indexes.mjs && node scripts/test-work-pages.mjs && node scripts/test-content-build.mjs",
     "typecheck": "tsc --noEmit",
-    "prebuild": "node scripts/clean-build.mjs"
+    "prebuild": "node scripts/clean-build.mjs",
+    "test:browser": "playwright test",
+    "qa:browser": "npm run build && npm run test:browser",
+    "test:ai": "node scripts/test-ai-production.mjs && node scripts/test-ai-build.mjs",
+    "validate:production": "npm run validate && node scripts/test-release-freeze.mjs && node scripts/validate-production.mjs && node scripts/test-pages-artifact.mjs",
+    "test:secrets": "node scripts/scan-secrets.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.2",
+    "astro": "7.4.7",
     "marked": "18.1.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.0",
     "typescript": "^6.0.3"
   }
 }

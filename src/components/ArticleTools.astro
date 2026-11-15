@@ -1,0 +1,50 @@
+---
+import type { ArticleHeading } from '../lib/article';
+import type { Locale } from '../i18n/ui';
+interface Props { headings: ArticleHeading[]; locale: Locale }
+const { headings, locale } = Astro.props;
+const zh = locale === 'zh';
+---
+<div class="reading-progress" aria-hidden="true" hidden><span data-reading-progress></span></div>
+{headings.length > 0 && <details class="article-toc" open id="article-toc">
+  <summary>{zh ? '文章目錄' : 'On this page'}</summary>
+  <nav aria-label={zh ? '文章目錄' : 'Table of contents'}><ol>{headings.map(heading => <li class:list={{ 'toc-nested': heading.depth > 2 }}><a href={`#${heading.id}`}>{heading.text}</a></li>)}</ol></nav>
+</details>}
+<script>
+  const zh = document.documentElement.lang === 'zh-TW';
+  document.querySelectorAll<HTMLButtonElement>('[data-code-copy]').forEach(button => {
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      const code = button.closest('.code-block')?.querySelector('code');
+      const status = document.getElementById(button.getAttribute('aria-describedby') ?? '');
+      if (!code || !status) return;
+      try {
+        await navigator.clipboard.writeText(code.textContent ?? '');
+        status.textContent = zh ? '程式碼已複製' : 'Code copied';
+        button.textContent = zh ? '已複製' : 'Copied';
+      } catch {
+        status.textContent = zh ? '無法存取剪貼簿，請選取程式碼後手動複製。' : 'Clipboard unavailable. Select the code and copy manually.';
+        button.textContent = zh ? '請手動複製' : 'Copy manually';
+      }
+      setTimeout(() => { button.textContent = zh ? '複製程式碼' : 'Copy code'; }, 2500);
+    });
+  });
+  const body = document.querySelector<HTMLElement>('#article-body');
+  const bar = document.querySelector<HTMLElement>('[data-reading-progress]');
+  if (body && bar) {
+    bar.parentElement!.hidden = false;
+    let scheduled = false;
+    const update = () => {
+      const rect = body.getBoundingClientRect();
+      const distance = rect.height - innerHeight;
+      const progress = distance <= 0 ? (rect.bottom <= innerHeight ? 1 : 0) : Math.min(1, Math.max(0, -rect.top / distance));
+      bar.style.transform = `scaleX(${progress})`;
+      scheduled = false;
+    };
+    const schedule = () => { if (!scheduled) { scheduled = true; requestAnimationFrame(update); } };
+    addEventListener('scroll', schedule, { passive: true });
+    addEventListener('resize', schedule);
+    new ResizeObserver(schedule).observe(body);
+    update();
+  }
+</script>

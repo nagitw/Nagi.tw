@@ -1,5 +1,5 @@
----
-import { getSite } from '../data/site';
+﻿---
+import { getNavigation, getSite } from '../data/site';
 import { ui, type Locale } from '../i18n/ui';
 interface Props { locale?: Locale }
 const { locale = 'en' } = Astro.props;
@@ -7,6 +7,7 @@ const site = getSite(locale);
 const copy = ui[locale];
 ---
 <footer class="site-footer">
-  <span>© {new Date().getFullYear()} {site.name}</span>
-  <a href={site.notes}>{copy.footerNotes} <span aria-hidden="true">↗</span></a>
+  <div class="footer-identity"><a class="brand" href={import.meta.env.BASE_URL + (locale === 'zh' ? 'zh/' : '')}>nagi<span>.tw</span></a><p>Penguin Interactive Studio<br />{locale === 'zh' ? '資安 · 系統 · 研究' : 'Security · Systems · Research'}</p><span>© {new Date().getFullYear()} {site.name}</span></div>
+  <nav class="footer-nav" aria-label={locale === 'zh' ? '頁尾導覽' : 'Footer navigation'}>{getNavigation(locale).map(link => <a href={link.href}>{link.label}</a>)}</nav>
+  <div class="footer-links"><a href={site.notes}>{copy.footerNotes} ↗</a><a href={site.github}>GitHub ↗</a><a href={`${import.meta.env.BASE_URL}rss.xml`}>RSS</a></div>
 </footer>

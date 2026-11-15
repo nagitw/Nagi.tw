@@ -5,18 +5,16 @@ interface Props { locale?: Locale; availableLocales?: Locale[] }
 const { locale = 'en', availableLocales = ['en', 'zh'] } = Astro.props;
 const copy = ui[locale];
 const site = getSite(locale);
-const navigation = getNavigation(locale);
+const navigation = ['/journal/', '/research/', '/projects/', '/experience/', '/about/'].map(path => getNavigation(locale).find(link => link.href === localPath(path, locale))!);
 const englishPath = withoutBase(Astro.url.pathname).replace(/^\/zh(?=\/|$)/, '') || '/';
-import Penguin from './Penguin.astro';
 const path = Astro.url.pathname.replace(/\/?$/, '/');
 ---
 <header class="sidebar">
   <a class="brand" href={localPath('/', locale)} aria-label={`Nagi.tw ${copy.overview}`}>nagi<span>.tw</span></a>
-  <p class="sidebar-caption">{site.name}<br /><span>{site.focus}</span></p>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>{copy.menu}</button>
   <nav id="site-navigation" aria-label={copy.navigation}>
     <ul class="nav-list">
-      {navigation.map(({ href, label }) => <li><a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a></li>)}
+      {navigation.map(({ href, label }) => <li><a href={href} aria-current={path === href || path.startsWith(href) ? 'page' : undefined}>{label}</a></li>)}
     </ul>
     <div class="sidebar-language">
       {availableLocales.includes(locale === 'zh' ? 'en' : 'zh') ? <a data-language-switch href={localPath(englishPath, locale === 'zh' ? 'en' : 'zh')} lang={locale === 'zh' ? 'en' : 'zh-TW'} hreflang={locale === 'zh' ? 'en' : 'zh-TW'}>{locale === 'zh' ? 'English' : '中文'}</a> : <span class="meta">{locale === 'zh' ? '尚無英文版' : 'Chinese edition unavailable'}</span>}
@@ -27,7 +25,6 @@ const path = Astro.url.pathname.replace(/\/?$/, '/');
     </div>
   </nav>
   <div class="sidebar-bottom">
-    <div class="sidebar-signature"><Penguin label={locale === 'zh' ? '開啟 Penguin AI' : 'Open Penguin AI'} /><p>{locale === 'zh' ? '安靜地建立系統。' : 'Build quietly.'}<br /><span>{locale === 'zh' ? '仔細地留下紀錄。' : 'Document carefully.'}</span></p></div>
     <button id="theme-toggle" type="button" aria-pressed="false" hidden>{copy.darkMode}</button>
   </div>
 </header>

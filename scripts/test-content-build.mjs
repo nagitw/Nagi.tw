@@ -35,7 +35,8 @@ for (const prefix of ['', 'zh/']) {
   const workshops = readFileSync(`${root}/${prefix}experience/workshops/index.html`,'utf8');
   // Unresolved sessions no longer receive inferred year groups or completion claims.
   for (const title of ['HITCON', 'COSCUP']) {
-    const section = workshops.split(`<h3>${title}</h3>`)[1]?.split('<h3>')[0];
+    // Headings now carry generated IDs and an accessible permalink; preserve the content assertion.
+    const section = workshops.split(new RegExp(`<h3\\b[^>]*>${title}(?:<a\\b[^>]*>[\\s\\S]*?</a>)?</h3>`))[1]?.split(/<h3\b/)[0];
     assert.ok(section && /2025/.test(section) && /Attendee|與會者/.test(section));
   }
   assert.ok(!/30-hour|30 小時|Completed learning record|Completed training record|完成學習紀錄|(?:Year:|年份：)\s*2026/.test(workshops));

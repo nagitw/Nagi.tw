@@ -1,11 +1,13 @@
 ---
-import { fields, developmentLabels, type CatalogEntry } from '../lib/catalog';
+import { fields, developmentLabels, relatedEntries, type CatalogEntry } from '../lib/catalog';
+import { content } from '../lib/content';
 import { localPath, type Locale } from '../i18n/ui';
 import WorkFacts from './WorkFacts.astro';
 interface Props { entry: CatalogEntry; locale: Locale }
 const { entry, locale } = Astro.props;
 const zh = locale === 'zh';
 const lang = entry.record.locale === 'zh' ? 'zh-TW' : 'en';
+const related = entry.record.kind === 'project' ? relatedEntries(content, entry.path, locale) : [];
 ---
 <article class:list={['work-card', `work-card--${entry.record.kind}`]} data-work-card>
   <div class="work-card-meta"><span>{fields[entry.field][locale]}</span><span class="work-type">{entry.typeLabel}</span></div>
@@ -20,4 +22,5 @@ const lang = entry.record.locale === 'zh' ? 'zh-TW' : 'en';
     <span class="work-read" aria-hidden="true">{zh ? '閱讀紀錄' : 'Read record'} →</span>
   </div>
   {(entry.record.github || entry.record.demo) && <div class="work-actions work-external">{entry.record.github && <a href={entry.record.github}>GitHub <span aria-hidden="true">↗</span></a>}{entry.record.demo && <a href={entry.record.demo}>{zh ? '展示' : 'Demo'} <span aria-hidden="true">↗</span></a>}</div>}
+  {related.length > 0 && <div class="work-related"><span class="meta">{zh ? '延伸閱讀' : 'Related writing'}</span>{related.map(item => <a href={localPath(item.path, item.record.locale as Locale)}>{item.title}</a>)}</div>}
 </article>

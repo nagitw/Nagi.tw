@@ -1,6 +1,7 @@
 ﻿import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 const root = process.env.VALIDATE_DIR || 'dist';
+const origin = (process.env.SITE_URL || 'https://nagi.tw').replace(/\/$/, '');
 const base = (process.env.SITE_BASE || '/').replace(/\/$/, '');
 const paths = ['', 'research/', 'projects/', 'journal/', 'technical-reports/', 'about/', 'experience/', 'contact/', 'security/disclosures/', 'systems/medtrust/'];
 for (const prefix of ['', 'zh/']) {
@@ -8,8 +9,8 @@ for (const prefix of ['', 'zh/']) {
     const html = readFileSync(`${root}/${prefix}${path}index.html`, 'utf8');
     const counterpart = `${base}/${prefix ? '' : 'zh/'}${path}`;
     assert.ok(html.includes(`href="${counterpart}" lang="${prefix ? 'en' : 'zh-TW'}"`), `Language switch preserves ${prefix}${path}`);
-    assert.ok(html.includes(`hreflang="en" href="https://nagi.tw${base}/${path}"`), 'English alternate');
-    assert.ok(html.includes(`hreflang="zh-TW" href="https://nagi.tw${base}/zh/${path}"`), 'Chinese alternate');
+    assert.ok(html.includes(`hreflang="en" href="${origin}${base}/${path}"`), 'English alternate');
+    assert.ok(html.includes(`hreflang="zh-TW" href="${origin}${base}/zh/${path}"`), 'Chinese alternate');
     assert.ok(html.includes('aria-haspopup="dialog"'), 'Chat entry semantics');
     assert.ok(html.includes('id="penguin-chat" aria-labelledby="chat-title"'), 'Named dialog');
   }

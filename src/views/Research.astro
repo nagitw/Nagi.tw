@@ -13,7 +13,6 @@ const copy = ui[locale];
 const research = getResearch(locale);
 const groups = researchGroups(content, locale);
 const primary = research.find(item => item.id === 'medical-iot');
-const directions = research.filter(item => item.id !== 'medical-iot');
 const zh = locale === 'zh';
 
 ---
@@ -26,5 +25,4 @@ const zh = locale === 'zh';
     <nav aria-label={zh ? '依研究領域閱讀' : 'Browse research fields'}><ul class="field-nav">{groups.map(group => <li><a href={`#${group.id}`}>{group.label}<span aria-label={zh ? `${group.entries.length} 篇紀錄` : `${group.entries.length} records`}>{group.entries.length}</span></a></li>)}</ul></nav>
     {groups.map(group => <section class="work-section" id={group.id} aria-labelledby={`${group.id}-title`}><div class="work-section-heading"><h2 id={`${group.id}-title`}>{group.label}</h2><p>{zh ? '方法、觀察與限制' : 'Methods, observations & limitations'}</p></div><div class="work-grid">{group.entries.map(entry => <WorkCard entry={entry} locale={locale} />)}</div>{group.id === 'iot-security' && <RelatedRecords path="/research/archive-notes/" locale={locale} />}</section>)}
   </> : <p class="work-empty">{zh ? '目前尚無已發布的研究紀錄。' : 'No research records have been published yet.'}</p>}
-  {directions.length > 0 && <details class="research-directions"><summary>{zh ? '持續探索的方向' : 'Directions still being explored'}</summary>{directions.map(item => <article id={item.id}><h3>{item.title}</h3><p class="meta">{item.status}</p><p>{item.summary}</p></article>)}</details>}
 </BaseLayout>

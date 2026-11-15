@@ -2,6 +2,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 const root = resolve(process.env.VALIDATE_DIR || 'dist');
+const origin = (process.env.SITE_URL || 'https://nagi.tw').replace(/\/$/, '');
 const base = (process.env.SITE_BASE || '/').replace(/\/$/, '');
 const walk = dir => readdirSync(dir, { withFileTypes: true }).flatMap(item => item.isDirectory() ? walk(join(dir, item.name)) : [join(dir, item.name)]);
 const files = walk(root).filter(file => file.endsWith('.html'));
@@ -29,8 +30,8 @@ for (const file of files) {
   const zh = route.startsWith('/zh/');
   assert.equal((html.match(/<h1\b/g) || []).length, 1, `${route}: one heading`);
   assert.ok(html.includes(`<html lang="${zh ? 'zh-TW' : 'en'}"`), `${route}: language`);
-  assert.ok(html.includes(`rel="canonical" href="https://nagi.tw${base}${route}"`), `${route}: canonical`);
-  assert.ok(sitemap.includes(`https://nagi.tw${base}${route}`), `${route}: sitemap`);
+  assert.ok(html.includes(`rel="canonical" href="${origin}${base}${route}"`), `${route}: canonical`);
+  assert.ok(sitemap.includes(`${origin}${base}${route}`), `${route}: sitemap`);
   assert.ok(html.includes('href="#main"') && html.includes('id="main"'), 'Skip link');
   assert.ok(html.includes(`${base}/rss.xml`), 'Local approved RSS discovery');
   assert.ok(html.match(/name="description" content="[^"]+"/), 'SEO description');

@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-15",
+  "branch": "feat/v3.1-editorial-redesign",
+  "head": "7c93fea67d6162594e265d0c63351a3129e0f0f9",
+  "originMain": "952f05507d1a6115e8fc561eb8417eaec91b8c28",
+  "backupDirectoryUnderTemp": "nagi-release-before-20261115-8a422f001079430d891b9bb3da9899b3",
+  "changes": [
+    {
+      "path": "astro.config.mjs",
+      "beforeSha256": "F041A349273ED7DF32209C6AD003EA3DB3270BC6E06A774133A5841E183FBF9E",
+      "afterSha256": "D510FD8711D1BA1337887CA3606E034FA1E29EE32BDF81EBA2041C4661B504F8"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "beforeSha256": "3F8DB92E0B817ED99D359D3B78B9C63F8972415C15827FFA199968481F0FD625",
+      "afterSha256": "CDCC5E9E576BAD69409BA6D18EC8EEC4667A9181FEA3C997D7F7CCC3098C0C55"
+    },
+    {
+      "path": ".gitignore",
+      "beforeSha256": "A5EA085B01B3DF05C514881A464BBECAF837E8317CC7B9320D0D1506865D95DE",
+      "afterSha256": "27A6FA5EBFA3C24B0883167DFA8B9CC457D1903513A833558B80D86FEF17204C"
+    },
+    {
+      "path": "package.json",
+      "beforeSha256": "26333E9E0A0CE022E5551876AB183950DAE5C20D69535EE017A8C5FB5B5C9B40",
+      "afterSha256": "7691573AFDDAF9A396141991690AA2A0A745A2D717FB3472735699F9212564E6"
+    },
+    {
+      "path": "package-lock.json",
+      "beforeSha256": "536D6802F4001B666E3DAA2BCED0BD50ECD8B385ECEDEE7BA21D4BEA9FC2E4D6",
+      "afterSha256": "EC6E71C13474B42710B833734327E2939C11400E692B4580AC70FF8B8A20520F"
+    },
+    {
+      "path": "src/layouts/BaseLayout.astro",
+      "beforeSha256": "ABB9590A1E41F59E5D5B1B8FDECF076835E3553F18B842AC2F92C68F6D18F39F",
+      "afterSha256": "B46D1C37B3362214799C6CF511BA1D9AF8658EC4238D0207C14F759DEAB5E15C"
+    },
+    {
+      "path": "scripts/test-pages-artifact.mjs",
+      "beforeSha256": "24B6263673F866F181EE768B895A69D6FFA13B96C7C6B829C2A420463B2C49ED",
+      "afterSha256": "F9F6B5C926DC9F42C03DCEEAB21E9B26DD4BCB328B9E0A6F611DE24CF8FF73A6"
+    }
+  ],
+  "added": [
+    "docs/release/GITHUB-PAGES-2026-11-15.md",
+    "docs/release/GITHUB-PAGES-2026-11-15-MANIFEST.json"
+  ],
+  "ignoredEvidencePrefix": "qa/pages-20261115-",
+  "note": "Before hashes preserve incoming uncommitted contents; restore by reviewing file diffs, never reset or git restore."
+}

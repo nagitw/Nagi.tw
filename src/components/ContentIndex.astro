@@ -1,11 +1,16 @@
 ---
 import { contentIndex } from '../lib/content';
 import { localPath, type Locale } from '../i18n/ui';
+import ReadingMeta from './ReadingMeta.astro';
+import { journalEntries, journalCategories } from '../lib/journal';
+import { content } from '../lib/content';
 interface Props { kinds: string[]; locale: Locale; limit?: number }
 const { kinds, locale, limit } = Astro.props;
 const entries = contentIndex(kinds, locale).slice(0, limit);
+const journal = kinds.includes('journal') ? journalEntries(content, locale) : [];
 ---
 <div class="content-index">{entries.map(({ path, record }) => <article class="record" data-content-entry>
+<ReadingMeta body={record.body} date={record.date} category={journal.find(e => e.path === path) ? journalCategories[journal.find(e => e.path === path)!.category][locale] : undefined} locale={locale} />
 <h3><a href={localPath(path, record.locale as Locale)} lang={record.locale === 'zh' ? 'zh-TW' : 'en'}>{record.title}</a></h3>
 {record.locale !== locale && <p class="meta">{locale === 'zh' ? '尚無繁體中文版；提供原文連結。' : 'Translation pending; original edition available.'}</p>}
 {record.description && <p lang={record.locale === 'zh' ? 'zh-TW' : 'en'}>{record.description}</p>}

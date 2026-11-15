@@ -2,6 +2,7 @@
 import { localPath } from '../i18n/ui';
 import WorkCard from '../components/WorkCard.astro';
 import WorkFacts from '../components/WorkFacts.astro';
+import RelatedRecords from '../components/RelatedRecords.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getProjects } from '../data/projects';
 import { content } from '../lib/content';
@@ -31,6 +32,7 @@ const zh = locale === 'zh';
     </div>
     <div><p class="work-summary">{featured.details}</p><aside class="scope"><h3>{copy.limitations}</h3><ul>{featured.limitations.map(limitation => <li>{limitation}</li>)}</ul></aside></div>
   </article>}
+  {medtrust && <RelatedRecords path={medtrust.path} locale={locale} />}
   {remaining.length > 0 && <section class="work-section" aria-labelledby="project-records"><div class="work-section-heading"><h2 id="project-records">{zh ? '系統與實作' : 'Systems & experiments'}</h2><p>{zh ? '從問題出發，留下實作與取捨。' : 'Built around a question. Documented with its tradeoffs.'}</p></div><div class="work-grid">{remaining.map(entry => <WorkCard entry={entry} locale={locale} />)}</div></section>}
   {entries.length === 0 && <p class="work-empty">{zh ? '目前尚無已發布的專案紀錄。' : 'No project records have been published yet.'}</p>}
 </BaseLayout>

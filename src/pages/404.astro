@@ -1,30 +1,9 @@
----
-import '../styles/global.css';
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="robots" content="noindex" />
-    <title>404 — Page not found · Nagi.tw</title>
-    <meta name="description" content="Page not found. Return to Nagi.tw. 找不到此頁面，請返回首頁。" />
-    <link rel="icon" type="image/svg+xml" href={`${base}nagi-penguin.svg`} />
-  </head>
-  <body>
-    <main id="main">
-      <h1>404 — Page not found</h1>
-      <p>This page could not be found.</p>
-      <p lang="zh-TW">找不到此頁面，請返回首頁。</p>
-      <nav aria-label="Return home">
-        <a href={base}>English home</a>
-        <a href={`${base}zh/`} lang="zh-TW">中文首頁</a>
-      </nav>
-    </main>
-  </body>
-</html>
-<style>
-  main { max-width: 40rem; margin: 15vh auto; padding: 1.5rem; overflow-wrap: anywhere; }
-  nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
-</style>
+<BaseLayout locale="zh" availableLocales={[]} noindex title="404 — Page not found" description="找不到此頁面，請返回首頁。 Page not found. Return to Nagi.tw.">
+  <header class="page-heading"><p class="eyebrow">Nagi.tw / 404</p><h1>404 — 找不到此頁面</h1><p lang="en">This page could not be found.</p><p>找不到此頁面，請返回首頁。</p></header>
+  <nav class="error-links" aria-label="Return home"><a href={`${base}zh/`} lang="zh-TW">中文首頁</a><a href={base} lang="en">English home</a></nav>
+</BaseLayout>
+<style>.error-links { display:flex; flex-wrap:wrap; gap:1.5rem; } .error-links a { min-height:44px; }</style>

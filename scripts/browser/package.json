@@ -1,0 +1,7 @@
+{
+  "name": "nagi-editorial-browser-qa",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "playwright test --config v3.1.config.mjs" },
+  "devDependencies": { "@playwright/test": "1.65.0" }
+}
