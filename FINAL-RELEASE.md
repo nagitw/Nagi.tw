@@ -1,7 +1,7 @@
 # Nagi.tw Final Release
 
 Release target: https://nagitw.github.io/Nagi.tw/
-Status: RELEASE CANDIDATE — deployment/live verification pending.
+Status: **PASS — CLOSED / MAINTENANCE ONLY**.
 Date: 2026-11-24 (Asia/Taipei).
 
 ## Final scope
@@ -30,7 +30,12 @@ Unused starter favicons and obsolete demo verification were removed.
 - PASS: disposable-copy content integration during this release iteration.
 - PASS: dependency audit, zero vulnerabilities; source token-pattern scan and
   script syntax checks. Pattern scans are not a guarantee of secret absence.
-- Public deployment and live acceptance: pending below.
+- PASS: GitHub Actions build/deploy and public HTTPS acceptance. All 17 pages
+  at 320/768/1440px passed on the live site, including Penguin keyboard interaction,
+  reduced motion, light/dark surfaces, no-JS display and no external requests.
+- PASS: all 16 public sitemap/canonical routes and 21 distinct local resources
+  returned HTTP 200. An unknown route returned HTTP 404; the explicit 404.html
+  asset correctly returned HTTP 200. No custom-domain/DNS dependency remains.
 
 ## Known technical limitations (accepted)
 
@@ -52,15 +57,20 @@ bytes match the independently fetched Git blob, not that outdated JSON value.
 
 ## Deployment record
 
-Source commit: pending.
-GitHub Actions run: pending.
-Live validation: pending.
+Deployed application commit: `0688792e5003923c44cef933a9bbc3e274222fb2`.
+GitHub Actions run: https://github.com/nagitw/Nagi.tw/actions/runs/45393969798
+(build SUCCESS, deploy SUCCESS).
+Live URL: https://nagitw.github.io/Nagi.tw/
+Live validation: PASS, 2026-11-24 (Asia/Taipei), after the successful deployment.
+The closure record is a documentation-only follow-up commit; the deployed
+application commit above remains the release artifact. No application code was
+changed after public acceptance.
 Previous remote main (rollback): c54762236098c5c824ea73e26bd5829c222f25d2.
 Remote ancestry is preserved; no force push or history replacement is used.
 
 ## Maintenance
 
-After successful live verification this project is CLOSED / MAINTENANCE ONLY.
+This project is CLOSED / MAINTENANCE ONLY following successful live verification.
 No further feature expansion is authorized. Maintain dependencies/security,
 correctness, existing content and hosting only. Use Node 24.13.0 and npm ci;
 README lists validation commands. Keep draft/publication and provenance safeguards.

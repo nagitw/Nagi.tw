@@ -1,5 +1,7 @@
 # Nagi.tw
 
+**CLOSED / MAINTENANCE ONLY** — final release verified at https://nagitw.github.io/Nagi.tw/. See [release evidence and known limits](./FINAL-RELEASE.md).
+
 Personal cybersecurity and engineering portfolio using Astro, Markdown/MDX and static generation. Published at https://nagitw.github.io/Nagi.tw/ with English primary and Traditional Chinese at `/Nagi.tw/zh/`. The Pure Black Editorial design is finalized. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status and maintenance limits.
 
 ## Architecture
