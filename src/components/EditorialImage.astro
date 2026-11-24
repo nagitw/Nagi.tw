@@ -5,3 +5,4 @@ interface Props { src: ImageMetadata; alt: string; caption?: string; eager?: boo
 const { src, alt, caption, eager = false, card = false } = Astro.props;
 ---
 <figure><Image src={src} alt={alt} widths={[480, 800, 1200]} sizes={card ? "(min-width: 76rem) 22rem, (min-width: 65rem) 30vw, (min-width: 40rem) 44vw, 92vw" : "(min-width: 76rem) 70rem, 92vw"} loading={eager ? 'eager' : 'lazy'} decoding="async" />{caption && <figcaption>{caption}</figcaption>}</figure>
+<style>figure :global(img) { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }</style>

@@ -15,7 +15,7 @@
     "verify:static": "node scripts/verify-static.mjs",
     "verify:release": "node scripts/verify-release.mjs",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build --force",
     "preview": "astro preview",
     "astro": "astro",
     "test:i18n": "node scripts/i18n.test.mjs",

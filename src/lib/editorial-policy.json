@@ -1,0 +1,21 @@
+{
+  "authorization": "User: Final Editorial & Content Quality Audit, 2026-11-24",
+  "hidden": {
+    "projects": ["home-lab", "home-lab-infrastructure"],
+    "research": ["archive-notes", "medical-iot", "5g-security", "embedded-systems", "ctf-web-practice", "esp32-uart-test", "ros2-topic-communication", "web-security"],
+    "journal": ["first-hackathon-in-university", "frc-engineering-team", "recent-projects-and-life-update", "not-everyone-has-to-walk-the-same-road", "prologue-the-people-i-met-along-the-way", "ten-years-from-now-dont-forget-who-you-are-now", "medtrust-00", "medtrust-01", "evidence-integrity-archive", "uses", "experience-awards", "experience-certifications", "experience-ctf", "experience-workshops"],
+    "experience": ["future-medical-design", "infosec-taiwan-2025"],
+    "photography": []
+  },
+  "dateCorrections": {
+    "research/medical-cybersecurity-research": { "publishedAt": "2026-06-10", "basis": "Original public body: Date: 2026-06-10 / 日期：2026-06-10; document date, not an inferred event date" }
+  },
+  "competitionResultsConfirmed": false,
+  "conferenceImageRightsConfirmed": false,
+  "pendingFacts": [
+    "Future Healthcare Design Hackathon: public table 2025 vs archive 2026",
+    "Whether InfoSec Taiwan 2025 and 2026 are both distinct attendance records",
+    "Author confirmation of the 19 historical competition outcomes, including FTC, Ilan, FRC and Junior Crypt CTF",
+    "Public-use permission for the CYBERSEC 2026 photograph"
+  ]
+}

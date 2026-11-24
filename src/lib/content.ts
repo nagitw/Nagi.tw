@@ -1,6 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { selectPublished } from './content-schema';
 import { localizePath, type Locale } from './i18n';
+import { editorialVisible, editorialData } from './editorial.mjs';
 
 export const collectionNames = ['projects', 'research', 'journal', 'photography', 'experience'] as const;
 export type ContentCollection = typeof collectionNames[number];
@@ -9,7 +10,9 @@ export type DetailCollection = Exclude<ContentCollection, 'experience'>;
 export const detailCollections = ['projects', 'research', 'journal', 'photography'] as const;
 
 export async function getPublished<C extends ContentCollection>(collection: C) {
-  return selectPublished(await getCollection(collection));
+  return selectPublished(await getCollection(collection))
+    .filter(entry => editorialVisible(collection, entry.data.slug))
+    .map(entry => ({ ...entry, data: editorialData(collection, entry.data) }));
 }
 
 export function preferLocale<T extends PublicEntry>(entries: T[], locale: Locale) {

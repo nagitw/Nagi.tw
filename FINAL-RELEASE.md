@@ -1,6 +1,8 @@
 # Nagi.tw Final Release — Content Recovery
 
-**PASS — CLOSED / MAINTENANCE ONLY**
+**REOPENED — FINAL EDITORIAL AUDIT**
+
+The prior recovery release below is historical. Current scope and pending facts are in CONTENT-AUDIT.md; new deployment acceptance is pending.
 
 Public URL: https://nagitw.github.io/Nagi.tw/
 Verified: 2026-11-24 (Asia/Taipei).

@@ -1,4 +1,5 @@
 ---
+import { showEditorialCover } from '../../lib/editorial.mjs';
 import { withBase } from '../../lib/i18n';
 import { render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
@@ -28,7 +29,7 @@ const { Content, headings } = await render(entry);
       {data.publishedAt && <p class="muted">Published <time datetime={data.publishedAt}>{data.publishedAt}</time>{data.updatedAt && <> · Updated <time datetime={data.updatedAt}>{data.updatedAt}</time></>}</p>}
       {data.tags.length > 0 && <ul class="tags" aria-label="Tags">{data.tags.map(tag => <li>{tag}</li>)}</ul>}
     </div>
-    {data.cover && data.coverAlt && <EditorialImage src={data.cover} alt={data.coverAlt} caption={data.coverCaption} eager />}
+    {data.cover && data.coverAlt && showEditorialCover(data.cover) && <EditorialImage src={data.cover} alt={data.coverAlt} caption={data.coverCaption} eager />}
     <section class="section content-body">
       {entry.collection === 'projects' && <dl class="content-meta">{entry.data.role && <><dt>Role</dt><dd>{entry.data.role}</dd></>}{entry.data.tools.length > 0 && <><dt>Tools</dt><dd>{entry.data.tools.join(' / ')}</dd></>}{entry.data.projectUrl && <><dt>Project</dt><dd><a href={entry.data.projectUrl}>View project ↗</a></dd></>}{entry.data.repositoryUrl && <><dt>Repository</dt><dd><a href={entry.data.repositoryUrl}>Source code ↗</a></dd></>}</dl>}
       {entry.collection === 'research' && <dl class="content-meta">{entry.data.question && <><dt>Question</dt><dd>{entry.data.question}</dd></>}{entry.data.methods.length > 0 && <><dt>Methods</dt><dd>{entry.data.methods.join(' / ')}</dd></>}</dl>}

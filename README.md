@@ -1,6 +1,6 @@
 # Nagi.tw
 
-**CLOSED / MAINTENANCE ONLY** — content recovery and public verification passed. See [content audit](./CONTENT-AUDIT.md) and [release evidence](./FINAL-RELEASE.md).
+**REOPENED — FINAL EDITORIAL AUDIT**. See [content audit](./CONTENT-AUDIT.md).
 
 Personal cybersecurity and engineering portfolio using Astro, Markdown/MDX and static generation. Published at https://nagitw.github.io/Nagi.tw/ with English primary and Traditional Chinese at `/Nagi.tw/zh/`. The Pure Black Editorial design is finalized. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status and maintenance limits.
 
@@ -48,11 +48,11 @@ The default migration check preserves the exact original migration baseline. `--
 
 The content-recovery release pairs `--originals-only` with `verify:recovery`: the latter verifies every restored public body and metadata against pinned historical sources, privacy exclusions, and unchanged remaining content. Fetch full Git history before running it. The historical strict/editorial migration modes remain unchanged and are tested against their original draft fixture; they do not authorize or validate this separately authorized publication recovery.
 
-Integration tests create/remove fixtures: use only a disposable Windows QA copy. The empty-site assertion does not apply to published content. Build writes local `dist/`; it does not deploy. Output now includes 75 HTML pages and 74 indexable sitemap URLs; `verify:static` covers the 15 base pages and the release/recovery verifiers cover the complete output.
+Integration tests create/remove fixtures: use only a disposable Windows QA copy. The empty-site assertion does not apply to published content. Build writes local `dist/`; it does not deploy. The editorial selection currently includes 35 HTML pages and 34 indexable sitemap URLs; `verify:static` covers the 15 base pages and the release/recovery verifiers cover the complete output.
 
 ## Publication and privacy
 
-The user's Final Content Recovery request separately authorizes restoring previously public, source-backed content. The exact scope is pinned in `docs/content-recovery/manifest.json`: historical public bodies (including the old private-plan exclusions), original recorded results and dates. The existing BugTraceAI case study remains unchanged; the remaining 16 drafts stay private. Do not treat this recovery as permission to publish other drafts, private plans or disputed archive candidates. Original author-reported results are not newly certified official results.
+The user's Final Content Recovery request separately authorizes restoring previously public, source-backed content. The exact scope is pinned in `docs/content-recovery/manifest.json`: historical public bodies (including the old private-plan exclusions), original recorded results and dates. The existing BugTraceAI case study remains unchanged; the remaining 16 drafts stay private. Current public presentation is additionally restricted by src/lib/editorial-policy.json; hidden source files and original results remain preserved. Do not treat this recovery as permission to publish other drafts, private plans or disputed archive candidates. Original author-reported results are not newly certified official results.
 
 Editorial `status` is separate from `developmentStatus`/`researchStatus`. Featured flags and dates do not grant or schedule publication. The shared selector excludes drafts/archives; a directory alone provides no publication protection.
 

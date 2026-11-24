@@ -1,131 +1,139 @@
-# Nagi.tw — Content Integrity Audit
+# Nagi.tw — Final Editorial & Content Quality Audit
 
-Status: **PASS — CLOSED / MAINTENANCE ONLY**. Engineering and content integrity
-acceptance both passed locally and on the deployed public site.
-Authorization: user's Final Content Recovery request, 2026-11-24 (Asia/Taipei).
-Rollback baseline: `8785863ea406c3552f1406035200ed8905a37a5f`.
-Production target remains https://nagitw.github.io/Nagi.tw/.
+Status: LOCAL ACCEPTANCE PASS; deployment/live acceptance pending.
+Date: 2026-11-24 (Asia/Taipei). Baseline: 304a2a517531a20084bca764c7084c860618e634.
+Target: https://nagitw.github.io/Nagi.tw/
 
-## Coverage and source inventory
+## Scope and counts
 
-- Inspected all 84 reachable commits and fetched all 11 remote branches; no tags
-  provided another content source. This includes pre-v3.1 backup, localization,
-  content-hub, project/research, experience reconciliation and final-release history.
-- The three historical versions of `src/data/migrated.json` each contain 51
-  public editions with the same IDs. The latest pre-release source is fixed at
-  `c54762236098c5c824ea73e26bd5829c222f25d2`; all 51 are recovered.
-- The pre-v3.1 snapshot `952f05507d1a6115e8fc561eb8417eaec91b8c28` contains
-  32 article editions: 13 Chinese, eight English, 11 Japanese, 13 distinct slugs.
-  The current site supports English/Traditional Chinese, not Japanese routes.
-  The missing English FRC translation was found here; a malformed YAML description
-  colon was quoted without rewriting its text or body.
-- Its public `additionalExperience` table contains 26 distinct activities,
-  including 19 competitions. These are restored in both existing site languages.
-  The separate approved InfoSec Taiwan 2026 attendance snapshot brings the total
-  to 27 activities. It is not merged with the distinct historical 2025 record.
-- The latest public research table contains three bilingual topic summaries;
-  these six source editions were also recovered. The MedTrust project summary
-  duplicates its restored full project, and is not counted as another project.
-- Inspected the known final/phase backups and pre-release/integration copies in
-  Windows TEMP plus the relevant `nagi-work`/v1 backup locations. They supplied no
-  additional eligible publication absent from the Git sources above. Unrelated
-  application directories and private medical archives were not imported.
+Professional security, engineering, competition and open-source content is kept.
+No original Markdown, recovered metadata, source image, immutable snapshot or
+competition result was deleted or rewritten. The 112-record source recovery
+manifest remains intact; a separate publication policy controls presentation.
 
-## Before / after
+| Public content | Before editions | After editions | After distinct records |
+| --- | ---: | ---: | ---: |
+| Projects | 11 | 8 | 4 |
+| Research notes | 18 | 2 | 1 |
+| Technical articles | 31 | 10 | 5 |
+| Activities | 54 | 50 | 25 |
+| Total | 114 | 70 | 35 |
 
-Counts below are public collection editions; languages count separately. Unique
-entries collapse translations with the same collection and slug.
+HTML pages: 75 -> 35. Sitemap URLs: 74 -> 34. All 16 original drafts remain private.
+The original 19 competition records remain in source; 18 are presented as
+participation records while outcomes await author confirmation. One competition
+with conflicting years and one conference attendance record are withheld.
 
-| Collection | Before public editions | After public editions | After unique entries | Remaining drafts |
-| --- | ---: | ---: | ---: | ---: |
-| Projects | 2 | 11 | 6 | 7 |
-| Research / laboratory notes | 0 | 18 | 9 | 6 |
-| Journal / recovered reference and experience articles | 0 | 31 | 19 | 1 |
-| Experience activity records | 0 | 54 | 27 | 1 |
-| Photography | 0 | 0 | 0 | 1 |
-| Total | 2 | 114 | 61 | 16 |
+## Date review
 
-Published detail articles include 19 dated article editions (13 distinct articles),
-plus undated references, experience prose, projects and research notes. There are
-19 distinct competition events among the 27 activities, not 38 competitions from
-counting both translations. HTML pages increase **17 → 75**; sitemap URLs **16 → 74**.
-The manifest contains **112 recovered editions/records**, plus the two unchanged
-BugTraceAI editions. Five previously migrated drafts are replaced by their old
-public projections; all other content files remain byte-identical to the baseline.
+Every collection file is inventoried in docs/editorial-date-audit.json, including
+source status, original timestamp, body dates, displayed date and uncertainty.
+No Git commit timestamp is used as a publication, competition or project date.
 
-## Cause and recovery rules
+Corrected missing display date: Medical Cybersecurity Research, both languages,
+now shows 2026-06-10, explicitly present in the original body Date field. This is
+a document date, not a claim about an experiment or clinical event.
 
-The final release loaded only `src/content` collections and filtered exact
-`status: published`. It did not load the old JSON/TypeScript publication sources.
-Only BugTraceAI was published; five migrated English articles were deliberately
-draft, other old articles/experience tables were not imported, and old routes
-were not generated. `publicationStatus`, `verificationStatus` and the archive's
-pending fields were separate old gates, not evidence of data deletion.
+FTC, National Ilan University and AIS3 MyFirstCTF remain 2026. Superseded FTC 2024,
+Ilan 2025 and MyFirstCTF 2025 archive assertions are not published. Year-only
+activities now display only the year, not a fabricated year-to-year duration.
 
-Recovery uses original public bodies, not AI-written replacements. The pinned old
-`publicBody` projection is reused, including its exclusion of private future-plan
-sections and its existing experience ordering. Source paragraph bytes after that
-public projection, original titles, tags/classifications, original dates/timestamps
-and exact competition outcome wording are verified by `verify:recovery`.
-The CYBERSEC image remains the original hash-pinned asset; Astro optimization does
-not replace the source image. Missing summaries reuse their original title.
+The five retained articles keep original publication dates: malware analysis
+2026-07-08; InfoSec reflection 2026-07-07; medical-security reflection 2026-06-23;
+CYBERSEC reflection 2026-05-09; retail-security reflection 2026-07-18. These do not
+establish the dates of attendance, interviews or narrated events. BugTraceAI's
+2026-11-21 case-study date is publication metadata, not its PR event dates.
 
-Undated pages remain undated; activity years remain year-only. No January 1 dates,
-roles, methods, team denominators or results are invented. Provenance permits absent
-legacy fields only for recovery entries; ordinary content requirements remain
-tested. The existing collections, dynamic route templates and Editorial styles
-are retained. Only rendered old links and duplicate body H1 levels are adapted to
-the existing Pages base and article template; stored public prose is unchanged.
+Read-only GitHub verification: PR #9 created 2026-10-17 and merged 2026-10-19;
+PR #10 created 2026-10-30 and remains open/unmerged at this audit. The existing
+case study distinguishes the merged shutdown work from the separate logging
+proposal. No external repository README, description or document was modified.
 
-FTC, National Ilan University and AIS3 MyFirstCTF are **2026**, as confirmed by the
-user and checked automatically. Outcomes use the exact previously public wording
-in the 952f055 table; no old Innovation/Inspire award name is substituted for the
-recorded FTC outcome. These are historical author-reported results, not new claims
-of independent official verification. Source links are available through the
-existing About evidence list; the manifest provides per-record source pointers.
+Dates still unknown: start/completion dates for Autonomous Robot, Medical
+Cybersecurity and MedTrust; month/day for the year-only activity records.
+Undated project pages remain undated. Future Healthcare Design Hackathon has
+2025/2026 source conflict and is hidden. InfoSec 2025 attendance is held pending
+confirmation that both 2025 and 2026 records represent distinct participation.
 
-## Exclusions / data not recovered to public routes
+## Languages and images
 
-- None of the 51 latest public editions or 26 old public activity records remains
-  missing. The missing English FRC edition and three public research summaries
-  have also been recovered.
-- The 79-row experience draft archive is not bulk-published. Candidate-only
-  activities, unapproved teaching roles, uncertain aliases, unsupported extra
-  awards/denominators and superseded FTC/Ilan/MyFirstCTF years remain non-public.
-  Their unresolved details are still available in Git, not fabricated here.
-- Two historical article families outside the latest approved public scope,
-  `from-ctf-to-bugtraceai` and `from-nihscsed-to-control-team`, are not restored.
-  Withdrawn topic/identity controls remain active; no excluded education, legal
-  names, private contacts, credentials or patient information is added.
-- Eleven Japanese editions remain in Git. No Japanese UI or extra locale was
-  introduced. Existing source-language fallback handles unpaired Chinese articles.
-- Previously excluded private-plan paragraphs are not restored merely because
-  they exist in a raw source file. Old source snapshots are not rewritten.
-- Historical narrative assertions, certification-year variants, award terminology
-  and photograph rights retain their earlier evidentiary limits. This task proves
-  recovery from public sources, not independent verification of narrated events.
+English remains default; Traditional Chinese remains secondary. All retained
+content has paired original EN/Traditional Chinese editions. No Japanese page,
+metadata locale, language switch or unnecessary Japanese display is emitted.
+The 11 older Japanese article editions remain in Git. Formal names, original
+quotations and technical terms are not arbitrarily translated or deleted.
 
-## Acceptance and deployment
+All content cards use the same existing text-only Editorial form. The site-logo
+image was removed as a project cover; it remains the brand/favicon. No real
+project screenshots or competition photos were found with established context
+and permission, so no random, unrelated or AI-generated substitute was used.
+The historical CYBERSEC photograph's permission is unconfirmed: it is not shown
+or emitted in dist, including derived copies. Its original source is retained.
+If permission is confirmed, real article covers use one 16:9 crop treatment;
+content lists remain consistently text-only.
 
-Local PASS: TypeScript/Astro (zero diagnostics), build, 10 schema tests, four About
-tests, i18n, Penguin, original provenance, 112-record recovery integrity/privacy,
-all-page link/asset/fragment/SEO checks, and all 75 pages at three widths. No global
-CSS, header/footer, mascot artwork or mascot logic changed. Dependency audit: zero
-vulnerabilities. Standalone Lint remains intentionally unconfigured.
+## Kept and hidden content
 
-GitHub Actions now fetches full history and pairs immutable-original verification
-with recovery integrity verification. The old strict/editorial migration modes
-are unchanged and tested against their original draft fixture; they do not grant
-publication and are not used to assert the newly authorized recovery is draft.
+Kept projects: BugTraceAI-CLI contributions, Autonomous Robot, Medical
+Cybersecurity, MedTrust. Prototype descriptions are not upgraded into verified
+research results or clinical-readiness claims.
 
-Deployed application commit: `022e79492bca6eb6350d2337e318cc8c6a4c76ff`.
-GitHub Actions: https://github.com/nagitw/Nagi.tw/actions/runs/45404783286
-(build SUCCESS; deploy SUCCESS).
+Kept research: Medical Cybersecurity Research (dated early workflow/risk notes).
+Kept technical articles: ctf-meets-malware-analysis-windows;
+infosec-taiwan-2026-student-industry-gap;
+nurse-made-me-rethink-medical-cybersecurity;
+2026-security-conference; retail-work-sme-security-culture.
+Their original public bodies and source classifications remain preserved.
 
-Public acceptance PASS, 2026-11-24: all 75 pages at three widths; all 74 sitemap
-URLs/canonicals; six distinct static assets; all 54 activity editions checked
-against exact source names, outcomes and years; About source evidence links;
-16 remaining drafts tested in both languages and excluded with HTTP 404;
-unknown-route 404; Penguin, reduced motion and no external requests preserved.
-Documentation-only closure does not redeploy the unchanged application.
-Full per-record provenance: [manifest](docs/content-recovery/manifest.json).
+Hidden projects: home-lab, home-lab-infrastructure.
+Hidden research: archive-notes; medical-iot; 5g-security; embedded-systems;
+ctf-web-practice; esp32-uart-test; ros2-topic-communication; web-security.
+These are private setup, elementary smoke tests, topic-only placeholders or
+summaries duplicating the project/About content, rather than substantive reports.
+
+Hidden journal entries: first-hackathon-in-university; frc-engineering-team;
+recent-projects-and-life-update; not-everyone-has-to-walk-the-same-road;
+prologue-the-people-i-met-along-the-way; ten-years-from-now-dont-forget-who-you-are-now;
+medtrust-00; medtrust-01; evidence-integrity-archive; uses; experience-awards;
+experience-certifications; experience-ctf; experience-workshops. These are
+life-oriented narratives, private configuration, duplicate activity summaries,
+unverified certification dates, introductory fragments or unsupported closure
+summaries. Hiding the FRC travel narrative does not delete its competition record.
+Links to hidden artifacts render as their original text instead of broken links.
+
+All 112 restored source records and the 19 historical competition outcomes remain
+recoverable. Unknown extra archive candidates, withdrawn topics, unapproved
+teaching roles, private identity, patient data and original drafts stay excluded.
+
+## One consolidated author question — unanswered
+
+The four questions were asked together once; no response has been assumed:
+1. Future Healthcare Design Hackathon: 2025 or 2026?
+2. InfoSec Taiwan: attendance in both 2025 and 2026?
+3. Are all 19 historical outcomes confirmed for public presentation, especially
+   FTC's recorded award, Ilan finalist/mention, FRC Judges' Award and Junior Crypt
+   CTF team 147th? Until confirmed, only participation is displayed; no award,
+   rank, denominator or certification is inferred.
+4. Is the CYBERSEC 2026 photograph authorized for public use? Until confirmed,
+   the source remains preserved but the deployed copy is withheld.
+
+Source policy: src/lib/editorial-policy.json. It is under src so a future explicit
+confirmation triggers normal validation/deployment, not a docs-only ignored push.
+
+## Engineering and release
+
+Local PASS: Astro/TypeScript zero diagnostics; clean forced build; all 35 pages
+at 320/768/1440; base-aware links, canonicals, sitemap, assets, hidden routes;
+112-record body/metadata integrity and privacy; schema/About/i18n/Penguin tests;
+no Japanese display, logo placeholders or inconsistent image cards; 0 dependency
+vulnerabilities. Force build prevents old cached links surviving a policy change.
+
+No dependency or AI feature was added. Editorial tokens, global CSS, header,
+footer and Penguin artwork/animation remain unchanged. Existing site behavior is
+full-site dark only, with Penguin light/dark-surface compatibility; no full-site
+light-mode toggle existed in this baseline, and no new theme UI was introduced.
+Standalone Lint remains unconfigured by prior instruction.
+
+Deployment commit / workflow / public acceptance: PENDING. The editorial task may
+close after deployment and verification of the conservative public scope; the
+unanswered facts remain withheld for future authorized maintenance.

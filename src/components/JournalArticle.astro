@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import EditorialImage from './EditorialImage.astro';
+import { showEditorialCover } from '../lib/editorial.mjs';
 import JournalToc from './JournalToc.astro';
 import { localizePath, translate } from '../lib/i18n';
 
@@ -57,7 +58,7 @@ const tocLabel = t('On this page', '本頁目錄');
       <li>{t(`${minutes} min read`, `閱讀約 ${minutes} 分鐘`)}</li>
     </ul>
   </header>
-  {data.cover && data.coverAlt && <EditorialImage src={data.cover} alt={data.coverAlt} caption={data.coverCaption} eager />}
+  {data.cover && data.coverAlt && showEditorialCover(data.cover) && <EditorialImage src={data.cover} alt={data.coverAlt} caption={data.coverCaption} eager />}
   <div class="journal-reading">
     {sections.length > 0 && <JournalToc sections={sections} label={tocLabel} mobile />}
     {sections.length > 0 && <JournalToc sections={sections} label={tocLabel} />}

@@ -3,6 +3,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { parse } from 'yaml';
 import { createContentSchemas, coverPath, selectPublished } from '../src/lib/content-schema.ts';
 import { publicProfile } from '../src/lib/sections.ts';
+import { editorialVisible } from '../src/lib/editorial.mjs';
 
 for (const [prefix, locale, other] of [['', 'en', 'zh-TW'], ['zh/', 'zh-TW', 'en']]) {
   const page = readFileSync(`dist/${prefix}about/index.html`, 'utf8');
@@ -31,7 +32,7 @@ for (const [collection, schema] of Object.entries(schemas)) {
 }
 const files = readdirSync('dist', { recursive: true }).filter(path => path.endsWith('.html'));
 const recovered = JSON.parse(readFileSync('docs/content-recovery/manifest.json', 'utf8'));
-assert.equal(files.length, 17 + recovered.records.filter(record => !record.eventId).length, 'Only source-backed recovered detail routes added');
+assert.equal(files.length, 17 + recovered.records.filter(record => !record.eventId && editorialVisible(record.file.split('/')[2], record.file.split('/').at(-1).replace(/(?:\.zh)?\.md$/, ''))).length, 'Only editorially approved detail routes added');
 for (const path of files) {
   const html = readFileSync(`dist/${path}`, 'utf8');
   for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"<>]+)"/g)) {
