@@ -1,0 +1,9 @@
+browserType.launch: Executable doesn't exist at C:\Users\0ping\AppData\Local\ms-playwright\webkit-2336\Playwright.exe
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     npx playwright install                                 ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝

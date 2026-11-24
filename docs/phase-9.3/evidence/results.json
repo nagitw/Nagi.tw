@@ -1,0 +1,676 @@
+{
+  "engines": [
+    {
+      "name": "Chromium",
+      "rows": [
+        {
+          "width": 320,
+          "locale": "en",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "PASS",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "PASS",
+            "clipboardDenialFeedback": "PASS",
+            "nativeClipboardDenial": "PASS",
+            "accessibilityTree": "PASS",
+            "shortArticle": "PASS",
+            "scriptDisabled": "PASS"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 320,
+            "w": 320,
+            "c": 288,
+            "text": "rgb(212, 212, 212)",
+            "size": 17,
+            "line": 30.6,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.9375,
+              "height": 31.09375
+            },
+            "summary": {
+              "width": 288,
+              "height": 24
+            }
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "failureLabel": {
+            "text": "Copy failed",
+            "accessible": "Copy failed"
+          },
+          "cumulativeLayoutShift": 0
+        },
+        {
+          "width": 320,
+          "locale": "zh-TW",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "PASS",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "PASS",
+            "clipboardDenialFeedback": "PASS",
+            "nativeClipboardDenial": "PASS",
+            "accessibilityTree": "PASS",
+            "shortArticle": "PASS",
+            "scriptDisabled": "PASS"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 320,
+            "w": 320,
+            "c": 288,
+            "text": "rgb(212, 212, 212)",
+            "size": 17,
+            "line": 30.6,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.59375,
+              "height": 31.09375
+            },
+            "summary": {
+              "width": 288,
+              "height": 24
+            }
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "failureLabel": {
+            "text": "複製失敗",
+            "accessible": "複製失敗"
+          },
+          "cumulativeLayoutShift": 0
+        },
+        {
+          "width": 768,
+          "locale": "en",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "PASS",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "PASS",
+            "clipboardDenialFeedback": "PASS",
+            "nativeClipboardDenial": "PASS",
+            "accessibilityTree": "PASS",
+            "shortArticle": "PASS",
+            "scriptDisabled": "PASS"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 768,
+            "w": 768,
+            "c": 707,
+            "text": "rgb(212, 212, 212)",
+            "size": 17,
+            "line": 30.6,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.9375,
+              "height": 31.09375
+            },
+            "summary": {
+              "width": 706.5625,
+              "height": 24
+            }
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "failureLabel": {
+            "text": "Copy failed",
+            "accessible": "Copy failed"
+          },
+          "cumulativeLayoutShift": 0
+        },
+        {
+          "width": 768,
+          "locale": "zh-TW",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "PASS",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "PASS",
+            "clipboardDenialFeedback": "PASS",
+            "nativeClipboardDenial": "PASS",
+            "accessibilityTree": "PASS",
+            "shortArticle": "PASS",
+            "scriptDisabled": "PASS"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 768,
+            "w": 768,
+            "c": 707,
+            "text": "rgb(212, 212, 212)",
+            "size": 17,
+            "line": 30.6,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.59375,
+              "height": 31.09375
+            },
+            "summary": {
+              "width": 706.5625,
+              "height": 24
+            }
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "failureLabel": {
+            "text": "複製失敗",
+            "accessible": "複製失敗"
+          },
+          "cumulativeLayoutShift": 0
+        },
+        {
+          "width": 1440,
+          "locale": "en",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "PASS",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "PASS",
+            "clipboardDenialFeedback": "PASS",
+            "nativeClipboardDenial": "PASS",
+            "accessibilityTree": "PASS",
+            "shortArticle": "PASS",
+            "scriptDisabled": "PASS"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 1440,
+            "w": 1440,
+            "c": 720,
+            "text": "rgb(212, 212, 212)",
+            "size": 18,
+            "line": 32.4,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.9375,
+              "height": 31.09375
+            },
+            "summary": {
+              "width": 244.8125,
+              "height": 24
+            }
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "failureLabel": {
+            "text": "Copy failed",
+            "accessible": "Copy failed"
+          },
+          "cumulativeLayoutShift": 0
+        },
+        {
+          "width": 1440,
+          "locale": "zh-TW",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "PASS",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "PASS",
+            "clipboardDenialFeedback": "PASS",
+            "nativeClipboardDenial": "PASS",
+            "accessibilityTree": "PASS",
+            "shortArticle": "PASS",
+            "scriptDisabled": "PASS"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 1440,
+            "w": 1440,
+            "c": 720,
+            "text": "rgb(212, 212, 212)",
+            "size": 18,
+            "line": 32.4,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.59375,
+              "height": 31.09375
+            },
+            "summary": {
+              "width": 244.8125,
+              "height": 24
+            }
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "failureLabel": {
+            "text": "複製失敗",
+            "accessible": "複製失敗"
+          },
+          "cumulativeLayoutShift": 0
+        }
+      ],
+      "version": "157.0.8103.79",
+      "reducedMotion": "emulated reduce",
+      "noJavaScript": "browser context JavaScript disabled"
+    },
+    {
+      "name": "Firefox",
+      "rows": [
+        {
+          "width": 320,
+          "locale": "en",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "FAIL",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "FAIL",
+            "clipboardDenialFeedback": "FAIL",
+            "nativeClipboardDenial": "PASS",
+            "shortArticle": "FAIL",
+            "scriptDisabled": "FAIL"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 320,
+            "w": 320,
+            "c": 288,
+            "text": "rgb(212, 212, 212)",
+            "size": 17,
+            "line": 30.6,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.91667175292969,
+              "height": 31.099990844726562
+            },
+            "summary": {
+              "width": 288,
+              "height": 24
+            }
+          },
+          "failures": {
+            "keyboardFocusAndDisclosure": "{\"outer\":\"<a class=\\\"skip\\\" href=\\\"#main\\\">Skip to content</a>\",\"visible\":false}\n\nfalse !== true\n",
+            "clipboardWrite": "Timed out: window.__nativeWrite===true",
+            "clipboardDenialFeedback": "Timed out: document.querySelector('[role=status]').textContent===\"Copy failed\"",
+            "shortArticle": "Expected values to be strictly equal:\n\nfalse !== true\n",
+            "scriptDisabled": "Timed out: document.querySelector(\".journal-toc-mobile\").querySelector('details').open"
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "cumulativeLayoutShift": null
+        },
+        {
+          "width": 320,
+          "locale": "zh-TW",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "FAIL",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "FAIL",
+            "clipboardDenialFeedback": "FAIL",
+            "nativeClipboardDenial": "PASS",
+            "shortArticle": "PASS",
+            "scriptDisabled": "FAIL"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 320,
+            "w": 320,
+            "c": 288,
+            "text": "rgb(212, 212, 212)",
+            "size": 17,
+            "line": 30.6,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.60000610351562,
+              "height": 31.099990844726562
+            },
+            "summary": {
+              "width": 288,
+              "height": 24.600006103515625
+            }
+          },
+          "failures": {
+            "keyboardFocusAndDisclosure": "{\"outer\":\"<a class=\\\"skip\\\" href=\\\"#main\\\">跳至主要內容</a>\",\"visible\":false}\n\nfalse !== true\n",
+            "clipboardWrite": "Timed out: window.__nativeWrite===true",
+            "clipboardDenialFeedback": "Timed out: document.querySelector('[role=status]').textContent===\"複製失敗\"",
+            "scriptDisabled": "Timed out: document.querySelector(\".journal-toc-mobile\").querySelector('details').open"
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "cumulativeLayoutShift": null
+        },
+        {
+          "width": 768,
+          "locale": "en",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "FAIL",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "FAIL",
+            "clipboardDenialFeedback": "FAIL",
+            "nativeClipboardDenial": "PASS",
+            "shortArticle": "FAIL",
+            "scriptDisabled": "FAIL"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 768,
+            "w": 768,
+            "c": 707,
+            "text": "rgb(212, 212, 212)",
+            "size": 17,
+            "line": 30.6,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.91667175292969,
+              "height": 31.100006103515625
+            },
+            "summary": {
+              "width": 706.566650390625,
+              "height": 24
+            }
+          },
+          "failures": {
+            "keyboardFocusAndDisclosure": "{\"outer\":\"<a class=\\\"skip\\\" href=\\\"#main\\\">Skip to content</a>\",\"visible\":false}\n\nfalse !== true\n",
+            "clipboardWrite": "Timed out: window.__nativeWrite===true",
+            "clipboardDenialFeedback": "Timed out: document.querySelector('[role=status]').textContent===\"Copy failed\"",
+            "shortArticle": "Expected values to be strictly equal:\n\nfalse !== true\n",
+            "scriptDisabled": "Timed out: document.querySelector(\".journal-toc-mobile\").querySelector('details').open"
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "cumulativeLayoutShift": null
+        },
+        {
+          "width": 768,
+          "locale": "zh-TW",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "FAIL",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "FAIL",
+            "clipboardDenialFeedback": "FAIL",
+            "nativeClipboardDenial": "PASS",
+            "shortArticle": "FAIL",
+            "scriptDisabled": "FAIL"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 768,
+            "w": 768,
+            "c": 707,
+            "text": "rgb(212, 212, 212)",
+            "size": 17,
+            "line": 30.6,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.60000610351562,
+              "height": 31.099990844726562
+            },
+            "summary": {
+              "width": 706.566650390625,
+              "height": 24.600006103515625
+            }
+          },
+          "failures": {
+            "keyboardFocusAndDisclosure": "{\"outer\":\"<a class=\\\"skip\\\" href=\\\"#main\\\">跳至主要內容</a>\",\"visible\":false}\n\nfalse !== true\n",
+            "clipboardWrite": "Timed out: window.__nativeWrite===true",
+            "clipboardDenialFeedback": "Timed out: document.querySelector('[role=status]').textContent===\"複製失敗\"",
+            "shortArticle": "Expected values to be strictly equal:\n\nfalse !== true\n",
+            "scriptDisabled": "Timed out: document.querySelector(\".journal-toc-mobile\").querySelector('details').open"
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "cumulativeLayoutShift": null
+        },
+        {
+          "width": 1440,
+          "locale": "en",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "FAIL",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "FAIL",
+            "clipboardDenialFeedback": "FAIL",
+            "nativeClipboardDenial": "PASS",
+            "shortArticle": "PASS",
+            "scriptDisabled": "PASS"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 1440,
+            "w": 1440,
+            "c": 720,
+            "text": "rgb(212, 212, 212)",
+            "size": 18,
+            "line": 32.4,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.91667175292969,
+              "height": 31.100006103515625
+            },
+            "summary": {
+              "width": 244.79998779296875,
+              "height": 24
+            }
+          },
+          "failures": {
+            "keyboardFocusAndDisclosure": "{\"outer\":\"<a class=\\\"skip\\\" href=\\\"#main\\\">Skip to content</a>\",\"visible\":false}\n\nfalse !== true\n",
+            "clipboardWrite": "Timed out: window.__nativeWrite===true",
+            "clipboardDenialFeedback": "Timed out: document.querySelector('[role=status]').textContent===\"Copy failed\""
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "cumulativeLayoutShift": null
+        },
+        {
+          "width": 1440,
+          "locale": "zh-TW",
+          "checks": {
+            "visualLayout": "PASS",
+            "localization": "PASS",
+            "tocIdsAndStructure": "PASS",
+            "keyboardFocusAndDisclosure": "FAIL",
+            "keyboardOrder": "PASS",
+            "anchorActiveAndSticky": "PASS",
+            "permalink": "PASS",
+            "progressAndShort": "PASS",
+            "contrast": "PASS",
+            "clipboardWrite": "FAIL",
+            "clipboardDenialFeedback": "FAIL",
+            "nativeClipboardDenial": "PASS",
+            "shortArticle": "FAIL",
+            "scriptDisabled": "PASS"
+          },
+          "geometry": {
+            "bg": "rgb(0, 0, 0)",
+            "sw": 1440,
+            "w": 1440,
+            "c": 720,
+            "text": "rgb(212, 212, 212)",
+            "size": 18,
+            "line": 32.4,
+            "reduce": true,
+            "motion": "0s",
+            "pre": "rgb(16, 16, 16)"
+          },
+          "targets": {
+            "permalink": {
+              "width": 24,
+              "height": 24
+            },
+            "copy": {
+              "width": 84.60000610351562,
+              "height": 31.100006103515625
+            },
+            "summary": {
+              "width": 244.79998779296875,
+              "height": 24.600006103515625
+            }
+          },
+          "failures": {
+            "keyboardFocusAndDisclosure": "{\"outer\":\"<a class=\\\"skip\\\" href=\\\"#main\\\">跳至主要內容</a>\",\"visible\":false}\n\nfalse !== true\n",
+            "clipboardWrite": "Timed out: window.__nativeWrite===true",
+            "clipboardDenialFeedback": "Timed out: document.querySelector('[role=status]').textContent===\"複製失敗\"",
+            "shortArticle": "Expected values to be strictly equal:\n\nfalse !== true\n"
+          },
+          "afterBreadcrumb": "SUMMARY",
+          "minimumContrast": 7.1583770163327145,
+          "cumulativeLayoutShift": null
+        }
+      ],
+      "version": "160.0.1",
+      "reducedMotion": "isolated profile reduce",
+      "noJavaScript": "script execution blocked by browser-enforced CSP"
+    }
+  ]
+}

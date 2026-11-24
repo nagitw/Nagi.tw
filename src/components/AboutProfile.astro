@@ -1,0 +1,106 @@
+---
+import AboutSection from './AboutSection.astro';
+import ContentCard from './ContentCard.astro';
+import { publicProfile } from '../lib/sections';
+import { prepareAboutProfile, selectAboutExperience, localizeProfileLink } from '../lib/about';
+import { getPublished, preferLocale } from '../lib/content';
+import { localeFromPath, localizePath, translate } from '../lib/i18n';
+
+const locale = localeFromPath(Astro.url.pathname);
+const t = (en: string, zh: string) => translate(locale, en, zh);
+const text = (value: { en: string; 'zh-TW'?: string }) => value[locale] ?? value.en;
+const profile = prepareAboutProfile(publicProfile);
+const [projectEntries, experienceEntries] = await Promise.all([getPublished('projects'), getPublished('experience')]);
+const projects = preferLocale(projectEntries, locale);
+const experiences = preferLocale(selectAboutExperience(experienceEntries), locale);
+const categories = {
+  'programming-languages': t('Programming Languages', '程式語言'),
+  'web-development': t('Web Development', '網頁開發'),
+  'security-engineering': t('Security Engineering', '安全工程'),
+  'operating-systems': t('Operating Systems', '作業系統'),
+  'embedded-systems': t('Embedded Systems', '嵌入式系統'),
+  'research-tools': t('Research Tools', '研究工具'),
+};
+const evidenceLinks = (entry: typeof experiences[number]) => [
+  ...(entry.data.evidence ?? []),
+  ...(entry.data.verifiedContributions ?? []).flatMap(contribution => contribution.evidence),
+].filter((link, index, links) => links.findIndex(candidate => candidate.url === link.url) === index);
+const linkHref = (url: string) => localizeProfileLink(url, locale);
+const evidenceLabel = (link: { label: string; url: string }) => link.url === 'https://nagitw.github.io/Nagi.tw/projects/bugtraceai-cli-contributions/'
+  ? t('Contribution case study', '開源貢獻案例') : link.url === 'https://nagitw.github.io/Nagi.tw/' ? t('This website', '本站') : link.label;
+---
+<div class="about-profile">
+  <header class="page-header">
+    <p class="eyebrow">01 / {t('Introduction', '自我介紹')}</p>
+    <h1>{profile.publicName}</h1>
+    {profile.biography && <p class="intro">{text(profile.biography)}</p>}
+  </header>
+
+  {profile.technicalInterests.length > 0 && <AboutSection id="about-interests" number="02" title={t('Research Interests', '研究興趣')}>
+    <p class="muted about-measure">{t('Questions and directions I want to explore.', '希望持續探索的問題與方向。')}</p>
+    <ul class="about-interests">{profile.technicalInterests.map(interest => <li>{text(interest)}</li>)}</ul>
+  </AboutSection>}
+
+  {profile.skillGroups.length > 0 && <AboutSection id="about-skills" number="03" title={t('Technical Skills', '技術與工具')}>
+    <div class="grid">{profile.skillGroups.map(group => <article class="card">
+      <h3>{categories[group.category]}</h3>
+      <p>{text(group.context)}</p>
+      <ul>{group.items.map(item => <li>{item}</li>)}</ul>
+      <ul class="about-references" aria-label={t('Evidence', '依據')}>{group.evidence.map(link => <li><a href={linkHref(link.url)}>{evidenceLabel(link)}</a></li>)}</ul>
+    </article>)}</div>
+  </AboutSection>}
+
+  <AboutSection id="about-experience" number="04" title={t('Experience', '經歷')}>
+    {experiences.length > 0 ? <ol class="about-timeline">{experiences.map(entry => <li lang={entry.data.language}>
+      <p class="card-meta"><time datetime={entry.data.startedAt}>{entry.data.startedAt}</time> — {entry.data.endedAt ? <time datetime={entry.data.endedAt}>{entry.data.endedAt}</time> : t('Present', '至今')}</p>
+      <h3>{entry.data.role}</h3><p>{entry.data.organization}</p><p>{entry.data.description}</p>
+      <ul class="about-references">{evidenceLinks(entry).map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
+    </li>)}</ol> : <p class="muted about-measure">{t('Experience details are not currently listed.', '目前未列出公開經歷。')}</p>}
+  </AboutSection>
+
+  {projects.length > 0 && <AboutSection id="about-projects" number="05" title={t('Selected Projects', '精選專案')}>
+    <div class="grid">{projects.map(entry => <ContentCard entry={entry} />)}</div>
+  </AboutSection>}
+
+  {profile.honors.length > 0 && <AboutSection id="about-honors" number="06" title={t('Competitions and Honors', '競賽與榮譽')}>
+    <ol class="about-timeline">{profile.honors.map(entry => <li>
+      <p class="card-meta">{entry.year}</p>
+      <h3>{text(entry.competition)}</h3>
+      {entry.team && <p>{t('Team', '隊伍')}：{text(entry.team)}</p>}
+      {entry.ranking && <p>{t('Result', '結果')}：{text(entry.ranking)}</p>}
+      <ul class="about-references">{entry.evidence.map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
+    </li>)}</ol>
+  </AboutSection>}
+
+  {profile.talks.length > 0 && <AboutSection id="about-talks" number="07" title={t('Talks and Presentations', '演講與分享')}>
+    <ol class="about-timeline">{profile.talks.map(entry => <li>
+      <p class="card-meta"><time datetime={entry.date}>{entry.date}</time> / {text(entry.event)}</p>
+      <h3>{text(entry.title)}</h3><p>{text(entry.role)}</p>
+      <ul class="about-references">{entry.evidence.map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
+    </li>)}</ol>
+  </AboutSection>}
+
+  {profile.education.length > 0 && <AboutSection id="about-education" number="08" title={t('Education', '教育')}>
+    <ol class="about-timeline">{profile.education.map(entry => <li>
+      <p class="card-meta">{text(entry.dateRange)}</p>
+      <h3>{text(entry.organization)}</h3><p>{text(entry.qualification)}</p>
+      {entry.description && <p>{text(entry.description)}</p>}
+      <ul class="about-references">{entry.evidence.map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
+    </li>)}</ol>
+  </AboutSection>}
+
+  {profile.links && profile.links.length > 0 && <AboutSection id="about-contact" number="09" title={t('Contact and Links', '聯絡與連結')}>
+    <ul class="about-references">{profile.links.map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
+  </AboutSection>}
+  <a class="text-link about-home" href={localizePath('/', locale)}>{t('← Back to home', '← 回到首頁')}</a>
+</div>
+<style>
+  .about-profile { min-inline-size: 0; overflow-wrap: anywhere; }
+  .about-measure { max-inline-size: var(--measure); }
+  .about-interests { display: grid; gap: .75rem var(--space); padding-inline-start: 1.25rem; margin-block: var(--space) 0; }
+  .about-timeline { list-style: none; padding: 0; margin-block: var(--space) 0; max-inline-size: var(--measure); }
+  .about-timeline > li { border-inline-start: 1px solid var(--line); padding-inline-start: var(--space); padding-block-end: var(--space); }
+  .about-references { padding-inline-start: 1.25rem; overflow-wrap: anywhere; }
+  .about-home { margin-block-start: var(--section); }
+  @media (min-width: 40rem) { .about-interests { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>

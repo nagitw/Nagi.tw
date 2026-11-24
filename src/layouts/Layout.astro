@@ -1,0 +1,26 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { localeFromPath, localizePath, translate, withBase } from '../lib/i18n';
+interface Props { title: string; description: string; noindex?: boolean; contentLanguage?: 'en' | 'zh-TW'; hasTranslation?: boolean }
+const { title, description, noindex = false, contentLanguage, hasTranslation = false } = Astro.props;
+const locale = localeFromPath(Astro.url.pathname);
+const language = contentLanguage ?? locale;
+const canonical = new URL(localizePath(Astro.url.pathname, locale), Astro.site);
+---
+<!doctype html><html lang={language}><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#000000" />
+<style is:inline>html { background: #000000; }</style>
+<title>{title} — Nagi.tw</title><meta name="description" content={description} />
+<link rel="canonical" href={canonical} /><link rel="icon" href={withBase('/nagi.svg')} type="image/svg+xml" />
+{!noindex && (!contentLanguage || hasTranslation ? <>
+<link rel="alternate" hreflang="en" href={new URL(localizePath(Astro.url.pathname, 'en'), canonical)} />
+<link rel="alternate" hreflang="zh-TW" href={new URL(localizePath(Astro.url.pathname, 'zh-TW'), canonical)} />
+<link rel="alternate" hreflang="x-default" href={new URL(localizePath(Astro.url.pathname, 'en'), canonical)} />
+</> : <link rel="alternate" hreflang={contentLanguage} href={canonical} />)}
+<meta property="og:title" content={`${title} — Nagi.tw`} /><meta property="og:description" content={description} /><meta property="og:type" content="website" /><meta property="og:url" content={canonical} /><meta property="og:locale" content={language === 'en' ? 'en_US' : 'zh_TW'} /><meta name="twitter:card" content="summary" />
+{noindex && <meta name="robots" content="noindex, follow" />}
+</head><body id="top"><a class="skip" href="#main">{translate(locale, 'Skip to content', '跳至主要內容')}</a><div class="shell"><Header article={!!contentLanguage && !hasTranslation} notFound={noindex} /><main id="main" tabindex="-1"><slot /></main><Footer /></div></body></html>

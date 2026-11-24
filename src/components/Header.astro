@@ -1,0 +1,15 @@
+---
+const links = ['Projects', 'Research', 'Journal', 'Photography', 'Experience', 'About'];
+import { localeFromPath, localizePath, sourcePath, translate, languageSwitchPath } from '../lib/i18n';
+const locale = localeFromPath(Astro.url.pathname);
+interface Props { article?: boolean; notFound?: boolean }
+const { article = false, notFound = false } = Astro.props;
+const switchPath = (target: 'en' | 'zh-TW') => languageSwitchPath(Astro.url.pathname, target, article, notFound);
+const t = (en: string, zh: string) => translate(locale, en, zh);
+const labels = ['專案', '研究', '札記', '攝影', '經歷', '關於'];
+---
+<header class="site-header">
+  <a class="brand" href={localizePath('/', locale)}>nagi.tw</a>
+  <nav class="site-nav" aria-label={t('Main navigation', '主要導覽')}>{links.map((label, i) => <a href={localizePath(`/${label.toLowerCase()}/`, locale)} aria-current={sourcePath(Astro.url.pathname).startsWith(`/${label.toLowerCase()}/`) ? 'page' : undefined}>{t(label, labels[i])}</a>)}</nav>
+  <div class="language-switch" role="group" aria-label={t('Language', '語言')}><a href={switchPath('en')} lang="en" aria-current={locale === 'en' ? 'true' : undefined}>EN</a><a href={switchPath('zh-TW')} lang="zh-TW" aria-current={locale === 'zh-TW' ? 'true' : undefined}>繁中</a></div>
+</header>

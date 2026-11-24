@@ -1,0 +1,5 @@
+
+> nagi.tw@0.0.1 verify:static
+> node scripts/verify-static.mjs
+
+PASS: 15 static pages, landmarks, h1, SEO, canonical, navigation, local links, 404 noindex, and early black styling.

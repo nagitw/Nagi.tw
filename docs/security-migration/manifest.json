@@ -1,0 +1,129 @@
+{
+  "repository": "https://github.com/nagitw/Nagi.tw",
+  "branch": "backup/pre-v3.1-main",
+  "commit": "952f05507d1a6115e8fc561eb8417eaec91b8c28",
+  "collisionCheck": "No destination path, title, slug, or image collisions",
+  "existingContent": [
+    {
+      "path": "src/content/experience/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/content/experience/draft-template.md",
+      "sha256": "b78682625e977ab7c23550737d44c0aae8711c1c49935901aba02ffed584ba39"
+    },
+    {
+      "path": "src/content/journal/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/content/journal/draft-template.mdx",
+      "sha256": "595a63b10ce8fa317d5d750b804f630ab2679e54b67faf9362957886ba605478"
+    },
+    {
+      "path": "src/content/photography/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/content/photography/draft-template.md",
+      "sha256": "22dcebad70989114d0670c1126ef082ff53945fc1c209f26d0d80fa66738da9f"
+    },
+    {
+      "path": "src/content/projects/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/content/projects/bugtraceai.md",
+      "sha256": "d308dc3cefb68ba33d8866469b97dff4b7de106d12d3d33bbd206ec2e2ddad3a"
+    },
+    {
+      "path": "src/content/projects/draft-template.md",
+      "sha256": "b65c61c85cf0be459a603dd188db1c9a21d0f99715061123e7ff299a9b57aaeb"
+    },
+    {
+      "path": "src/content/projects/nagi-zero.md",
+      "sha256": "1b6c877f54660bf3956aa938feced3c88bf611ddab43ca6f5efa3867ff7ab723"
+    },
+    {
+      "path": "src/content/projects/ruralmed-sat.md",
+      "sha256": "27fdac039204a383a8542e20e7f993e1927554d9545a9257390eae0be8bf8694"
+    },
+    {
+      "path": "src/content/research/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/content/research/5g-security-research.md",
+      "sha256": "5b154e9970ad4367b35eba4a2a2adda38d0ead50ab8ff036849c2f76b2199c63"
+    },
+    {
+      "path": "src/content/research/draft-template.md",
+      "sha256": "d0d0874a65b69e34874bc920a58d6cd6c968d47291b87eb64a7162ac615d5f71"
+    }
+  ],
+  "articles": [
+    {
+      "source": "articles/security/retail-work-sme-security-culture.en.md",
+      "slug": "retail-work-sme-security-culture",
+      "blob": "d6ae9e849e7877d04e74498392edbc5648c5ab43",
+      "title": "What a Retail Job Taught Me About the Security Gaps Small Businesses Often Miss",
+      "snapshot": "docs/security-migration/originals/retail-work-sme-security-culture.en.md",
+      "destination": "src/content/journal/retail-work-sme-security-culture.md",
+      "sourceSha256": "bc3acad72c68fefacc49e53a5faa236f298c0fbad3f4a506e6be123f9e2804a8",
+      "destinationSha256": "2738e96a8c0e7e0e6051d5452bb933cd7e619115c2b26f52a924f31ef499cd2a",
+      "bodySha256": "895f78e0d4677110b4e5e4501fc83d41473284ce334887af5ecc85f3a6f26bca"
+    },
+    {
+      "source": "articles/ctf/ctf-meets-malware-analysis-windows.en.md",
+      "slug": "ctf-meets-malware-analysis-windows",
+      "blob": "16bdb4684071f8ecb5e5a11c03ab169e6917bc33",
+      "title": "When CTF Meets Malware Analysis: My First Windows Malware Analysis",
+      "snapshot": "docs/security-migration/originals/ctf-meets-malware-analysis-windows.en.md",
+      "destination": "src/content/journal/ctf-meets-malware-analysis-windows.md",
+      "sourceSha256": "2a469858e327e6d0f456251a1566308b48e6799e8a3f87d0b435cba2d38295dc",
+      "destinationSha256": "1238a65c9d1f738f25768d7b13dd589ffb1fa96d6823ec3e1114df931655b8a8",
+      "bodySha256": "dd15ac20c6b87f7dfa506b94ffba921fd30461693c3d9501b9e1faf88050246c"
+    },
+    {
+      "source": "articles/research/infosec-taiwan-2026-student-industry-gap.en.md",
+      "slug": "infosec-taiwan-2026-student-industry-gap",
+      "blob": "350f7ff39fb491435e8eb9d4cbca9d134d3c4d9c",
+      "title": "What InfoSec Taiwan 2026 Showed Me About the Gap Between Students and Industry",
+      "snapshot": "docs/security-migration/originals/infosec-taiwan-2026-student-industry-gap.en.md",
+      "destination": "src/content/journal/infosec-taiwan-2026-student-industry-gap.md",
+      "sourceSha256": "6896ea301acecf788a0ea11274a7bdc13e4d76cb5d00a0800be92838c3024efa",
+      "destinationSha256": "58f2464cc8404dba90811e69eb31ebaa5c4da6c3c85596d55a44ad3724be46bc",
+      "bodySha256": "4a7caaa53ea463db40d54e70b2ddc3a15c4a0631003b2c9c2742720747a2f683"
+    },
+    {
+      "source": "articles/research/nurse-made-me-rethink-medical-cybersecurity.en.md",
+      "slug": "nurse-made-me-rethink-medical-cybersecurity",
+      "blob": "7d97df0ef490a24a005c11bc306a488b8d2adbf0",
+      "title": "A Nurse Made Me Rethink Medical Cybersecurity",
+      "snapshot": "docs/security-migration/originals/nurse-made-me-rethink-medical-cybersecurity.en.md",
+      "destination": "src/content/journal/nurse-made-me-rethink-medical-cybersecurity.md",
+      "sourceSha256": "1171facaa6f6fe75f3330512d659c2e03a619a010ff0c00e71e206fb2fc489f9",
+      "destinationSha256": "978a2729f7ec81b318bd418cb03ec8c69bfc15acc2ba284af8f9d6b758ca19d0",
+      "bodySha256": "b9adf59eae30f658d2cfae9c132144358e12346773fb478cb9b4baf232a28f9f"
+    },
+    {
+      "source": "articles/security/2026-security-conference.en.md",
+      "slug": "2026-security-conference",
+      "blob": "12b7f0904c56abaef1dba61b9daf3690151954db",
+      "title": "Reflections from the 2026 Cybersecurity Conference: Seeing the Real Shape of the Security Industry",
+      "snapshot": "docs/security-migration/originals/2026-security-conference.en.md",
+      "destination": "src/content/journal/2026-security-conference.md",
+      "sourceSha256": "6b51b8d0205e134b7fdb629a26a7bdd7e3bf07af979cb7dde9d0dd2c9c57ce90",
+      "destinationSha256": "20492a74c94137e97b4dcb1b835a1f562af9798f8955c279dc80d79eb03e8bf1",
+      "bodySha256": "63709ae71a9c1ca5a15ecd84d6c43dfa6784e2262c71c606d610bdb68ac56ad0"
+    }
+  ],
+  "images": [
+    {
+      "source": "public/assets/images/cybersec-2026.jpg",
+      "destination": "public/assets/images/cybersec-2026.jpg",
+      "blob": "b81ae84f8607b64a6cab2e829280cd44b6cab095",
+      "sha256": "a777b2339b9328497a81e416408938f159fbb6331057de1ae982e540308788c6"
+    }
+  ]
+}

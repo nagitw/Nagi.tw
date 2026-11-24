@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContentCard from '../components/ContentCard.astro';
+import AboutProfile from './AboutProfile.astro';
+import { collectionNames, getPublished, preferLocale } from '../lib/content';
+
+import { localeFromPath, localizePath, translate } from '../lib/i18n';
+const { page } = Astro.props;
+const locale = localeFromPath(Astro.url.pathname);
+const t = (en: string, zh: string) => translate(locale, en, zh);
+const collection = collectionNames.find(name => name === page.slug);
+const entries = collection ? preferLocale(await getPublished(collection), locale) : [];
+---
+<Layout title={t(page.title, page.zhTitle)} description={t(page.description, page.zhDescription)}>
+{page.slug === 'about' ? <AboutProfile /> : <>
+<div class="page-header"><h1>{t(page.title, page.zhTitle)}</h1><p class="page-subtitle">{t(page.subtitle, page.zhSubtitle)}</p><p class="intro">{t(page.description, page.zhDescription)}</p></div>
+<section class="section" aria-labelledby="content-title">
+{entries.length > 0 ? (
+  <>
+    <h2 id="content-title">{t(page.title + " collection", page.zhTitle + "選集")}</h2>
+    <div class="grid">{entries.map(entry => <ContentCard entry={entry} />)}</div>
+  </>
+) : (
+  <div class={page.slug === "about" ? "about-copy" : "empty-state"}>
+    <h2 id="content-title">{t(page.heading, page.zhHeading)}</h2>
+    <p>{t(page.note, page.zhNote)}</p>
+  </div>
+)}
+<a class="text-link" href={localizePath("/", locale)}>{t("← Back to home", "← 回到首頁")}</a></section>
+</>}
+</Layout>

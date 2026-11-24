@@ -1,0 +1,5 @@
+
+> nagi.tw@0.0.1 test:content:prepare
+> node scripts/content-integration.test.mjs prepare
+
+Prepared 15 temporary fixtures. Build, then run test:content; cleanup is also available separately.

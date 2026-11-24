@@ -1,0 +1,5 @@
+
+> nagi.tw@0.0.1 test:content
+> node scripts/content-integration.test.mjs
+
+PASS: all five lists, featured, four detail routes, Markdown/MDX, metadata, gallery, draft/archive exclusion.

@@ -1,0 +1,365 @@
+{
+  "browser": "Chrome/157.0.8103.79",
+  "rows": [
+    {
+      "route": "/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "en"
+    },
+    {
+      "route": "/404.html",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 320,
+      "lang": "en"
+    },
+    {
+      "route": "/about/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "en"
+    },
+    {
+      "route": "/experience/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "en"
+    },
+    {
+      "route": "/journal/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "en"
+    },
+    {
+      "route": "/photography/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "en"
+    },
+    {
+      "route": "/projects/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "en"
+    },
+    {
+      "route": "/projects/bugtraceai-cli-contributions/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "en"
+    },
+    {
+      "route": "/research/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "en"
+    },
+    {
+      "route": "/zh/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/about/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 320,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/experience/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 320,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/journal/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 320,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/photography/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 320,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/projects/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/projects/bugtraceai-cli-contributions/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 305,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/research/",
+      "width": 320,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 320,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 753,
+      "lang": "en"
+    },
+    {
+      "route": "/404.html",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "en"
+    },
+    {
+      "route": "/about/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "en"
+    },
+    {
+      "route": "/experience/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "en"
+    },
+    {
+      "route": "/journal/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "en"
+    },
+    {
+      "route": "/photography/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "en"
+    },
+    {
+      "route": "/projects/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "en"
+    },
+    {
+      "route": "/projects/bugtraceai-cli-contributions/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 753,
+      "lang": "en"
+    },
+    {
+      "route": "/research/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "en"
+    },
+    {
+      "route": "/zh/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 753,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/about/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/experience/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/journal/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/photography/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/projects/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/projects/bugtraceai-cli-contributions/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 753,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/research/",
+      "width": 768,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 768,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1425,
+      "lang": "en"
+    },
+    {
+      "route": "/404.html",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "en"
+    },
+    {
+      "route": "/about/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "en"
+    },
+    {
+      "route": "/experience/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "en"
+    },
+    {
+      "route": "/journal/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "en"
+    },
+    {
+      "route": "/photography/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "en"
+    },
+    {
+      "route": "/projects/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1425,
+      "lang": "en"
+    },
+    {
+      "route": "/projects/bugtraceai-cli-contributions/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1425,
+      "lang": "en"
+    },
+    {
+      "route": "/research/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "en"
+    },
+    {
+      "route": "/zh/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1425,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/about/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/experience/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/journal/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/photography/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/projects/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1425,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/projects/bugtraceai-cli-contributions/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1425,
+      "lang": "zh-TW"
+    },
+    {
+      "route": "/zh/research/",
+      "width": 1440,
+      "background": "rgb(0, 0, 0)",
+      "scrollWidth": 1440,
+      "lang": "zh-TW"
+    }
+  ],
+  "cssBlockedChecks": 3,
+  "schemePreference": "light",
+  "legacyStoredTheme": "light"
+}

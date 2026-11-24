@@ -1,0 +1,17 @@
+
+> nagi.tw@0.0.1 test:schema
+> node scripts/content-schema.test.mjs
+
+✔ content defaults to English and accepts only supported language metadata (113.9757ms)
+✔ journal supports original articles without covers while preserving image metadata validation (8.2257ms)
+✔ required fields, slug, status and calendar dates reject invalid content (0.6663ms)
+✔ publishing excludes drafts, sorts descending, and supports featured and tag filters (8.5393ms)
+✔ each collection requires meaningful fields, image descriptions and valid periods (5.1716ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 144.581

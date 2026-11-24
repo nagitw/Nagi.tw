@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nagitw.github.io/Nagi.tw/sitemap.xml

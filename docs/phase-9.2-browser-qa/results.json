@@ -1,0 +1,83 @@
+{
+  "browser": "Chrome/157.0.8103.79",
+  "rows": [
+    {
+      "width": 320,
+      "locale": "en",
+      "long": true,
+      "short": true,
+      "keyboard": true,
+      "progress": true,
+      "clipboardSuccess": true,
+      "clipboardFailure": true,
+      "duplicates": true,
+      "noJavaScript": true,
+      "bodyWidth": 273
+    },
+    {
+      "width": 320,
+      "locale": "zh-TW",
+      "long": true,
+      "short": true,
+      "keyboard": true,
+      "progress": true,
+      "clipboardSuccess": true,
+      "clipboardFailure": true,
+      "duplicates": true,
+      "noJavaScript": true,
+      "bodyWidth": 273
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "long": true,
+      "short": true,
+      "keyboard": true,
+      "progress": true,
+      "clipboardSuccess": true,
+      "clipboardFailure": true,
+      "duplicates": true,
+      "noJavaScript": true,
+      "bodyWidth": 692
+    },
+    {
+      "width": 768,
+      "locale": "zh-TW",
+      "long": true,
+      "short": true,
+      "keyboard": true,
+      "progress": true,
+      "clipboardSuccess": true,
+      "clipboardFailure": true,
+      "duplicates": true,
+      "noJavaScript": true,
+      "bodyWidth": 692
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "long": true,
+      "short": true,
+      "keyboard": true,
+      "progress": true,
+      "clipboardSuccess": true,
+      "clipboardFailure": true,
+      "duplicates": true,
+      "noJavaScript": true,
+      "bodyWidth": 720
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "long": true,
+      "short": true,
+      "keyboard": true,
+      "progress": true,
+      "clipboardSuccess": true,
+      "clipboardFailure": true,
+      "duplicates": true,
+      "noJavaScript": true,
+      "bodyWidth": 720
+    }
+  ]
+}
