@@ -1,6 +1,6 @@
 # Nagi.tw — Final Correction & Closure
 
-Status: BUILD / LOCAL ACCEPTANCE PASS; deployment pending.
+Status: PASS — CLOSED / MAINTENANCE ONLY.
 
 Homepage: Create what you wish existed. / 把你希望存在的東西，親手創造出來。
 Position: Cybersecurity · Software Engineering · Research.
@@ -27,5 +27,10 @@ The baseline has dark site styling and light/dark mascot compatibility; no new
 theme system or dependency was introduced.
 
 URL: https://nagitw.github.io/Nagi.tw/
-Deployed commit / workflow / live acceptance: pending.
-After successful deployment, status becomes CLOSED / MAINTENANCE ONLY.
+Deployed source commit: 7198b09e40b14a42cb306d7cae8f4e582f22782f.
+Workflow: https://github.com/nagitw/Nagi.tw/actions/runs/45425046332
+Build and GitHub Pages deployment: SUCCESS.
+Live acceptance: PASS — 4 bilingual pages at 320/768/1440px; keyboard
+accordion, confirmed date ranges and award, Penguin and homepage motto verified.
+Other individual dates remain omitted by author instruction, without a release blocker.
+Documentation-only closure commits do not change the deployed site.

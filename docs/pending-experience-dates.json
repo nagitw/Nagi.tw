@@ -44,9 +44,9 @@
       "sourceYear": "2026",
       "type": "資訊安全競賽",
       "currentlyPublic": true,
-      "confirmedDate": null,
-      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
-      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+      "confirmedDate": "2026-05-16",
+      "issue": "Resolved by author confirmation",
+      "action": "Display confirmed event date."
     },
     {
       "slug": "apcs-summer-camp",
@@ -104,9 +104,9 @@
       "sourceYear": "2026",
       "type": "機器人競賽",
       "currentlyPublic": true,
-      "confirmedDate": null,
-      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
-      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+      "confirmedDate": "2026-02-04/2026-02-05",
+      "issue": "Resolved by author confirmation",
+      "action": "Display confirmed event date."
     },
     {
       "slug": "future-medical-design",
