@@ -1,6 +1,7 @@
 # Nagi.tw — Content Integrity Audit
 
-Status: LOCAL ENGINEERING / CONTENT ACCEPTANCE PASS; production deployment pending.
+Status: **PASS — CLOSED / MAINTENANCE ONLY**. Engineering and content integrity
+acceptance both passed locally and on the deployed public site.
 Authorization: user's Final Content Recovery request, 2026-11-24 (Asia/Taipei).
 Rollback baseline: `8785863ea406c3552f1406035200ed8905a37a5f`.
 Production target remains https://nagitw.github.io/Nagi.tw/.
@@ -117,6 +118,14 @@ with recovery integrity verification. The old strict/editorial migration modes
 are unchanged and tested against their original draft fixture; they do not grant
 publication and are not used to assert the newly authorized recovery is draft.
 
-Deployment commit / Actions run / public content acceptance: PENDING.
-Do not mark CLOSED until the recovered routes and competition results pass live
-verification. Full per-record provenance: [manifest](docs/content-recovery/manifest.json).
+Deployed application commit: `022e79492bca6eb6350d2337e318cc8c6a4c76ff`.
+GitHub Actions: https://github.com/nagitw/Nagi.tw/actions/runs/45404783286
+(build SUCCESS; deploy SUCCESS).
+
+Public acceptance PASS, 2026-11-24: all 75 pages at three widths; all 74 sitemap
+URLs/canonicals; six distinct static assets; all 54 activity editions checked
+against exact source names, outcomes and years; About source evidence links;
+16 remaining drafts tested in both languages and excluded with HTTP 404;
+unknown-route 404; Penguin, reduced motion and no external requests preserved.
+Documentation-only closure does not redeploy the unchanged application.
+Full per-record provenance: [manifest](docs/content-recovery/manifest.json).

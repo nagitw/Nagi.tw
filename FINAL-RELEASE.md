@@ -1,93 +1,82 @@
-# Nagi.tw Final Release
+# Nagi.tw Final Release — Content Recovery
 
-Release target: https://nagitw.github.io/Nagi.tw/
-Status: **REOPENED — CONTENT RECOVERY IN PROGRESS**. The previous release remains
-the rollback baseline; closure requires renewed engineering and content acceptance.
-Date: 2026-11-24 (Asia/Taipei).
+**PASS — CLOSED / MAINTENANCE ONLY**
 
-## Final scope
+Public URL: https://nagitw.github.io/Nagi.tw/
+Verified: 2026-11-24 (Asia/Taipei).
+Deployed application commit: 022e79492bca6eb6350d2337e318cc8c6a4c76ff.
+Deployment: https://github.com/nagitw/Nagi.tw/actions/runs/45404783286
+GitHub Actions build and deploy: SUCCESS.
+Rollback baseline: 8785863ea406c3552f1406035200ed8905a37a5f.
 
-Preserved the existing Pure Black Editorial design and all restored Penguin
-functionality. English is primary; Traditional Chinese uses /Nagi.tw/zh/.
-The mascot reuses the original pixel artwork and wave/breathe/blink keyframes;
-it only toggles a local greeting. No AI, backend, external API or new dependency.
-Animations are finite and honor reduced motion. Keyboard, light/dark mascot
-surfaces, no-JS display and responsive layouts were verified.
+## Outcome
 
-Astro site is https://nagitw.github.io and base is /Nagi.tw. Canonical,
-hreflang, navigation, evidence links, assets, 16 sitemap URLs and robots.txt
-match the approved Pages target. No CNAME or DNS change is required or made.
-Unused starter favicons and obsolete demo verification were removed.
+The user reopened the previous closure solely to recover public content. Both
+engineering acceptance and content completeness acceptance now pass. Restored
+112 source editions/records; with the two unchanged BugTraceAI editions there
+are 114 published collection editions and 16 remaining private drafts.
 
-## Acceptance results
+- Public HTML pages: 17 -> 75; indexable sitemap URLs: 16 -> 74.
+- Projects: 11 editions / six unique entries.
+- Research/laboratory notes: 18 editions / nine unique entries.
+- Journal/reference/experience articles: 31 editions / 19 unique entries.
+- Activity records: 54 editions / 27 events, including 19 competition events.
+- Dated articles within the recovered corpus: 19 editions / 13 distinct articles.
 
-- PASS: Astro/TypeScript check, zero diagnostics; production build, 17 HTML pages.
-- PASS: 10 schema tests, i18n tests, four About tests, Penguin provenance/contracts.
-- PASS: editorial migration safeguards; no newly published drafts.
-- PASS: static/About/release output validators, links/assets/fragments and SEO.
-- PASS: all 17 pages at 320/768/1440px, both languages, images, no overflow/errors.
-- PASS: Penguin keyboard greeting, reduced motion, light/dark surfaces, no JS and
-  zero external requests. Inline silhouette is checked against the original SVG.
-- PASS: disposable-copy content integration during this release iteration.
-- PASS: dependency audit, zero vulnerabilities; source token-pattern scan and
-  script syntax checks. Pattern scans are not a guarantee of secret absence.
-- PASS: GitHub Actions build/deploy and public HTTPS acceptance. All 17 pages
-  at 320/768/1440px passed on the live site, including Penguin keyboard interaction,
-  reduced motion, light/dark surfaces, no-JS display and no external requests.
-- PASS: all 16 public sitemap/canonical routes and 21 distinct local resources
-  returned HTTP 200. An unknown route returned HTTP 404; the explicit 404.html
-  asset correctly returned HTTP 200. No custom-domain/DNS dependency remains.
+Exact original public prose, source dates/timestamps, image provenance,
+classifications and competition outcome wording are retained. FTC, Ilan and
+AIS3 MyFirstCTF are checked as 2026. No AI replacement prose, fabricated dates,
+rank denominators, roles or new results were added. Previously excluded private
+plans, identity data, withdrawn topics and other drafts remain non-public.
+See CONTENT-AUDIT.md and docs/content-recovery/manifest.json for counts, sources
+and exclusions. Historical author statements are not independently certified
+official results; their original evidentiary limitations remain recorded.
 
-## Known technical limitations (accepted)
+## Verification
 
-- No standalone Lint configuration. No linter was added; this is not a Lint pass.
-- Historical strict migration baseline differs from later Projects/Research draft
-  edits. It was not rewritten. The current editorial verifier passes and keeps
-  Journal entries draft; immutable original Journal provenance remains checked.
-- No full-site light theme; the existing website remains dark. The Penguin works
-  on both light and dark surfaces. Firefox/WebKit and physical devices untested.
-- The pre-existing draft-linked CYBERSEC image remains public with its previously
-  documented rights limitation. No article or new factual claim was published.
-- Browser QA uses installed Chrome and Playwright supplied via NAGI_PLAYWRIGHT.
+PASS: TypeScript/Astro check with zero diagnostics; production build; 10 schema
+tests; four About tests; i18n; Penguin provenance/interaction; immutable source
+snapshots/image; complete output link/asset/fragment/SEO validation; 112-record
+body/metadata/provenance and privacy verification; dependency audit (0 issues).
+Staged secret-pattern and scope scans passed; this is not a guarantee of secret
+absence. Historical migration protection tests still pass using their original
+draft fixture, independently of the separately authorized content recovery.
 
-Penguin source: nagitw/Nagi.tw commits c547622 (artwork/keyframes) and 952f055
-(simple greeting). SVG Git blob: 4bc3390d5023defb6391e6070fd7989801a51a66.
-SHA-256: b96fcf6e5f71019f2b667fee7c352bdc8fa1bc60289ef317f3fa0214030512a4.
-The upstream historical preservation JSON has a different SHA-256; the restored
-bytes match the independently fetched Git blob, not that outdated JSON value.
+PASS LIVE: all 75 pages at 320/768/1440px; bilingual and missing-translation
+fallback links; all 74 sitemap/canonical URLs and six static assets; 54 exact
+activity title/result/year editions; existing About evidence links; images;
+Penguin keyboard interaction, light/dark mascot surfaces, reduced motion,
+no-JS display and no external requests. All 16 remaining drafts were checked
+in both languages and returned 404; an unknown route also returned 404.
 
-## Deployment record
+The existing Editorial styling, header/footer, Penguin asset and logic were not
+changed. Existing collections and dynamic routes remain in use. Narrow rendering
+compatibility permits genuinely absent historical fields, adapts old links to
+/Nagi.tw/, and avoids duplicate body H1 without rewriting stored public prose.
+No backend, new locale, external API or new dependency was introduced.
 
-Deployed application commit: `0688792e5003923c44cef933a9bbc3e274222fb2`.
-GitHub Actions run: https://github.com/nagitw/Nagi.tw/actions/runs/45393969798
-(build SUCCESS, deploy SUCCESS).
-Live URL: https://nagitw.github.io/Nagi.tw/
-Live validation: PASS, 2026-11-24 (Asia/Taipei), after the successful deployment.
-The closure record is a documentation-only follow-up commit; the deployed
-application commit above remains the release artifact. No application code was
-changed after public acceptance.
-Previous remote main (rollback): c54762236098c5c824ea73e26bd5829c222f25d2.
-Remote ancestry is preserved; no force push or history replacement is used.
+## Accepted limits and maintenance
 
-## Maintenance
+No standalone Lint was configured or added. Historical strict/editorial migration
+modes intentionally retain their old baseline and do not describe this newly
+authorized publication state. Release gates pair originals-only provenance with
+verify:recovery, which checks the actual published bodies, metadata and exclusions.
 
-This project is CLOSED / MAINTENANCE ONLY following successful live verification.
-No further feature expansion is authorized. Maintain dependencies/security,
-correctness, existing content and hosting only. Use Node 24.13.0 and npm ci;
-README lists validation commands. Keep draft/publication and provenance safeguards.
-Development must use astro dev --background per AGENTS.md.
+Japanese editions and two article families outside the latest approved public
+scope remain in Git rather than being exposed as new routes. The 79-row draft
+experience archive is not bulk-published. Unresolved candidate/award variants
+are not invented or upgraded to official verification. Historical narratives,
+certification-year variants and photo rights retain their documented limitations.
+Firefox/WebKit and physical devices remain untested. The site retains its dark
+Editorial theme; mascot compatibility with light surfaces does not add a theme.
 
-Pushes to main run the existing GitHub Pages build/artifact/deploy flow, adapted
-for this static app. CI runs schema/i18n/About/Penguin tests, editorial integrity,
-check/build, output validators and dependency audit. Documentation-only changes
-do not redeploy. Never upload a fixture build; run content integration only in a
-disposable copy and rebuild after cleanup. The Pages origin serves this project
-under /Nagi.tw/; its origin-level robots.txt belongs to the account root.
+Use Node 24.13.0, npm ci and the README validation commands. Full Git history is
+required by the pinned-source recovery checks. Future work is maintenance only:
+security/dependencies, correctness and authorized content/hosting upkeep. Never
+publish fixture builds or bypass draft/privacy gates. No feature expansion or
+redesign is authorized. Development follows AGENTS.md (astro dev --background).
 
-For rollback, restore the previous approved source tree in a new commit and use
-the same Pages workflow, then verify HTTPS and representative routes. Retain
-history and prior artifacts; do not delete the repository or change DNS.
-
-Original 176-file SHA-256-verified local backup: Windows TEMP
-nagi-final-20261124-191406. Local QA copy: nagi-final-integration-20261124-200606.
-These temporary paths are not durable off-machine backups.
+The existing Pages workflow validates and deploys main to /Nagi.tw/. No custom
+domain or DNS change was made. Documentation-only closure commits are excluded
+from redeployment. On a failed future release, restore the last approved tree in
+a new commit and deploy through the same workflow; retain history and artifacts.

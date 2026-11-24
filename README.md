@@ -1,6 +1,6 @@
 # Nagi.tw
 
-**REOPENED — CONTENT RECOVERY**. See [content audit](./CONTENT-AUDIT.md) and [release evidence](./FINAL-RELEASE.md).
+**CLOSED / MAINTENANCE ONLY** — content recovery and public verification passed. See [content audit](./CONTENT-AUDIT.md) and [release evidence](./FINAL-RELEASE.md).
 
 Personal cybersecurity and engineering portfolio using Astro, Markdown/MDX and static generation. Published at https://nagitw.github.io/Nagi.tw/ with English primary and Traditional Chinese at `/Nagi.tw/zh/`. The Pure Black Editorial design is finalized. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status and maintenance limits.
 
