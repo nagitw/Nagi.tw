@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ContentCard from '../components/ContentCard.astro';
 import AboutProfile from './AboutProfile.astro';
+import ExperienceTimeline from './ExperienceTimeline.astro';
 import { collectionNames, getPublished, preferLocale } from '../lib/content';
 
 import { localeFromPath, localizePath, translate } from '../lib/i18n';
@@ -18,7 +19,7 @@ const entries = collection ? preferLocale(await getPublished(collection), locale
 {entries.length > 0 ? (
   <>
     <h2 id="content-title">{t(page.title + " collection", page.zhTitle + "選集")}</h2>
-    <div class="grid">{entries.map(entry => <ContentCard entry={entry} />)}</div>
+    {page.slug === 'experience' ? <ExperienceTimeline entries={entries} locale={locale} /> : <div class="grid">{entries.map(entry => <ContentCard entry={entry} />)}</div>}
   </>
 ) : (
   <div class={page.slug === "about" ? "about-copy" : "empty-state"}>

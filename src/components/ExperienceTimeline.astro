@@ -1,0 +1,64 @@
+---
+import type { PublicEntry } from '../lib/content';
+import { groupExperience } from '../lib/experience-timeline';
+import { translate, type Locale } from '../lib/i18n';
+
+interface Props { entries: PublicEntry[]; locale: Locale }
+const { entries, locale } = Astro.props;
+const groups = groupExperience(entries.filter(entry => entry.collection === 'experience'));
+const t = (en: string, zh: string) => translate(locale, en, zh);
+const types: Record<string, [string, string]> = {
+  competitions: ['Competition', '競賽'], ctf: ['CTF', 'CTF'],
+  training: ['Technical training', '技術培訓'], conferences: ['Conference', '研討會'],
+  research: ['Research', '研究'], speaking: ['Talk', '演講'], teaching: ['Teaching', '教學'],
+  'open-source': ['Open-source contribution', '開源貢獻'],
+};
+const formatDate = (date: string) => date.length === 4 ? date : new Intl.DateTimeFormat(locale, {
+  year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
+}).format(new Date(date));
+---
+<p class="timeline-note muted">{t(
+  'Records without a confirmed month and day retain year-only dates; their order does not imply an event sequence.',
+  '尚未確認月日的紀錄只顯示年份，同年份的排列不代表事件先後。',
+)}</p>
+<div class="experience-timeline">
+  {groups.map(group => <section class="timeline-year" aria-labelledby={`experience-year-${group.year}`}>
+    <h3 id={`experience-year-${group.year}`}>{group.year}</h3>
+    <ol class="timeline-events">
+      {group.entries.map(({ data }) => {
+        const links = [...(data.evidence ?? []), ...(data.verifiedContributions ?? []).flatMap(item => item.evidence)]
+          .filter((link, index, all) => /^https?:\/\//.test(link.url) && all.findIndex(other => other.url === link.url) === index);
+        return <li class="timeline-event" id={data.slug} lang={data.language} data-event-date={data.startedAt}>
+          <article>
+            <h4>{data.title}</h4>
+            <p class="timeline-meta">
+              <time datetime={data.startedAt}>{formatDate(data.startedAt)}</time>
+              {data.startedAt.length === 4 && <span> · {t('Year only', '僅確認年份')}</span>}
+              {data.startedAt.length === 10 && data.endedAt?.length === 10 && data.endedAt !== data.startedAt && <> — <time datetime={data.endedAt}>{formatDate(data.endedAt)}</time></>}
+              {data.tags.map(tag => <span> · {types[tag] ? t(...types[tag]) : tag}</span>)}
+            </p>
+            <p class="timeline-summary">{data.description}</p>
+            {links.length > 0 && <ul class="timeline-links" aria-label={t('Related links', '相關連結')}>
+              {links.map(link => <li><a href={link.url}>{link.label === 'Historical public source' ? t('Source record', '原始紀錄') : link.label} ↗</a></li>)}
+            </ul>}
+          </article>
+        </li>;
+      })}
+    </ol>
+  </section>)}
+</div>
+<style is:inline>
+  .timeline-note { max-inline-size: var(--measure); margin-block: 0 2rem; }
+  .experience-timeline { margin-inline-start: .25rem; padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--line); max-inline-size: var(--shell); }
+  .timeline-year + .timeline-year { margin-block-start: clamp(2rem, 5vw, 4rem); }
+  .timeline-year h3 { margin-block: 0 1.75rem; font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2rem); }
+  .timeline-events, .timeline-links { list-style: none; padding: 0; margin: 0; }
+  .timeline-event { position: relative; padding-block-end: clamp(1.75rem, 4vw, 3rem); scroll-margin-block-start: 2rem; }
+  .timeline-event:last-child { padding-block-end: .5rem; }
+  .timeline-event::before { content: ''; position: absolute; inset-inline-start: calc(-1.5rem - .25rem - .5px); inset-block-start: .5rem; inline-size: .5rem; block-size: .5rem; border: 1px solid var(--ink); border-radius: 50%; background: var(--bg); }
+  .timeline-event h4 { margin: 0; font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.35; overflow-wrap: anywhere; }
+  .timeline-meta { color: var(--secondary); font-family: var(--mono); font-size: .8rem; margin-block: .65rem; }
+  .timeline-summary { max-inline-size: var(--measure); margin-block: .65rem; overflow-wrap: anywhere; }
+  .timeline-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .85rem; }
+  .timeline-links a { display: inline-flex; align-items: center; min-block-size: 2.75rem; overflow-wrap: anywhere; }
+</style>
