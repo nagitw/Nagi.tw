@@ -1,6 +1,6 @@
 # Nagi.tw — Final Editorial & Content Quality Audit
 
-Status: LOCAL ACCEPTANCE PASS; deployment/live acceptance pending.
+Status: **PASS — CLOSED / MAINTENANCE ONLY**. Unanswered facts remain withheld, not presumed confirmed.
 Date: 2026-11-24 (Asia/Taipei). Baseline: 304a2a517531a20084bca764c7084c860618e634.
 Target: https://nagitw.github.io/Nagi.tw/
 
@@ -134,6 +134,11 @@ full-site dark only, with Penguin light/dark-surface compatibility; no full-site
 light-mode toggle existed in this baseline, and no new theme UI was introduced.
 Standalone Lint remains unconfigured by prior instruction.
 
-Deployment commit / workflow / public acceptance: PENDING. The editorial task may
-close after deployment and verification of the conservative public scope; the
-unanswered facts remain withheld for future authorized maintenance.
+Deployed application commit: b27018cd58d4163e5f2d8bce15a7f657d21771fb.
+Workflow: https://github.com/nagitw/Nagi.tw/actions/runs/45416770286
+Build/deploy SUCCESS. Live acceptance PASS, 2026-11-24: 35 pages at three widths,
+34 canonical/sitemap URLs, 40 hidden detail routes returning 404, two hidden
+activities absent, 50 projected activity editions with source years, corrected
+research date, text-only cards, and unconfirmed photo returning 404. Penguin,
+bilingual navigation and reduced motion pass. The four unanswered questions stay
+withheld for future explicit maintenance; no answer or permission was inferred.
