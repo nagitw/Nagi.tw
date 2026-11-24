@@ -28,6 +28,6 @@ export function contentHref(entry: PublicEntry) {
 export async function getFeatured() {
   const groups = await Promise.all(collectionNames.map(name => getPublished(name)));
   return groups.flat().filter(entry => entry.data.featured)
-    .sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt)
+    .sort((a, b) => (b.data.publishedAt ?? '').localeCompare(a.data.publishedAt ?? '')
       || a.collection.localeCompare(b.collection) || a.data.slug.localeCompare(b.data.slug));
 }

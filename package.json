@@ -19,7 +19,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test:i18n": "node scripts/i18n.test.mjs",
-    "test:penguin": "node scripts/penguin.test.mjs"
+    "test:penguin": "node scripts/penguin.test.mjs",
+    "verify:recovery": "node scripts/verify-recovery.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.1.6",

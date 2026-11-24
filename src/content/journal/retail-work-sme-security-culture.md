@@ -1,36 +1,38 @@
 ---
-title: What a Retail Job Taught Me About the Security Gaps Small Businesses Often Miss
-date: 2026-07-18
-site_lang: en
-translation_key: retail-work-sme-security-culture
-categories:
-  - security
-tags:
-  - Cybersecurity
-  - Security Culture
-  - Responsible Security Culture
-  - SME Security
-  - Retail
-  - Personal
-slug: retail-work-sme-security-culture
-description: A reflection from frontline retail work on how SMEs often overlook security education, device management, process design, and Security Culture.
-seo_title: What a Retail Job Taught Me About the Security Gaps Small Businesses Often Miss
-seo_description: A practical reflection on SME Security from the retail frontline, covering accounts, passwords, reporting, device risk, employee training, and Responsible Security Culture.
-og_description: Cybersecurity is not limited to tech companies, hospitals, or financial institutions. From the retail frontline, I learned that the most common risks are often habits and processes, not CVEs.
-reading_time: About 8 minutes
-hero_image_suggestion: An anonymized retail work scene with checkout equipment, an inventory screen, an employee badge, and blurred figures, without any logos, store names, brand marks, or identifiable business details.
-hero_banner_colors:
-  - "#0F172A"
-  - "#1E293B"
-  - "#38BDF8"
-  - "#F8FAFC"
-cover_design_concept: A dark background with low-saturation blue lighting. The foreground shows an abstract retail counter and terminal devices, emphasizing Cybersecurity behind everyday operations while avoiding any real logos or store identifiers.
-toc: true
-publishedAt: "2026-07-18"
-status: draft
-kind: essay
+"title": "What a Retail Job Taught Me About the Security Gaps Small Businesses
+  Often Miss"
+"description": "A reflection from frontline retail work on how SMEs often
+  overlook security education, device management, process design, and Security
+  Culture."
+"originalDescription": "A reflection from frontline retail work on how SMEs
+  often overlook security education, device management, process design, and
+  Security Culture."
+"slug": "retail-work-sme-security-culture"
+"language": "en"
+"status": "published"
+"tags":
+  - "Cybersecurity"
+  - "Security Culture"
+  - "Responsible Security Culture"
+  - "SME Security"
+  - "Retail"
+  - "Personal"
+"featured": false
+"recoveredFrom": "c54762236098c5c824ea73e26bd5829c222f25d2:src/data/migrated.js\
+  on#en-retail-work-sme-security-culture"
+"evidence":
+  - "label": "Historical public source"
+    "url": "https://github.com/nagitw/Nagi.tw/blob/c54762236098c5c824ea73e26bd5829c\
+      222f25d2/src/data/migrated.json"
+    "claim": "What a Retail Job Taught Me About the Security Gaps Small Businesses
+      Often Miss"
+"publishedAt": "2026-07-18"
+"kind": "essay"
+"category": "security"
+"originalCategories":
+  - "security"
+"originalDate": "2026-07-18"
 ---
-
 # What a Retail Job Taught Me About the Security Gaps Small Businesses Often Miss
 
 I recently started working a part-time job in retail.

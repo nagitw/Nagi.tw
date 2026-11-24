@@ -30,7 +30,8 @@ for (const [collection, schema] of Object.entries(schemas)) {
   }
 }
 const files = readdirSync('dist', { recursive: true }).filter(path => path.endsWith('.html'));
-assert.equal(files.length, 17, 'No new public route');
+const recovered = JSON.parse(readFileSync('docs/content-recovery/manifest.json', 'utf8'));
+assert.equal(files.length, 17 + recovered.records.filter(record => !record.eventId).length, 'Only source-backed recovered detail routes added');
 for (const path of files) {
   const html = readFileSync(`dist/${path}`, 'utf8');
   for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"<>]+)"/g)) {
@@ -40,4 +41,4 @@ for (const path of files) {
     assert.ok(existsSync(target), `${path}: internal link ${href}`);
   }
 }
-console.log('PASS: fresh bilingual About, six interests, public projects only, optional personal sections absent, canonical/hreflang, 17 routes, draft exclusion and all internal links.');
+console.log(`PASS: bilingual About, public records only, canonical/hreflang, ${files.length} routes, draft exclusion and all internal links.`);

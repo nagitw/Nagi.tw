@@ -1,0 +1,53 @@
+---
+"title": "CTF Web Practice"
+"description": "Web Security、Linux、OSINT 與 CTF practice 的 Lab 筆記。"
+"originalDescription": "Web Security、Linux、OSINT 與 CTF practice 的 Lab 筆記。"
+"slug": "ctf-web-practice"
+"language": "zh-TW"
+"status": "published"
+"tags":
+  - "lab"
+"featured": false
+"recoveredFrom": "c54762236098c5c824ea73e26bd5829c222f25d2:src/data/migrated.js\
+  on#zh-labs-ctf-web-practice"
+"evidence":
+  - "label": "Historical public source"
+    "url": "https://github.com/nagitw/Nagi.tw/blob/c54762236098c5c824ea73e26bd5829c\
+      222f25d2/src/data/migrated.json"
+    "claim": "CTF Web Practice"
+"methods": []
+"sources":
+  - "https://github.com/nagitw/Nagi.tw/blob/c54762236098c5c824ea73e26bd5829c222\
+    f25d2/src/data/migrated.json"
+---
+# CTF Web Practice
+
+- **狀態:** 已封存
+- **Date:** 2026-06-02
+- **Category:** Security
+
+## Purpose
+
+記錄 **CTF**、Web Security、Linux basics 與 OSINT 的練習過程。
+
+## Setup
+
+- Browser 開發工具
+- Linux terminal
+- Basic HTTP inspection tools
+- Practice challenges
+
+## Steps
+
+1. 仔細閱讀 challenge statement。
+2. 檢查 web page、request 與 response。
+3. 找出脆弱假設。
+4. 寫下解題路徑與犯錯點。
+
+## Result
+
+這些練習讓我更能放慢速度、檢查細節，避免太快下結論。
+
+## 筆記
+
+最有價值的不只是解出 challenge，而是解完後能不能寫出清楚說明。

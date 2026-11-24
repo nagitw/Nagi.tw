@@ -7,6 +7,7 @@ on:
       - 'docs/**'
       - 'README.md'
       - 'FINAL-RELEASE.md'
+      - 'CONTENT-AUDIT.md'
   workflow_dispatch:
 
 permissions:
@@ -21,15 +22,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v6
         with:
           node-version: '24.13.0'
           cache: npm
       - run: npm ci
       - run: npm run test:schema && npm run test:i18n && node scripts/about.test.mjs && npm run test:penguin
-      - run: node scripts/security-migration.mjs --editorial
+      - run: node scripts/security-migration.mjs --originals-only
       - run: npm run check && npm run build
       - run: npm run verify:static && node scripts/verify-about.mjs && npm run verify:release
+      - run: npm run verify:recovery
       - run: npm audit --audit-level=high
       - uses: actions/upload-pages-artifact@v4
         with:

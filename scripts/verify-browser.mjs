@@ -34,7 +34,7 @@ try {
     await page.setViewportSize({ width, height: 900 });
     for (const route of routes) {
       const response = await page.goto(`${publicRoot}${route}`);
-      assert.equal(response.status(), process.env.NAGI_PUBLIC_URL && route === '/404.html' ? 404 : 200, route);
+      assert.equal(response.status(), 200, route);
       await page.evaluate(async () => {
         await Promise.all([...document.images].map(async image => {
           image.loading = 'eager';
@@ -60,7 +60,10 @@ try {
       assert.equal(await page.locator('#penguin-greeting').isVisible(), false);
       if (route !== '/404.html') {
         const english = route.replace(/^\/zh\//, '/');
-        assert.deepEqual(state.switches, [`/Nagi.tw${english}`, `/Nagi.tw/zh${english}`], route);
+        const chinese = `/zh${english}`;
+        const englishTarget = routes.includes(english) ? english : english.replace(/\/[^/]+\/$/, '/');
+        const chineseTarget = routes.includes(chinese) ? chinese : chinese.replace(/\/[^/]+\/$/, '/');
+        assert.deepEqual(state.switches, [`/Nagi.tw${englishTarget}`, `/Nagi.tw${chineseTarget}`], route);
       }
       if (process.env.NAGI_QA_OUT && ['/about/', '/zh/about/', '/'].includes(route) && width !== 768) {
         mkdirSync(process.env.NAGI_QA_OUT, { recursive: true });

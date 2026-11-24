@@ -1,7 +1,8 @@
 # Nagi.tw Final Release
 
 Release target: https://nagitw.github.io/Nagi.tw/
-Status: **PASS — CLOSED / MAINTENANCE ONLY**.
+Status: **REOPENED — CONTENT RECOVERY IN PROGRESS**. The previous release remains
+the rollback baseline; closure requires renewed engineering and content acceptance.
 Date: 2026-11-24 (Asia/Taipei).
 
 ## Final scope

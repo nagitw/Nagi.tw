@@ -1,28 +1,36 @@
 ---
-title: "A Nurse Made Me Rethink Medical Cybersecurity"
-date: 2026-06-23
-site_lang: en
-article_type: Research
-featured: true
-translation_key: nurse-made-me-rethink-medical-cybersecurity
-categories:
-  - life
-tags:
-  - Healthcare
-  - Cybersecurity
-  - Medical Security
-  - Personal
-  - Healthcare／Medical IoT
-slug: nurse-made-me-rethink-medical-cybersecurity
-description: "A reflection from discussing a Medical Cybersecurity project with a clinical nurse, and realizing that engineers must first understand clinical workflows and real needs."
-seo_title: "A Nurse Made Me Rethink Medical Cybersecurity"
-seo_description: "A Medical Cybersecurity reflection about starting from AI anomaly detection and vital sign data, then rethinking needs, workflows, and the problem itself after talking with a clinical nurse."
-og_description: "Technology is not the starting point of a problem. The problem itself is. A conversation with a nurse made me rethink how Medical Cybersecurity should begin from the clinical field."
-publishedAt: "2026-06-23"
-status: draft
-kind: essay
+"title": "A Nurse Made Me Rethink Medical Cybersecurity"
+"description": "A reflection from discussing a Medical Cybersecurity project
+  with a clinical nurse, and realizing that engineers must first understand
+  clinical workflows and real needs."
+"originalDescription": "A reflection from discussing a Medical Cybersecurity
+  project with a clinical nurse, and realizing that engineers must first
+  understand clinical workflows and real needs."
+"slug": "nurse-made-me-rethink-medical-cybersecurity"
+"language": "en"
+"status": "published"
+"tags":
+  - "Healthcare"
+  - "Cybersecurity"
+  - "Medical Security"
+  - "Personal"
+  - "Healthcare／Medical IoT"
+"featured": false
+"recoveredFrom": "c54762236098c5c824ea73e26bd5829c222f25d2:src/data/migrated.js\
+  on#en-nurse-made-me-rethink-medical-cybersecurity"
+"evidence":
+  - "label": "Historical public source"
+    "url": "https://github.com/nagitw/Nagi.tw/blob/c54762236098c5c824ea73e26bd5829c\
+      222f25d2/src/data/migrated.json"
+    "claim": "A Nurse Made Me Rethink Medical Cybersecurity"
+"publishedAt": "2026-06-23"
+"kind": "essay"
+"category": "life"
+"originalCategories":
+  - "life"
+"originalArticleType": "Research"
+"originalDate": "2026-06-23"
 ---
-
 # A Nurse Made Me Rethink Medical Cybersecurity
 
 If this had been a few months ago, I might have confidently told someone:
@@ -185,7 +193,6 @@ The most important thing this experience taught me was:
 
 > The problem itself is.
 
-If I have the chance to continue working on Medical Cybersecurity research in the future,
 
 I hope I can understand healthcare before talking about security.
 

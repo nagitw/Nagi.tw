@@ -27,13 +27,13 @@ const { Content, headings } = await render(entry);
       <a class="eyebrow" href={withBase(`/zh/${entry.collection}/`)}>← {sectionTitle}</a>
       <h1>{data.title}</h1>
       <p class="intro">{data.description}</p>
-      <p class="muted">發布於 <time datetime={data.publishedAt}>{data.publishedAt}</time>{data.updatedAt && <> · 更新 <time datetime={data.updatedAt}>{data.updatedAt}</time></>}</p>
+      {data.publishedAt && <p class="muted">發布於 <time datetime={data.publishedAt}>{data.publishedAt}</time>{data.updatedAt && <> · 更新 <time datetime={data.updatedAt}>{data.updatedAt}</time></>}</p>}
       {data.tags.length > 0 && <ul class="tags" aria-label="標籤">{data.tags.map(tag => <li>{tag}</li>)}</ul>}
     </div>
     {data.cover && data.coverAlt && <EditorialImage src={data.cover} alt={data.coverAlt} caption={data.coverCaption} eager />}
     <section class="section content-body">
-      {entry.collection === 'projects' && <dl class="content-meta"><dt>角色</dt><dd>{entry.data.role}</dd><dt>工具</dt><dd>{entry.data.tools.join(' / ')}</dd>{entry.data.projectUrl && <><dt>專案</dt><dd><a href={entry.data.projectUrl}>查看專案 ↗</a></dd></>}{entry.data.repositoryUrl && <><dt>原始碼</dt><dd><a href={entry.data.repositoryUrl}>原始碼 ↗</a></dd></>}</dl>}
-      {entry.collection === 'research' && <dl class="content-meta"><dt>問題</dt><dd>{entry.data.question}</dd><dt>方法</dt><dd>{entry.data.methods.join(' / ')}</dd></dl>}
+      {entry.collection === 'projects' && <dl class="content-meta">{entry.data.role && <><dt>角色</dt><dd>{entry.data.role}</dd></>}{entry.data.tools.length > 0 && <><dt>工具</dt><dd>{entry.data.tools.join(' / ')}</dd></>}{entry.data.projectUrl && <><dt>專案</dt><dd><a href={entry.data.projectUrl}>查看專案 ↗</a></dd></>}{entry.data.repositoryUrl && <><dt>原始碼</dt><dd><a href={entry.data.repositoryUrl}>原始碼 ↗</a></dd></>}</dl>}
+      {entry.collection === 'research' && <dl class="content-meta">{entry.data.question && <><dt>問題</dt><dd>{entry.data.question}</dd></>}{entry.data.methods.length > 0 && <><dt>方法</dt><dd>{entry.data.methods.join(' / ')}</dd></>}</dl>}
       {entry.collection === 'photography' && <p class="muted"><time datetime={entry.data.takenAt}>{entry.data.takenAt}</time>{entry.data.location && ` · ${entry.data.location}`}</p>}
       <div class="prose"><Content /></div>
       {entry.collection === 'photography' && <div class="photo-gallery">{entry.data.images.map(photo => <EditorialImage src={photo.src} alt={photo.alt} caption={photo.caption} />)}</div>}

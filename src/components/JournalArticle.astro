@@ -52,7 +52,7 @@ const tocLabel = t('On this page', '本頁目錄');
     {data.subtitle && <p class="intro">{data.subtitle}</p>}
     <ul class="journal-meta" aria-label={t('Article details', '文章資訊')}>
       {data.author && <li>{data.author}</li>}
-      <li>{t('Published', '發布於')} <time datetime={data.publishedAt}>{formatDate(data.publishedAt)}</time></li>
+      {data.publishedAt && <li>{t('Published', '發布於')} <time datetime={data.publishedAt}>{formatDate(data.publishedAt)}</time></li>}
       {data.updatedAt && <li>{t('Updated', '更新於')} <time datetime={data.updatedAt}>{formatDate(data.updatedAt)}</time></li>}
       <li>{t(`${minutes} min read`, `閱讀約 ${minutes} 分鐘`)}</li>
     </ul>

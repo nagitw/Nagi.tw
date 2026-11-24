@@ -62,26 +62,33 @@ const common = {
   demo: z.boolean().default(false),
   evidence: z.array(evidence).optional(),
 };
-const updatedInOrder = (data: { publishedAt: string; updatedAt?: string }) => !data.updatedAt || data.updatedAt >= data.publishedAt;
+const updatedInOrder = (data: { publishedAt?: string; updatedAt?: string }) => !data.updatedAt || !data.publishedAt || data.updatedAt >= data.publishedAt;
 const updatedError = { message: 'updatedAt must be on or after publishedAt', path: ['updatedAt'] };
 export const baseSchema = z.object(common).refine(updatedInOrder, updatedError);
 
 // Content config supplies Astro's image() validator; tests reuse the same schema factory.
 export function createContentSchemas<T extends z.ZodType>(image: T) {
-  const fields = { ...common, cover: image };
+  // Historical public pages can genuinely be undated or have no cover. Require
+  // provenance instead of manufacturing dates, images, roles or research methods.
+  const fields = { ...common, publishedAt: date.optional(), cover: image.optional(), coverAlt: text.optional(), recoveredFrom: text.optional() };
+  const complete = (data: { recoveredFrom?: string } & Record<string, unknown>, required: string[]) =>
+    !!data.recoveredFrom || required.every(key => data[key] !== undefined);
+  const current = ['publishedAt', 'cover', 'coverAlt'];
+  const covered = (data: { cover?: unknown; coverAlt?: string; coverCaption?: string }) => data.cover !== undefined
+    ? data.coverAlt !== undefined : data.coverAlt === undefined && data.coverCaption === undefined;
   return {
     projects: z.object({
-      ...fields, role: text, tools: z.array(text).min(1),
+      ...fields, role: text.optional(), tools: z.array(text).default([]),
       projectUrl: z.url().optional(), repositoryUrl: z.url().optional(),
       developmentStatus: z.enum(['concept', 'in-progress', 'maintained', 'completed', 'paused', 'discontinued']).optional(),
-    }).refine(updatedInOrder, updatedError),
+    }).refine(updatedInOrder, updatedError).refine(covered).refine(data => complete(data, [...current, 'role']) && (!!data.recoveredFrom || data.tools.length > 0)),
     research: z.object({
-      ...fields, question: text, methods: z.array(text).min(1), sources: z.array(z.url()).default([]),
+      ...fields, question: text.optional(), methods: z.array(text).default([]), sources: z.array(z.url()).default([]),
       researchArea: text.optional(), institution: text.optional(), team: text.optional(),
       researchStatus: z.enum(['proposed', 'in-progress', 'completed', 'paused']).optional(),
       verifiedOutputs: z.array(verifiedContribution).optional(),
       publications: z.array(publicLink).optional(),
-    }).refine(updatedInOrder, updatedError),
+    }).refine(updatedInOrder, updatedError).refine(covered).refine(data => complete(data, [...current, 'question']) && (!!data.recoveredFrom || data.methods.length > 0)),
     journal: z.object({
       ...fields,
       cover: image.optional(),
@@ -93,20 +100,22 @@ export function createContentSchemas<T extends z.ZodType>(image: T) {
       references: z.array(z.object({ label: text, url: z.httpUrl() })).default([]),
     })
       .refine(updatedInOrder, updatedError)
+      .refine(data => complete(data, ['publishedAt']))
       .refine(data => data.cover !== undefined ? data.coverAlt !== undefined : data.coverAlt === undefined && data.coverCaption === undefined,
         { message: 'A cover requires alt text; cover metadata requires a cover', path: ['coverAlt'] }),
-    photography: z.object({ ...fields, takenAt: date, location: text.optional(), images: z.array(z.object({ src: image, alt: text, caption: text.optional() })).min(1) }).refine(updatedInOrder, updatedError),
+    photography: z.object({ ...fields, takenAt: date, location: text.optional(), images: z.array(z.object({ src: image, alt: text, caption: text.optional() })).min(1) }).refine(updatedInOrder, updatedError).refine(covered).refine(data => complete(data, current)),
     experience: z.object({
-      ...fields, organization: text, role: text, startedAt: date, endedAt: date.optional(),
+      ...fields, organization: text, role: text, startedAt: z.union([date, text.regex(/^\d{4}$/)]), endedAt: z.union([date, text.regex(/^\d{4}$/)]).optional(),
       responsibilities: z.array(text).optional(),
       verifiedContributions: z.array(verifiedContribution).optional(),
     })
       .refine(updatedInOrder, updatedError)
+      .refine(covered).refine(data => complete(data, current) && (!!data.recoveredFrom || data.startedAt.length === 10))
       .refine(data => !data.endedAt || data.endedAt >= data.startedAt, { message: 'endedAt must be on or after startedAt', path: ['endedAt'] }),
   };
 }
 
-type Publishable = { data: { slug: string; language?: string; publishedAt: string; status: string; featured?: boolean; tags?: string[] } };
+type Publishable = { data: { slug: string; language?: string; publishedAt?: string; status: string; featured?: boolean; tags?: string[] } };
 export function selectPublished<T extends Publishable>(entries: T[], options: { featured?: boolean; tag?: string } = {}): T[] {
   const slugs = new Set<string>();
   for (const entry of entries) {
@@ -117,5 +126,5 @@ export function selectPublished<T extends Publishable>(entries: T[], options: { 
   return entries.filter(({ data }) => data.status === 'published'
     && (options.featured === undefined || data.featured === options.featured)
     && (options.tag === undefined || data.tags?.includes(options.tag)))
-    .sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt) || a.data.slug.localeCompare(b.data.slug));
+    .sort((a, b) => (b.data.publishedAt ?? '').localeCompare(a.data.publishedAt ?? '') || a.data.slug.localeCompare(b.data.slug));
 }

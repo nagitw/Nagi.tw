@@ -1,36 +1,43 @@
 ---
-title: "Reflections from the 2026 Cybersecurity Conference: Seeing the Real Shape of the Security Industry"
-date: 2026-05-09
-updated: 2026-05-15
-site_lang: en
-article_type: Personal
-featured: true
-translation_key: 2026-security-conference
-categories:
-  - security
-tags:
-  - CYBERSEC
-  - 2026 Cybersecurity Conference
-  - Zero Trust
-  - AI SOC
-  - Medical Cybersecurity
-  - OT Security
-  - Competition
-banner: /assets/images/cybersec-2026.jpg
-cover: ../../../public/assets/images/cybersec-2026.jpg
-slug: 2026-security-conference
-description: After visiting the 2026 Cybersecurity Conference, I reflected on the real shape of the security industry through Zero Trust, AI SOC, medical cybersecurity, OT, cloud security, and governance.
-seo_title: Reflections from the 2026 Cybersecurity Conference
-seo_description: A field note from the 2026 Cybersecurity Conference covering Zero Trust, social engineering, ROS robot security, AI guardrails, cloud and API security, medical cybersecurity, OT, and AI SOC.
-og_description: The conference helped me see Cybersecurity not as a single technique, but as a system spanning governance, education, monitoring, forensics, cloud, AI, medical systems, OT, and communications security.
-toc: true
-coverAlt: "CYBERSEC 2026 conference signage"
-publishedAt: "2026-05-09"
-updatedAt: "2026-05-15"
-status: draft
-kind: essay
+"title": "Reflections from the 2026 Cybersecurity Conference: Seeing the Real
+  Shape of the Security Industry"
+"description": "After visiting the 2026 Cybersecurity Conference, I reflected on
+  the real shape of the security industry through Zero Trust, AI SOC, medical
+  cybersecurity, OT, cloud security, and governance."
+"originalDescription": "After visiting the 2026 Cybersecurity Conference, I
+  reflected on the real shape of the security industry through Zero Trust, AI
+  SOC, medical cybersecurity, OT, cloud security, and governance."
+"slug": "2026-security-conference"
+"language": "en"
+"status": "published"
+"tags":
+  - "CYBERSEC"
+  - "2026 Cybersecurity Conference"
+  - "Zero Trust"
+  - "AI SOC"
+  - "Medical Cybersecurity"
+  - "OT Security"
+  - "Competition"
+"featured": false
+"recoveredFrom": "c54762236098c5c824ea73e26bd5829c222f25d2:src/data/migrated.js\
+  on#en-2026-security-conference"
+"evidence":
+  - "label": "Historical public source"
+    "url": "https://github.com/nagitw/Nagi.tw/blob/c54762236098c5c824ea73e26bd5829c\
+      222f25d2/src/data/migrated.json"
+    "claim": "Reflections from the 2026 Cybersecurity Conference: Seeing the Real
+      Shape of the Security Industry"
+"publishedAt": "2026-05-09"
+"kind": "essay"
+"category": "security"
+"originalCategories":
+  - "security"
+"originalArticleType": "Personal"
+"originalDate": "2026-05-09"
+"updatedAt": "2026-05-15"
+"cover": "../../../public/assets/images/cybersec-2026.jpg"
+"coverAlt": "CYBERSEC 2026 conference signage"
 ---
-
 Reflections from the 2026 Cybersecurity Conference: Seeing the real shape of the security industry. During this visit, I spent three days observing the exhibition floor, listening to sessions, and looking at how different vendors presented their security solutions.
 
 
@@ -141,7 +148,6 @@ I noticed several important directions:
 
 Among these, I think secrets management is especially important, because many security incidents are not caused by systems being directly broken into. They happen because API keys, tokens, credentials, or passwords are placed in the wrong location, such as GitHub, configuration files, or public servers.
 
-This also reminded me that when I build websites, backends, AI APIs, or cloud deployments in the future, I cannot only care whether the feature runs. I also need to think about keys, permissions, and log retention.
 
 ---
 
@@ -189,7 +195,6 @@ Medical environments contain many systems and devices, such as:
 If these systems are attacked, the impact is not only data leakage. It may also affect medical workflows and patient safety.
 
 This made me realize that medical cybersecurity is different from general enterprise security. It is not only about protecting data, but also about protecting whether medical services can continue operating normally.  
-If I work on a medical cybersecurity project in the future, possible directions could include edge device anomaly detection, medical AI model security, or medical device access control.
 
 ---
 
@@ -208,7 +213,6 @@ Whether it is a website, API, enterprise system, cloud service, or internal plat
 
 An SSL certificate may look like only a small lock icon on a website, but in practice it represents whether communication is encrypted, whether the server identity can be trusted, and whether user data can be transmitted safely.
 
-This also reminded me that when I deploy websites in the future, I cannot only care whether the page looks good. I also need to pay attention to HTTPS, certificate renewal, and security configuration.
 
 ---
 
@@ -333,32 +337,9 @@ But this visit showed me that the real security industry needs more than offensi
 
 ---
 
-## 18. How This Affected My Future Direction
-
-This conference made me more certain that the direction I want to take in the future is not only Web security. I want to connect security with the projects I am already working on, such as:
-
-- Medical cybersecurity
-- AI security
-- Robot security
-- ROS / unmanned system security
-- Blue Team defense
-- AI SOC
-- OT security
-- Digital forensics
-- Cloud and API security
-
-I think these directions can all become future projects, research topics, or competition work.
-
-In particular, "AI + security," "medical + security," and "robotics + security" are very attractive to me.  
-They are not only technical demonstrations. They may have a real chance to solve security problems in the real world.
-
----
-
 ## Conclusion
 
 The 2026 Cybersecurity Conference showed me the breadth of the security industry and helped me see more clearly where I can work in the future.
 
 Security is not only attack. It is not only defense.  
 It is the capability that lets systems, data, people, and society operate safely.
-
-In the future, I hope I will not only learn tools, but truly understand the problems in different fields and use security technology to design valuable solutions.

@@ -1,6 +1,6 @@
 # Nagi.tw
 
-**CLOSED / MAINTENANCE ONLY** — final release verified at https://nagitw.github.io/Nagi.tw/. See [release evidence and known limits](./FINAL-RELEASE.md).
+**REOPENED — CONTENT RECOVERY**. See [content audit](./CONTENT-AUDIT.md) and [release evidence](./FINAL-RELEASE.md).
 
 Personal cybersecurity and engineering portfolio using Astro, Markdown/MDX and static generation. Published at https://nagitw.github.io/Nagi.tw/ with English primary and Traditional Chinese at `/Nagi.tw/zh/`. The Pure Black Editorial design is finalized. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status and maintenance limits.
 
@@ -32,26 +32,27 @@ Manage with `npm run astro -- dev status`, `npm run astro -- dev logs`, and `npm
 ```sh
 npm run test:schema
 npm run test:i18n
-node scripts/security-migration.mjs --editorial
+node scripts/security-migration.mjs --originals-only
 npm run check
 npm run build
 npm run verify:static
 node scripts/about.test.mjs
 node scripts/verify-about.mjs
 npm run verify:release
+npm run verify:recovery
 npm audit
 npm run test:penguin
 ```
 
 The default migration check preserves the exact original migration baseline. `--originals-only` checks provenance only. `--editorial` checks separately approved revision records and still requires every Journal entry to remain draft. Read [content maintenance](./docs/content.md) before selecting another mode. Passing schema/hash checks cannot prove facts or grant publication permission. Never rewrite immutable snapshots or baseline manifest hashes.
 
-The current release uses `--editorial`: later Projects/Research draft edits intentionally differ from the migration's historical hashes. The strict historical baseline is preserved and does not pass against those later drafts. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status, limitations and maintenance.
+The content-recovery release pairs `--originals-only` with `verify:recovery`: the latter verifies every restored public body and metadata against pinned historical sources, privacy exclusions, and unchanged remaining content. Fetch full Git history before running it. The historical strict/editorial migration modes remain unchanged and are tested against their original draft fixture; they do not authorize or validate this separately authorized publication recovery.
 
-Integration tests create/remove fixtures: use only a separately authorized disposable Windows QA copy. The empty-site assertion does not apply to the published BugTraceAI baseline. Build writes local `dist/`; it does not deploy. Verify both BugTraceAI detail routes in addition to the static check's 15 base pages. Current production has 17 HTML pages and no Journal detail pages.
+Integration tests create/remove fixtures: use only a disposable Windows QA copy. The empty-site assertion does not apply to published content. Build writes local `dist/`; it does not deploy. Output now includes 75 HTML pages and 74 indexable sitemap URLs; `verify:static` covers the 15 base pages and the release/recovery verifiers cover the complete output.
 
 ## Publication and privacy
 
-Only the existing bilingual BugTraceAI-CLI contribution case study is published. All five migrated Journal articles remain draft. The retail security-culture article must not be edited or published without separate explicit authorization. Unknown project, research and experience facts stay absent or draft; never invent features, outcomes, affiliations, rankings or credentials.
+The user's Final Content Recovery request separately authorizes restoring previously public, source-backed content. The exact scope is pinned in `docs/content-recovery/manifest.json`: historical public bodies (including the old private-plan exclusions), original recorded results and dates. The existing BugTraceAI case study remains unchanged; the remaining 16 drafts stay private. Do not treat this recovery as permission to publish other drafts, private plans or disputed archive candidates. Original author-reported results are not newly certified official results.
 
 Editorial `status` is separate from `developmentStatus`/`researchStatus`. Featured flags and dates do not grant or schedule publication. The shared selector excludes drafts/archives; a directory alone provides no publication protection.
 

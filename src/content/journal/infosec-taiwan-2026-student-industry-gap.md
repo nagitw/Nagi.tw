@@ -1,34 +1,45 @@
 ---
-title: What InfoSec Taiwan 2026 Showed Me About the Gap Between Students and Industry
-date: 2026-07-07
-site_lang: en
-translation_key: infosec-taiwan-2026-student-industry-gap
-description: This is not a simple event recap. It is a reflection on the gap I saw at InfoSec Taiwan 2026 between student cybersecurity projects and the security capabilities companies actually need.
-categories:
-  - life
-tags:
-  - InfoSec Taiwan
-  - Cybersecurity
-  - SOC
-  - Blue Team
-  - Zero Trust
-  - Incident Response
-  - Compliance
-  - Financial Security
-  - AI Security
-  - Post-Quantum Cryptography
-  - Career
-  - Students
-  - Competition
-slug: infosec-taiwan-2026-student-industry-gap
-seo_title: What InfoSec Taiwan 2026 Showed Me About the Gap Between Students and Industry
-seo_description: A reflection from InfoSec Taiwan 2026 on the gap between student cybersecurity projects and industry needs, covering CTF, AI, SOC, incident response, Zero Trust, and post-quantum cryptography.
-og_description: Students often ask what they can build. Companies are more focused on what real problem it solves. This article reflects on that gap after InfoSec Taiwan 2026.
-publishedAt: "2026-07-07"
-status: draft
-kind: essay
+"title": "What InfoSec Taiwan 2026 Showed Me About the Gap Between Students and
+  Industry"
+"description": "This is not a simple event recap. It is a reflection on the gap
+  I saw at InfoSec Taiwan 2026 between student cybersecurity projects and the
+  security capabilities companies actually need."
+"originalDescription": "This is not a simple event recap. It is a reflection on
+  the gap I saw at InfoSec Taiwan 2026 between student cybersecurity projects
+  and the security capabilities companies actually need."
+"slug": "infosec-taiwan-2026-student-industry-gap"
+"language": "en"
+"status": "published"
+"tags":
+  - "InfoSec Taiwan"
+  - "Cybersecurity"
+  - "SOC"
+  - "Blue Team"
+  - "Zero Trust"
+  - "Incident Response"
+  - "Compliance"
+  - "Financial Security"
+  - "AI Security"
+  - "Post-Quantum Cryptography"
+  - "Career"
+  - "Students"
+  - "Competition"
+"featured": false
+"recoveredFrom": "c54762236098c5c824ea73e26bd5829c222f25d2:src/data/migrated.js\
+  on#en-infosec-taiwan-2026-student-industry-gap"
+"evidence":
+  - "label": "Historical public source"
+    "url": "https://github.com/nagitw/Nagi.tw/blob/c54762236098c5c824ea73e26bd5829c\
+      222f25d2/src/data/migrated.json"
+    "claim": "What InfoSec Taiwan 2026 Showed Me About the Gap Between Students and
+      Industry"
+"publishedAt": "2026-07-07"
+"kind": "essay"
+"category": "life"
+"originalCategories":
+  - "life"
+"originalDate": "2026-07-07"
 ---
-
 # What InfoSec Taiwan 2026 Showed Me About the Gap Between Students and Industry
 
 ## Opening: Not an Event Recap, But a Reason to Think Again
@@ -239,7 +250,6 @@ Students often ask, "What can I build?"
 
 Companies care more about, "What real problem does this solve?"
 
-I hope my future projects will not only demonstrate technology, but also respond to real-world needs.
 
 Because Cybersecurity is not just about building the technology.
 

@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { cpSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdtempSync, readFileSync, writeFileSync, readdirSync, unlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { spawnSync } from 'node:child_process';
+import { spawnSync, execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 const load = async () => import('../src/lib/content-schema.ts');
 const valid = { title: '示範', description: '結構測試', slug: 'demo', publishedAt: '2026-01-01', status: 'published', cover: '../assets/demo.svg', coverAlt: '示範圖形' };
@@ -62,6 +62,13 @@ function migrationFixture() {
   const path = join(directory, 'docs/security-migration/manifest.json');
   const manifest = JSON.parse(readFileSync(path, 'utf8'));
   manifest.existingContent = manifest.existingContent.filter(item => item.path.startsWith('src/content/journal/'));
+  // Exercise the historical migration against its original draft fixture,
+  // independently of separately authorized later publication recovery.
+  const journal = join(directory, 'src/content/journal');
+  for (const file of readdirSync(journal)) unlinkSync(join(journal, file));
+  for (const file of [...manifest.existingContent.map(item => item.path), ...manifest.articles.map(item => item.destination)]) {
+    writeFileSync(join(directory, file), execFileSync('git', ['show', `8785863ea406c3552f1406035200ed8905a37a5f:${file}`]));
+  }
   writeFileSync(path, JSON.stringify(manifest));
   return directory;
 }

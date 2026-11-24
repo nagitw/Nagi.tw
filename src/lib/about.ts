@@ -22,7 +22,7 @@ export function prepareAboutProfile(input: unknown) {
 
 type ExperienceCandidate = {
   data: {
-    slug: string; language?: string; publishedAt: string; status: string;
+    slug: string; language?: string; publishedAt?: string; status: string;
     evidence?: { label: string; url: string }[];
     verifiedContributions?: { evidence: { label: string; url: string }[] }[];
   };
