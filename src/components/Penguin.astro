@@ -1,71 +1,54 @@
 ---
-interface Props { label?: string; large?: boolean }
-const { label = 'Open Penguin AI', large = false } = Astro.props;
+import { localeFromPath, translate } from '../lib/i18n';
+const locale = localeFromPath(Astro.url.pathname);
+const label = translate(locale, 'Toggle penguin greeting', '切換企鵝問候');
+// Reused silhouette/keyframes: nagitw/Nagi.tw @ c547622; greeting: @ 952f055.
 ---
-<button type="button" class:list={['penguin', { 'penguin--large': large }]} data-penguin data-state="idle" data-chat-open aria-label={label} aria-haspopup="dialog" aria-controls="penguin-chat" disabled>
-  <svg viewBox="0 0 24 24" width="240" height="240" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
-    <g class="penguin-body">
-      <path fill="#17252B" d="M9 1h6v1h3v1h2v2h1v3h1v7h-1v3h-2v2h-3v1H8v-1H5v-2H3v-3H2V8h1V5h1V3h2V2h3z" />
-      <path fill="#17252B" d="M2 10H1v5h1v2h2v-2h1v-5H4v4H3v-4z" />
-      <path class="penguin-wing" fill="#17252B" d="M22 10h1v5h-1v2h-2v-2h-1v-5h1v4h1v-4z" />
-      <path fill="#f3f5f3" d="M9 11h6v1h2v2h1v3h-1v1h-2v1H9v-1H7v-1H6v-3h1v-2h2z" />
-      <g class="penguin-eyes"><path fill="#f3f5f3" d="M8 7h1v1H8zm7 0h1v1h-1z" /></g>
-      <path class="penguin-beak" fill="#d89b4a" d="M11 9h2v1h1v1h-4v-1h1z" />
-    </g>
-    <path fill="#d89b4a" d="M7 21h4v2H6v-1h1zm6 0h4v1h1v1h-5z" />
-  </svg>
-  <span class="penguin-shadow" aria-hidden="true"></span>
-</button>
+<div class="penguin-signature">
+  <button type="button" class="penguin" data-penguin-toggle data-state="idle" aria-label={label} aria-expanded="false" aria-controls="penguin-greeting" disabled>
+    <svg viewBox="0 0 24 24" width="48" height="48" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
+      <g class="penguin-body">
+        <path fill="#17252B" d="M9 1h6v1h3v1h2v2h1v3h1v7h-1v3h-2v2h-3v1H8v-1H5v-2H3v-3H2V8h1V5h1V3h2V2h3z" />
+        <path fill="#17252B" d="M2 10H1v5h1v2h2v-2h1v-5H4v4H3v-4z" />
+        <path class="penguin-wing" fill="#17252B" d="M22 10h1v5h-1v2h-2v-2h-1v-5h1v4h1v-4z" />
+        <path fill="#f3f5f3" d="M9 11h6v1h2v2h1v3h-1v1h-2v1H9v-1H7v-1H6v-3h1v-2h2z" />
+        <g class="penguin-eyes"><path fill="#f3f5f3" d="M8 7h1v1H8zm7 0h1v1h-1z" /></g>
+        <path fill="#d89b4a" d="M11 9h2v1h1v1h-4v-1h1z" />
+      </g>
+      <path fill="#d89b4a" d="M7 21h4v2H6v-1h1zm6 0h4v1h1v1h-5z" />
+    </svg>
+  </button>
+  <span id="penguin-greeting" role="status" lang="en" hidden>Hello, world!</span>
+</div>
 <script>
-  import { transition, type PenguinState, type PenguinEvent } from '../lib/penguin-state';
-  document.querySelectorAll<HTMLButtonElement>('[data-penguin]').forEach((penguin) => {
-    let state: PenguinState = 'idle';
-    let timer: ReturnType<typeof setTimeout>;
-    const motion = matchMedia('(prefers-reduced-motion: no-preference) and (pointer: fine)');
-    let frame = 0;
-    penguin.addEventListener('pointermove', event => {
-      if (!motion.matches || frame || state !== 'curious') return;
-      frame = requestAnimationFrame(() => {
-        const rect = penguin.getBoundingClientRect();
-        penguin.style.setProperty('--look-x', `${((event.clientX - rect.left) / rect.width - .5) * 8}px`);
-        penguin.style.setProperty('--look-y', `${((event.clientY - rect.top) / rect.height - .5) * 6}px`);
-        frame = 0;
-      });
+  document.querySelectorAll<HTMLButtonElement>('[data-penguin-toggle]').forEach(button => {
+    const greeting = document.getElementById(button.getAttribute('aria-controls') ?? '');
+    if (!greeting) return;
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(open));
+      greeting.hidden = !open;
+      button.dataset.state = open ? 'welcome' : 'idle';
     });
-    const send = (event: PenguinEvent) => { state = transition(state, event); penguin.dataset.state = state; };
-    const rest = () => { clearTimeout(timer); timer = setTimeout(() => send('sleep'), 45000); };
-    penguin.addEventListener('pointerenter', () => { send('enter'); rest(); });
-    penguin.addEventListener('pointerleave', () => { send('leave'); rest(); });
-    penguin.addEventListener('focus', () => { send('wake'); rest(); });
-    penguin.addEventListener('blur', () => { send('leave'); rest(); });
-    penguin.addEventListener('pointerdown', () => { send('wake'); rest(); });
-    document.addEventListener('penguin-state', (event) => { send((event as CustomEvent<PenguinEvent>).detail); rest(); });
-    document.addEventListener('visibilitychange', () => { clearTimeout(timer); send(document.hidden ? 'sleep' : 'leave'); if (!document.hidden) rest(); });
-    send('wake'); timer = setTimeout(() => { send('leave'); rest(); }, 1800);
+    button.disabled = false;
   });
 </script>
 <style>
-  .penguin { position: relative; display: grid; place-items: center; width: 60px; height: 68px; border: 0; padding: 0; background: transparent; isolation: isolate; }
+  .penguin-signature { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; min-height: 60px; padding-block-end: 1rem; }
+  .penguin { display: grid; place-items: center; flex: 0 0 60px; width: 60px; height: 60px; padding: 6px; border: 1px solid #17252b; border-radius: 50%; background: #f7f8f6; color: inherit; cursor: pointer; }
   .penguin:disabled { cursor: default; }
-  .penguin:hover { background: transparent; }
-  .penguin svg { width: 85%; height: auto; overflow: visible; transform: rotate(-3deg); transition: transform .4s ease; }
-  .penguin--large { width: clamp(200px, 25vw, 310px); height: clamp(230px, 28vw, 350px); }
-  .penguin-shadow { position: absolute; bottom: 0; width: 72%; height: 7%; border-radius: 50%; background: #17252b18; z-index: -1; }
-  .penguin-body { transform-origin: 12px 21px; animation: breathe 4s ease-in-out infinite; }
-  .penguin-eyes { transform-box: fill-box; transform-origin: center; animation: blink 7s infinite; }
+  .penguin:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  .penguin svg { display: block; width: 48px; height: 48px; overflow: visible; image-rendering: pixelated; }
+  .penguin-body { transform-origin: 12px 21px; }
+  .penguin-eyes { transform-box: fill-box; transform-origin: center; }
   .penguin-wing { transform-origin: 20px 10px; }
   [data-state='welcome'] .penguin-wing { animation: wave .55s ease-in-out 3; }
-  [data-state='curious'] svg { transform: translate(var(--look-x, 0px), var(--look-y, -4px)) rotate(7deg); }
-  [data-state='thinking'] .penguin-body { animation: ponder 1.5s ease-in-out infinite; }
-  [data-state='talking'] .penguin-beak { transform-origin: 12px 10px; animation: talk .4s ease-in-out infinite alternate; }
-  [data-state='sleeping'] .penguin-eyes { animation: none; transform: scaleY(.15); }
-  [data-state='sleeping'] svg { transform: rotate(-8deg); }
-  [data-state='error'] svg { transform: rotate(-12deg); }
+  [data-state='welcome'] .penguin-body { animation: breathe 4s ease-in-out; }
+  [data-state='welcome'] .penguin-eyes { animation: blink 4s; }
+  span { padding: .35rem .6rem; border: 1px solid currentColor; border-radius: .3rem; color: inherit; font-size: .8rem; }
   @keyframes breathe { 50% { transform: translateY(-.3px) scaleY(1.015); } }
   @keyframes blink { 0%, 43%, 47%, 100% { transform: scaleY(1); } 45% { transform: scaleY(.1); } }
   @keyframes wave { 50% { transform: rotate(-35deg); } }
-  @keyframes ponder { 50% { transform: rotate(4deg); } }
-  @keyframes talk { to { transform: scaleY(1.5); } }
-  @media (prefers-reduced-motion: reduce) { .penguin *, .penguin svg { animation: none !important; transition: none; transform: none; } }
-  @media (update: slow) { .penguin * { animation: none !important; } }
+  @media (prefers-reduced-motion: reduce), (update: slow) { .penguin * { animation: none !important; } }
+  @media (forced-colors: active) { .penguin { forced-color-adjust: none; outline-color: CanvasText; } }
 </style>

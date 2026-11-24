@@ -1,54 +1,58 @@
-# nagi.tw
+# Nagi.tw
 
-Personal website of Nagi.
+Personal cybersecurity and engineering portfolio using Astro, Markdown/MDX and static generation. Published at https://nagitw.github.io/Nagi.tw/ with English primary and Traditional Chinese at `/Nagi.tw/zh/`. The Pure Black Editorial design is finalized. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status and maintenance limits.
 
-A place for my projects, research, cybersecurity work, and technical notes.
+## Architecture
 
-## Website
+- `src/content.config.ts`: Projects, Research, Journal, Photography and Experience collections.
+- `src/lib/content-schema.ts`: compatible contracts, optional evidence/progress, publication selector and Profile schema.
+- `src/lib/sections.ts`: section metadata and the single public Profile source consumed by About.
+- `src/lib/content.ts`: published queries, language preference and links.
+- `src/pages/`, `src/components/`, `src/layouts/`: static routes and shared presentation.
+- `src/styles/global.css`: existing design tokens and typography.
+- `docs/content.md`: field definitions, editorial approval and validation workflow.
+- `docs/security-migration/`: immutable Journal snapshots and migration provenance.
 
-- Main: https://nagi.tw
-- Notes: https://notes.nagi.tw
+No separate Profile collection, parallel content database or backend is needed. New optional metadata is not automatically rendered by the existing templates.
 
-## Stack
+## Development
 
-- Astro
-- TypeScript
-- CSS
+Use Node.js `>=22.23.4`, the existing lockfile and [AGENTS.md](./AGENTS.md). Work in the authoritative Windows repository; do not modify the WSL preview copy. Start development in background mode:
 
-## V3 — Penguin Interactive Studio
+```sh
+npm run astro -- dev --background
+```
 
-38 static English/Traditional Chinese pages: Home, Research, Projects, Journal, Technical Reports, About, Roadmap, the original Experience/Contact routes, and the planned From CTF to OSCP series with paired episode documents.
-Typed records and source provenance live in `src/data/{site,projects,research,experience}.ts`.
-`BaseLayout.astro` supplies per-page SEO, navigation and Penguin AI; `studio.css` extends the shared styles with soft blue/graphite themes and responsive layouts. `Penguin.astro` preserves the original pixel geometry and colors using layered SVG animations.
-There are no UI frameworks, remote fonts, WebGL libraries or new dependencies. Small TypeScript controllers enhance navigation, theme, penguin states and the native chat dialog. All public page content is static HTML.
-
-Notes remains independent. The homepage fetches at most three previews from the public Notes RSS feed at build time. A failed request produces a visible link to Notes. `NOTES_RSS_URL` can override the feed for local tests; fixture output is never used in the production build.
+Manage with `npm run astro -- dev status`, `npm run astro -- dev logs`, and `npm run astro -- dev stop`.
 
 ## Validation
 
-- `npm run check` — Astro/TypeScript diagnostics
-- `npm run build` — check and static production build
-- `npm test` — RSS parser, penguin states, chat cancellation, API protocol/security and isolated RSS/base-path builds
-- `npm run validate` — built routes, SEO, content boundaries, anchors and MedTrust limitations
-
-Mobile navigation remains available without JavaScript. The Menu button controls it and Escape closes it. The initial theme follows the OS when no saved choice exists; the theme button persists explicit preference when storage is available. Reduced motion disables animation. Chat controls require JavaScript and native dialog support.
-
-## Local preview
-
-Use Node 24 (validated with 24.13.0), then `npm ci` if dependencies are missing.
-
 ```sh
-npm run dev
-# Or preview the exact production output:
+npm run test:schema
+npm run test:i18n
+node scripts/security-migration.mjs --editorial
+npm run check
 npm run build
-npm run preview
+npm run verify:static
+node scripts/about.test.mjs
+node scripts/verify-about.mjs
+npm run verify:release
+npm audit
+npm run test:penguin
 ```
 
-Default URL: http://localhost:4321. Review `/` and `/zh/`.
+The default migration check preserves the exact original migration baseline. `--originals-only` checks provenance only. `--editorial` checks separately approved revision records and still requires every Journal entry to remain draft. Read [content maintenance](./docs/content.md) before selecting another mode. Passing schema/hash checks cannot prove facts or grant publication permission. Never rewrite immutable snapshots or baseline manifest hashes.
 
-## Penguin AI and deployment
+The current release uses `--editorial`: later Projects/Research draft edits intentionally differ from the migration's historical hashes. The strict historical baseline is preserved and does not pass against those later drafts. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status, limitations and maintenance.
 
-Default: **mock**, no AI network request. `.env.example` documents the optional public HTTPS endpoint and `SITE_BASE` for repository Pages. No production API is assumed. Do not put credentials in `PUBLIC_*`. The independent Raspberry Pi service is future work; nothing connects to medical projects, private files or service administration.
+Integration tests create/remove fixtures: use only a separately authorized disposable Windows QA copy. The empty-site assertion does not apply to the published BugTraceAI baseline. Build writes local `dist/`; it does not deploy. Verify both BugTraceAI detail routes in addition to the static check's 15 base pages. Current production has 17 HTML pages and no Journal detail pages.
 
-See [V3 delivery and API contract](docs/v3-report.md) for protocol, file inventory, verification and remaining visual QA. Existing V2 reports are historical. Deploy workflow is unchanged and this change is not deployed.
+## Publication and privacy
 
+Only the existing bilingual BugTraceAI-CLI contribution case study is published. All five migrated Journal articles remain draft. The retail security-culture article must not be edited or published without separate explicit authorization. Unknown project, research and experience facts stay absent or draft; never invent features, outcomes, affiliations, rankings or credentials.
+
+Editorial `status` is separate from `developmentStatus`/`researchStatus`. Featured flags and dates do not grant or schedule publication. The shared selector excludes drafts/archives; a directory alone provides no publication protection.
+
+Never add legal names, private contacts, excluded education, secrets, patient information or confidential research. Drafts are not confidential storage; `public/` assets can be emitted even when their article is draft. Review evidence links and images for facts, privacy and rights.
+
+Preserve a hash-verified baseline including untracked work before editing. Do not reset, clean or overwrite existing work. Phase 10.2 authorizes content architecture only, not publication, deployment or changes to the design system.

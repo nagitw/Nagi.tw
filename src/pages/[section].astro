@@ -1,0 +1,7 @@
+---
+import SectionPage from '../components/SectionPage.astro';
+import { sections } from '../lib/sections';
+export function getStaticPaths() { return sections.map(page => ({ params: { section: page.slug }, props: { page } })); }
+const { page } = Astro.props;
+---
+<SectionPage page={page} />

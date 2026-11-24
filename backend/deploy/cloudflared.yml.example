@@ -1,8 +1,0 @@
-# Dedicated tunnel; never overwrite an existing research-service configuration.
-tunnel: REPLACE_WITH_DEDICATED_TUNNEL_UUID
-credentials-file: /etc/cloudflared-nagi/REPLACE_WITH_DEDICATED_TUNNEL_UUID.json
-ingress:
-  - hostname: api.nagi.tw
-    path: ^/(chat|healthz|readyz)$
-    service: http://127.0.0.1:8765
-  - service: http_status:404

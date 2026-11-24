@@ -1,0 +1,5 @@
+
+> nagi.tw@0.0.1 test:i18n
+> node scripts/i18n.test.mjs
+
+PASS: language detection and equivalent route mapping

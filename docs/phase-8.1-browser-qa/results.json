@@ -1,0 +1,294 @@
+{
+  "browser": "Chrome/157.0.8103.79",
+  "rows": [
+    {
+      "width": 320,
+      "lang": "en",
+      "name": "home",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "Room to think.\nSpace to create."
+    },
+    {
+      "width": 320,
+      "lang": "en",
+      "name": "home",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "Room to think.\nSpace to create."
+    },
+    {
+      "width": 320,
+      "lang": "en",
+      "name": "projects",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "Projects"
+    },
+    {
+      "width": 320,
+      "lang": "en",
+      "name": "projects",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "Projects"
+    },
+    {
+      "width": 320,
+      "lang": "en",
+      "name": "detail",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "BugTraceAI-CLI contributions"
+    },
+    {
+      "width": 320,
+      "lang": "en",
+      "name": "detail",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "BugTraceAI-CLI contributions"
+    },
+    {
+      "width": 320,
+      "lang": "zh-TW",
+      "name": "home",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "留白思考。\n動手創造。"
+    },
+    {
+      "width": 320,
+      "lang": "zh-TW",
+      "name": "home",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "留白思考。\n動手創造。"
+    },
+    {
+      "width": 320,
+      "lang": "zh-TW",
+      "name": "projects",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "專案"
+    },
+    {
+      "width": 320,
+      "lang": "zh-TW",
+      "name": "projects",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "專案"
+    },
+    {
+      "width": 320,
+      "lang": "zh-TW",
+      "name": "detail",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "BugTraceAI-CLI 開源貢獻"
+    },
+    {
+      "width": 320,
+      "lang": "zh-TW",
+      "name": "detail",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "BugTraceAI-CLI 開源貢獻"
+    },
+    {
+      "width": 768,
+      "lang": "en",
+      "name": "home",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "Room to think.\nSpace to create."
+    },
+    {
+      "width": 768,
+      "lang": "en",
+      "name": "home",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "Room to think.\nSpace to create."
+    },
+    {
+      "width": 768,
+      "lang": "en",
+      "name": "projects",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "Projects"
+    },
+    {
+      "width": 768,
+      "lang": "en",
+      "name": "projects",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "Projects"
+    },
+    {
+      "width": 768,
+      "lang": "en",
+      "name": "detail",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "BugTraceAI-CLI contributions"
+    },
+    {
+      "width": 768,
+      "lang": "en",
+      "name": "detail",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "BugTraceAI-CLI contributions"
+    },
+    {
+      "width": 768,
+      "lang": "zh-TW",
+      "name": "home",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "留白思考。\n動手創造。"
+    },
+    {
+      "width": 768,
+      "lang": "zh-TW",
+      "name": "home",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "留白思考。\n動手創造。"
+    },
+    {
+      "width": 768,
+      "lang": "zh-TW",
+      "name": "projects",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "專案"
+    },
+    {
+      "width": 768,
+      "lang": "zh-TW",
+      "name": "projects",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "專案"
+    },
+    {
+      "width": 768,
+      "lang": "zh-TW",
+      "name": "detail",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "BugTraceAI-CLI 開源貢獻"
+    },
+    {
+      "width": 768,
+      "lang": "zh-TW",
+      "name": "detail",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "BugTraceAI-CLI 開源貢獻"
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "name": "home",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "Room to think.\nSpace to create."
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "name": "home",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "Room to think.\nSpace to create."
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "name": "projects",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "Projects"
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "name": "projects",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "Projects"
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "name": "detail",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "BugTraceAI-CLI contributions"
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "name": "detail",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "BugTraceAI-CLI contributions"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-TW",
+      "name": "home",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "留白思考。\n動手創造。"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-TW",
+      "name": "home",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "留白思考。\n動手創造。"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-TW",
+      "name": "projects",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "專案"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-TW",
+      "name": "projects",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "專案"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-TW",
+      "name": "detail",
+      "theme": "light",
+      "background": "rgb(248, 246, 239)",
+      "head": "BugTraceAI-CLI 開源貢獻"
+    },
+    {
+      "width": 1440,
+      "lang": "zh-TW",
+      "name": "detail",
+      "theme": "dark",
+      "background": "rgb(27, 30, 26)",
+      "head": "BugTraceAI-CLI 開源貢獻"
+    }
+  ],
+  "draftDetailRoutes": 0
+}

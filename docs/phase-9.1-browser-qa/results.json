@@ -1,0 +1,74 @@
+{
+  "browser": "Chrome/157.0.8103.79",
+  "rows": [
+    {
+      "width": 320,
+      "locale": "en",
+      "code": {
+        "view": 271,
+        "scroll": 1833,
+        "offset": 100,
+        "overflow": "auto"
+      },
+      "table": {
+        "view": 273,
+        "scroll": 865,
+        "offset": 100,
+        "overflow": "auto"
+      },
+      "figureCount": 2
+    },
+    {
+      "width": 320,
+      "locale": "zh-TW",
+      "date": "2026年1月10日",
+      "reading": "閱讀約 1 分鐘"
+    },
+    {
+      "width": 768,
+      "locale": "en",
+      "code": {
+        "view": 690,
+        "scroll": 1849,
+        "offset": 100,
+        "overflow": "auto"
+      },
+      "table": {
+        "view": 692,
+        "scroll": 865,
+        "offset": 100,
+        "overflow": "auto"
+      },
+      "figureCount": 2
+    },
+    {
+      "width": 768,
+      "locale": "zh-TW",
+      "date": "2026年1月10日",
+      "reading": "閱讀約 1 分鐘"
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "code": {
+        "view": 718,
+        "scroll": 1849,
+        "offset": 100,
+        "overflow": "auto"
+      },
+      "table": {
+        "view": 720,
+        "scroll": 865,
+        "offset": 100,
+        "overflow": "auto"
+      },
+      "figureCount": 2
+    },
+    {
+      "width": 1440,
+      "locale": "zh-TW",
+      "date": "2026年1月10日",
+      "reading": "閱讀約 1 分鐘"
+    }
+  ]
+}

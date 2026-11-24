@@ -1,0 +1,325 @@
+{
+  "status": "PASS",
+  "pages": 17,
+  "unchangedOriginalFiles": 67,
+  "migratedDrafts": [
+    {
+      "path": "src/content/journal/retail-work-sme-security-culture.md",
+      "sha256": "2738e96a8c0e7e0e6051d5452bb933cd7e619115c2b26f52a924f31ef499cd2a"
+    },
+    {
+      "path": "src/content/journal/ctf-meets-malware-analysis-windows.md",
+      "sha256": "1238a65c9d1f738f25768d7b13dd589ffb1fa96d6823ec3e1114df931655b8a8"
+    },
+    {
+      "path": "src/content/journal/infosec-taiwan-2026-student-industry-gap.md",
+      "sha256": "58f2464cc8404dba90811e69eb31ebaa5c4da6c3c85596d55a44ad3724be46bc"
+    },
+    {
+      "path": "src/content/journal/nurse-made-me-rethink-medical-cybersecurity.md",
+      "sha256": "978a2729f7ec81b318bd418cb03ec8c69bfc15acc2ba284af8f9d6b758ca19d0"
+    },
+    {
+      "path": "src/content/journal/2026-security-conference.md",
+      "sha256": "20492a74c94137e97b4dcb1b835a1f562af9798f8955c279dc80d79eb03e8bf1"
+    }
+  ],
+  "noJournalArticles": true,
+  "noQaFixtures": true,
+  "bugTraceAI": "both languages, source hashes and both PR links intact",
+  "seo": [
+    {
+      "path": "dist\\404.html",
+      "canonical": "https://nagi.tw/404/",
+      "alternates": []
+    },
+    {
+      "path": "dist\\about\\index.html",
+      "canonical": "https://nagi.tw/about/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/about/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/about/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/about/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\experience\\index.html",
+      "canonical": "https://nagi.tw/experience/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/experience/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/experience/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/experience/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\index.html",
+      "canonical": "https://nagi.tw/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\journal\\index.html",
+      "canonical": "https://nagi.tw/journal/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/journal/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/journal/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/journal/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\photography\\index.html",
+      "canonical": "https://nagi.tw/photography/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/photography/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/photography/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/photography/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\projects\\bugtraceai-cli-contributions\\index.html",
+      "canonical": "https://nagi.tw/projects/bugtraceai-cli-contributions/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/projects/bugtraceai-cli-contributions/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/projects/bugtraceai-cli-contributions/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/projects/bugtraceai-cli-contributions/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\projects\\index.html",
+      "canonical": "https://nagi.tw/projects/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/projects/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/projects/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/projects/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\research\\index.html",
+      "canonical": "https://nagi.tw/research/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/research/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/research/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/research/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\zh\\about\\index.html",
+      "canonical": "https://nagi.tw/zh/about/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/about/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/about/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/about/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\zh\\experience\\index.html",
+      "canonical": "https://nagi.tw/zh/experience/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/experience/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/experience/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/experience/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\zh\\index.html",
+      "canonical": "https://nagi.tw/zh/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\zh\\journal\\index.html",
+      "canonical": "https://nagi.tw/zh/journal/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/journal/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/journal/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/journal/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\zh\\photography\\index.html",
+      "canonical": "https://nagi.tw/zh/photography/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/photography/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/photography/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/photography/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\zh\\projects\\bugtraceai-cli-contributions\\index.html",
+      "canonical": "https://nagi.tw/zh/projects/bugtraceai-cli-contributions/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/projects/bugtraceai-cli-contributions/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/projects/bugtraceai-cli-contributions/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/projects/bugtraceai-cli-contributions/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\zh\\projects\\index.html",
+      "canonical": "https://nagi.tw/zh/projects/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/projects/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/projects/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/projects/"
+        ]
+      ]
+    },
+    {
+      "path": "dist\\zh\\research\\index.html",
+      "canonical": "https://nagi.tw/zh/research/",
+      "alternates": [
+        [
+          "en",
+          "https://nagi.tw/research/"
+        ],
+        [
+          "zh-TW",
+          "https://nagi.tw/zh/research/"
+        ],
+        [
+          "x-default",
+          "https://nagi.tw/research/"
+        ]
+      ]
+    }
+  ]
+}

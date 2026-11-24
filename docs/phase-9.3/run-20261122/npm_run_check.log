@@ -1,0 +1,14 @@
+
+> nagi.tw@0.0.1 check
+> astro check
+
+20:49:21 [vite] Re-optimizing dependencies because vite config has changed
+20:49:21 [content] Syncing content
+20:49:22 [content] Synced content
+20:49:22 [types] Generated 889ms
+20:49:22 [check] Getting diagnostics for Astro files in C:\Users\0ping\Desktop\nagi.tw...
+Result (31 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+

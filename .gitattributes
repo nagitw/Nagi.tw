@@ -1,0 +1,4 @@
+# Preserve byte-pinned publication provenance across Windows/Linux checkouts.
+docs/security-migration/** -text
+src/content/** -text
+public/nagi-penguin.svg -text
