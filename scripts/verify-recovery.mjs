@@ -34,7 +34,10 @@ for (const record of expected) {
   assert.ok(html.includes(record.metadata.title.replaceAll('&', '&amp;')) || html.includes(record.metadata.title), record.id + ': rendered title');
   assert.ok(html.includes('data-penguin-toggle'), record.id + ': mascot preserved');
   const projected = editorialData(record.collection, record.metadata);
-  if (record.eventId) assert.ok(html.includes(projected.description.replaceAll('&', '&amp;')), record.id + ': only approved result projection');
+  if (record.eventId && policy.eventResults?.[record.metadata.slug]) {
+    const result = projected.description.replaceAll('&', '&amp;');
+    assert.ok(html.includes(result) || html.includes(result.replaceAll("'", '&#39;')), record.id + ': only confirmed result shown');
+  }
   if (projected.publishedAt && !record.metadata.publishedAt) {
     const originalDate = record.body.replaceAll('**', '').match(/(?:Date|日期)[:：]\s*(\d{4}-\d{2}-\d{2})/)?.[1];
     assert.equal(projected.publishedAt, originalDate, record.id + ': date comes from original body, not Git commit');

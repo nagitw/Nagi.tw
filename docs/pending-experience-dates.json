@@ -1,0 +1,272 @@
+{
+  "status": "NONBLOCKING — user accepts year grouping and omission of unconfirmed individual dates; no further investigation requested",
+  "confirmed": {
+    "frc": "2026-08-13/2026-08-14",
+    "frcAward": "Judges' Award",
+    "ftc": "2026-02-04/2026-02-05",
+    "myFirstCtf": "2026-05-16, preliminary round",
+    "ais3Eof": "2026, preliminary round"
+  },
+  "pending": [
+    {
+      "slug": "ai-cybersec-workshop",
+      "name": "AI × 資安工作坊系列：AI for Good",
+      "sourceYear": "2026",
+      "type": "技術培訓",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "ai-life-innovation",
+      "name": "AI 與資訊生活應用創新競賽",
+      "sourceYear": "2026",
+      "type": "程式設計與創新競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "ais3-eof-2026",
+      "name": "AIS3 EOF CTF 2026",
+      "sourceYear": "2026",
+      "type": "資訊安全競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "ais3-myfirstctf-2026",
+      "name": "AIS3 MyFirstCTF 2026",
+      "sourceYear": "2026",
+      "type": "資訊安全競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "apcs-summer-camp",
+      "name": "APCS 模擬測驗團隊暑期營隊",
+      "sourceYear": "2025",
+      "type": "技術培訓",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "broncoctf-2026",
+      "name": "BroncoCTF 2026",
+      "sourceYear": "2026",
+      "type": "資訊安全競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "coscup-2025",
+      "name": "COSCUP 2025",
+      "sourceYear": "2025",
+      "type": "研討會",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "cyber-shield",
+      "name": "資安金盾獎",
+      "sourceYear": "2025",
+      "type": "資訊安全競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "daydream-hackathon",
+      "name": "Daydream 遊戲開發黑客松",
+      "sourceYear": "2025",
+      "type": "黑客松",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "first-tech-challenge",
+      "name": "FIRST Tech Challenge（FTC）",
+      "sourceYear": "2026",
+      "type": "機器人競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "future-medical-design",
+      "name": "未來醫療設計黑客松",
+      "sourceYear": "2025",
+      "type": "黑客松",
+      "currentlyPublic": false,
+      "confirmedDate": null,
+      "issue": "2025 / 2026 source conflict",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "grodno-ctf-2026",
+      "name": "Grodno::CTF 2026",
+      "sourceYear": "2026",
+      "type": "資訊安全競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "hitcon-2025",
+      "name": "HITCON Conference 2025",
+      "sourceYear": "2025",
+      "type": "研討會",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "hpc-ai-summer-camp",
+      "name": "HPC AI 暑期培訓營",
+      "sourceYear": "2026",
+      "type": "技術培訓",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "ilan-programming-ai",
+      "name": "國立宜蘭大學程式設計暨資訊及 AI 應用競賽",
+      "sourceYear": "2026",
+      "type": "程式設計與創新競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "infosec-2026",
+      "name": "InfoSec Taiwan 2026",
+      "sourceYear": "2026",
+      "type": "研討會",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "infosec-taiwan-2025",
+      "name": "InfoSec Taiwan 2025",
+      "sourceYear": "2025",
+      "type": "研討會",
+      "currentlyPublic": false,
+      "confirmedDate": null,
+      "issue": "Distinct attendance and actual date unconfirmed",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "ironman-creativity",
+      "name": "智慧鐵人創意競賽",
+      "sourceYear": "2026",
+      "type": "工程創意競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "isteam-powertech",
+      "name": "iSTEAM PowerTech 青少年科技創作競賽",
+      "sourceYear": "2024",
+      "type": "機器人競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "it-services-innovation-30",
+      "name": "第 30 屆大專校院資訊應用服務創新競賽",
+      "sourceYear": "2025",
+      "type": "程式設計與創新競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "junior-crypt-ctf-2026",
+      "name": "Junior Crypt CTF 2026",
+      "sourceYear": "2026",
+      "type": "資訊安全競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "new-taipei-hackathon",
+      "name": "新北市 AI 智慧城市黑客松",
+      "sourceYear": "2026",
+      "type": "黑客松",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "northern-security-hackathon",
+      "name": "北區高中職程式安全黑客松",
+      "sourceYear": "2025",
+      "type": "黑客松",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "tatung-workshop",
+      "name": "大同大學資訊安全研習",
+      "sourceYear": "2026",
+      "type": "技術培訓",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "technical-creativity",
+      "name": "全國技術型高中團隊技術創造力培訓與競賽",
+      "sourceYear": "2024",
+      "type": "工程創意競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    },
+    {
+      "slug": "youth-volunteer-competition",
+      "name": "教育部青年志工行動競賽",
+      "sourceYear": "2025",
+      "type": "志工行動競賽",
+      "currentlyPublic": true,
+      "confirmedDate": null,
+      "issue": "Month/day not confirmed; do not infer from articles, names, filenames or commits",
+      "action": "Retain source year only; no individual date displayed. Existing conflicting-year exclusions remain."
+    }
+  ]
+}

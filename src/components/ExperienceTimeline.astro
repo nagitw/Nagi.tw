@@ -1,57 +1,50 @@
 ---
 import type { PublicEntry } from '../lib/content';
-import { groupExperience } from '../lib/experience-timeline';
-import { translate, type Locale } from '../lib/i18n';
+import { groupExperience, experienceType } from '../lib/experience-timeline';
+import { translate, localizePath, type Locale } from '../lib/i18n';
+import policy from '../lib/editorial-policy.json';
 
 interface Props { entries: PublicEntry[]; locale: Locale }
 const { entries, locale } = Astro.props;
 const groups = groupExperience(entries.filter(entry => entry.collection === 'experience'));
 const t = (en: string, zh: string) => translate(locale, en, zh);
-const types: Record<string, [string, string]> = {
-  competitions: ['Competition', '競賽'], ctf: ['CTF', 'CTF'],
-  training: ['Technical training', '技術培訓'], conferences: ['Conference', '研討會'],
-  research: ['Research', '研究'], speaking: ['Talk', '演講'], teaching: ['Teaching', '教學'],
-  'open-source': ['Open-source contribution', '開源貢獻'],
-};
-const formatDate = (date: string) => date.length === 4 ? date : new Intl.DateTimeFormat(locale, {
-  year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
-}).format(new Date(date));
+const articles: Record<string, string> = { 'tatung-workshop': '/journal/ctf-meets-malware-analysis-windows/', 'infosec-2026': '/journal/infosec-taiwan-2026-student-industry-gap/' };
+const formatDate = (date: string) => date.replaceAll('-', '.');
+const eventDates: Record<string, { value: string; end?: string }> = policy.eventDates;
+const eventResults: Record<string, Partial<Record<Locale, string>>> = policy.eventResults;
+const eventStages: Record<string, Partial<Record<Locale, string>>> = policy.eventStages;
 ---
-<p class="timeline-note muted">{t(
-  'Records without a confirmed month and day retain year-only dates; their order does not imply an event sequence.',
-  '尚未確認月日的紀錄只顯示年份，同年份的排列不代表事件先後。',
-)}</p>
 <div class="experience-timeline">
-  {groups.map(group => <section class="timeline-year" aria-labelledby={`experience-year-${group.year}`}>
-    <h3 id={`experience-year-${group.year}`}>{group.year}</h3>
+  {groups.map((group, index) => <details class="timeline-year" open={index === 0}>
+    <summary id={`experience-year-${group.year}`}><h3>{group.year}</h3></summary>
     <ol class="timeline-events">
       {group.entries.map(({ data }) => {
-        const links = [...(data.evidence ?? []), ...(data.verifiedContributions ?? []).flatMap(item => item.evidence)]
-          .filter((link, index, all) => /^https?:\/\//.test(link.url) && all.findIndex(other => other.url === link.url) === index);
+        const article = articles[data.slug];
+        const result = eventResults[data.slug]?.[locale] ?? (policy.competitionResultsConfirmed && data.tags.includes('competitions') ? data.description : undefined);
         return <li class="timeline-event" id={data.slug} lang={data.language} data-event-date={data.startedAt}>
           <article>
             <h4>{data.title}</h4>
             <p class="timeline-meta">
-              <time datetime={data.startedAt}>{formatDate(data.startedAt)}</time>
-              {data.startedAt.length === 4 && <span> · {t('Year only', '僅確認年份')}</span>}
-              {data.startedAt.length === 10 && data.endedAt?.length === 10 && data.endedAt !== data.startedAt && <> — <time datetime={data.endedAt}>{formatDate(data.endedAt)}</time></>}
-              {data.tags.map(tag => <span> · {types[tag] ? t(...types[tag]) : tag}</span>)}
+              {eventDates[data.slug] && <><time datetime={data.startedAt}>{formatDate(data.startedAt)}</time>
+              {data.startedAt.length === 10 && data.endedAt?.length === 10 && data.endedAt !== data.startedAt && <> — <time datetime={data.endedAt}>{formatDate(data.endedAt)}</time></>} · </>}
+              <span>{experienceType(data.slug, locale)}</span>
+              {eventStages[data.slug] && <span> · {eventStages[data.slug][locale]}</span>}
             </p>
-            <p class="timeline-summary">{data.description}</p>
-            {links.length > 0 && <ul class="timeline-links" aria-label={t('Related links', '相關連結')}>
-              {links.map(link => <li><a href={link.url}>{link.label === 'Historical public source' ? t('Source record', '原始紀錄') : link.label} ↗</a></li>)}
-            </ul>}
+            {result && <p class="timeline-summary">{result}</p>}
+            {article && <a class="timeline-article" href={localizePath(article, locale)}>{t('Read article', '閱讀文章')} ↗</a>}
           </article>
         </li>;
       })}
     </ol>
-  </section>)}
+  </details>)}
 </div>
 <style is:inline>
   .timeline-note { max-inline-size: var(--measure); margin-block: 0 2rem; }
   .experience-timeline { margin-inline-start: .25rem; padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--line); max-inline-size: var(--shell); }
   .timeline-year + .timeline-year { margin-block-start: clamp(2rem, 5vw, 4rem); }
-  .timeline-year h3 { margin-block: 0 1.75rem; font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2rem); }
+  .timeline-year summary { cursor: pointer; padding-block: .5rem; margin-block-end: 1.5rem; }
+  .timeline-year h3 { display: inline; margin: 0; font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2rem); }
+  .timeline-year:not([open]) summary { margin-block-end: 0; }
   .timeline-events, .timeline-links { list-style: none; padding: 0; margin: 0; }
   .timeline-event { position: relative; padding-block-end: clamp(1.75rem, 4vw, 3rem); scroll-margin-block-start: 2rem; }
   .timeline-event:last-child { padding-block-end: .5rem; }

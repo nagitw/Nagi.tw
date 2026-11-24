@@ -12,8 +12,8 @@ const section = sections.find(item => item.slug === entry.collection);
 <article class="card" lang={data.language} id={entry.collection === 'experience' ? data.slug : undefined}>
   <p class="card-meta">{section && translate(data.language, section.title, section.zhTitle)}{data.publishedAt && <> / <time datetime={data.publishedAt}>{data.publishedAt}</time></>}</p>
   <h3><a href={contentHref(entry)}>{data.title} ↗</a></h3>
-  <p>{data.description}</p>
+  {data.description && <p>{data.description}</p>}
   {data.language !== locale && <p lang={locale}>{translate(locale, 'Available in Traditional Chinese.', '本文提供英文版本。')}</p>}
-  {entry.collection === 'experience' && <p>{entry.data.organization} · {entry.data.role}<br /><time datetime={entry.data.startedAt}>{entry.data.startedAt}</time>{entry.data.startedAt.length > 4 && <> — {entry.data.endedAt ? <time datetime={entry.data.endedAt}>{entry.data.endedAt}</time> : translate(data.language, 'Present', '至今')}</>}</p>}
+  {entry.collection === 'experience' && <p>{entry.data.organization} · {entry.data.role}<br /><time datetime={entry.data.startedAt}>{entry.data.startedAt}</time>{entry.data.startedAt.length === 10 && entry.data.endedAt !== entry.data.startedAt && <> — {entry.data.endedAt ? <time datetime={entry.data.endedAt}>{entry.data.endedAt}</time> : translate(data.language, 'Present', '至今')}</>}</p>}
   {data.tags.length > 0 && <ul class="tags" aria-label={translate(locale, 'Tags', '標籤')}>{data.tags.map(tag => <li>{tag}</li>)}</ul>}
 </article>

@@ -52,8 +52,8 @@ const evidenceLabel = (link: { label: string; url: string }) => link.url === 'ht
 
   <AboutSection id="about-experience" number="04" title={t('Experience', '經歷')}>
     {experiences.length > 0 ? <ol class="about-timeline">{experiences.map(entry => <li lang={entry.data.language}>
-      <p class="card-meta"><time datetime={entry.data.startedAt}>{entry.data.startedAt}</time>{entry.data.startedAt.length > 4 && <> — {entry.data.endedAt ? <time datetime={entry.data.endedAt}>{entry.data.endedAt}</time> : t('Present', '至今')}</>}</p>
-      <h3>{entry.data.role}</h3><p>{entry.data.organization}</p><p>{entry.data.description}</p>
+      <p class="card-meta"><time datetime={entry.data.startedAt}>{entry.data.startedAt}</time>{entry.data.startedAt.length === 10 && entry.data.endedAt !== entry.data.startedAt && <> — {entry.data.endedAt ? <time datetime={entry.data.endedAt}>{entry.data.endedAt}</time> : t('Present', '至今')}</>}</p>
+      <h3>{entry.data.role}</h3><p>{entry.data.organization}</p>{entry.data.description && <p>{entry.data.description}</p>}
       <ul class="about-references">{evidenceLinks(entry).map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
     </li>)}</ol> : <p class="muted about-measure">{t('Experience details are not currently listed.', '目前未列出公開經歷。')}</p>}
   </AboutSection>
