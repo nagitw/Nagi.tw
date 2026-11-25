@@ -31,6 +31,7 @@ for (const file of pages) {
   for (const image of html.matchAll(/<img\b[^>]*>/g)) assert.match(image[0], /alt="[^"]*"/, file);
 }
 const sitemap = readFileSync('dist/sitemap.xml', 'utf8');
+assert.ok(existsSync('dist/_astro/Layout.D7zMT1RW.css'), 'Preserve the previous release stylesheet URL for cached English/Chinese HTML');
 const actual = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 assert.deepEqual(actual.sort(), urls.sort(), 'Sitemap must include exactly indexable built routes');
 assert.match(readFileSync('dist/robots.txt', 'utf8'), /User-agent: \*\s+Allow: \/\s+Sitemap: https:\/\/nagitw.github.io\/Nagi.tw\/sitemap.xml/);
