@@ -1,6 +1,7 @@
 # Content collections
 
-Place `.md` or `.mdx` files in `src/content/<collection>/`. MDX is enabled.
+Place `.md` files in `src/content/<collection>/`. Existing `.mdx` files remain supported;
+MDX is not required for articles, native HTML images, figures or captions.
 Lists, homepage featured content, and four detail routes now query collections.
 
 Every entry requires `title`, `description`, `slug`, `publishedAt`, and `status`.
@@ -43,8 +44,9 @@ Experience 僅列表與 `/experience/#<slug>`，正文目前不渲染。
 所有 `2000-01-01` 都是 Schema 日期占位，不代表實際事件日期。
 封面 `../../../public/nagi.svg` 是既有標誌，僅驗證圖片欄位，並非照片或成果。
 image() 使用相對檔案路徑；`/nagi.svg` 這類網址不可作為 image() 的本地檔案路徑。
-正式圖片建議與文章同目錄，正文亦需提供 Alt；正文從二級標題開始，頁面已有 h1。
-Journal 範例示範 MDX 的靜態 JSX，不需新增元件或功能。
+新正文圖片放在 `public/images/blog/<article-slug>/`，使用包含部署 base 的根相對網址；
+既有圖片檔案、網址及封面 metadata 保留。正文提供 Alt，從二級標題開始，頁面已有 h1。
+一般文章使用 Markdown 與原生 HTML 即可；不需要 MDX、圖片元件或外掛。
 
 ### 人工確認欄位
 
@@ -108,6 +110,64 @@ approved public byline, and `references` for an optional list of objects with
 `label` and an HTTP or HTTPS `url`. Reading time is an estimate from the source
 body. A cover is optional. Use descriptive alt text for figures and
 `<figure>` with `<figcaption>` when a body image needs a visible caption.
+
+### Native article images and deployment paths
+
+Store new article images in `public/images/blog/<article-slug>/`, for example
+`public/images/blog/uart-notes/board.jpg`. Do not move or rename existing images.
+HTML in ordinary `.md` files supports `src`, `alt`, `width`, `height`, and `loading`:
+
+```html
+<img src="/Nagi.tw/images/blog/uart-notes/board.jpg"
+     alt="UART wiring between the board and the serial adapter"
+     width="1200" height="800" loading="lazy">
+
+<figure>
+  <img src="/Nagi.tw/images/blog/uart-notes/trace.png"
+       alt="Serial trace showing the boot sequence"
+       width="960" height="640" loading="lazy">
+  <figcaption>The boot sequence captured at 115200 baud.</figcaption>
+</figure>
+```
+
+These paths illustrate authoring; supply the actual files before using them.
+Use the image's real dimensions to reserve layout space. Small images keep their
+intrinsic or declared size; larger images shrink to the reading column. Shared
+global CSS preserves aspect ratio without cropping, filters or forced enlargement.
+Use `loading="eager"` for an important image visible at page load, otherwise `lazy`.
+No Astro Image import, MDX, shortcode, image plugin or JavaScript is needed.
+Existing cover/gallery metadata still uses the existing Astro image component.
+
+| Deployment | Astro `base` | Native HTML `src` for the example file |
+| --- | --- | --- |
+| Current GitHub Pages project | `/Nagi.tw` | `/Nagi.tw/images/blog/uart-notes/board.jpg` |
+| Potential custom domain at its root | `/` | `/images/blog/uart-notes/board.jpg` |
+| Custom domain retaining a subpath | `/Nagi.tw` | `/Nagi.tw/images/blog/uart-notes/board.jpg` |
+
+`public` is never part of a browser URL. Raw HTML URLs are literal: Astro does not
+automatically add `base` or interpolate expressions inside ordinary Markdown HTML.
+Use the same image path in both languages; do not add `/zh` to image URLs.
+Do not use `./images/...` or a bare `/images/...` on the current Pages deployment.
+
+A future custom-domain migration must separately update `site`, `base`, canonical
+and sitemap/robots configuration, and audit native HTML image URLs before building.
+Changing a hostname alone does not change the correct path. Preserve old image URLs
+through host redirects or compatibility copies if a migration changes their paths.
+This implementation does not change deployment configuration or existing image URLs.
+
+### Simplified reading and appearance
+
+Articles use a single reading column and one native contents disclosure. Heading
+anchors and browser navigation remain available without JavaScript. Reading progress,
+scroll tracking, copy controls and decorative mascot animation are removed.
+The localized footer provides Light, Dark and System appearance. A small native
+script stores `nagi-theme`; System follows live OS changes using CSS. When JavaScript
+or storage is unavailable, content remains readable in system appearance.
+
+Native HTML image QA runs only in `.astro/simplification-fixture`, an ignored,
+disposable copy. It adds new test-only English/Chinese articles there and never
+changes existing source articles or their states. See `docs/simplification/REPORT.md`
+for commands, results, screenshots and limitations.
 
 The typography fixture lives at `scripts/fixtures/journal-typography.md`.
 For local QA, build from a disposable project copy with the fixture placed in
@@ -221,7 +281,7 @@ dirty tree. Regenerable node_modules/.astro may be excluded. Verify SHA-256 befo
 and after copying, retain the manifest, and restore only individually reviewed
 files. Never reset/clean or overwrite newer work. Git commits alone omit untracked files.
 
-## Phase 11.0 About technical profile
+## About maintenance — final content cleanup
 
 About now uses `AboutProfile.astro` within the existing `SectionPage.astro` About
 branch. `AboutSection.astro` provides semantic numbered sections. Existing routes,
@@ -229,25 +289,25 @@ Layout, ContentCard, global tokens and other collection pages are unchanged.
 `publicProfile` in `sections.ts` remains the only Profile content source; do not
 copy its biography or personal records into components or another data file.
 
-The author's six requested research categories are interests, not experiments,
-publications or appointments. Skills are grouped with required context and at
-least one HTTP(S) evidence link. Current Python/Pytest/Rich coverage refers to the
-published BugTraceAI case study; Astro/TypeScript/Markdown-MDX/HTML-CSS are labeled
-as technologies used by this repository's website, not a proficiency rating.
-Unverified operating-system, embedded and research-tool groups are omitted.
+The Research Interests and Technologies/Tools sections have been removed completely,
+including their populated Profile data and display code. Do not reintroduce them
+under another heading or as an equivalent list. The introduction is a short
+bilingual description of the site's records. About links to the complete
+chronological Experience collection and shows featured projects with a link to
+all projects; it does not duplicate the full competition history.
 
 Additional optional Profile fields (all strict objects):
 
 | Field | Required data per entry |
 | --- | --- |
-| `skillGroups` | `category`, bilingual-capable `context`, nonempty `items`, nonempty `evidence` |
 | `honors` | localized `competition`, integer `year`, nonempty `evidence`, `approval`; optional localized `team`, `ranking` |
 | `talks` | localized `event`, `title`, `role`; ISO `date`; nonempty `evidence`, `approval` |
 | `education` | localized `organization`, `qualification`, `dateRange`; nonempty `evidence`, `approval`; optional localized `description` |
 
-Localized values use `{ en, "zh-TW"? }`. Skill categories are
-`programming-languages`, `web-development`, `security-engineering`,
-`operating-systems`, `embedded-systems`, `research-tools`.
+Localized values use `{ en, "zh-TW"? }`. The legacy optional schema fields for
+interests and skill groups remain parser-compatible but are unpopulated and are
+not rendered by About. This preserves schema compatibility without retaining the
+removed website sections.
 Evidence uses `{ label, url }` with HTTP(S) URLs. `dateRange` is approved text so
 an education record never needs invented day-level precision.
 
@@ -260,9 +320,9 @@ remain absent; add only author-approved public links. Never place private data
 in pending records: the repository is not confidential storage.
 
 Experience and projects reuse existing collections, not Profile arrays. About
-queries published entries, prefers the page language and only shows Experience
-with evidence or evidenced verified contributions. It does not render draft
-Experience. A neutral empty state is shown when none qualify. Missing honors,
+queries published featured projects and prefers the page language. Experience
+is a direct localized link to its full collection. It never publishes drafts.
+Missing honors,
 talks, education and contact sections are omitted. Selected Projects currently
 shows only the existing bilingual BugTraceAI case study, without changing either
 source or publication status. Additional source-language records may use English
@@ -271,6 +331,22 @@ fallback; supply reviewed Traditional Chinese wording before a bilingual release
 Validation: `node scripts/about.test.mjs`, existing schema/i18n checks and
 TypeScript, followed by fresh Astro Check/Build and
 `node scripts/verify-about.mjs` on that build. The output verifier covers both
-About routes, all six interests, public project links, absent optional sections,
+About routes, removal of interests/tools, concise Experience navigation, public project links, absent optional sections,
 canonical/hreflang, draft detail exclusion and internal navigation. It checks
 anchor navigation separately from metadata URLs such as the existing 404 canonical.
+
+### Competition release candidate
+
+The current official-date audit is `docs/release-candidate/competition-date-audit.md`.
+Use the existing editorial policy to apply source-backed date/stage corrections;
+do not rewrite byte-pinned historical Markdown or publication states. Years are
+newest-first; dated records within a year run earliest-first, with year-only
+records last and stable slug ordering in both languages. The 2026-season EOF
+preliminary is grouped under its actual December 2025 date. MyFirstCTF 2025 is
+excluded and MyFirstCTF 2026 remains. Source awards/participation are retained as
+author-reported; schedule verification does not independently certify results.
+
+The release-candidate baseline is separate from the earlier simplification
+baseline. Run `node scripts/verify-release-candidate.mjs` for current preservation,
+chronology and bilingual output checks. Do not regenerate an old baseline merely
+to accept an authorized later change; retain its evidence and create a new one.

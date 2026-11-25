@@ -29,10 +29,10 @@ jobs:
           node-version: '24.13.0'
           cache: npm
       - run: npm ci
-      - run: npm run test:schema && npm run test:i18n && node scripts/about.test.mjs && npm run test:penguin
+      - run: npm run test:schema && npm run test:i18n && node scripts/about.test.mjs
       - run: node scripts/security-migration.mjs --originals-only
       - run: npm run check && npm run build
-      - run: npm run verify:static && node scripts/verify-about.mjs && npm run verify:release
+      - run: npm run test:penguin && npm run verify:static && node scripts/verify-about.mjs && npm run verify:release
       - run: npm run verify:recovery
       - run: npm audit --audit-level=high
       - uses: actions/upload-pages-artifact@v4

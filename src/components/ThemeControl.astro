@@ -1,0 +1,13 @@
+---
+import { localeFromPath, translate } from '../lib/i18n';
+const locale = localeFromPath(Astro.url.pathname);
+const t = (en: string, zh: string) => translate(locale, en, zh);
+---
+<div class="theme-control">
+  <label for="theme">{t('Appearance', '外觀')}</label>
+  <select id="theme" disabled>
+    <option value="system">{t('System', '跟隨系統')}</option>
+    <option value="light">{t('Light', '淺色')}</option>
+    <option value="dark">{t('Dark', '深色')}</option>
+  </select>
+</div>

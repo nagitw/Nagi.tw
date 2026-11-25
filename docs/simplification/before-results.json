@@ -1,0 +1,11 @@
+{
+  "mode": "before",
+  "cases": [],
+  "screenshots": [
+    "before-home-375.png",
+    "before-article-375.png",
+    "before-home-1440.png",
+    "before-article-1440.png"
+  ],
+  "errors": []
+}

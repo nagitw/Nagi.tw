@@ -44,15 +44,16 @@ test('localized public evidence links preserve query and fragment without rewrit
   assert.equal(localizeProfileLink('https://example.org/reference?view=proof#evidence', 'zh-TW'), 'https://example.org/reference?view=proof#evidence');
 });
 
-test('current Profile synchronizes all six author-requested interest categories without achievements', async () => {
+test('current Profile remains concise without removed interest or tool categories', async () => {
   const { publicProfile } = await import('../src/lib/sections.ts');
   const { prepareAboutProfile } = await import('../src/lib/about.ts');
   const profile = prepareAboutProfile(publicProfile);
   assert.equal(profile.publicName, 'Nagi');
-  assert.equal(profile.technicalInterests.length, 6);
-  for (const interest of profile.technicalInterests) assert.ok(interest.en && interest['zh-TW']);
+  assert.equal(publicProfile.technicalInterests, undefined);
+  assert.equal(publicProfile.skillGroups, undefined);
+  assert.deepEqual(profile.technicalInterests, []);
   assert.ok(profile.biography.en && profile.biography['zh-TW']);
-  assert.ok(profile.skillGroups.length > 0);
+  assert.deepEqual(profile.skillGroups, []);
   assert.deepEqual(profile.honors, []);
   assert.deepEqual(profile.talks, []);
   assert.deepEqual(profile.education, []);

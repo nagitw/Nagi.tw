@@ -1,5 +1,5 @@
 {
-  "authorization": "User: final confirmed dates and publication authorization, 2026-11-24",
+  "authorization": "User: final content cleanup and local release candidate, 2026-11-26; preserve content states and existing publication exclusions",
   "hidden": {
     "projects": [
       "home-lab",
@@ -33,7 +33,8 @@
     ],
     "experience": [
       "future-medical-design",
-      "infosec-taiwan-2025"
+      "infosec-taiwan-2025",
+      "ais3-myfirstctf-2025"
     ],
     "photography": []
   },
@@ -44,6 +45,7 @@
     }
   },
   "competitionResultsConfirmed": false,
+  "preserveHistoricalCompetitionResults": true,
   "conferenceImageRightsConfirmed": false,
   "pendingFacts": [
     "Future Healthcare Design Hackathon: public table 2025 vs archive 2026",
@@ -54,16 +56,64 @@
     "first-robotics-competition": {
       "value": "2026-08-13",
       "end": "2026-08-14",
-      "basis": "User-confirmed FRC participation"
+      "basis": "Preserved author-confirmed participation; official AiFRC event-wide schedule matches Aug 13-14. Generic FRC title alone does not independently prove the exact event or personal award.",
+      "source": "https://www.jfes.tyc.edu.tw/modules/tadnews/index.php?files_sn=1658&op=tufdl"
     },
     "first-tech-challenge": {
       "value": "2026-02-04",
       "end": "2026-02-05",
-      "basis": "User-confirmed FTC participation"
+      "basis": "Author-confirmed participation corroborated by updated organizer schedule including Feb 4 judging",
+      "source": "https://www.era.org.tw/main/wp-content/uploads/2025/11/2026-FIRST%E6%A9%9F%E5%99%A8%E4%BA%BA%E5%8F%B0%E7%81%A3%E9%81%B8%E6%8B%94%E8%B3%BD%E3%80%90FTC%E8%B3%BD%E7%A8%8B%E3%80%91-1.pdf"
     },
     "ais3-myfirstctf-2026": {
       "value": "2026-05-16",
-      "basis": "User-confirmed preliminary round"
+      "basis": "Author-confirmed participation; official MyFirstCTF schedule ROC115 May16. Preliminary wording remains the author's description, not a new official-stage claim.",
+      "source": "https://ais3.org/mfctf/"
+    },
+    "ais3-eof-2026": {
+      "value": "2025-12-20",
+      "end": "2025-12-22",
+      "basis": "Author-confirmed preliminary participation; year-specific official 2026 rules give ROC114 Dec20-22. Group by calendar year2025, retain season2026 title.",
+      "source": "https://ais3.org/eof/2026/rule.html"
+    },
+    "isteam-powertech": {
+      "value": "2024-12-14",
+      "end": "2024-12-15",
+      "basis": "Official national event-wide range; national award recorded in the existing source. Category-specific personal day is not inferred.",
+      "source": "https://pr.ntnu.edu.tw/news/index.php?id=23159&mode=data"
+    },
+    "northern-security-hackathon": {
+      "value": "2025-05-03",
+      "end": "2025-05-04",
+      "basis": "Official sponsor's first-hand event report names the northern high-school security workshop and its May3-4 dates",
+      "source": "https://www.gss.com.tw/cn/focus/news-center/4350-20250603-1-FuxingHScooperation"
+    },
+    "daydream-hackathon": {
+      "value": "2025-09-27",
+      "end": "2025-09-28",
+      "basis": "Organizer's Taiwan event schedule",
+      "source": "https://daydream.hackclub.com/taiwan"
+    },
+    "it-services-innovation-30": {
+      "value": "2025-11-01",
+      "basis": "Official digital-industry agency calendar for the 30th InnoServe final; existing source records final/award participation",
+      "source": "https://moda.gov.tw/ADI/news/exhibition/14958"
+    },
+    "ai-life-innovation": {
+      "value": "2026-05-14",
+      "basis": "Organizer's final presentation schedule for both categories; existing source records an award",
+      "source": "https://mi.aeust.edu.tw/p/406-1050-56607,r72.php?Lang=zh-tw"
+    },
+    "ilan-programming-ai": {
+      "value": "2026-06-06",
+      "basis": "Organizer's final evaluation and awards schedule; existing source records finalist/award participation",
+      "source": "https://aio.niu.edu.tw/var/file/75/1075/mobilehomepage/29/index.html"
+    },
+    "new-taipei-hackathon": {
+      "value": "2026-09-12",
+      "end": "2026-09-13",
+      "basis": "City organizer's retrospective final/awards report; existing source records finalist participation",
+      "source": "https://www.ntpc.gov.tw/ch/home.jsp?dataserno=23ae1c1f06c2c9a16d54f5b709f4a717&id=e8ca970cde5c00e1"
     }
   },
   "eventResults": {
@@ -82,5 +132,5 @@
       "zh-TW": "初賽"
     }
   },
-  "datePolicy": "All other activities grouped by existing source year; individual dates omitted. No further date confirmation required. Conflicting-year records remain hidden."
+  "datePolicy": "Years newest first, dated activities earliest first within each year, undated activities last with stable slug ordering across locales. Apply only author-confirmed or unambiguous official event/stage schedules. Preserve year-only precision for unresolved identities, stages or conflicting schedules. Retain historical source awards/participation as author-reported, not newly official-verified results. Existing conflicting-year records remain hidden."
 }

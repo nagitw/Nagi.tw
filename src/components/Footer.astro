@@ -1,7 +1,6 @@
 ---
 import { localeFromPath, translate } from '../lib/i18n';
-import Penguin from './Penguin.astro';
+import ThemeControl from './ThemeControl.astro';
 const locale = localeFromPath(Astro.url.pathname);
 ---
-<footer><span>© {new Date().getFullYear()} Nagi.tw</span><span>{translate(locale, 'A quiet space for thoughtful things.', '靜心思考，細心記錄。')}</span><a href="#top">{translate(locale, 'Back to top ↑', '回到頂端 ↑')}</a></footer>
-<Penguin />
+<footer><span>© {new Date().getFullYear()} Nagi.tw</span><span>{translate(locale, 'A quiet space for thoughtful things.', '靜心思考，細心記錄。')}</span><ThemeControl /><a href="#top">{translate(locale, 'Back to top ↑', '回到頂端 ↑')}</a></footer>

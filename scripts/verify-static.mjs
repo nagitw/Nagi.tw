@@ -12,10 +12,11 @@ for (const page of localizedPages) {
   assert.ok(html.includes('<html lang="' + locale + '"'));
   assert.match(html, /<meta name="description" content="[^"]+"/);
   assert.match(html, /<title>[^<]+<\/title>/);
-  assert.match(html, /<meta name="color-scheme" content="dark"/);
+  assert.match(html, /<meta name="color-scheme" content="light dark"/);
   assert.match(html, /<meta name="theme-color" content="#000000"/);
-  assert.match(html, /<style>html \{ background: #000000; \}<\/style>/);
-  assert.doesNotMatch(html, /id="theme"|nagi-theme|data-theme=/);
+  for (const theme of ['system', 'light', 'dark']) assert.ok(html.includes(`value="${theme}"`), `${path}: appearance ${theme}`);
+  assert.ok(html.includes('id="theme"'), `${path}: native appearance control`);
+  assert.doesNotMatch(html, /data-penguin-toggle|journal-progress|journal-copy|journal-permalink/);
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   assert.equal(canonical, `https://nagitw.github.io/Nagi.tw/${page ? `${page}/` : ''}`);
   assert.equal(html.includes('name="robots" content="noindex, follow"'), page === '404');
@@ -36,4 +37,4 @@ for (const page of localizedPages) {
   }
 }
 
-console.log(`PASS: ${localizedPages.length} static pages, landmarks, h1, SEO, canonical, navigation, local links, 404 noindex, and early black styling.`);
+console.log(`PASS: ${localizedPages.length} static pages, landmarks, h1, SEO, canonical, navigation, local links, 404 noindex, and three appearance choices.`);

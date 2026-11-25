@@ -9,9 +9,12 @@ for (const [prefix, locale, other] of [['', 'en', 'zh-TW'], ['zh/', 'zh-TW', 'en
   const page = readFileSync(`dist/${prefix}about/index.html`, 'utf8');
   assert.match(page, /<h1(?:\s[^>]*)?>Nagi<\/h1>/);
   assert.equal((page.match(/<h1(?:\s|>)/g) ?? []).length, 1);
-  for (const id of ['about-interests', 'about-skills', 'about-experience', 'about-projects']) assert.ok(page.includes(`id="${id}"`), id);
-  for (const id of ['about-honors', 'about-talks', 'about-education', 'about-contact']) assert.ok(!page.includes(`id="${id}"`), 'Unapproved/absent section: ' + id);
-  for (const interest of publicProfile.technicalInterests) assert.ok(page.includes(interest[locale]));
+  for (const id of ['about-experience', 'about-projects']) assert.ok(page.includes(`id="${id}"`), id);
+  for (const id of ['about-interests', 'about-skills', 'about-honors', 'about-talks', 'about-education', 'about-contact']) assert.ok(!page.includes(`id="${id}"`), 'Removed/unapproved section: ' + id);
+  assert.equal(publicProfile.technicalInterests, undefined);
+  assert.equal(publicProfile.skillGroups, undefined);
+  assert.ok(page.includes(`href="/Nagi.tw/${prefix}experience/"`), 'Concise About links to the full chronological record');
+  assert.doesNotMatch(page, /<ol class="about-timeline"/, 'Do not repeat the complete experience collection on About');
   assert.ok(page.includes(`href="/Nagi.tw/${prefix}projects/bugtraceai-cli-contributions/"`));
   assert.ok(page.includes(`<html lang="${locale}">`));
   assert.ok(page.includes(`rel="canonical" href="https://nagitw.github.io/Nagi.tw/${prefix}about/"`));

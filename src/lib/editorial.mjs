@@ -14,7 +14,7 @@ export function editorialData(collection, data) {
     result.startedAt = policy.eventDates[data.slug].value;
     result.endedAt = policy.eventDates[data.slug].end ?? policy.eventDates[data.slug].value;
   }
-  if (collection === 'experience' && data.tags?.includes('competitions') && !policy.competitionResultsConfirmed) {
+  if (collection === 'experience' && data.tags?.includes('competitions') && !policy.competitionResultsConfirmed && !policy.preserveHistoricalCompetitionResults) {
     // Preserve the source result in Markdown, but do not present it as confirmed.
     result.description = '';
     result.role = data.language === 'zh-TW' ? '參賽者' : 'Competitor';

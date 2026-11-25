@@ -1,0 +1,126 @@
+{
+  "mode": "fixture",
+  "cases": [
+    {
+      "width": 375,
+      "theme": "light",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 375,
+      "theme": "light",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 375,
+      "theme": "system",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 375,
+      "theme": "system",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 768,
+      "theme": "system",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 768,
+      "theme": "system",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 1440,
+      "theme": "system",
+      "route": "journal/native-image-qa/",
+      "images": 4
+    },
+    {
+      "width": 1440,
+      "theme": "system",
+      "route": "zh/journal/native-image-qa/",
+      "images": 4
+    }
+  ],
+  "screenshots": [
+    "after-native-images-375-light.png",
+    "after-native-images-zh-375-light.png",
+    "after-native-images-375-dark.png",
+    "after-native-images-zh-375-dark.png",
+    "after-native-images-1440-light.png",
+    "after-native-images-zh-1440-light.png",
+    "after-native-images-1440-dark.png",
+    "after-native-images-zh-1440-dark.png"
+  ],
+  "errors": [],
+  "theme": "PASS: manual choices, reload, language navigation, system live changes, invalid preference",
+  "fallback": "PASS: denied storage, JavaScript disabled in both system appearances"
+}

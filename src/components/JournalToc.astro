@@ -3,19 +3,18 @@ interface Heading { slug: string; text: string }
 interface Props {
   sections: (Heading & { children: Heading[] })[];
   label: string;
-  mobile?: boolean;
 }
-const { sections, label, mobile = false } = Astro.props;
+const { sections, label } = Astro.props;
 const href = (slug: string) => `#${encodeURIComponent(slug)}`;
 ---
-<nav class:list={['journal-toc', mobile ? 'journal-toc-mobile' : 'journal-toc-desktop']} aria-label={label}>
-  <details open={!mobile}>
+<nav class="journal-toc" aria-label={label}>
+  <details>
     <summary>{label}</summary>
     <ol>
       {sections.map(section => <li>
-        <a href={href(section.slug)} data-section={section.slug}>{section.text}</a>
+        <a href={href(section.slug)}>{section.text}</a>
         {section.children.length > 0 && <ol>
-          {section.children.map(heading => <li><a href={href(heading.slug)} data-section={heading.slug}>{heading.text}</a></li>)}
+          {section.children.map(heading => <li><a href={href(heading.slug)}>{heading.text}</a></li>)}
         </ol>}
       </li>)}
     </ol>

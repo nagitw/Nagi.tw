@@ -1,6 +1,6 @@
 # Nagi.tw
 
-**CLOSED / MAINTENANCE ONLY** — final editorial selection and public verification passed. Unconfirmed facts remain withheld; see [content audit](./CONTENT-AUDIT.md).
+**LOCAL RELEASE CANDIDATE** — final content cleanup preserves the approved design, routes and source states. See the [current report](docs/release-candidate/REPORT.md) and [official competition-date audit](docs/release-candidate/competition-date-audit.md). No deployment is part of this cleanup.
 
 Personal cybersecurity and engineering portfolio using Astro, Markdown/MDX and static generation. Published at https://nagitw.github.io/Nagi.tw/ with English primary and Traditional Chinese at `/Nagi.tw/zh/`. The Pure Black Editorial design is finalized. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status and maintenance limits.
 
@@ -29,6 +29,12 @@ Manage with `npm run astro -- dev status`, `npm run astro -- dev logs`, and `npm
 
 ## Validation
 
+The approved simplification retains the existing content, routes and `/Nagi.tw`
+base. Articles use a single reading column, native Markdown HTML images, and a
+localized Light/Dark/System footer control. No new production dependencies are
+required. See [image authoring and deployment paths](docs/content.md#native-article-images-and-deployment-paths)
+and the [simplification report](docs/simplification/REPORT.md).
+
 ```sh
 npm run test:schema
 npm run test:i18n
@@ -42,7 +48,32 @@ npm run verify:release
 npm run verify:recovery
 npm audit
 npm run test:penguin
+node scripts/verify-release-candidate.mjs
 ```
+
+Browser acceptance (use an existing external QA installation of Playwright):
+
+```powershell
+$env:NAGI_PLAYWRIGHT = 'C:/path/to/existing/node_modules/playwright'
+$env:NAGI_QA_BASELINE = 'docs/release-candidate/baseline.json'
+$env:NAGI_QA_OUT = 'docs/release-candidate/chrome'
+$env:NAGI_FIXTURE_ROOT = '.astro/release-candidate-fixture'
+node scripts/verify-browser.mjs
+node scripts/verify-simplification.mjs prepare-fixture
+npm --prefix .astro/release-candidate-fixture run build
+node scripts/verify-simplification.mjs fixture
+$env:NAGI_BROWSER = 'firefox'
+$env:NAGI_QA_OUT = 'docs/release-candidate/firefox'
+node scripts/verify-browser.mjs
+node scripts/verify-simplification.mjs fixture
+```
+
+`prepare-fixture` refuses to overwrite an existing QA copy. The recorded baseline
+is immutable evidence from before the redesign; do not regenerate it to accept a
+regression. Browser checks serve built files on a temporary loopback HTTP server
+and close it afterward. They do not start a development server or publish anything.
+The retained `test:penguin` command now verifies preservation of its original
+artwork and absence of the removed decorative UI in the production build.
 
 The default migration check preserves the exact original migration baseline. `--originals-only` checks provenance only. `--editorial` checks separately approved revision records and still requires every Journal entry to remain draft. Read [content maintenance](./docs/content.md) before selecting another mode. Passing schema/hash checks cannot prove facts or grant publication permission. Never rewrite immutable snapshots or baseline manifest hashes.
 

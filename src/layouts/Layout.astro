@@ -11,9 +11,35 @@ const canonical = new URL(localizePath(Astro.url.pathname, locale), Astro.site);
 ---
 <!doctype html><html lang={language}><head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="color-scheme" content="dark" />
-<meta name="theme-color" content="#000000" />
-<style is:inline>html { background: #000000; }</style>
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+<script is:inline>
+  // Apply appearance before the first paint; CSS also works without JavaScript.
+  const systemAppearance = matchMedia('(prefers-color-scheme: dark)');
+  const applyAppearance = (preference) => {
+    const theme = preference === 'light' || preference === 'dark' ? preference : 'system';
+    document.documentElement.dataset.theme = theme;
+    const dark = theme === 'dark' || (theme === 'system' && systemAppearance.matches);
+    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
+      meta.setAttribute('content', dark ? '#000000' : '#faf9f6');
+    });
+  };
+  let savedAppearance = 'system';
+  try { savedAppearance = localStorage.getItem('nagi-theme'); } catch { /* Storage is optional. */ }
+  applyAppearance(savedAppearance);
+  systemAppearance.addEventListener('change', () => applyAppearance(document.documentElement.dataset.theme));
+  document.addEventListener('DOMContentLoaded', () => {
+    const control = document.getElementById('theme');
+    if (!(control instanceof HTMLSelectElement)) return;
+    control.value = document.documentElement.dataset.theme;
+    control.disabled = false;
+    control.addEventListener('change', () => {
+      applyAppearance(control.value);
+      try { localStorage.setItem('nagi-theme', control.value); } catch { /* Switching still works on this page. */ }
+    });
+  });
+</script>
 <title>{title} — Nagi.tw</title><meta name="description" content={description} />
 <link rel="canonical" href={canonical} /><link rel="icon" href={withBase('/nagi.svg')} type="image/svg+xml" />
 {!noindex && (!contentLanguage || hasTranslation ? <>

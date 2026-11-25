@@ -15,8 +15,10 @@ export function groupExperience<T extends EventEntry>(entries: T[]) {
   return [...groups].sort(([a], [b]) => b.localeCompare(a)).map(([year, group]) => ({
     year,
     entries: group.sort((a, b) => {
-      return b.data.startedAt.localeCompare(a.data.startedAt)
-        || a.data.title.localeCompare(b.data.title, a.data.language ?? 'en');
+      // Keep imprecise dates after known dates, without inventing a month/day.
+      const dateKey = (date: string) => date.length === 4 ? `${date}-99-99` : date.length === 7 ? `${date}-99` : date;
+      return dateKey(a.data.startedAt).localeCompare(dateKey(b.data.startedAt))
+        || a.data.slug.localeCompare(b.data.slug);
     }),
   }));
 }

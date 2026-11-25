@@ -20,7 +20,7 @@ const eventStages: Record<string, Partial<Record<Locale, string>>> = policy.even
     <ol class="timeline-events">
       {group.entries.map(({ data }) => {
         const article = articles[data.slug];
-        const result = eventResults[data.slug]?.[locale] ?? (policy.competitionResultsConfirmed && data.tags.includes('competitions') ? data.description : undefined);
+        const result = eventResults[data.slug]?.[locale] ?? ((policy.competitionResultsConfirmed || policy.preserveHistoricalCompetitionResults) && data.tags.includes('competitions') ? data.description : undefined);
         return <li class="timeline-event" id={data.slug} lang={data.language} data-event-date={data.startedAt}>
           <article>
             <h4>{data.title}</h4>

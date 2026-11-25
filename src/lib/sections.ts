@@ -1,37 +1,12 @@
 import { profileSchema, type PublicProfile } from './content-schema.ts';
 
-// Author-supplied public identity and existing public interests; no inferred credentials.
+// Public identity and concise introduction; no inferred credentials.
 export const publicProfile = {
   publicName: 'Nagi',
   biography: {
-    en: 'I’m Nagi. My technical focus brings together cybersecurity, software engineering, communication systems, and embedded systems. I document engineering decisions and the evidence behind them, including open-source work on command-line reliability. Medical technology and autonomous systems are areas I’m interested in exploring.',
-    'zh-TW': '我是 Nagi，關注資訊安全、軟體工程、通訊系統與嵌入式系統。我記錄工程決策及其依據，包含改善命令列工具可靠性的開源貢獻。醫療科技與自主系統是我希望持續探索的方向。',
+    en: 'I’m Nagi. I document engineering decisions, security projects, and open-source contributions.',
+    'zh-TW': '我是 Nagi，記錄工程決策、資安專案與開源貢獻。',
   },
-  technicalInterests: [
-    { en: 'Web and Application Security', 'zh-TW': '網頁與應用程式安全' },
-    { en: '5G / B5G / 6G Communication Security', 'zh-TW': '5G／B5G／6G 通訊安全' },
-    { en: 'AI-assisted Security Research', 'zh-TW': 'AI 輔助資安研究' },
-    { en: 'Embedded and IoT Security', 'zh-TW': '嵌入式與物聯網安全' },
-    { en: 'Medical Device Security', 'zh-TW': '醫療裝置安全' },
-    { en: 'UAV and Autonomous Systems', 'zh-TW': '無人機與自主系統' },
-  ],
-  skillGroups: [
-    {
-      category: 'programming-languages', items: ['Python'],
-      context: { en: 'Used in the documented BugTraceAI-CLI contribution.', 'zh-TW': '用於已公開的 BugTraceAI-CLI 貢獻。' },
-      evidence: [{ label: 'BugTraceAI-CLI contributions', url: 'https://nagitw.github.io/Nagi.tw/projects/bugtraceai-cli-contributions/' }],
-    },
-    {
-      category: 'web-development', items: ['Astro', 'TypeScript', 'Markdown / MDX', 'HTML / CSS'],
-      context: { en: 'Technologies used to build this website.', 'zh-TW': '本站採用的建置與內容技術。' },
-      evidence: [{ label: 'Nagi.tw', url: 'https://nagitw.github.io/Nagi.tw/' }],
-    },
-    {
-      category: 'security-engineering', items: ['Pytest', 'Rich'],
-      context: { en: 'Command-line tooling and regression tests in the documented open-source contribution.', 'zh-TW': '用於已公開開源貢獻的命令列工具與回歸測試。' },
-      evidence: [{ label: 'BugTraceAI-CLI contributions', url: 'https://nagitw.github.io/Nagi.tw/projects/bugtraceai-cli-contributions/' }],
-    },
-  ],
 } satisfies PublicProfile;
 profileSchema.parse(publicProfile);
 
