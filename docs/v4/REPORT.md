@@ -1,6 +1,6 @@
 # Nagi.tw V4 — Release Candidate
 
-Latest content follow-up: [Portfolio update and outstanding evidence](PORTFOLIO-UPDATE.md). Current build has 41 pages; the measurements below describe the original V4 RC and were not rerun as a full matrix for the content follow-up.
+Latest content follow-up: [Final portfolio content completion](PORTFOLIO-UPDATE.md). Current build has 53 pages; the measurements below describe the original V4 RC and were not rerun as a full matrix for the content follow-up.
 
 Status: **LOCAL RC — awaiting final user approval**. Branch `feat/nagi-v4`; implementation checkpoint `78ecc5a`. This report is committed by the following RC checkpoint (use `git log -1` for its full SHA).
 

@@ -16,9 +16,17 @@ const [research, projects, journal] = await Promise.all(
     ),
   ),
 );
-const selected = [...projects]
-  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured))
-  .slice(0, 6);
+const selectedSlugs = [
+  'nagi-zero-overview',
+  'ruralmed-sat-overview',
+  'nagi-medical-agent-overview',
+  'nagi-smart-hospital-overview',
+  'aeust-life-overview',
+  'aeust-research-overview',
+];
+const selected = selectedSlugs.flatMap((slug) =>
+  projects.filter((entry) => entry.data.slug === slug),
+);
 ---
 
 <Layout

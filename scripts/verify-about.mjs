@@ -35,7 +35,7 @@ for (const [collection, schema] of Object.entries(schemas)) {
 }
 const files = readdirSync('dist', { recursive: true }).filter(path => path.endsWith('.html'));
 const recovered = JSON.parse(readFileSync('docs/content-recovery/manifest.json', 'utf8'));
-assert.equal(files.length, 23 + recovered.records.filter(record => !record.eventId && editorialVisible(record.file.split('/')[2], record.file.split('/').at(-1).replace(/(?:\.zh)?\.md$/, ''))).length, 'Two search pages, two disclosure index pages and two sourced AEUST Life pages supplement approved recovery routes');
+assert.equal(files.length, 35 + recovered.records.filter(record => !record.eventId && editorialVisible(record.file.split('/')[2], record.file.split('/').at(-1).replace(/(?:\.zh)?\.md$/, ''))).length, 'Approved bilingual project summaries and disclosure routes supplement the preserved recovery routes');
 for (const path of files) {
   const html = readFileSync(`dist/${path}`, 'utf8');
   for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"<>]+)"/g)) {

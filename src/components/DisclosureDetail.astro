@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { Disclosure } from '../lib/disclosures';
+import { localeFromPath, localizePath, translate } from '../lib/i18n';
+interface Props {
+  record: Disclosure;
+}
+const { record } = Astro.props;
+const locale = localeFromPath(Astro.url.pathname);
+const t = (en: string, zh: string) => translate(locale, en, zh);
+---
+
+<Layout
+  title={record.title[locale]}
+  description={t(
+    'A publicly listed HITCON ZeroDay disclosure credited to Nagi’s confirmed public reporting name.',
+    '已正式公開的 HITCON ZeroDay 通報，署名經 Nagi 本人確認。',
+  )}
+>
+  <article>
+    <header class="page-header">
+      <a class="eyebrow" href={localizePath('/disclosures/', locale)}>
+        {t('Vulnerability Disclosure', '漏洞通報')}
+      </a>
+      <h1>{record.code}</h1>
+      <p class="intro">
+        {t(
+          'HITCON ZeroDay — public disclosure record',
+          'HITCON ZeroDay — 公開漏洞通報紀錄',
+        )}
+      </p>
+    </header>
+    <section class="section content-body">
+      <dl class="content-meta">
+        <dt>{t('Platform', '平台')}</dt>
+        <dd>HITCON ZeroDay</dd>
+        <dt>{t('Identifier', '編號')}</dt>
+        <dd>{record.code}</dd>
+        <dt>{t('Severity', '風險等級')}</dt>
+        <dd>{record.severity}</dd>
+        <dt>{t('Public reporter', '公開署名')}</dt>
+        <dd>{record.reporter}</dd>
+      </dl>
+      <div class="prose">
+        <h2>{t('Attribution', '通報署名')}</h2>
+        <p>
+          {t(
+            'Nagi has confirmed that the public reporting name “大家都是電神” is their own and has authorized linking this public disclosure to this portfolio.',
+            'Nagi 本人已正式確認「大家都是電神」為其 HITCON ZeroDay 公開署名，並授權將此公開通報列入個人作品集。',
+          )}
+        </p>
+        <h2>{t('Official public source', '官方公開來源')}</h2>
+        <p>
+          <a href={record.source}>
+            {t(
+              'HITCON ZeroDay official listing',
+              'HITCON ZeroDay 官方漏洞列表',
+            )}
+          </a>
+        </p>
+        <p>
+          {t(
+            'This is a HITCON ZeroDay identifier, not a CVE identifier. Only confirmed public information is included; no exploit details, private correspondence, bounty or remediation outcome is claimed.',
+            '此為 HITCON ZeroDay 編號，不是 CVE 編號。本頁僅列已確認的公開資訊，不包含利用細節、私人通報信件、獎金或修復成果宣稱。',
+          )}
+        </p>
+      </div>
+    </section>
+  </article>
+</Layout>

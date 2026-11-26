@@ -263,7 +263,7 @@ test('RSS and search do not expose private project drafts', async ({
     );
   }
   await page.goto(base + 'search/');
-  await page.locator('#search-input').fill('RuralMed-Sat');
+  await page.locator('#search-input').fill('Nagi Firmware Lab');
   await expect(page.locator('[data-search-status]')).toHaveText(
     'No results found.',
   );

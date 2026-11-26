@@ -23,11 +23,19 @@ for (const prefix of ['', 'zh/']) {
   );
   assert.equal(
     (projects.match(/<article/g) ?? []).length,
-    5,
-    'Five verified public projects',
+    6,
+    'Six author-approved public projects',
   );
   assert.match(projects, /aeust-life-overview/);
-  assert.match(projects, /medtrust/);
+  assert.match(projects, /aeust-research-overview/);
+  assert.match(
+    readFileSync(`dist/${prefix}projects/index.html`, 'utf8'),
+    /medtrust/,
+  );
+  assert.match(
+    readFileSync(`dist/${prefix}projects/index.html`, 'utf8'),
+    /bugtraceai-cli-contributions/,
+  );
   assert.ok(
     existsSync(`dist/${prefix}projects/aeust-life-overview/index.html`),
   );
@@ -35,7 +43,23 @@ for (const prefix of ['', 'zh/']) {
     `dist/${prefix}disclosures/index.html`,
     'utf8',
   );
-  assert.doesNotMatch(disclosure, /ZD-2026-01297|CVE-\d/);
+  assert.match(disclosure, /ZD-2026-01297/);
+  assert.doesNotMatch(disclosure, /CVE-\d/);
+  assert.match(html, /disclosures\/zd-2026-01297\//);
+  const detail = readFileSync(
+    `dist/${prefix}disclosures/zd-2026-01297/index.html`,
+    'utf8',
+  );
+  assert.match(detail, /大家都是電神/);
+  assert.match(detail, /Low/);
+  assert.match(
+    detail,
+    /https:\/\/zeroday.hitcon.org\/vulnerability\/all\/page\/16/,
+  );
+  assert.doesNotMatch(
+    detail,
+    /Web Application Logic Flaw|2026-10-22|<time|CVE-\d/,
+  );
   for (const slug of [
     'nagi-zero',
     'ruralmed-sat',
@@ -44,10 +68,10 @@ for (const prefix of ['', 'zh/']) {
     'aeust-research',
   ])
     assert.ok(
-      !existsSync(`dist/${prefix}projects/${slug}/index.html`),
-      'Unverified projects stay private',
+      existsSync(`dist/${prefix}projects/${slug}-overview/index.html`),
+      'Author-approved public summaries have bilingual routes',
     );
 }
 console.log(
-  'PASS bilingual ordering, five public projects, new routes and disclosure attribution gate',
+  'PASS bilingual ordering, six selected projects, preserved projects and confirmed public disclosure without unverified fields',
 );

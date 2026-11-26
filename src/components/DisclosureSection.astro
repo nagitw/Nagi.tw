@@ -31,7 +31,10 @@ const t = (en: string, zh: string) => translate(locale, en, zh);
             {item.title[locale]}
           </a>
         </h3>
-        <p>{item.remediation[locale]}</p>
+        <p>
+          {t('Public reporter', '公開署名')}：{item.reporter}
+        </p>
+        {item.remediation && <p>{item.remediation[locale]}</p>}
       </article>
     ))
   ) : (

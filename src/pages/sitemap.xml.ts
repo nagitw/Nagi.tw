@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { detailCollections, getPublished, contentHref } from '../lib/content';
 import { withBase } from '../lib/i18n';
+import { publicDisclosures } from '../lib/disclosures';
 
 export const GET: APIRoute = async ({ site }) => {
   const sections = [
@@ -18,6 +19,11 @@ export const GET: APIRoute = async ({ site }) => {
     withBase(`/${section}`),
     withBase(`/zh/${section}`),
   ]);
+  for (const record of publicDisclosures)
+    paths.push(
+      withBase(`/disclosures/${record.slug}/`),
+      withBase(`/zh/disclosures/${record.slug}/`),
+    );
   for (const collection of detailCollections) {
     for (const entry of await getPublished(collection))
       paths.push(contentHref(entry));

@@ -1,8 +1,18 @@
 {
-  "authorization": "User: Portfolio Content Completion; public-source additions only.",
+  "authorization": "User: Final Content Completion. Five named personal project summaries and public disclosure attribution explicitly authorized; retain all historical drafts unchanged.",
   "source": "https://github.com/nagitw/aeust-life/blob/1bcfa41f1589a799845860df148b6736448b6ab6/README.md",
   "hashes": {
     "src/content/projects/aeust-life-overview.md": "8622cf9ba2fc865d9160aebcad8b47aa5ddf4dc54da2f10aa87ddbc358e45886",
-    "src/content/projects/aeust-life-overview.zh.md": "949fdad74f41a66fab4c631c11f10c56ecbbe38ab5ca4bef7cd600576c3a6ca5"
+    "src/content/projects/aeust-life-overview.zh.md": "949fdad74f41a66fab4c631c11f10c56ecbbe38ab5ca4bef7cd600576c3a6ca5",
+    "src/content/projects/nagi-zero-overview.md": "89bf4584e316fc4a6dbb2ecacc2d683ac036aaa0b29677c71b4d9cf7f01cf97c",
+    "src/content/projects/nagi-zero-overview.zh.md": "860458d14059fe96a27aa71143c6218c4ab1007a386fa7752cda7f1057133845",
+    "src/content/projects/ruralmed-sat-overview.md": "a03517d4346accbd60c70c45aa56c78db4c59dffb77ed66d004e707a4cac518d",
+    "src/content/projects/ruralmed-sat-overview.zh.md": "e32443c40c7f55cdb2aae4e2246213d14fb76084f0bd642241eac3a506dcb7b5",
+    "src/content/projects/nagi-medical-agent-overview.md": "cd115a91372410f2850b9cfaa7925abce5cc99acedad413b64e843f14bd41968",
+    "src/content/projects/nagi-medical-agent-overview.zh.md": "94d96b2fa18e6e567000b2dbcc1f5c2e7a5495557acf28c5f2e45f628c941df9",
+    "src/content/projects/nagi-smart-hospital-overview.md": "fee58e1828098185720dadfd5ab345f08ec70d764e1b8ca92161df8262e6a108",
+    "src/content/projects/nagi-smart-hospital-overview.zh.md": "ec9b16a4f8178c6172e3fc9d000a1be48791d655f878e76a96204bf78da4c781",
+    "src/content/projects/aeust-research-overview.md": "9b2762ede5201eb0be75e36ff406b9963435df303a4eeba23e10968e20cd3feb",
+    "src/content/projects/aeust-research-overview.zh.md": "ce7b631265225a3ba16dfa3a2b49f724b97dabe208597563c1a7d32a5f7445cb"
   }
 }

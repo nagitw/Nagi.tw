@@ -1,0 +1,13 @@
+---
+import { publicDisclosures } from '../../../lib/disclosures';
+import DisclosureDetail from '../../../components/DisclosureDetail.astro';
+export function getStaticPaths() {
+  return publicDisclosures.map((record) => ({
+    params: { slug: record.slug },
+    props: { record },
+  }));
+}
+const { record } = Astro.props;
+---
+
+<DisclosureDetail record={record} />
