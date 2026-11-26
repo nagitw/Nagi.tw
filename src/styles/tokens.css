@@ -1,0 +1,48 @@
+:root {
+  --obsidian: #09090b;
+  --surface: #18181b;
+  --graphite: #71717a;
+  --platinum: #fafafa;
+  --bg: var(--platinum);
+  --panel: #f0f0f2;
+  --ink: var(--obsidian);
+  --secondary: #53535c;
+  --muted: #62626d;
+  --line: #dedee3;
+  --article-text: #34343b;
+  --code-bg: #f0f0f2;
+  --sans: 'Geist Variable', 'Noto Sans TC', sans-serif;
+  --mono: 'Geist Mono Variable', monospace;
+  --serif: var(--sans);
+  --shell: 82rem;
+  --measure: 66ch;
+  --gutter: clamp(1.25rem, 4.5vw, 4rem);
+  --space: clamp(1.5rem, 3vw, 3rem);
+  --section: clamp(4rem, 8vw, 7rem);
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --radius-sm: .4rem;
+  --radius-md: .8rem;
+  --shadow: 0 16px 48px #09090b12;
+  --duration: 180ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  /* Layout thresholds: compact 40rem, wide 64rem; media queries use literals. */
+  --breakpoint-compact: 40rem;
+  --breakpoint-wide: 64rem;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: var(--obsidian); --panel: var(--surface); --ink: var(--platinum);
+    --secondary: #b3b3bd; --muted: #a1a1aa; --line: #2c2c32;
+    --article-text: #d4d4dc; --code-bg: #18181b; color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: var(--obsidian); --panel: var(--surface); --ink: var(--platinum);
+  --secondary: #b3b3bd; --muted: #a1a1aa; --line: #2c2c32;
+  --article-text: #d4d4dc; --code-bg: #18181b; color-scheme: dark;
+}
