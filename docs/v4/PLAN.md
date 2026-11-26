@@ -9,10 +9,10 @@
 Obsidian/Platinum canvas with fine rules, Swiss sans typography and generous editorial columns. Home leads with the exact motto, a restrained research diagram, selected public work and latest writing. Lists replace repeated boxed cards. Light/Dark/System share semantic tokens. Geist, Noto Sans TC and Geist Mono are hosted locally. The original pixel penguin returns as a small optional animated companion.
 
 ## Tasks and validation
-- [ ] Phase 1: Capture hashes for all original content/assets and every built URL in `docs/v4/baseline.json`; record public/draft selection and migration mapping. Confirm production and clean branch.
-- [ ] Phase 2: Add `tokens.css`, shared header/footer/layout and mascot. Test exact motto, preserved mascot, theme persistence, mobile navigation, reduced motion and base-aware assets.
-- [ ] Phase 3: Implement Home, Research directions, publication-safe project listings, About, Journal search/filter and article navigation, RSS and gallery dialog. Tests cover empty photography, coverless articles, fallback language, no-JS navigation and search paths.
-- [ ] Phase 4: Preserve all original source hashes and old routes, restrict dates to four user-confirmed events, clean placeholder result text in presentation, retain confirmed rankings. Do not publish drafts or excluded personal/network notes. Keep both previous CSS assets for cached production documents.
+- [x] Phase 1: Capture hashes for all original content/assets and every built URL in `docs/v4/baseline.json`; record public/draft selection and migration mapping. Confirm production and clean branch.
+- [x] Phase 2: Add `tokens.css`, shared header/footer/layout and mascot. Test exact motto, preserved mascot, theme persistence, mobile navigation, reduced motion and base-aware assets.
+- [x] Phase 3: Implement Home, Research directions, publication-safe project listings, About, Journal search/filter and article navigation, RSS and gallery dialog. Tests cover empty photography, coverless articles, fallback language, no-JS navigation and search paths.
+- [x] Phase 4: Preserve all original source hashes and old routes, restrict dates to four user-confirmed events, clean placeholder result text in presentation, retain confirmed rankings. Do not publish drafts or excluded personal/network notes. Keep both previous CSS assets for cached production documents.
 - [ ] Phase 5: Add compatible Pagefind, ESLint, Prettier and Playwright tools; run schema, type, lint, build, integrity, all-link and browser acceptance. Measure Lighthouse rather than assuming scores. Review metadata of any photos used; do not emit unapproved photography.
 - [ ] Phase 6: Commit RC, keep a working local preview, save real screenshots and a concise results report with limitations and SHA. No merge, production push or deployment before user approval.
 
