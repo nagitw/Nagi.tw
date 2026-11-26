@@ -1,6 +1,8 @@
 ---
 import AboutSection from './AboutSection.astro';
 import ContentCard from './ContentCard.astro';
+import ResearchDirections from './ResearchDirections.astro';
+import { githubUrl } from '../lib/studio';
 import { publicProfile } from '../lib/sections';
 import { prepareAboutProfile } from '../lib/about';
 import { getPublished, preferLocale } from '../lib/content';
@@ -8,64 +10,213 @@ import { localeFromPath, localizePath, translate } from '../lib/i18n';
 
 const locale = localeFromPath(Astro.url.pathname);
 const t = (en: string, zh: string) => translate(locale, en, zh);
-const text = (value: { en: string; 'zh-TW'?: string }) => value[locale] ?? value.en;
+const text = (value: { en: string; 'zh-TW'?: string }) =>
+  value[locale] ?? value.en;
 const profile = prepareAboutProfile(publicProfile);
 const projectEntries = await getPublished('projects');
-const projects = preferLocale(projectEntries.filter(entry => entry.data.featured), locale);
+const projects = preferLocale(
+  projectEntries.filter((entry) => entry.data.featured),
+  locale,
+);
 ---
+
 <div class="about-profile">
   <header class="page-header">
-    <p class="eyebrow">01 / {t('Introduction', '自我介紹')}</p>
+    <p class="eyebrow">{t('The person behind the work', '實作背後的思考')}</p>
     <h1>{profile.publicName}</h1>
     {profile.biography && <p class="intro">{text(profile.biography)}</p>}
   </header>
+  <section class="section">
+    <div class="section-top">
+      <div>
+        <p class="section-label">{t('Research & engineering', '研究與工程')}</p>
+        <h2>
+          {t('Curiosity, with a practical edge.', '帶著好奇，走向實作。')}
+        </h2>
+      </div>
+    </div>
+    <p class="intro">
+      {t(
+        'My interests connect cybersecurity, communication systems, AI and software engineering. I use this space to make the process visible: the question, the work, and its limits.',
+        '我的關注橫跨資訊安全、通訊系統、AI 與軟體工程。在這裡記錄問題、實作過程，以及成果的邊界。',
+      )}
+    </p>
+    <ResearchDirections locale={locale} />
+  </section>
+  <section class="section">
+    <p class="section-label">{t('Personal philosophy', '個人理念')}</p>
+    <h2>
+      {t('Create what you wish existed.', '把你希望存在的東西，親手創造出來。')}
+    </h2>
+    <p class="intro">
+      {t(
+        'Careful documentation, honest scope and steady iteration guide how I build.',
+        '細心記錄、誠實呈現範圍，並持續迭代。',
+      )}
+    </p>
+    <a class="text-link" href={githubUrl}>
+      {t('GitHub & public contact', 'GitHub 與公開聯絡管道')}
+    </a>
+  </section>
 
-  <AboutSection id="about-experience" number="02" title={t('Experience', '經歷')}>
-    <a class="text-link" href={localizePath('/experience/', locale)}>{t('View the chronological record →', '查看依時間排序的經歷 →')}</a>
+  <AboutSection
+    id="about-experience"
+    number="02"
+    title={t('Experience', '經歷')}
+  >
+    <a class="text-link" href={localizePath('/experience/', locale)}>
+      {t('View the chronological record →', '查看依時間排序的經歷 →')}
+    </a>
   </AboutSection>
 
-  {projects.length > 0 && <AboutSection id="about-projects" number="03" title={t('Selected Projects', '精選專案')}>
-    <div class="grid">{projects.map(entry => <ContentCard entry={entry} />)}</div>
-    <a class="text-link" href={localizePath('/projects/', locale)}>{t('All projects →', '所有專案 →')}</a>
-  </AboutSection>}
+  {projects.length > 0 && (
+    <AboutSection
+      id="about-projects"
+      number="03"
+      title={t('Selected Projects', '精選專案')}
+    >
+      <div class="grid">
+        {projects.map((entry) => (
+          <ContentCard entry={entry} />
+        ))}
+      </div>
+      <a class="text-link" href={localizePath('/projects/', locale)}>
+        {t('All projects →', '所有專案 →')}
+      </a>
+    </AboutSection>
+  )}
 
-  {profile.honors.length > 0 && <AboutSection id="about-honors" number="04" title={t('Competitions and Honors', '競賽與榮譽')}>
-    <ol class="about-timeline">{profile.honors.map(entry => <li>
-      <p class="card-meta">{entry.year}</p>
-      <h3>{text(entry.competition)}</h3>
-      {entry.team && <p>{t('Team', '隊伍')}：{text(entry.team)}</p>}
-      {entry.ranking && <p>{t('Result', '結果')}：{text(entry.ranking)}</p>}
-      <ul class="about-references">{entry.evidence.map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
-    </li>)}</ol>
-  </AboutSection>}
+  {profile.honors.length > 0 && (
+    <AboutSection
+      id="about-honors"
+      number="04"
+      title={t('Competitions and Honors', '競賽與榮譽')}
+    >
+      <ol class="about-timeline">
+        {profile.honors.map((entry) => (
+          <li>
+            <p class="card-meta">{entry.year}</p>
+            <h3>{text(entry.competition)}</h3>
+            {entry.team && (
+              <p>
+                {t('Team', '隊伍')}：{text(entry.team)}
+              </p>
+            )}
+            {entry.ranking && (
+              <p>
+                {t('Result', '結果')}：{text(entry.ranking)}
+              </p>
+            )}
+            <ul class="about-references">
+              {entry.evidence.map((link) => (
+                <li>
+                  <a href={link.url}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </AboutSection>
+  )}
 
-  {profile.talks.length > 0 && <AboutSection id="about-talks" number="05" title={t('Talks and Presentations', '演講與分享')}>
-    <ol class="about-timeline">{profile.talks.map(entry => <li>
-      <p class="card-meta"><time datetime={entry.date}>{entry.date}</time> / {text(entry.event)}</p>
-      <h3>{text(entry.title)}</h3><p>{text(entry.role)}</p>
-      <ul class="about-references">{entry.evidence.map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
-    </li>)}</ol>
-  </AboutSection>}
+  {profile.talks.length > 0 && (
+    <AboutSection
+      id="about-talks"
+      number="05"
+      title={t('Talks and Presentations', '演講與分享')}
+    >
+      <ol class="about-timeline">
+        {profile.talks.map((entry) => (
+          <li>
+            <p class="card-meta">
+              <time datetime={entry.date}>{entry.date}</time> /{' '}
+              {text(entry.event)}
+            </p>
+            <h3>{text(entry.title)}</h3>
+            <p>{text(entry.role)}</p>
+            <ul class="about-references">
+              {entry.evidence.map((link) => (
+                <li>
+                  <a href={link.url}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </AboutSection>
+  )}
 
-  {profile.education.length > 0 && <AboutSection id="about-education" number="06" title={t('Education', '教育')}>
-    <ol class="about-timeline">{profile.education.map(entry => <li>
-      <p class="card-meta">{text(entry.dateRange)}</p>
-      <h3>{text(entry.organization)}</h3><p>{text(entry.qualification)}</p>
-      {entry.description && <p>{text(entry.description)}</p>}
-      <ul class="about-references">{entry.evidence.map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
-    </li>)}</ol>
-  </AboutSection>}
+  {profile.education.length > 0 && (
+    <AboutSection
+      id="about-education"
+      number="06"
+      title={t('Education', '教育')}
+    >
+      <ol class="about-timeline">
+        {profile.education.map((entry) => (
+          <li>
+            <p class="card-meta">{text(entry.dateRange)}</p>
+            <h3>{text(entry.organization)}</h3>
+            <p>{text(entry.qualification)}</p>
+            {entry.description && <p>{text(entry.description)}</p>}
+            <ul class="about-references">
+              {entry.evidence.map((link) => (
+                <li>
+                  <a href={link.url}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </AboutSection>
+  )}
 
-  {profile.links && profile.links.length > 0 && <AboutSection id="about-contact" number="07" title={t('Contact and Links', '聯絡與連結')}>
-    <ul class="about-references">{profile.links.map(link => <li><a href={link.url}>{link.label}</a></li>)}</ul>
-  </AboutSection>}
-  <a class="text-link about-home" href={localizePath('/', locale)}>{t('← Back to home', '← 回到首頁')}</a>
+  {profile.links && profile.links.length > 0 && (
+    <AboutSection
+      id="about-contact"
+      number="07"
+      title={t('Contact and Links', '聯絡與連結')}
+    >
+      <ul class="about-references">
+        {profile.links.map((link) => (
+          <li>
+            <a href={link.url}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </AboutSection>
+  )}
+  <a class="text-link about-home" href={localizePath('/', locale)}>
+    {t('← Back to home', '← 回到首頁')}
+  </a>
 </div>
 <style>
-  .about-profile { min-inline-size: 0; overflow-wrap: anywhere; }
-  .about-measure { max-inline-size: var(--measure); }
-  .about-timeline { list-style: none; padding: 0; margin-block: var(--space) 0; max-inline-size: var(--measure); }
-  .about-timeline > li { border-inline-start: 1px solid var(--line); padding-inline-start: var(--space); padding-block-end: var(--space); }
-  .about-references { padding-inline-start: 1.25rem; overflow-wrap: anywhere; }
-  .about-home { margin-block-start: var(--section); }
+  .about-profile {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  .about-measure {
+    max-inline-size: var(--measure);
+  }
+  .about-timeline {
+    list-style: none;
+    padding: 0;
+    margin-block: var(--space) 0;
+    max-inline-size: var(--measure);
+  }
+  .about-timeline > li {
+    border-inline-start: 1px solid var(--line);
+    padding-inline-start: var(--space);
+    padding-block-end: var(--space);
+  }
+  .about-references {
+    padding-inline-start: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+  .about-home {
+    margin-block-start: var(--section);
+  }
 </style>

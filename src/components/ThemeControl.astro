@@ -3,6 +3,7 @@ import { localeFromPath, translate } from '../lib/i18n';
 const locale = localeFromPath(Astro.url.pathname);
 const t = (en: string, zh: string) => translate(locale, en, zh);
 ---
+
 <div class="theme-control">
   <label for="theme">{t('Appearance', '外觀')}</label>
   <select id="theme" disabled>

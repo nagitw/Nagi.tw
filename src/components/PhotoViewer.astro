@@ -1,0 +1,52 @@
+---
+import { localeFromPath, translate } from '../lib/i18n';
+const locale = localeFromPath(Astro.url.pathname);
+---
+
+<dialog
+  class="photo-dialog"
+  data-photo-dialog
+  aria-label={translate(locale, 'Photo viewer', '圖片檢視')}
+>
+  <button type="button" data-photo-close>
+    {translate(locale, 'Close', '關閉')}
+  </button>
+  <img data-photo-full alt="" />
+  <p data-photo-caption></p>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>(
+    '[data-photo-dialog]',
+  );
+  const full = dialog?.querySelector<HTMLImageElement>('[data-photo-full]');
+  const caption = dialog?.querySelector<HTMLElement>('[data-photo-caption]');
+  if (dialog && full && caption) {
+    for (const image of document.querySelectorAll<HTMLImageElement>(
+      '.photo-gallery img',
+    )) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'photo-open';
+      button.setAttribute(
+        'aria-label',
+        `${document.documentElement.lang === 'en' ? 'View photo' : '檢視圖片'}: ${image.alt}`,
+      );
+      image.before(button);
+      button.append(image);
+      button.addEventListener('click', () => {
+        full.src = image.currentSrc;
+        full.alt = image.alt;
+        caption.textContent =
+          image.closest('figure')?.querySelector('figcaption')?.textContent ??
+          '';
+        dialog.showModal();
+      });
+    }
+    dialog
+      .querySelector('[data-photo-close]')
+      ?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+</script>

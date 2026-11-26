@@ -1,10 +1,7 @@
 {
   "authorization": "User: final content cleanup and local release candidate, 2026-11-26; preserve content states and existing publication exclusions",
   "hidden": {
-    "projects": [
-      "home-lab",
-      "home-lab-infrastructure"
-    ],
+    "projects": ["home-lab", "home-lab-infrastructure"],
     "research": [
       "archive-notes",
       "medical-iot",

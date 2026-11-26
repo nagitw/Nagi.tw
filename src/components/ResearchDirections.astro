@@ -1,0 +1,23 @@
+---
+import { researchDirections, directionText } from '../lib/studio';
+import { translate, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<div class="direction-list">
+  {researchDirections.map((_, index) => {
+    const { title, note } = directionText(index, locale);
+    return (
+      <article class="direction">
+        <p class="direction-kind">
+          {translate(locale, 'Research interest', '研究方向')}
+        </p>
+        <h3>{title}</h3>
+        <p>{note}</p>
+      </article>
+    );
+  })}
+</div>

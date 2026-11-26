@@ -19,16 +19,16 @@
   --gutter: clamp(1.25rem, 4.5vw, 4rem);
   --space: clamp(1.5rem, 3vw, 3rem);
   --section: clamp(4rem, 8vw, 7rem);
-  --space-1: .5rem;
+  --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
   --space-4: 2rem;
   --space-5: 3rem;
-  --radius-sm: .4rem;
-  --radius-md: .8rem;
+  --radius-sm: 0.4rem;
+  --radius-md: 0.8rem;
   --shadow: 0 16px 48px #09090b12;
   --duration: 180ms;
-  --ease: cubic-bezier(.2, .7, .2, 1);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   /* Layout thresholds: compact 40rem, wide 64rem; media queries use literals. */
   --breakpoint-compact: 40rem;
   --breakpoint-wide: 64rem;
@@ -36,13 +36,25 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: var(--obsidian); --panel: var(--surface); --ink: var(--platinum);
-    --secondary: #b3b3bd; --muted: #a1a1aa; --line: #2c2c32;
-    --article-text: #d4d4dc; --code-bg: #18181b; color-scheme: dark;
+    --bg: var(--obsidian);
+    --panel: var(--surface);
+    --ink: var(--platinum);
+    --secondary: #b3b3bd;
+    --muted: #a1a1aa;
+    --line: #2c2c32;
+    --article-text: #d4d4dc;
+    --code-bg: #18181b;
+    color-scheme: dark;
   }
 }
 :root[data-theme='dark'] {
-  --bg: var(--obsidian); --panel: var(--surface); --ink: var(--platinum);
-  --secondary: #b3b3bd; --muted: #a1a1aa; --line: #2c2c32;
-  --article-text: #d4d4dc; --code-bg: #18181b; color-scheme: dark;
+  --bg: var(--obsidian);
+  --panel: var(--surface);
+  --ink: var(--platinum);
+  --secondary: #b3b3bd;
+  --muted: #a1a1aa;
+  --line: #2c2c32;
+  --article-text: #d4d4dc;
+  --code-bg: #18181b;
+  color-scheme: dark;
 }

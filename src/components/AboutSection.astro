@@ -1,13 +1,24 @@
 ---
-interface Props { id: string; number: string; title: string }
+interface Props {
+  id: string;
+  number: string;
+  title: string;
+}
 const { id, number, title } = Astro.props;
 ---
+
 <section class="section about-section" aria-labelledby={id}>
-  <p class="eyebrow" aria-hidden="true">{number}</p>
+  <p class="eyebrow" aria-hidden="true">
+    {number}
+  </p>
   <h2 id={id}>{title}</h2>
   <slot />
 </section>
 <style>
-  .about-section + .about-section { margin-block-start: var(--section); }
-  .about-section > .eyebrow { margin-block-end: .5rem; }
+  .about-section + .about-section {
+    margin-block-start: var(--section);
+  }
+  .about-section > .eyebrow {
+    margin-block-end: 0.5rem;
+  }
 </style>

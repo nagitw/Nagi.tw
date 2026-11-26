@@ -1,0 +1,63 @@
+---
+import { translate, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+  categories: string[];
+  tags: string[];
+}
+const { locale, categories, tags } = Astro.props;
+---
+
+<div class="journal-filters" data-pagefind-ignore>
+  <label for="journal-category">
+    {translate(locale, 'Category', '分類')}
+    <select
+      id="journal-category"
+      class="filter-select"
+      data-journal-filter="category"
+    >
+      <option value="">
+        {translate(locale, 'All categories', '所有分類')}
+      </option>
+      {categories.map((category) => (
+        <option value={category}>{category}</option>
+      ))}
+    </select>
+  </label>
+  <label for="journal-tag">
+    {translate(locale, 'Tag', '標籤')}
+    <select id="journal-tag" class="filter-select" data-journal-filter="tag">
+      <option value="">{translate(locale, 'All tags', '所有標籤')}</option>
+      {tags.map((tag) => (
+        <option value={tag}>{tag}</option>
+      ))}
+    </select>
+  </label>
+  <p role="status" data-filter-status></p>
+</div>
+<script>
+  const category = document.querySelector<HTMLSelectElement>(
+    '[data-journal-filter="category"]',
+  );
+  const tag = document.querySelector<HTMLSelectElement>(
+    '[data-journal-filter="tag"]',
+  );
+  const status = document.querySelector<HTMLElement>('[data-filter-status]');
+  const rows = [
+    ...document.querySelectorAll<HTMLElement>('[data-journal-entry]'),
+  ];
+  const filter = () => {
+    let count = 0;
+    for (const row of rows) {
+      const tags = JSON.parse(row.dataset.tags ?? '[]') as string[];
+      row.hidden = !!(
+        (category?.value && row.dataset.category !== category.value) ||
+        (tag?.value && !tags.includes(tag.value))
+      );
+      if (!row.hidden) count++;
+    }
+    if (status) status.textContent = `${count} / ${rows.length}`;
+  };
+  category?.addEventListener('change', filter);
+  tag?.addEventListener('change', filter);
+</script>

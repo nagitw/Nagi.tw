@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { localeFromPath, localizePath, translate, withBase } from '../lib/i18n';
+const locale = localeFromPath(Astro.url.pathname);
+const t = (en: string, zh: string) => translate(locale, en, zh);
+---
+
+<Layout
+  title={t('Search', '搜尋')}
+  description={t(
+    'Search the public Nagi.tw research, projects and journal.',
+    '全文搜尋 Nagi.tw 已公開的研究、專案與札記。',
+  )}
+>
+  <header class="page-header">
+    <p class="eyebrow">{t('The studio index', '研究室索引')}</p>
+    <h1>{t('Find a thread.', '找到思緒的線索。')}</h1>
+    <p class="intro">
+      {t(
+        'Search across public research, projects and writing.',
+        '從已公開的研究、專案與文章中搜尋。',
+      )}
+    </p>
+  </header>
+  <section
+    class="section"
+    aria-label={t('Site search', '全站搜尋')}
+    data-pagefind-ignore
+  >
+    <form
+      class="search-form"
+      role="search"
+      data-search-root
+      data-index={withBase('/pagefind/pagefind.js')}
+      data-empty={t('No results found.', '沒有符合的結果。')}
+      data-error={t(
+        'Search is unavailable. Browse the journal below, or try again.',
+        '搜尋暫時無法使用，請瀏覽下方札記或稍後再試。',
+      )}
+      data-count={t('results', '筆結果')}
+    >
+      <label for="search-input">{t('Search terms', '搜尋關鍵字')}</label>
+      <input
+        id="search-input"
+        name="q"
+        type="search"
+        placeholder={t(
+          'A question, a system, an idea…',
+          '一個問題、一套系統、一個想法…',
+        )}
+        autocomplete="off"
+      />
+      <button class="button-link" type="submit">
+        {t('Search', '搜尋')}
+      </button>
+    </form>
+    <p role="status" data-search-status>
+      {t('Type to explore the archive.', '輸入關鍵字，探索歷史文章。')}
+    </p>
+    <ol class="search-results" data-search-results></ol>
+    <noscript>
+      <p>
+        {t(
+          'Full-text search requires JavaScript. All writing remains available below.',
+          '全文搜尋需要 JavaScript；所有文章仍可透過下方連結瀏覽。',
+        )}
+      </p>
+    </noscript>
+    <a class="text-link" href={localizePath('/journal/', locale)}>
+      {t('Browse the journal', '瀏覽所有札記')}
+    </a>
+  </section>
+</Layout>
+<script>
+  interface SearchResult {
+    data: () => Promise<{
+      url: string;
+      meta: { title?: string };
+      excerpt: string;
+    }>;
+  }
+  interface SearchIndex {
+    options: (config: { baseUrl: string }) => Promise<void>;
+    search: (query: string) => Promise<{ results: SearchResult[] }>;
+  }
+  const form = document.querySelector<HTMLFormElement>('[data-search-root]');
+  const input = document.querySelector<HTMLInputElement>('#search-input');
+  const status = document.querySelector<HTMLElement>('[data-search-status]');
+  const list = document.querySelector<HTMLOListElement>(
+    '[data-search-results]',
+  );
+  if (form && input && status && list) {
+    let index: Promise<SearchIndex> | undefined;
+    let revision = 0;
+    let timer: ReturnType<typeof setTimeout>;
+    const search = async () => {
+      const current = ++revision;
+      const query = input.value.trim();
+      list.replaceChildren();
+      if (!query) {
+        status.textContent = '';
+        return;
+      }
+      try {
+        const url = form.dataset.index!;
+        index ??= import(/* @vite-ignore */ url).then(async (module) => {
+          await module.options({ baseUrl: import.meta.env.BASE_URL });
+          return module;
+        });
+        const result = await (await index).search(query);
+        const data = await Promise.all(
+          result.results.slice(0, 30).map((result) => result.data()),
+        );
+        if (revision !== current) return;
+        status.textContent = data.length
+          ? `${result.results.length} ${form.dataset.count}`
+          : form.dataset.empty!;
+        for (const item of data) {
+          const row = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.textContent = item.meta.title ?? item.url;
+          const excerpt = document.createElement('p');
+          // Pagefind adds highlight tags. Use a text node, never interpret HTML.
+          excerpt.textContent = item.excerpt.replace(/<[^>]*>/g, '');
+          row.append(link, excerpt);
+          list.append(row);
+        }
+      } catch {
+        if (revision === current) status.textContent = form.dataset.error!;
+        index = undefined;
+      }
+    };
+    input.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(search, 180);
+    });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      clearTimeout(timer);
+      void search();
+    });
+    input.value = new URLSearchParams(location.search).get('q') ?? '';
+    if (input.value) void search();
+  }
+</script>

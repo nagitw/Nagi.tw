@@ -1,5 +1,8 @@
 ---
-interface Heading { slug: string; text: string }
+interface Heading {
+  slug: string;
+  text: string;
+}
 interface Props {
   sections: (Heading & { children: Heading[] })[];
   label: string;
@@ -7,16 +10,25 @@ interface Props {
 const { sections, label } = Astro.props;
 const href = (slug: string) => `#${encodeURIComponent(slug)}`;
 ---
+
 <nav class="journal-toc" aria-label={label}>
   <details>
     <summary>{label}</summary>
     <ol>
-      {sections.map(section => <li>
-        <a href={href(section.slug)}>{section.text}</a>
-        {section.children.length > 0 && <ol>
-          {section.children.map(heading => <li><a href={href(heading.slug)}>{heading.text}</a></li>)}
-        </ol>}
-      </li>)}
+      {sections.map((section) => (
+        <li>
+          <a href={href(section.slug)}>{section.text}</a>
+          {section.children.length > 0 && (
+            <ol>
+              {section.children.map((heading) => (
+                <li>
+                  <a href={href(heading.slug)}>{heading.text}</a>
+                </li>
+              ))}
+            </ol>
+          )}
+        </li>
+      ))}
     </ol>
   </details>
 </nav>

@@ -1,16 +1,222 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContentCard from '../components/ContentCard.astro';
-import { getFeatured, preferLocale } from '../lib/content';
+import { getPublished, preferLocale } from '../lib/content';
+import ResearchDirections from './ResearchDirections.astro';
+import { githubUrl, contactUrl } from '../lib/studio';
 import { localeFromPath, localizePath, translate } from '../lib/i18n';
 const locale = localeFromPath(Astro.url.pathname);
 const t = (en: string, zh: string) => translate(locale, en, zh);
-const featured = preferLocale(await getFeatured(), locale);
-const sections = [{title:'Projects',note:t("Cybersecurity and engineering projects, from idea to implementation.","從想法到實作，留下過程與選擇。")},{title:'Research',note:t("Research questions and proposed directions.","研究問題與提案方向。")},{title:'Journal',note:t("Technical notes on security, engineering, and research.","資訊安全、工程實作與研究筆記。")}];
+const [research, projects, journal] = await Promise.all(
+  ['research', 'projects', 'journal'].map(async (collection) =>
+    preferLocale(
+      await getPublished(collection as 'research' | 'projects' | 'journal'),
+      locale,
+    ),
+  ),
+);
+const selected = [...projects]
+  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured))
+  .slice(0, 3);
 ---
-<Layout title={t("Home", "首頁")} description={t("Nagi.tw — a personal cybersecurity and engineering website. Projects, research, and notes.", "Nagi.tw — 記錄資安與工程專案、研究及觀察的個人網站。")}>
-<section class="hero"><p class="eyebrow">Nagi.tw</p><h1>{t("Create what you wish existed.", "把你希望存在的東西，親手創造出來。")}</h1><p class="intro">{t("Cybersecurity · Software Engineering · Research", "資訊安全 · 軟體工程 · 研究")}</p><a class="text-link" href={localizePath("/about/", locale)}>{t("About this space ↗", "關於這個空間 ↗")}</a></section>
-<section class="section"><h2>{t("An ongoing collection.","持續累積的紀錄。")}</h2><div class="grid">{sections.map(item => <article class="card"><h3><a href={localizePath(`/${item.title.toLowerCase()}/`, locale)}>{t(item.title, item.title === "Projects" ? "專案" : item.title === "Research" ? "研究" : "札記")} ↗</a></h3><p>{item.note}</p></article>)}</div></section>
-<section class="section" aria-labelledby="featured-title"><h2 id="featured-title">{t("Featured.","精選。")}</h2>{featured.length > 0 ? <div class="grid">{featured.map(entry => <ContentCard entry={entry} />)}</div> : <p class="muted">{t("Featured work is being prepared. Explore the collections in the meantime.","精選內容整理中。可先從各個分類開始瀏覽。")}</p>}</section>
-<section class="section"><h2>{t("Notes beyond the screen.","螢幕之外的觀察。")}</h2><p class="intro">{t("A wider perspective, through photography and experience.","用影像觀察，以經歷累積視角。")}</p><div class="link-row"><a class="text-link" href={localizePath("/photography/", locale)}>{t("Photography ↗", "攝影 ↗")}</a><a class="text-link" href={localizePath("/experience/", locale)}>{t("Experience ↗", "經歷 ↗")}</a></div></section>
+
+<Layout
+  title={t('Home', '首頁')}
+  description={t(
+    'Nagi — research and engineering across cybersecurity, communication systems, AI and software.',
+    'Nagi — 關注資訊安全、通訊系統、AI 與軟體工程的研究與實作。',
+  )}
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">
+        {t(
+          'Independent inquiry. Thoughtful engineering.',
+          '持續探索，細心實作。',
+        )}
+      </p>
+      <h1>
+        {t(
+          'Create what you wish existed.',
+          '把你希望存在的東西，親手創造出來。',
+        )}
+      </h1>
+      <p class="intro">
+        {t(
+          'I’m Nagi. Exploring the space between cybersecurity, communication systems, AI and software engineering.',
+          '我是 Nagi，探索資訊安全、通訊系統、AI 與軟體工程的交會之處。',
+        )}
+      </p>
+      <div class="hero-actions">
+        <a class="button-link" href={localizePath('/research/', locale)}>
+          {t('Explore the research', '探索研究方向')}
+        </a>
+        <a class="text-link" href={localizePath('/about/', locale)}>
+          {t('A little more about me', '更多關於我')}
+        </a>
+      </div>
+    </div>
+    <div class="studio-diagram" aria-hidden="true">
+      <span class="diagram-corner">NAGI / RESEARCH STUDIO</span>
+      <svg viewBox="0 0 400 360" fill="none">
+        <g stroke="currentColor" stroke-width=".7">
+          <circle cx="200" cy="180" r="120" />
+          <circle cx="200" cy="180" r="80" stroke-dasharray="2 6" />
+          <ellipse
+            cx="200"
+            cy="180"
+            rx="42"
+            ry="120"
+            transform="rotate(45 200 180)"
+          />
+          <ellipse
+            cx="200"
+            cy="180"
+            rx="42"
+            ry="120"
+            transform="rotate(-45 200 180)"
+          />
+          <path d="M35 180h330M200 25v310" stroke-dasharray="3 7" />
+        </g>
+        <g fill="var(--bg)" stroke="currentColor">
+          <rect x="141" y="160" width="118" height="40" rx="4" />
+          <circle cx="80" cy="180" r="4" />
+          <circle cx="320" cy="180" r="4" />
+          <circle cx="200" cy="60" r="4" />
+          <circle cx="200" cy="300" r="4" />
+        </g>
+        <g
+          fill="currentColor"
+          font-family="monospace"
+          font-size="11"
+          text-anchor="middle"
+        >
+          <text x="200" y="184">
+            QUESTION → SYSTEM
+          </text>
+          <text x="200" y="43">
+            COMMUNICATION
+          </text>
+          <text x="200" y="327">
+            SOFTWARE
+          </text>
+          <text x="56" y="165">
+            SECURITY
+          </text>
+          <text x="346" y="165">
+            AI
+          </text>
+        </g>
+      </svg>
+      <div class="diagram-caption">
+        <span>THINK / BUILD / REFINE</span>
+        <span>NAGI.TW</span>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-top">
+      <div>
+        <p class="section-label">{t('Areas of inquiry', '關注領域')}</p>
+        <h2>{t('Questions worth staying with.', '讓問題引領探索。')}</h2>
+      </div>
+    </div>
+    <ResearchDirections locale={locale} />
+  </section>
+  <section class="section">
+    <div class="section-top">
+      <div>
+        <p class="section-label">
+          {t('From questions to practice', '從問題走向實作')}
+        </p>
+        <h2>{t('Selected Research', '精選研究')}</h2>
+      </div>
+      <a class="text-link" href={localizePath('/research/', locale)}>
+        {t('All research', '所有研究')}
+      </a>
+    </div>
+    <div class="work-list">
+      {research.map((entry) => (
+        <ContentCard entry={entry} />
+      ))}
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-top">
+      <div>
+        <p class="section-label">
+          {t('Systems & contributions', '系統與貢獻')}
+        </p>
+        <h2>{t('Selected Projects', '精選專案')}</h2>
+      </div>
+      <a class="text-link" href={localizePath('/projects/', locale)}>
+        {t('All projects', '所有專案')}
+      </a>
+    </div>
+    <div class="work-list">
+      {selected.map((entry) => (
+        <ContentCard entry={entry} />
+      ))}
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-top">
+      <div>
+        <p class="section-label">
+          {t('A working notebook', '持續書寫的筆記本')}
+        </p>
+        <h2>{t('Latest Journal', '最新札記')}</h2>
+      </div>
+      <a class="text-link" href={localizePath('/journal/', locale)}>
+        {t('All writing', '所有文章')}
+      </a>
+    </div>
+    <div class="work-list">
+      {journal.slice(0, 3).map((entry) => (
+        <ContentCard entry={entry} />
+      ))}
+    </div>
+  </section>
+  <section class="section work-columns">
+    <div>
+      <p class="section-label">{t('Beyond the work', '實作之外')}</p>
+      <h2>{t('Perspective, over time.', '在經歷中累積視角。')}</h2>
+      <p class="intro">
+        {t(
+          'Competitions, technical communities and experiences that shape how I work.',
+          '競賽、技術社群與學習經驗，逐步形塑思考與實作的方式。',
+        )}
+      </p>
+      <a class="text-link" href={localizePath('/experience/', locale)}>
+        {t('Explore the timeline', '查看經歷時間軸')}
+      </a>
+    </div>
+    <div>
+      <p class="section-label">
+        {t('A slower way of seeing', '放慢腳步，看見細節')}
+      </p>
+      <h2>{t('Beyond the screen.', '螢幕之外的觀察。')}</h2>
+      <p class="intro">
+        {t(
+          'A place for photography and observations beyond engineering.',
+          '為攝影與工程之外的觀察留下一個空間。',
+        )}
+      </p>
+      <a class="text-link" href={localizePath('/photography/', locale)}>
+        {t('Photography', '攝影')}
+      </a>
+    </div>
+  </section>
+  <section class="section contact-band">
+    <div>
+      <p class="section-label">{t('Open conversations', '開放交流')}</p>
+      <h2>
+        {t('Good work begins with a question.', '好的實作，從一個問題開始。')}
+      </h2>
+    </div>
+    <div class="contact-links">
+      <a href={githubUrl}>GitHub</a>
+      <a href={contactUrl}>{t('Contact via GitHub', '透過 GitHub 聯絡')}</a>
+    </div>
+  </section>
 </Layout>

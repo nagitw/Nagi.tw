@@ -12,19 +12,32 @@ export function editorialData(collection, data) {
   if (correction) result.publishedAt = correction.publishedAt;
   if (collection === 'experience' && policy.eventDates?.[data.slug]) {
     result.startedAt = policy.eventDates[data.slug].value;
-    result.endedAt = policy.eventDates[data.slug].end ?? policy.eventDates[data.slug].value;
+    result.endedAt =
+      policy.eventDates[data.slug].end ?? policy.eventDates[data.slug].value;
   }
-  if (collection === 'experience' && data.tags?.includes('competitions') && !policy.competitionResultsConfirmed && !policy.preserveHistoricalCompetitionResults) {
+  if (
+    collection === 'experience' &&
+    data.tags?.includes('competitions') &&
+    !policy.competitionResultsConfirmed &&
+    !policy.preserveHistoricalCompetitionResults
+  ) {
     // Preserve the source result in Markdown, but do not present it as confirmed.
     result.description = '';
     result.role = data.language === 'zh-TW' ? '參賽者' : 'Competitor';
   }
   if (collection === 'experience' && policy.eventResults?.[data.slug]) {
-    result.description = policy.eventResults[data.slug][data.language === 'zh-TW' ? 'zh-TW' : 'en'];
+    result.description =
+      policy.eventResults[data.slug][
+        data.language === 'zh-TW' ? 'zh-TW' : 'en'
+      ];
   }
   return result;
 }
 
 export function showEditorialCover(image) {
-  return policy.conferenceImageRightsConfirmed && !!image?.src && /cybersec-2026/.test(image.src);
+  return (
+    policy.conferenceImageRightsConfirmed &&
+    !!image?.src &&
+    /cybersec-2026/.test(image.src)
+  );
 }
