@@ -1,0 +1,1390 @@
+[
+  {
+    "name": "en-mobile",
+    "scores": {
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "failed": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.76,
+        "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.94,
+        "description": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.99,
+        "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.99,
+        "description": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "score": 0,
+        "description": "Reduce unused rules from stylesheets and defer CSS not used for above-the-fold content to decrease bytes consumed by network activity. [Learn how to reduce unused CSS](https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/).",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "wastedBytes": 281334,
+              "wastedPercent": 96.47446119026799,
+              "totalBytes": 291615
+            }
+          ],
+          "overallSavingsMs": 1500,
+          "overallSavingsBytes": 281334,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 1500,
+              "LCP": 1500
+            }
+          }
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0,
+        "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "Request"
+            },
+            {
+              "key": "cacheLifetimeMs",
+              "valueType": "ms",
+              "label": "Cache TTL",
+              "displayUnit": "duration"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size",
+              "displayUnit": "kb",
+              "granularity": 1
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 291784,
+              "wastedBytes": 291784
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-latin-wght-normal.BgDaEnEv.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 29570,
+              "wastedBytes": 29570
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-mono-latin-wght-normal.XN7g48iV.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 23298,
+              "wastedBytes": 23298
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/nagi-penguin.svg",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 802,
+              "wastedBytes": 802
+            }
+          ],
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "skipSumming": [
+            "cacheLifetimeMs"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "wastedBytes": 345454
+          }
+        }
+      },
+      {
+        "id": "document-latency-insight",
+        "title": "Document request latency",
+        "score": 0.5,
+        "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression.",
+        "details": {
+          "type": "checklist",
+          "items": {
+            "noRedirects": {
+              "label": "Avoids redirects",
+              "value": true
+            },
+            "serverResponseIsFast": {
+              "label": "Server responds quickly (observed 1 ms)",
+              "value": true
+            },
+            "usesCompression": {
+              "label": "No compression applied",
+              "value": false
+            }
+          },
+          "debugData": {
+            "type": "debugdata",
+            "redirectDuration": 0,
+            "serverResponseTime": 1,
+            "uncompressedResponseBytes": 8658,
+            "wastedBytes": 8658
+          }
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load",
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "F3DBE7422857D7F00B1E2E75A3AA77D9": {
+                    "url": "http://127.0.0.1:4322/Nagi.tw/",
+                    "navStartToEndTime": 40,
+                    "transferSize": 13107,
+                    "isLongest": true,
+                    "children": {
+                      "30960.2": {
+                        "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+                        "navStartToEndTime": 49,
+                        "transferSize": 291784,
+                        "isLongest": true,
+                        "children": {
+                          "30960.16": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-mono-latin-wght-normal.XN7g48iV.woff2",
+                            "navStartToEndTime": 162,
+                            "transferSize": 23298,
+                            "isLongest": true,
+                            "children": {}
+                          },
+                          "30960.10": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-latin-wght-normal.BgDaEnEv.woff2",
+                            "navStartToEndTime": 161,
+                            "transferSize": 29570,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 162
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "No origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "score": 0,
+        "description": "Requests are blocking the page’s initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedMs",
+              "valueType": "timespanMs",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "totalBytes": 291784,
+              "wastedMs": 1651
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "zh-mobile",
+    "scores": {
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "failed": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.75,
+        "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.94,
+        "description": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.99,
+        "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.99,
+        "description": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "score": 0,
+        "description": "Reduce unused rules from stylesheets and defer CSS not used for above-the-fold content to decrease bytes consumed by network activity. [Learn how to reduce unused CSS](https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/).",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "wastedBytes": 281183,
+              "wastedPercent": 96.42268058913294,
+              "totalBytes": 291615
+            }
+          ],
+          "overallSavingsMs": 1360,
+          "overallSavingsBytes": 281183,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 1360,
+              "LCP": 1360
+            }
+          }
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0,
+        "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "Request"
+            },
+            {
+              "key": "cacheLifetimeMs",
+              "valueType": "ms",
+              "label": "Cache TTL",
+              "displayUnit": "duration"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size",
+              "displayUnit": "kb",
+              "granularity": 1
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 291784,
+              "wastedBytes": 291784
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-118-500-normal.Dc1vm3mi.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 46298,
+              "wastedBytes": 46298
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-118-400-normal.BRpfXu-Z.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 45862,
+              "wastedBytes": 45862
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-114-400-normal.Bb7YOSi5.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 42158,
+              "wastedBytes": 42158
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-115-500-normal.CR6UpqA9.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 40362,
+              "wastedBytes": 40362
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-119-500-normal.RrBX5gg3.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 39962,
+              "wastedBytes": 39962
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-115-400-normal.BpublMTR.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 39842,
+              "wastedBytes": 39842
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-119-400-normal.P8mIz-j1.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 39418,
+              "wastedBytes": 39418
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-110-500-normal.CnQ0eqpc.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 39170,
+              "wastedBytes": 39170
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-116-400-normal.Da1aFNO3.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 39058,
+              "wastedBytes": 39058
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-113-500-normal.CtLzcspX.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38722,
+              "wastedBytes": 38722
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-110-400-normal.gmN5xh2a.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38598,
+              "wastedBytes": 38598
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-112-400-normal.xkkxkkme.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38582,
+              "wastedBytes": 38582
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-120-500-normal.CF1OtXhl.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38566,
+              "wastedBytes": 38566
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-117-500-normal.Bfy_5oGZ.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38522,
+              "wastedBytes": 38522
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-113-400-normal.BuXbpYmR.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38326,
+              "wastedBytes": 38326
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-120-400-normal.Cu2gyL-z.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38146,
+              "wastedBytes": 38146
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-117-400-normal.Bckex_LP.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38138,
+              "wastedBytes": 38138
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-109-500-normal.BnTq41WG.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 36802,
+              "wastedBytes": 36802
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-121-500-normal.B-PjEKS_.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 35230,
+              "wastedBytes": 35230
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-121-400-normal.D6IZSrsE.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 34902,
+              "wastedBytes": 34902
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-122-500-normal.DqL2igPa.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 32526,
+              "wastedBytes": 32526
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-122-400-normal.BSq510Xm.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 32246,
+              "wastedBytes": 32246
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-latin-wght-normal.BgDaEnEv.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 29570,
+              "wastedBytes": 29570
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-mono-latin-wght-normal.XN7g48iV.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 23298,
+              "wastedBytes": 23298
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-123-500-normal.CSF2d2Pc.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 19834,
+              "wastedBytes": 19834
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-123-400-normal.DUaISDTn.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 19762,
+              "wastedBytes": 19762
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/nagi-penguin.svg",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 802,
+              "wastedBytes": 802
+            }
+          ],
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "skipSumming": [
+            "cacheLifetimeMs"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "wastedBytes": 1236486
+          }
+        }
+      },
+      {
+        "id": "document-latency-insight",
+        "title": "Document request latency",
+        "score": 0.5,
+        "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression.",
+        "details": {
+          "type": "checklist",
+          "items": {
+            "noRedirects": {
+              "label": "Avoids redirects",
+              "value": true
+            },
+            "serverResponseIsFast": {
+              "label": "Server responds quickly (observed 1 ms)",
+              "value": true
+            },
+            "usesCompression": {
+              "label": "No compression applied",
+              "value": false
+            }
+          },
+          "debugData": {
+            "type": "debugdata",
+            "redirectDuration": 0,
+            "serverResponseTime": 1,
+            "uncompressedResponseBytes": 8547,
+            "wastedBytes": 8547
+          }
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load",
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "473F026805C8B138C1C0142CC36752BA": {
+                    "url": "http://127.0.0.1:4322/Nagi.tw/zh/",
+                    "navStartToEndTime": 42,
+                    "transferSize": 12941,
+                    "isLongest": true,
+                    "children": {
+                      "18952.2": {
+                        "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+                        "navStartToEndTime": 41,
+                        "transferSize": 291784,
+                        "isLongest": true,
+                        "children": {
+                          "18952.205": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-114-400-normal.Bb7YOSi5.woff2",
+                            "navStartToEndTime": 267,
+                            "transferSize": 42158,
+                            "isLongest": true,
+                            "children": {}
+                          },
+                          "18952.201": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-112-400-normal.xkkxkkme.woff2",
+                            "navStartToEndTime": 267,
+                            "transferSize": 38582,
+                            "children": {}
+                          },
+                          "18952.209": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-116-400-normal.Da1aFNO3.woff2",
+                            "navStartToEndTime": 267,
+                            "transferSize": 39058,
+                            "children": {}
+                          },
+                          "18952.203": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-113-400-normal.BuXbpYmR.woff2",
+                            "navStartToEndTime": 266,
+                            "transferSize": 38326,
+                            "children": {}
+                          },
+                          "18952.413": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-110-500-normal.CnQ0eqpc.woff2",
+                            "navStartToEndTime": 266,
+                            "transferSize": 39170,
+                            "children": {}
+                          },
+                          "18952.423": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-115-500-normal.CR6UpqA9.woff2",
+                            "navStartToEndTime": 266,
+                            "transferSize": 40362,
+                            "children": {}
+                          },
+                          "18952.411": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-109-500-normal.BnTq41WG.woff2",
+                            "navStartToEndTime": 266,
+                            "transferSize": 36802,
+                            "children": {}
+                          },
+                          "18952.213": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-118-400-normal.BRpfXu-Z.woff2",
+                            "navStartToEndTime": 265,
+                            "transferSize": 45862,
+                            "children": {}
+                          },
+                          "18952.429": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-118-500-normal.Dc1vm3mi.woff2",
+                            "navStartToEndTime": 265,
+                            "transferSize": 46298,
+                            "children": {}
+                          },
+                          "18952.207": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-115-400-normal.BpublMTR.woff2",
+                            "navStartToEndTime": 265,
+                            "transferSize": 39842,
+                            "children": {}
+                          },
+                          "18952.419": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-113-500-normal.CtLzcspX.woff2",
+                            "navStartToEndTime": 264,
+                            "transferSize": 38722,
+                            "children": {}
+                          },
+                          "18952.427": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-117-500-normal.Bfy_5oGZ.woff2",
+                            "navStartToEndTime": 264,
+                            "transferSize": 38522,
+                            "children": {}
+                          },
+                          "18952.211": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-117-400-normal.Bckex_LP.woff2",
+                            "navStartToEndTime": 264,
+                            "transferSize": 38138,
+                            "children": {}
+                          },
+                          "18952.219": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-121-400-normal.D6IZSrsE.woff2",
+                            "navStartToEndTime": 264,
+                            "transferSize": 34902,
+                            "children": {}
+                          },
+                          "18952.431": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-119-500-normal.RrBX5gg3.woff2",
+                            "navStartToEndTime": 263,
+                            "transferSize": 39962,
+                            "children": {}
+                          },
+                          "18952.433": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-120-500-normal.CF1OtXhl.woff2",
+                            "navStartToEndTime": 263,
+                            "transferSize": 38566,
+                            "children": {}
+                          },
+                          "18952.435": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-121-500-normal.B-PjEKS_.woff2",
+                            "navStartToEndTime": 263,
+                            "transferSize": 35230,
+                            "children": {}
+                          },
+                          "18952.437": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-122-500-normal.DqL2igPa.woff2",
+                            "navStartToEndTime": 262,
+                            "transferSize": 32526,
+                            "children": {}
+                          },
+                          "18952.223": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-123-400-normal.DUaISDTn.woff2",
+                            "navStartToEndTime": 262,
+                            "transferSize": 19762,
+                            "children": {}
+                          },
+                          "18952.197": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-110-400-normal.gmN5xh2a.woff2",
+                            "navStartToEndTime": 223,
+                            "transferSize": 38598,
+                            "children": {}
+                          },
+                          "18952.215": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-119-400-normal.P8mIz-j1.woff2",
+                            "navStartToEndTime": 221,
+                            "transferSize": 39418,
+                            "children": {}
+                          },
+                          "18952.439": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-123-500-normal.CSF2d2Pc.woff2",
+                            "navStartToEndTime": 219,
+                            "transferSize": 19834,
+                            "children": {}
+                          },
+                          "18952.217": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-120-400-normal.Cu2gyL-z.woff2",
+                            "navStartToEndTime": 218,
+                            "transferSize": 38146,
+                            "children": {}
+                          },
+                          "18952.221": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-122-400-normal.BSq510Xm.woff2",
+                            "navStartToEndTime": 216,
+                            "transferSize": 32246,
+                            "children": {}
+                          },
+                          "18952.16": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-mono-latin-wght-normal.XN7g48iV.woff2",
+                            "navStartToEndTime": 215,
+                            "transferSize": 23298,
+                            "children": {}
+                          },
+                          "18952.10": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-latin-wght-normal.BgDaEnEv.woff2",
+                            "navStartToEndTime": 213,
+                            "transferSize": 29570,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 267
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "No origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "score": 0,
+        "description": "Requests are blocking the page’s initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedMs",
+              "valueType": "timespanMs",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "totalBytes": 291784,
+              "wastedMs": 1659
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "en-desktop",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "failed": [
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "score": 0,
+        "description": "Reduce unused rules from stylesheets and defer CSS not used for above-the-fold content to decrease bytes consumed by network activity. [Learn how to reduce unused CSS](https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/).",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "wastedBytes": 281432,
+              "wastedPercent": 96.50806714332253,
+              "totalBytes": 291615
+            }
+          ],
+          "overallSavingsMs": 240,
+          "overallSavingsBytes": 281432,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 240,
+              "LCP": 240
+            }
+          }
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0,
+        "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "Request"
+            },
+            {
+              "key": "cacheLifetimeMs",
+              "valueType": "ms",
+              "label": "Cache TTL",
+              "displayUnit": "duration"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size",
+              "displayUnit": "kb",
+              "granularity": 1
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 291784,
+              "wastedBytes": 291784
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-latin-wght-normal.BgDaEnEv.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 29570,
+              "wastedBytes": 29570
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-mono-latin-wght-normal.XN7g48iV.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 23298,
+              "wastedBytes": 23298
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/nagi-penguin.svg",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 802,
+              "wastedBytes": 802
+            }
+          ],
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "skipSumming": [
+            "cacheLifetimeMs"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "wastedBytes": 345454
+          }
+        }
+      },
+      {
+        "id": "document-latency-insight",
+        "title": "Document request latency",
+        "score": 0.5,
+        "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression.",
+        "details": {
+          "type": "checklist",
+          "items": {
+            "noRedirects": {
+              "label": "Avoids redirects",
+              "value": true
+            },
+            "serverResponseIsFast": {
+              "label": "Server responds quickly (observed 1 ms)",
+              "value": true
+            },
+            "usesCompression": {
+              "label": "No compression applied",
+              "value": false
+            }
+          },
+          "debugData": {
+            "type": "debugdata",
+            "redirectDuration": 0,
+            "serverResponseTime": 1,
+            "uncompressedResponseBytes": 8658,
+            "wastedBytes": 8658
+          }
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load",
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "76E698DAB5EFFB90ED8FF60FE369315A": {
+                    "url": "http://127.0.0.1:4322/Nagi.tw/",
+                    "navStartToEndTime": 116,
+                    "transferSize": 13107,
+                    "isLongest": true,
+                    "children": {
+                      "7972.2": {
+                        "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+                        "navStartToEndTime": 34,
+                        "transferSize": 291784,
+                        "isLongest": true,
+                        "children": {
+                          "7972.16": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-mono-latin-wght-normal.XN7g48iV.woff2",
+                            "navStartToEndTime": 127,
+                            "transferSize": 23298,
+                            "isLongest": true,
+                            "children": {}
+                          },
+                          "7972.10": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-latin-wght-normal.BgDaEnEv.woff2",
+                            "navStartToEndTime": 125,
+                            "transferSize": 29570,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 127
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "No origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "score": 0,
+        "description": "Requests are blocking the page’s initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedMs",
+              "valueType": "timespanMs",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "totalBytes": 291784,
+              "wastedMs": 281
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "journal-mobile",
+    "scores": {
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "failed": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.76,
+        "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/)."
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.94,
+        "description": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.99,
+        "description": "Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/)."
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.99,
+        "description": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/)."
+      },
+      {
+        "id": "unused-css-rules",
+        "title": "Reduce unused CSS",
+        "score": 0,
+        "description": "Reduce unused rules from stylesheets and defer CSS not used for above-the-fold content to decrease bytes consumed by network activity. [Learn how to reduce unused CSS](https://developer.chrome.com/docs/lighthouse/performance/unused-css-rules/).",
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "wastedBytes": 281231,
+              "wastedPercent": 96.4391406477719,
+              "totalBytes": 291615
+            }
+          ],
+          "overallSavingsMs": 1350,
+          "overallSavingsBytes": 281231,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 1350,
+              "LCP": 1350
+            }
+          }
+        }
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0,
+        "description": "A long cache lifetime can speed up repeat visits to your page. [Learn more about caching](https://developer.chrome.com/docs/performance/insights/cache).",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "Request"
+            },
+            {
+              "key": "cacheLifetimeMs",
+              "valueType": "ms",
+              "label": "Cache TTL",
+              "displayUnit": "duration"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size",
+              "displayUnit": "kb",
+              "granularity": 1
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 291784,
+              "wastedBytes": 291784
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-110-400-normal.gmN5xh2a.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 38598,
+              "wastedBytes": 38598
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-latin-wght-normal.BgDaEnEv.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 29570,
+              "wastedBytes": 29570
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-mono-latin-wght-normal.XN7g48iV.woff2",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 23298,
+              "wastedBytes": 23298
+            },
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/nagi-penguin.svg",
+              "cacheLifetimeMs": 0,
+              "totalBytes": 802,
+              "wastedBytes": 802
+            }
+          ],
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "skipSumming": [
+            "cacheLifetimeMs"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "wastedBytes": 384052
+          }
+        }
+      },
+      {
+        "id": "document-latency-insight",
+        "title": "Document request latency",
+        "score": 0.5,
+        "description": "Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression.",
+        "details": {
+          "type": "checklist",
+          "items": {
+            "noRedirects": {
+              "label": "Avoids redirects",
+              "value": true
+            },
+            "serverResponseIsFast": {
+              "label": "Server responds quickly (observed 1 ms)",
+              "value": true
+            },
+            "usesCompression": {
+              "label": "No compression applied",
+              "value": false
+            }
+          },
+          "debugData": {
+            "type": "debugdata",
+            "redirectDuration": 0,
+            "serverResponseTime": 1,
+            "uncompressedResponseBytes": 12050,
+            "wastedBytes": 12050
+          }
+        }
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0,
+        "description": "[Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load",
+        "details": {
+          "type": "list",
+          "items": [
+            {
+              "type": "list-section",
+              "value": {
+                "type": "network-tree",
+                "chains": {
+                  "3AA7C845B1603885C9FD7348132F592E": {
+                    "url": "http://127.0.0.1:4322/Nagi.tw/journal/ctf-meets-malware-analysis-windows/",
+                    "navStartToEndTime": 46,
+                    "transferSize": 18169,
+                    "isLongest": true,
+                    "children": {
+                      "7164.2": {
+                        "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+                        "navStartToEndTime": 66,
+                        "transferSize": 291784,
+                        "isLongest": true,
+                        "children": {
+                          "7164.197": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/noto-sans-tc-110-400-normal.gmN5xh2a.woff2",
+                            "navStartToEndTime": 163,
+                            "transferSize": 38598,
+                            "isLongest": true,
+                            "children": {}
+                          },
+                          "7164.16": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-mono-latin-wght-normal.XN7g48iV.woff2",
+                            "navStartToEndTime": 161,
+                            "transferSize": 23298,
+                            "children": {}
+                          },
+                          "7164.10": {
+                            "url": "http://127.0.0.1:4322/Nagi.tw/_astro/geist-latin-wght-normal.BgDaEnEv.woff2",
+                            "navStartToEndTime": 158,
+                            "transferSize": 29570,
+                            "children": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "longestChain": {
+                  "duration": 163
+                }
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnected origins",
+              "description": "[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.",
+              "value": {
+                "type": "text",
+                "value": "No origins were preconnected"
+              }
+            },
+            {
+              "type": "list-section",
+              "title": "Preconnect candidates",
+              "description": "Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4",
+              "value": {
+                "type": "text",
+                "value": "No additional origins are good candidates for preconnecting"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "score": 0,
+        "description": "Requests are blocking the page’s initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.",
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedMs",
+              "valueType": "timespanMs",
+              "label": "Duration"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/Nagi.tw/_astro/Layout.qQgvkG3v.css",
+              "totalBytes": 291784,
+              "wastedMs": 1501
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

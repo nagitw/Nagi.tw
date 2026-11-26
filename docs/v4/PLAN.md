@@ -14,7 +14,7 @@ Obsidian/Platinum canvas with fine rules, Swiss sans typography and generous edi
 - [x] Phase 3: Implement Home, Research directions, publication-safe project listings, About, Journal search/filter and article navigation, RSS and gallery dialog. Tests cover empty photography, coverless articles, fallback language, no-JS navigation and search paths.
 - [x] Phase 4: Preserve all original source hashes and old routes, restrict dates to four user-confirmed events, clean placeholder result text in presentation, retain confirmed rankings. Do not publish drafts or excluded personal/network notes. Keep both previous CSS assets for cached production documents.
 - [x] Phase 5: Add compatible Pagefind, ESLint, Prettier and Playwright tools; run schema, type, lint, build, integrity, all-link and browser acceptance. Measure Lighthouse rather than assuming scores. Review metadata of any photos used; do not emit unapproved photography.
-- [ ] Phase 6: Commit RC, keep a working local preview, save real screenshots and a concise results report with limitations and SHA. No merge, production push or deployment before user approval.
+- [x] Phase 6: Commit RC, keep a working local preview, save real screenshots and a concise results report with limitations and SHA. No merge, production push or deployment before user approval.
 
 ## Review focus
 Draft text must never enter RSS/search; root and Chinese assets must retain `/Nagi.tw/`; previous CSS URLs must survive; translated fallback must not claim a translation exists; all original article bodies and source images remain hash-identical.
@@ -30,3 +30,5 @@ All 35 existing HTML paths remain unchanged. New search/RSS routes are additive.
 - Phase 5: schema 10/10, About contracts 4/4, i18n, immutable snapshots, 112 recovered records, original 140 source/asset hashes, 37 route/asset/link checks, Astro Check (zero diagnostics), lint, Prettier and npm audit passed. Playwright 14/14 includes all-route axe scans and a synthetic gallery/code-copy fixture.
 - Final review: no Critical/Important issues. Minor deferred: during the 180ms search debounce, an old response can briefly render for the prior query; the next query replaces it.
 - Final verification found and fixed theme color transitions producing transient low contrast; immediate semantic color switching now passes all theme/width axe cases.
+
+- Phase 6: RC prepared with real screenshots and final Lighthouse mobile 96/100/100/100, desktop 100/100/100/100. Production preview retained on 4322; no production merge/push/deploy. Final user approval remains the release gate.

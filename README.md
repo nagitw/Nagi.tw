@@ -1,8 +1,16 @@
 # Nagi.tw
 
-**LOCAL RELEASE CANDIDATE** — final content cleanup preserves the approved design, routes and source states. See the [current report](docs/release-candidate/REPORT.md) and [official competition-date audit](docs/release-candidate/competition-date-audit.md). No deployment is part of this cleanup.
+**V4 RELEASE CANDIDATE** — Modern Research Studio is implemented on `feat/nagi-v4`. See [V4 acceptance](docs/v4/REPORT.md), [content/URL preservation](docs/v4/MIGRATION.md) and the [implementation ledger](docs/v4/PLAN.md). Production remains on `e01fc2f` until final user approval. This supersedes prior design-freeze instructions for this branch only.
 
-Personal cybersecurity and engineering portfolio using Astro, Markdown/MDX and static generation. Published at https://nagitw.github.io/Nagi.tw/ with English primary and Traditional Chinese at `/Nagi.tw/zh/`. The Pure Black Editorial design is finalized. See [FINAL-RELEASE.md](./FINAL-RELEASE.md) for release status and maintenance limits.
+Personal research and engineering studio using Astro, Markdown/MDX and static generation. Production: https://nagitw.github.io/Nagi.tw/ with English primary and Traditional Chinese at `/Nagi.tw/zh/`. Prior production release notes remain in [FINAL-RELEASE.md](./FINAL-RELEASE.md).
+
+## V4 development and maintenance
+
+`npm run check`, `npm run lint`, `npm run format:check`, `npm run build`, `npm run verify:v4`, and `npm run test:v4` validate the RC. Build includes the Pagefind index. Use `node scripts/v4-serve.mjs` for a complete production preview at `http://127.0.0.1:4322/Nagi.tw/`; the background Astro dev server is for editing and does not generate the search index.
+
+Fonts are local npm assets (OFL); CSS tokens live in `src/styles/tokens.css`. Astro's built-in Shiki handles code highlighting. Search and RSS use the same public content selector as routes. No external AI service, backend, custom domain or CNAME is added.
+
+Before future releases, retain the previous deployed hashed CSS under `public/_astro/` so cached documents can still load it. Do not regenerate `docs/v4/baseline.json` to accept content loss. Update publication policy only with explicit authorization; project intake drafts are not public case studies. Photography remains empty until original, approved images are supplied.
 
 ## Architecture
 
