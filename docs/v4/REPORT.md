@@ -1,5 +1,7 @@
 # Nagi.tw V4 — Release Candidate
 
+Latest content follow-up: [Portfolio update and outstanding evidence](PORTFOLIO-UPDATE.md). Current build has 41 pages; the measurements below describe the original V4 RC and were not rerun as a full matrix for the content follow-up.
+
 Status: **LOCAL RC — awaiting final user approval**. Branch `feat/nagi-v4`; implementation checkpoint `78ecc5a`. This report is committed by the following RC checkpoint (use `git log -1` for its full SHA).
 
 Production stays on `e01fc2f51f88c077cb6997b0dba7701879e6fa0b`. No merge, push, deployment, DNS or domain change was performed. The final `STABLE / MAINTENANCE ONLY` label is intentionally reserved for the approved production release after live verification.

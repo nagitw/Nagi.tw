@@ -43,6 +43,10 @@ export function directionText(index: number, locale: Locale) {
 }
 // Presentation stages grounded in existing public source bodies.
 export const publicStages: Record<string, { en: string; 'zh-TW': string }> = {
+  'aeust-life-overview': {
+    en: 'Independent initiative · in development',
+    'zh-TW': '自主發起・開發中',
+  },
   'medical-cybersecurity-research': {
     en: 'Research in progress',
     'zh-TW': '研究中',

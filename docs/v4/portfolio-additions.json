@@ -1,0 +1,8 @@
+{
+  "authorization": "User: Portfolio Content Completion; public-source additions only.",
+  "source": "https://github.com/nagitw/aeust-life/blob/1bcfa41f1589a799845860df148b6736448b6ab6/README.md",
+  "hashes": {
+    "src/content/projects/aeust-life-overview.md": "8622cf9ba2fc865d9160aebcad8b47aa5ddf4dc54da2f10aa87ddbc358e45886",
+    "src/content/projects/aeust-life-overview.zh.md": "949fdad74f41a66fab4c631c11f10c56ecbbe38ab5ca4bef7cd600576c3a6ca5"
+  }
+}

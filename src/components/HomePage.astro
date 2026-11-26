@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ContentCard from '../components/ContentCard.astro';
 import { getPublished, preferLocale } from '../lib/content';
 import ResearchDirections from './ResearchDirections.astro';
+import DisclosureSection from './DisclosureSection.astro';
 import { githubUrl, contactUrl } from '../lib/studio';
 import { localeFromPath, localizePath, translate } from '../lib/i18n';
 const locale = localeFromPath(Astro.url.pathname);
@@ -17,7 +18,7 @@ const [research, projects, journal] = await Promise.all(
 );
 const selected = [...projects]
   .sort((a, b) => Number(b.data.featured) - Number(a.data.featured))
-  .slice(0, 3);
+  .slice(0, 6);
 ---
 
 <Layout
@@ -117,15 +118,6 @@ const selected = [...projects]
   <section class="section">
     <div class="section-top">
       <div>
-        <p class="section-label">{t('Areas of inquiry', '關注領域')}</p>
-        <h2>{t('Questions worth staying with.', '讓問題引領探索。')}</h2>
-      </div>
-    </div>
-    <ResearchDirections locale={locale} />
-  </section>
-  <section class="section">
-    <div class="section-top">
-      <div>
         <p class="section-label">
           {t('From questions to practice', '從問題走向實作')}
         </p>
@@ -135,6 +127,7 @@ const selected = [...projects]
         {t('All research', '所有研究')}
       </a>
     </div>
+    <ResearchDirections locale={locale} />
     <div class="work-list">
       {research.map((entry) => (
         <ContentCard entry={entry} />
@@ -159,6 +152,7 @@ const selected = [...projects]
       ))}
     </div>
   </section>
+  <DisclosureSection locale={locale} />
   <section class="section">
     <div class="section-top">
       <div>

@@ -46,7 +46,12 @@ for (const record of expected) {
 }
 const walk = dir => readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(`${dir}/${e.name}`) : [`${dir}/${e.name}`]);
 const recovered = new Set(manifest.records.map(record => record.file));
+const additions = JSON.parse(readFileSync('docs/v4/portfolio-additions.json', 'utf8'));
 for (const file of walk('src/content').filter(file => /\.mdx?$/.test(file) && !recovered.has(file))) {
+  if (additions.hashes[file]) {
+    assert.equal(sha256(readFileSync(file)), additions.hashes[file], `${file}: authorized public-source addition`);
+    continue;
+  }
   const old = gitFile('8785863ea406c3552f1406035200ed8905a37a5f', file);
   assert.deepEqual(readFileSync(file), old, `${file}: non-recovered draft/public baseline untouched`);
 }

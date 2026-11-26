@@ -12,6 +12,7 @@ export const GET: APIRoute = async ({ site }) => {
     'experience/',
     'about/',
     'search/',
+    'disclosures/',
   ];
   const paths = sections.flatMap((section) => [
     withBase(`/${section}`),

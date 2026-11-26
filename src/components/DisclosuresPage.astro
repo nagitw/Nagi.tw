@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DisclosureSection from './DisclosureSection.astro';
+import { localeFromPath, translate } from '../lib/i18n';
+const locale = localeFromPath(Astro.url.pathname);
+---
+
+<Layout
+  title={translate(locale, 'Vulnerability Disclosure', '漏洞通報')}
+  description={translate(
+    locale,
+    'Officially public and attribution-verified security disclosures.',
+    '已正式公開且確認署名的安全漏洞通報紀錄。',
+  )}
+>
+  <header class="page-header">
+    <p class="eyebrow">
+      {translate(locale, 'Coordinated disclosure', '協調式漏洞揭露')}
+    </p>
+    <h1>{translate(locale, 'Vulnerability Disclosure', '漏洞通報')}</h1>
+    <p class="intro">
+      {translate(
+        locale,
+        'Public advisories, accurate attribution and clearly bounded claims.',
+        '以正式公告為依據，準確標示署名與成果範圍。',
+      )}
+    </p>
+  </header>
+  <DisclosureSection locale={locale} />
+  <p class="muted">
+    {translate(
+      locale,
+      'HITCON ZeroDay identifiers are not CVE identifiers. Disclosure does not by itself establish remediation, a bounty or a production security outcome.',
+      'HITCON ZeroDay 編號不等同 CVE；公開通報不代表已修復、獲得獎金或取得正式環境的安全成效。',
+    )}
+  </p>
+</Layout>

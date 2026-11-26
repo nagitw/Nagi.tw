@@ -1,0 +1,45 @@
+---
+import { publicDisclosures } from '../lib/disclosures';
+import { localizePath, translate, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = (en: string, zh: string) => translate(locale, en, zh);
+---
+
+<section class="section" id="vulnerability-disclosure">
+  <div class="section-top">
+    <div>
+      <p class="section-label">
+        {t('Responsible security research', '負責任的安全研究')}
+      </p>
+      <h2>{t('Vulnerability Disclosure', '漏洞通報')}</h2>
+    </div>
+    <a class="text-link" href={localizePath('/disclosures/', locale)}>
+      {t('Disclosure record', '通報紀錄')}
+    </a>
+  </div>
+  {publicDisclosures.length ? (
+    publicDisclosures.map((item) => (
+      <article class="card">
+        <p class="card-meta">
+          HITCON ZeroDay · {item.code} · {item.severity}
+        </p>
+        <h3>
+          <a href={localizePath(`/disclosures/${item.slug}/`, locale)}>
+            {item.title[locale]}
+          </a>
+        </h3>
+        <p>{item.remediation[locale]}</p>
+      </article>
+    ))
+  ) : (
+    <p class="intro">
+      {t(
+        'Only officially public, attribution-verified disclosures are listed here. No unverified case is presented as a personal achievement.',
+        '僅收錄已正式公開且確認署名的通報，不將尚未核實的案件列為個人成果。',
+      )}
+    </p>
+  )}
+</section>
