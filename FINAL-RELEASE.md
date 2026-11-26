@@ -1,4 +1,30 @@
-# Nagi.tw — Final Correction & Closure
+# Nagi.tw V4 — FINAL RELEASE
+
+Status: **PASS — Nagi.tw V4 — STABLE / MAINTENANCE ONLY**.
+
+Released on 2026-11-27 (Asia/Taipei), following explicit final release authorization.
+Deployed source commit: `3d725a9cde2506b9a07127ccc43f8b16207c02eb`.
+Production branch: `main`, fast-forwarded from the approved `feat/nagi-v4` commit; no force push.
+Rollback: annotated tag `nagi-v4-pre-release` preserves prior stable production
+`e01fc2f51f88c077cb6997b0dba7701879e6fa0b` on GitHub.
+
+- Production: https://nagitw.github.io/Nagi.tw/
+- GitHub Actions: https://github.com/nagitw/Nagi.tw/actions/runs/45890124706 — build and deploy SUCCESS for the exact source commit.
+- Astro Check: 80 files, zero errors/warnings/hints. Production Build: 53 HTML pages, 50 public Pagefind pages.
+- Both homepages contain six selected projects. Both disclosure detail pages show ZD-2026-01297, Low and confirmed reporter 大家都是電神, with the official source and no unverified dates or CVE claims.
+- Historical integrity: all 140 baseline content/assets unchanged, all 35 baseline HTML paths retained, 112 recovered records verified. Both languages retain matching public routes and portfolio/disclosure fields.
+- Live verification: all 53 HTML paths and referenced assets, feeds, sitemap, robots, search entrypoint and both retained CSS URLs returned HTTP 200: 492 requests total. CSS/JavaScript MIME types passed; referenced fonts and images passed.
+- English and Traditional Chinese browser smoke: CSS applied, penguin image and pause/persistence, light/dark theme and persistence, full-text search and result navigation PASS; zero page errors or HTTP errors.
+- Existing production CSS URLs `Layout.meZlh1ij.css` and `Layout.D7zMT1RW.css` remain available for cached documents. GitHub Pages cache headers are recorded in the live evidence; no cache-policy change was made.
+- Necessary targeted checks passed. The previously accepted complete browser/Lighthouse matrix was not rerun. Existing deployment workflow checks also passed.
+
+Evidence: [live HTTP and browser results](docs/v4/LIVE-RELEASE.json).
+Known minor issue retained from RC: during the 180ms search debounce, a previous query's result can briefly remain visible until the latest query finishes. No known release blocker.
+
+This closure changes documentation only; deployed site source remains the commit above.
+Development is closed. Future work is maintenance only.
+
+## Previous release record (historical)
 
 Status: PASS — CLOSED / MAINTENANCE ONLY.
 

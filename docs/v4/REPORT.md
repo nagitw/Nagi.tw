@@ -1,4 +1,8 @@
-# Nagi.tw V4 — Release Candidate
+# Nagi.tw V4 — STABLE / MAINTENANCE ONLY
+
+Final production release: **PASS**. Source `3d725a9cde2506b9a07127ccc43f8b16207c02eb` deployed to `main`; [Actions build and deploy succeeded](https://github.com/nagitw/Nagi.tw/actions/runs/45890124706). All 53 live HTML paths and referenced assets passed 492 HTTP checks; bilingual interaction smoke passed. Rollback tag: `nagi-v4-pre-release`. See [final release record](../../FINAL-RELEASE.md) and [live evidence](LIVE-RELEASE.json). Development is closed; the RC details below are historical.
+
+## Historical release candidate evidence
 
 Latest content follow-up: [Final portfolio content completion](PORTFOLIO-UPDATE.md). Current build has 53 pages; the measurements below describe the original V4 RC and were not rerun as a full matrix for the content follow-up.
 

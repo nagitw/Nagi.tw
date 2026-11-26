@@ -1,5 +1,7 @@
 # Portfolio content update — partial, evidence-gated
 
+Historical intermediate report, superseded by approved source `3d725a9` and the [final V4 release record](../../FINAL-RELEASE.md). Final production includes six selected projects and the confirmed ZD-2026-01297 disclosure in both languages; its targeted content contracts and live verification passed. Outstanding clarification statements below describe the earlier checkpoint only.
+
 Continues V4 RC on `feat/nagi-v4`; no redesign, dependency change or production deployment.
 
 - Home order: Hero → Selected Research (including existing interests) → Selected Projects → Vulnerability Disclosure → Latest Journal → Experience. Existing photography/contact links remain afterward.
