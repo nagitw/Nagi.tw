@@ -16,9 +16,7 @@ select {
   -webkit-tap-highlight-color: transparent;
 }
 a {
-  transition:
-    color var(--duration) var(--ease),
-    background var(--duration) var(--ease);
+  transition: text-decoration-color var(--duration) var(--ease);
 }
 button,
 input,
@@ -224,6 +222,9 @@ h3 {
   border-block-start: 1px solid var(--line);
   padding-block: var(--section);
   margin: 0;
+}
+.section + .section {
+  margin-block-start: 0;
 }
 .section-top {
   display: flex;
@@ -618,7 +619,10 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   color: var(--secondary);
-  font: 0.8125rem var(--mono);
+  font: 0.875rem var(--mono);
+}
+.timeline-meta {
+  font-size: 0.875rem;
 }
 .rankings {
   display: grid;

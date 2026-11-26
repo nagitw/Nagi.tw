@@ -21,8 +21,8 @@
     "test:i18n": "node scripts/i18n.test.mjs",
     "test:penguin": "node scripts/penguin.test.mjs",
     "verify:recovery": "node scripts/verify-recovery.mjs",
-    "lint": "eslint src scripts/v4-*.mjs eslint.config.mjs",
-    "format:check": "prettier --check src/components src/layouts src/pages src/styles src/lib scripts/v4-*.mjs eslint.config.mjs",
+    "lint": "eslint src scripts/v4-*.mjs tests/v4 playwright.config.ts eslint.config.mjs",
+    "format:check": "prettier --check src/components src/layouts src/pages src/styles src/lib src/scripts scripts/v4-*.mjs tests/v4 playwright.config.ts eslint.config.mjs",
     "verify:v4": "node scripts/v4-inventory.mjs && node scripts/v4-contract.test.mjs && node scripts/v4-links.mjs",
     "test:v4": "playwright test --config playwright.config.ts"
   },

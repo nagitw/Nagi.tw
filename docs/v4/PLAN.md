@@ -13,7 +13,7 @@ Obsidian/Platinum canvas with fine rules, Swiss sans typography and generous edi
 - [x] Phase 2: Add `tokens.css`, shared header/footer/layout and mascot. Test exact motto, preserved mascot, theme persistence, mobile navigation, reduced motion and base-aware assets.
 - [x] Phase 3: Implement Home, Research directions, publication-safe project listings, About, Journal search/filter and article navigation, RSS and gallery dialog. Tests cover empty photography, coverless articles, fallback language, no-JS navigation and search paths.
 - [x] Phase 4: Preserve all original source hashes and old routes, restrict dates to four user-confirmed events, clean placeholder result text in presentation, retain confirmed rankings. Do not publish drafts or excluded personal/network notes. Keep both previous CSS assets for cached production documents.
-- [ ] Phase 5: Add compatible Pagefind, ESLint, Prettier and Playwright tools; run schema, type, lint, build, integrity, all-link and browser acceptance. Measure Lighthouse rather than assuming scores. Review metadata of any photos used; do not emit unapproved photography.
+- [x] Phase 5: Add compatible Pagefind, ESLint, Prettier and Playwright tools; run schema, type, lint, build, integrity, all-link and browser acceptance. Measure Lighthouse rather than assuming scores. Review metadata of any photos used; do not emit unapproved photography.
 - [ ] Phase 6: Commit RC, keep a working local preview, save real screenshots and a concise results report with limitations and SHA. No merge, production push or deployment before user approval.
 
 ## Review focus
@@ -26,3 +26,7 @@ All 35 existing HTML paths remain unchanged. New search/RSS routes are additive.
 - Phase 1: baseline production is successful Actions run 45668153285, `e01fc2f51f88c077cb6997b0dba7701879e6fa0b`; Pages workflow source, no CNAME.
 - Ruling: use the requested isolated feature branch in the current clean checkout; do not create a second checkout or change the production branch.
 - Ruling: named unverified project/research drafts remain private. Public research interests come from the user's explicit V4 scope; no claimed experiments, papers, affiliations or completed results are added.
+
+- Phase 5: schema 10/10, About contracts 4/4, i18n, immutable snapshots, 112 recovered records, original 140 source/asset hashes, 37 route/asset/link checks, Astro Check (zero diagnostics), lint, Prettier and npm audit passed. Playwright 14/14 includes all-route axe scans and a synthetic gallery/code-copy fixture.
+- Final review: no Critical/Important issues. Minor deferred: during the 180ms search debounce, an old response can briefly render for the prior query; the next query replaces it.
+- Final verification found and fixed theme color transitions producing transient low contrast; immediate semantic color switching now passes all theme/width axe cases.

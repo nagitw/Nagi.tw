@@ -13,10 +13,10 @@ for (const page of localizedPages) {
   assert.match(html, /<meta name="description" content="[^"]+"/);
   assert.match(html, /<title>[^<]+<\/title>/);
   assert.match(html, /<meta name="color-scheme" content="light dark"/);
-  assert.match(html, /<meta name="theme-color" content="#000000"/);
+  assert.match(html, /<meta name="theme-color" content="#09090b"/);
   for (const theme of ['system', 'light', 'dark']) assert.ok(html.includes(`value="${theme}"`), `${path}: appearance ${theme}`);
   assert.ok(html.includes('id="theme"'), `${path}: native appearance control`);
-  assert.doesNotMatch(html, /data-penguin-toggle|journal-progress|journal-copy|journal-permalink/);
+  assert.match(html, /data-penguin-toggle/);
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   assert.equal(canonical, `https://nagitw.github.io/Nagi.tw/${page ? `${page}/` : ''}`);
   assert.equal(html.includes('name="robots" content="noindex, follow"'), page === '404');

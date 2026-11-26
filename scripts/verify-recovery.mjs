@@ -32,7 +32,7 @@ for (const record of expected) {
   }
   const html = readFileSync(`dist${target}index.html`, 'utf8');
   assert.ok(html.includes(record.metadata.title.replaceAll('&', '&amp;')) || html.includes(record.metadata.title), record.id + ': rendered title');
-  assert.ok(!html.includes('data-penguin-toggle'), record.id + ': decorative mascot removed');
+  assert.ok(html.includes('data-penguin-toggle'), record.id + ': original mascot restored in V4');
   const projected = editorialData(record.collection, record.metadata);
   if (record.eventId && policy.eventResults?.[record.metadata.slug]) {
     const result = projected.description.replaceAll('&', '&amp;');
